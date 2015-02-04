@@ -48,9 +48,9 @@ CSDN账号过一段时间就会累积几十个下载过但是未评论打分的�
 ```python
 # auto comment csdn resources
 # File   : CsdnCommenter.py
-# Author : Zhuang Ma
+# Author : Aaren Xia
 # E-mail : ChumpMa(at)gmail.com
-# Website: http://www.mazhuang.org
+# Website: http://assertion.github.io/
 # Date   : 2014-10-12
 import requests
 from BeautifulSoup import BeautifulSoup

@@ -16,11 +16,11 @@ permalink: /markdown
 
 ###超链接
 ```
-[靠谱-ing](http://www.mazhuang.org)
-<http://www.mazhuang.org>
+[Aaren Xia](http://assertion.github.io/)
+<http://assertion.github.io/>
 ```
-[靠谱-ing](http://www.mazhuang.org)  
-<http://www.mazhuang.org>
+[Aaren Xia](http://assertion.github.io/)  
+<http://assertion.github.io/>
 
 ###列表
 ```

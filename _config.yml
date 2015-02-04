@@ -1,11 +1,11 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl: http://www.mazhuang.org
-url: http://www.mazhuang.org
+baseurl: http://assertion.github.io
+url: http://assertion.github.io
 date_format: "ordinal"
-title: 靠谱-ing
-author: Zhuang Ma 
+title: Aaren Xia
+author: Aaren Xia 
 paginate: 9
 
 # ---------------- #
