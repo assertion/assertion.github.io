@@ -12,7 +12,7 @@ python（以及他的库）是很庞大有用的。他可以用来做系统自�
 对于每一种语言来说，一旦你学了这个语言，你真正得到的并不是这个语言本身的特性能力，而是你学会他的编程风格、学会用他的库以及python社区里的知识。
 #探索标准数据类型
 ###低调的enumerate
-迭代python里的任何内容都是很容易的，你只要这样就行了：```for foo in bar: ```
+迭代python里的任何内容都是很容易的，你只要这样就行了：```for foo in bar: ```   
 ```
 drinks=["coffee","tea","milk","water"]
 for drink in drinks:
