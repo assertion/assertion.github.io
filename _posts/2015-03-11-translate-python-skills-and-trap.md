@@ -13,8 +13,8 @@ python（以及他的库）是很庞大有用的。他可以用来做系统自�
 #探索标准数据类型
 ###低调的enumerate
 迭代python里的任何内容都是很容易的，你只要这样就行了：```for foo in bar: ```   
-```
 
+```
 drinks=["coffee","tea","milk","water"]
 for drink in drinks:
   print("thirsty for",drink)
@@ -185,6 +185,7 @@ db.add(data)
 ```
 现在取数据有他自己的try-except了。如果没有数据我们的代码也没有什么可以做的了，所以我们可以退出函数或者我们也可以创建一个默认对象然后重试这个query，或者kill整个程序。
 现在，我们处理commit。
+
 ```
 try:
     db.commit() # may raise exception
@@ -208,6 +209,7 @@ finally:
 5. Program complete
 
 知道这个以后，我们用第二种方法来处理前面的数据库的例子。我们用try-except-finally来确保任何事务要么就committed，要么就rolled back。
+
 ```
 try:
     # attempt to acquire a resource
@@ -227,6 +229,7 @@ finally:
 ```
 我们之前的例子就是上面这几步，那么我们可以对这个逻辑做些什么修改呢？
 对于每次我们保存数据，我们都需要准确地执行上面的这些步骤。所以我们可以把这些逻辑放进方法里，或者我们可以用一个上下文管理器。
+
 ```
 db = db_library.connect("fakesql://")
 # as a function
