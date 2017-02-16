@@ -1,4 +1,11 @@
-## 一些技巧：
+---
+layout: wiki
+title: intellij
+categories: intellij
+description: intellij常用操作记录。
+keywords: intellij
+---
+
 在任何时候，按下alt键，界面上的菜单字符中有些会有下划线，这时用alt+下划线即是执行这个菜单功能的快捷键。
 可自定义一些快捷键，避免使用鼠标。IDEA支持宏，使用起来也很简单。
 
