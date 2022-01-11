@@ -7,7 +7,7 @@ keywords: python, 技巧
 ---
 
 
-#介绍
+# 介绍
 python（以及他的库）是很庞大有用的。他可以用来做系统自动化、web应用、大数据、数据分析以及安全软件。这篇文章旨在说明一些可以帮你更快更好地开发、debug的鲜为人知的小技巧。
 对于每一种语言来说，一旦你学了这个语言，你真正得到的并不是这个语言本身的特性能力，而是你学会他的编程风格、学会用他的库以及python社区里的知识。
 #探索标准数据类型
@@ -36,7 +36,7 @@ for index, drink in enumerate(drinks):
 ```
 内建的enumerate方法生成了index以及item。
 
-###集合
+### 集合
 有很多的场景是可以归结到集合操作的。我们需要确保list没有重复元素？需要看两个list有哪些共同项？python的set类型可以让这些操作更快并且更可读的。
 
 ```
@@ -68,7 +68,7 @@ print("At one time or another, we've served:",", ".join(full_menu))
 ```
 intersection函数比较所有的items，然后只把两个集合里都有的items返回。
 
-###collections.namedtuple
+### collections.namedtuple
 当你不需要类的方法，但是又想要foo.prop这样的简便时，没有什么比namedtuple更好了。你可以提前定义fields，然后初始化一个比完整对象占用内存更少的轻量级的类。
 
 ```
@@ -85,7 +85,7 @@ LightObject=namedtuple('LightObject',['shortname','otherprop'])
 n=LightObject(shortname='something',otherprop='something else')
 n.shortname# something
 ```
-###collections.defaultdict
+### collections.defaultdict
 在python app里我们经常会看到这样的逻辑：我们需要去考虑key初始时是不是存在，类似这样：
 
 ```
@@ -148,7 +148,7 @@ default['a']['b']['c']['d']['e'] = 'really really nested dict' # fails
 这样看起来应该是可以的，但是他抛出了```KeyError```异常，因为```default['a']```是一个```dict```，不是```defaultdict```
 如果你只是需要一个counter，你可以用[```collections.Counter```](https://docs.python.org/3.4/library/collections.html#collections.Counter)来提供像```most_common```这样的功能。
 
-#控制流
+# 控制流
 当我们学习python里面的控制结构的时候，通常我们会接触到for，while，if-elif-else，以及try-except。合理地利用这些控制结构我们可以解决绝大多数的问题。不过python也提供了一些其他不常用的结构，这些结构有时可以让你的代码可读性更好，而且更易于维护。
 ###异常处理
 当处理数据库，sockets，文件或者任何其他处理时可能失败的资源时，Exception是一种很常见的流程控制模式。通过标准的```try  except```，比如操作数据库：
@@ -200,7 +200,7 @@ finally:
 这里我们加了两句话。首先我们看```else```，当没有异常时会执行他。在我们的例子里面，他只是在日志里打了事务成功，但是你也可以根据需要放些需要的行为。比如你可能会执行一个后台的job或者一个通知。
 这里```finally```是为了确保```db.close()```总能执行的。我们可以看到我们所有的代码都是跟```commit```这个操作绑在一起的。
 
-###上下文和控制流程
+### 上下文和控制流程
 我们已经看到了上面怎么用exceptions去控制流程。总的来说步骤如下：
 1. Attempt to acquire a resource (file, network connection, whatever)
 2. If it fails, clean up anything left behind
