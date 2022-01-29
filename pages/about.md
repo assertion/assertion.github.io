@@ -12,17 +12,10 @@ Hangzhou City, China | Computer Software
   
 *Education:* Nanjing University
 
-scholar, Software Engineering|Bachlor, Master
+Scholar, Software Engineering|Bachlor, Master
 
 *Contact:* `print '%s@%s' % ('zhhuaxia', 'gmail.com')  #via Python`
 
 *Social:*  [github](http://github.com/assertion) | [linkedin](http://www.linkedin.com/in/) | [weibo](http://weibo.com/zhenhuaxia) 
     
-```c++
-#include <iostream>
-int main()
-{
-	std::cout << "Hello, friends!" << std::endl;
-	return 0;
-}
-```
+
