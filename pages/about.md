@@ -16,6 +16,6 @@ Scholar, Software Engineering|Bachlor, Master
 
 *Contact:* `print '%s@%s' % ('zhhuaxia', 'gmail.com')  #via Python`
 
-*Social:*  [github](http://github.com/assertion) | [linkedin](http://www.linkedin.com/in/) | [weibo](http://weibo.com/zhenhuaxia) 
+*Social:*  [github](http://github.com/assertion) | [weibo](http://weibo.com/zhenhuaxia) 
     
 
