@@ -1,8 +1,8 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl: http://assertion.github.io
-url: http://assertion.github.io
+baseurl: https://assertion.github.io
+url: https://assertion.github.io
 date_format: "ordinal"
 title: Aaren Xia
 author: Aaren Xia 
