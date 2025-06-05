@@ -1,3 +1,5 @@
 {
-  "terminals": []
+  "terminals": [],
+  "install": "ls",
+  "start": "pwd"
 }
