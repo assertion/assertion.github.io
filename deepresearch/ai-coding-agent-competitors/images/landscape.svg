@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">AI coding agent competitor landscape</title>
+  <desc id="desc">A 2 by 2 landscape of AI coding tools across workflow surface and autonomy level.</desc>
+  <rect width="1120" height="640" fill="#f8fafc"/>
+  <line x1="120" y1="520" x2="1020" y2="520" stroke="#334155" stroke-width="2"/>
+  <line x1="120" y1="520" x2="120" y2="90" stroke="#334155" stroke-width="2"/>
+  <text x="1040" y="526" fill="#334155" font-size="18" font-family="Arial, sans-serif">Autonomy</text>
+  <text x="72" y="82" fill="#334155" font-size="18" font-family="Arial, sans-serif" transform="rotate(-90 72 82)">Workflow depth</text>
+  <text x="130" y="552" fill="#64748b" font-size="15" font-family="Arial, sans-serif">Assist / edit</text>
+  <text x="908" y="552" fill="#64748b" font-size="15" font-family="Arial, sans-serif">Delegate / PR</text>
+  <text x="36" y="508" fill="#64748b" font-size="15" font-family="Arial, sans-serif">Editor</text>
+  <text x="28" y="118" fill="#64748b" font-size="15" font-family="Arial, sans-serif">Cloud</text>
+  <line x1="570" y1="110" x2="570" y2="520" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="8 8"/>
+  <line x1="120" y1="315" x2="1020" y2="315" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="8 8"/>
+  <rect x="165" y="360" width="215" height="86" rx="16" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="190" y="395" fill="#1e3a8a" font-size="24" font-weight="700" font-family="Arial, sans-serif">GitHub Copilot</text>
+  <text x="190" y="423" fill="#1e40af" font-size="15" font-family="Arial, sans-serif">IDE breadth + enterprise defaults</text>
+  <rect x="430" y="330" width="205" height="90" rx="16" fill="#e0e7ff" stroke="#4f46e5"/>
+  <text x="462" y="366" fill="#312e81" font-size="24" font-weight="700" font-family="Arial, sans-serif">Cursor</text>
+  <text x="462" y="394" fill="#3730a3" font-size="15" font-family="Arial, sans-serif">AI-native IDE + cloud agents</text>
+  <rect x="682" y="340" width="210" height="90" rx="16" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="716" y="376" fill="#4c1d95" font-size="24" font-weight="700" font-family="Arial, sans-serif">Windsurf</text>
+  <text x="716" y="404" fill="#5b21b6" font-size="15" font-family="Arial, sans-serif">Cascade + Devin handoff</text>
+  <rect x="215" y="175" width="220" height="92" rx="16" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="245" y="212" fill="#14532d" font-size="24" font-weight="700" font-family="Arial, sans-serif">Claude Code</text>
+  <text x="245" y="240" fill="#166534" font-size="15" font-family="Arial, sans-serif">Terminal-first reasoning agent</text>
+  <rect x="545" y="165" width="205" height="94" rx="16" fill="#fef9c3" stroke="#ca8a04"/>
+  <text x="585" y="202" fill="#713f12" font-size="24" font-weight="700" font-family="Arial, sans-serif">OpenAI Codex</text>
+  <text x="585" y="230" fill="#854d0e" font-size="15" font-family="Arial, sans-serif">CLI / IDE / cloud task fabric</text>
+  <rect x="795" y="120" width="180" height="96" rx="16" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="836" y="158" fill="#7f1d1d" font-size="24" font-weight="700" font-family="Arial, sans-serif">Devin</text>
+  <text x="826" y="186" fill="#991b1b" font-size="15" font-family="Arial, sans-serif">Cloud software engineer</text>
+  <text x="120" y="48" fill="#0f172a" font-size="28" font-weight="700" font-family="Arial, sans-serif">AI coding tools: surface vs. autonomy</text>
+  <text x="120" y="76" fill="#475569" font-size="16" font-family="Arial, sans-serif">Positioning is directional: most products now span multiple surfaces.</text>
+</svg>

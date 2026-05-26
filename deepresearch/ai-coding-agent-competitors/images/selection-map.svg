@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="560" viewBox="0 0 1120 560" role="img" aria-labelledby="title desc">
+  <title id="title">AI coding tool selection map</title>
+  <desc id="desc">A decision map for choosing AI coding tools by use case.</desc>
+  <rect width="1120" height="560" fill="#ffffff"/>
+  <text x="70" y="58" fill="#0f172a" font-size="30" font-weight="700" font-family="Arial, sans-serif">Selection map by development job</text>
+  <text x="70" y="88" fill="#475569" font-size="16" font-family="Arial, sans-serif">Start from the job to be done, not the leaderboard.</text>
+  <rect x="70" y="130" width="225" height="115" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="100" y="168" fill="#1e3a8a" font-size="22" font-weight="700" font-family="Arial, sans-serif">Daily coding flow</text>
+  <text x="100" y="199" fill="#1d4ed8" font-size="16" font-family="Arial, sans-serif">Cursor / Copilot</text>
+  <text x="100" y="224" fill="#64748b" font-size="14" font-family="Arial, sans-serif">Completion, edit, reviewable diffs</text>
+  <rect x="335" y="130" width="225" height="115" rx="18" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="365" y="168" fill="#14532d" font-size="22" font-weight="700" font-family="Arial, sans-serif">Hard debugging</text>
+  <text x="365" y="199" fill="#15803d" font-size="16" font-family="Arial, sans-serif">Claude Code / Codex</text>
+  <text x="365" y="224" fill="#64748b" font-size="14" font-family="Arial, sans-serif">Terminal, tests, long sessions</text>
+  <rect x="600" y="130" width="225" height="115" rx="18" fill="#fefce8" stroke="#ca8a04"/>
+  <text x="630" y="168" fill="#713f12" font-size="22" font-weight="700" font-family="Arial, sans-serif">Async tickets</text>
+  <text x="630" y="199" fill="#a16207" font-size="16" font-family="Arial, sans-serif">Cursor Cloud / Devin</text>
+  <text x="630" y="224" fill="#64748b" font-size="14" font-family="Arial, sans-serif">Issue to PR, CI, screenshots</text>
+  <rect x="865" y="130" width="185" height="115" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+  <text x="895" y="168" fill="#4c1d95" font-size="22" font-weight="700" font-family="Arial, sans-serif">Prototype</text>
+  <text x="895" y="199" fill="#6d28d9" font-size="16" font-family="Arial, sans-serif">Windsurf / Replit</text>
+  <text x="895" y="224" fill="#64748b" font-size="14" font-family="Arial, sans-serif">Fast iteration, previews</text>
+  <path d="M182 260 C182 315, 360 315, 360 370" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M447 260 C447 315, 545 315, 545 370" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M712 260 C712 315, 730 315, 730 370" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M957 260 C957 315, 895 315, 895 370" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="165" y="370" width="790" height="110" rx="22" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="205" y="410" fill="#0f172a" font-size="22" font-weight="700" font-family="Arial, sans-serif">Common buying criteria</text>
+  <text x="205" y="443" fill="#334155" font-size="16" font-family="Arial, sans-serif">1. Fits current editor and repo access model</text>
+  <text x="500" y="443" fill="#334155" font-size="16" font-family="Arial, sans-serif">2. Gives auditable diffs, logs, and policy hooks</text>
+  <text x="205" y="469" fill="#334155" font-size="16" font-family="Arial, sans-serif">3. Has predictable usage controls for agent-heavy work</text>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L8,3 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+</svg>
