@@ -365,18 +365,6 @@
   stage.addEventListener("touchend", onTouchEnd, { passive: true });
   if (pad) {
     pad.addEventListener("click", onPadClick);
-    pad.addEventListener("pointerdown", function (e) {
-      // Prefer pointer for mobile: set direction without waiting for click delay
-      var btn = e.target.closest("[data-dir]");
-      if (!btn) return;
-      e.preventDefault();
-      if (!started || dead) play();
-      var d = btn.getAttribute("data-dir");
-      if (d === "up") setDirection(0, -1);
-      else if (d === "down") setDirection(0, 1);
-      else if (d === "left") setDirection(-1, 0);
-      else if (d === "right") setDirection(1, 0);
-    });
   }
 
   // Initial idle preview
@@ -386,4 +374,21 @@
   awaitingMove = false;
   draw();
   showOverlay("Snake", "Press Play, then steer with arrows, WASD, swipe, or the pad.", "Play");
+  // Lightweight API for automated tests / console debugging
+  window.__SNAKE__ = {
+    play: play,
+    setDirection: setDirection,
+    getState: function () {
+      return {
+        score: score,
+        dead: dead,
+        running: running,
+        awaitingMove: awaitingMove,
+        started: started,
+        snake: snake ? snake.map(function (s) { return { x: s.x, y: s.y }; }) : [],
+        food: food ? { x: food.x, y: food.y } : null,
+        dir: dir ? { x: dir.x, y: dir.y } : null
+      };
+    }
+  };
 })();
