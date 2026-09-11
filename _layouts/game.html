@@ -1,0 +1,12 @@
+{% include header.html %}
+<div id="container">
+    {% include navigation.html %}
+    <div id="main" class="game-page">
+        <h2>{{ page.title }}</h2>
+        {{ content }}
+    </div>
+</div>
+{% include footer.html %}
+{% if page.extra_js %}
+<script src="{{ site.baseurl }}{{ page.extra_js }}"></script>
+{% endif %}
