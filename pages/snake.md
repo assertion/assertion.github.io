@@ -30,5 +30,12 @@ extra_js: /js/snake.js
     </div>
   </div>
 
-  <p class="snake-hint">Arrows / WASD · swipe to steer · eat the morsel · don't hit yourself or the wall</p>
+  <div class="snake-pad" aria-label="Direction pad">
+    <button type="button" class="snake-pad-btn" data-dir="up" aria-label="Up">▲</button>
+    <button type="button" class="snake-pad-btn" data-dir="left" aria-label="Left">◀</button>
+    <button type="button" class="snake-pad-btn" data-dir="down" aria-label="Down">▼</button>
+    <button type="button" class="snake-pad-btn" data-dir="right" aria-label="Right">▶</button>
+  </div>
+
+  <p class="snake-hint">Arrows / WASD · swipe or pad to steer · starts on first move · don't hit yourself or the wall</p>
 </div>

@@ -2,7 +2,7 @@
   "use strict";
 
   var GRID = 20;
-  var TICK_MS = 110;
+  var TICK_MS = 125;
   var STORAGE_KEY = "aarenxia-snake-best";
 
   var canvas = document.getElementById("snake-canvas");
@@ -17,6 +17,7 @@
   var startBtn = document.getElementById("snake-start");
   var restartBtn = document.getElementById("snake-restart");
   var stage = canvas.parentElement;
+  var pad = document.querySelector(".snake-pad");
 
   var cell = canvas.width / GRID;
   var snake;
@@ -28,6 +29,7 @@
   var running = false;
   var dead = false;
   var started = false;
+  var awaitingMove = false;
   var tickTimer = null;
   var foodPulse = 0;
   var touchStart = null;
@@ -83,9 +85,15 @@
 
   function setDirection(nx, ny) {
     if (!started || dead) return;
-    // Block immediate reverse into self
-    if (nx === -dir.x && ny === -dir.y) return;
+    // Block immediate reverse into self once moving
+    if (!awaitingMove && nx === -dir.x && ny === -dir.y) return;
     pendingDir = { x: nx, y: ny };
+    if (awaitingMove) {
+      awaitingMove = false;
+      dir = pendingDir;
+      running = true;
+      startLoop();
+    }
   }
 
   function bumpScore() {
@@ -268,11 +276,12 @@
   function play() {
     resetGame();
     started = true;
-    running = true;
+    running = false;
+    awaitingMove = true;
     dead = false;
     hideOverlay();
     draw();
-    startLoop();
+    stopLoop();
   }
 
   function onKey(e) {
@@ -305,6 +314,20 @@
     else if (key === "ArrowLeft" || key === "a" || key === "A") setDirection(-1, 0);
     else if (key === "ArrowRight" || key === "d" || key === "D") setDirection(1, 0);
     else if (key === "r" || key === "R") play();
+  }
+
+  function onPadClick(e) {
+    var btn = e.target.closest("[data-dir]");
+    if (!btn) return;
+    e.preventDefault();
+    if (!started || dead) {
+      play();
+    }
+    var d = btn.getAttribute("data-dir");
+    if (d === "up") setDirection(0, -1);
+    else if (d === "down") setDirection(0, 1);
+    else if (d === "left") setDirection(-1, 0);
+    else if (d === "right") setDirection(1, 0);
   }
 
   function onTouchStart(e) {
@@ -340,11 +363,27 @@
   window.addEventListener("keydown", onKey, { passive: false });
   stage.addEventListener("touchstart", onTouchStart, { passive: true });
   stage.addEventListener("touchend", onTouchEnd, { passive: true });
+  if (pad) {
+    pad.addEventListener("click", onPadClick);
+    pad.addEventListener("pointerdown", function (e) {
+      // Prefer pointer for mobile: set direction without waiting for click delay
+      var btn = e.target.closest("[data-dir]");
+      if (!btn) return;
+      e.preventDefault();
+      if (!started || dead) play();
+      var d = btn.getAttribute("data-dir");
+      if (d === "up") setDirection(0, -1);
+      else if (d === "down") setDirection(0, 1);
+      else if (d === "left") setDirection(-1, 0);
+      else if (d === "right") setDirection(1, 0);
+    });
+  }
 
   // Initial idle preview
   resetGame();
   started = false;
   running = false;
+  awaitingMove = false;
   draw();
-  showOverlay("Snake", "Arrow keys or WASD to move. Swipe on touch.", "Play");
+  showOverlay("Snake", "Press Play, then steer with arrows, WASD, swipe, or the pad.", "Play");
 })();
