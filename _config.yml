@@ -1,8 +1,8 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl: https://compiler.pages.dev
-url: https://compiler.pages.dev
+baseurl: ""
+url: https://code-echo.pages.dev
 date_format: "ordinal"
 title: 代码的回声
 author: ""
