@@ -1,3 +1,3 @@
 # 代码的回声
 
-站点：https://code-echo.pages.dev
+工程与 AI 相关的笔记与摘录。
