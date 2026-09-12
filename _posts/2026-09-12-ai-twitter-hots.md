@@ -158,11 +158,3 @@ keywords: AI, Twitter, Cursor, Claude Code, Codex, Devin, Qoder
 
 ![Mechanize](/images/twitter-hots/2026-09-12/09-mechanize-google.jpg)
 
----
-
-## 附：本窗检索备注
-
-- **x-mcp-guide**：本机 skill 目录未找到对应 `SKILL.md`；已按 `user-X` / `search_posts_all` + media expansions 执行。  
-- **API**：并行检索时出现过 `429 Too Many Requests`，已错开重试；部分 OpenAI/Codex 专项查询因此缩水。  
-- **国内产品**：Trae、CodeBuddy 本窗 X 高信号官方帖不足；Qoder 有官方模型接入帖。  
-- **窗口边界**：Anthropic 报告、SWE-2、DeepSeek-V4.1-Flash、Cursor Projects 官方帖发布时间略早于 2026-09-11T00:00Z，但仍在约 36–48h 发酵窗内，故收入。
