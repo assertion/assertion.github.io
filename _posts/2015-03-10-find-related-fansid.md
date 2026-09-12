@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: 寻找关联的fansid
 categories: 工程
 description: 根据nginx log记录的sessionid，找出关联的fansid。
