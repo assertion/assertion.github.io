@@ -24,18 +24,5 @@ pygments: true
 permalink: /:year/:month/:day/:title
 gems:
     - jekyll-sitemap
-collections:
-    wiki:
-        output: true
-        permalink: /wiki/:path/
-
-# ---------------- #
-#      Comments    #
-# ---------------- #
-duoshuo_short_name:
-
-# ---------------- #
-#      Adsense     #
-# ---------------- #
-adsense: false
-amazon: false
+    - jekyll-gist
+    - jekyll-paginate
