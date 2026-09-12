@@ -1,8 +1,8 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl: https://assertion.github.io
-url: https://assertion.github.io
+baseurl: https://compiler.pages.dev
+url: https://compiler.pages.dev
 date_format: "ordinal"
 title: 代码的回声
 author: Aaren Xia 
