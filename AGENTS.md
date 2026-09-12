@@ -2,7 +2,7 @@
 
 ## Cursor Cloud specific instructions
 
-This is a Jekyll 3.x static blog (GitHub Pages site) for "Aaren Xia".
+This is a Jekyll 3.x static blog (GitHub Pages site) for the personal static blog 「代码的回声」.
 
 ### Key gotchas
 
