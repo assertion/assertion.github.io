@@ -5,7 +5,7 @@ baseurl: https://compiler.pages.dev
 url: https://compiler.pages.dev
 date_format: "ordinal"
 title: 代码的回声
-author: Aaren Xia 
+author: ""
 paginate: 9
 
 # ---------------- #
@@ -32,10 +32,10 @@ collections:
 # ---------------- #
 #      Comments    #
 # ---------------- #
-duoshuo_short_name: aarenxia
+duoshuo_short_name:
 
 # ---------------- #
 #      Adsense     #
 # ---------------- #
-adsense: true
+adsense: false
 amazon: false
