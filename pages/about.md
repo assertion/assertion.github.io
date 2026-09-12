@@ -1,18 +1,9 @@
 ---
 layout: page
 title: 关于
-description: 个人简介
-keywords: software, engineer
+description: 关于本站
+keywords: blog, notes
 permalink: /about.html
 ---
 
-**Software Engineer at [Alibaba, Inc.](http://www.zhifubao.com)**
-
-Hangzhou City, China | Computer Software
-  
-*Education:* Nanjing University
-
-Scholar, Software Engineering|Bachlor, Master
-
-*Contact:* `print '%s@%s' % ('zhhuaxia', 'gmail.com')  #via Python`
-
+「代码的回声」——工程与 AI 相关的笔记与摘录。

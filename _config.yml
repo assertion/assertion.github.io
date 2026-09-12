@@ -5,7 +5,7 @@ baseurl: https://compiler.pages.dev
 url: https://compiler.pages.dev
 date_format: "ordinal"
 title: 代码的回声
-author: Aaren Xia 
+author: ""
 paginate: 9
 
 # ---------------- #
@@ -24,18 +24,5 @@ pygments: true
 permalink: /:year/:month/:day/:title
 gems:
     - jekyll-sitemap
-collections:
-    wiki:
-        output: true
-        permalink: /wiki/:path/
-
-# ---------------- #
-#      Comments    #
-# ---------------- #
-duoshuo_short_name: aarenxia
-
-# ---------------- #
-#      Adsense     #
-# ---------------- #
-adsense: true
-amazon: false
+    - jekyll-gist
+    - jekyll-paginate
