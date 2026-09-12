@@ -16,11 +16,11 @@ permalink: /markdown
 
 ###超链接
 ```
-[示例](https://compiler.pages.dev/)
-<https://compiler.pages.dev/>
+[示例](/)
+/
 ```
-[示例](https://compiler.pages.dev/)  
-<https://compiler.pages.dev/>
+[示例](/)  
+/
 
 ###列表
 ```

@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl: ""
-url: https://code-echo.pages.dev
+url: ""
 date_format: "ordinal"
 title: 代码的回声
 author: ""
