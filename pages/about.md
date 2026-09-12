@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Aaren Xia
-description: Aaren Xia的个人简介。
-keywords: Aaren Xia, 夏振华
+title: 关于
+description: 个人简介
+keywords: software, engineer
 permalink: /about.html
 ---
 
@@ -15,7 +15,4 @@ Hangzhou City, China | Computer Software
 Scholar, Software Engineering|Bachlor, Master
 
 *Contact:* `print '%s@%s' % ('zhhuaxia', 'gmail.com')  #via Python`
-
-*Social:*  [github](http://github.com/assertion) | [weibo](http://weibo.com/zhenhuaxia) 
-    
 
