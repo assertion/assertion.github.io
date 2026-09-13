@@ -8,8 +8,6 @@ keywords: AI, Twitter, Cursor, Claude Code, Codex, Devin, Copilot
 
 # AI Twitter/X 热点 Digest · 2026-09-13（周日）
 
-> 时区：Asia/Shanghai · 窗口：严格过去 24 小时  
-> 约 10 条高信号讨论；指标来自抓取时公开 metrics，未编造。
 
 ## 今日要点
 
@@ -25,7 +23,7 @@ keywords: AI, Twitter, Cursor, Claude Code, Codex, Devin, Copilot
 
 **要点**：@Sumanth_077 传播 Microsoft 员工社区项目 [AI-Engineering-Coach](https://github.com/microsoft/AI-Engineering-Coach)（MIT；声明非官方产品）。VS Code 扩展读取本机 Claude / Copilot / Cursor / Codex / Cline 等会话日志，在本地生成观察 / 度量 / 改进 / 升级四层洞察（反模式规则、Skill Finder、Context Health 等），数据不出机。
 
-**为何值得看**：抓取时约 151 赞 / 8k+ 展示 / 200 bookmark，是本窗互动最高的「元工具」帖；把焦点从「换哪个模型」挪到「你到底有没有用得更好」。
+**为何值得看**：约 151 赞 / 8k+ 展示 / 200 bookmark，是本窗互动最高的「元工具」帖；把焦点从「换哪个模型」挪到「你到底有没有用得更好」。
 
 - 作者：@Sumanth_077  
 - 链接：https://x.com/Sumanth_077/status/2098785284745990298  
@@ -39,7 +37,7 @@ keywords: AI, Twitter, Cursor, Claude Code, Codex, Devin, Copilot
 
 **要点**：@charliejhills 长帖给出迁移 / 并行工作流——Codex 做主执行，Claude Code（桌面 / CLI）当备份与顾问；覆盖插件、MCP、computer use，以及「最终拍板仍给人」的审阅节奏。配套 Substack 指南：[Claude Code → Codex](https://charliehills.substack.com/p/claude-code-codex)。
 
-**为何值得看**：抓取时约 69 赞 / 2 万+ 展示 / 86 bookmark；代表本窗最清晰的「多 harness 协作」叙事之一。
+**为何值得看**：约 69 赞 / 2 万+ 展示 / 86 bookmark；代表本窗最清晰的「多 harness 协作」叙事之一。
 
 - 作者：@charliejhills  
 - 链接：https://x.com/charliejhills/status/2098789292273484042  
@@ -50,7 +48,7 @@ keywords: AI, Twitter, Cursor, Claude Code, Codex, Devin, Copilot
 
 ## 3. Cursor Projects 周末余波：社区仍在消化
 
-**要点**：官方发布已过一天，社区仍在用短句投票。@corbin_braun 称 Projects 是「missing puzzle piece」（抓取时约 121 赞 / 8k 展示），晚间再发「能看见开发的未来」。另有用户把它和 Grok Bot 对照：云端常驻协调 vs 本机助手。
+**要点**：官方发布已过一天，社区仍在用短句投票。@corbin_braun 称 Projects 是「missing puzzle piece」（约 121 赞 / 8k 展示），晚间再发「能看见开发的未来」。另有用户把它和 Grok Bot 对照：云端常驻协调 vs 本机助手。
 
 **为何值得看**：不是新发布，而是落地后的情绪与定位共识——Projects 被读成「控制面 / 常驻团队」，而不只是更长的 chat。
 
@@ -104,7 +102,7 @@ keywords: AI, Twitter, Cursor, Claude Code, Codex, Devin, Copilot
 
 **要点**：@sairahul1 给出把 DeepSeek V4.1 Flash 挂成 GPT-6 Astra Codex 子代理的步骤（codex-router + 明确委派规则）：Astra 规划 / 安全敏感决策 / 终审，Flash 做实现与例行活。自称约 $50/月可跑「全天候」组合（ChatGPT Plus + DeepSeek 额度，个人口径）。
 
-**为何值得看**：把 Devin Fusion 的「强弱搭配」思路搬到 Codex 自建路由；抓取时约 26 赞 / 4.8k 展示 / 21 bookmark。
+**为何值得看**：把 Devin Fusion 的「强弱搭配」思路搬到 Codex 自建路由；约 26 赞 / 4.8k 展示 / 21 bookmark。
 
 - 作者：@sairahul1  
 - 链接：https://x.com/sairahul1/status/2098737094839705604  
@@ -126,7 +124,7 @@ keywords: AI, Twitter, Cursor, Claude Code, Codex, Devin, Copilot
 
 **要点**：@DanKornas 介绍开源桌面 harness BossConsole（BOSS）——内嵌浏览器 + 终端 + 编辑器 + MCP 工具层，在同一工作区跑 Claude Code / Codex / Gemini / OpenCode；可按工具禁用暴露的 MCP。Apache-2.0，macOS / Windows / Linux。
 
-**为何值得看**：抓取时约 29 赞 / 2.5k 展示 / 36 bookmark；呼应「agent 易开，工作区难用」的实践抱怨。
+**为何值得看**：约 29 赞 / 2.5k 展示 / 36 bookmark；呼应「agent 易开，工作区难用」的实践抱怨。
 
 - 作者：@DanKornas  
 - 链接：https://x.com/DanKornas/status/2098694105375101197  
