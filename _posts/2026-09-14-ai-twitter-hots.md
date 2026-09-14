@@ -11,7 +11,7 @@ keywords: AI, Twitter, Cursor, Claude Code, Codex, Devin, Copilot, Open Code Rev
 
 ## 今日要点
 
-1. **阿里开源 Open Code Review**：专用 review harness，确定性管线 + LLM；相对通用 coding agent 更省 token。  
+1. **Open Code Review 再发酵**（2026-05 已开源）：专用 review harness，确定性管线 + LLM；相对通用 coding agent 更省 token。  
 2. **Codex `apply_patch` 深拆**：自定义 patch 语言、验证后再写入、部分失败如何回报。  
 3. **pi Harness 上下文节流**：Skills 按需加载、工具输出摘要、子 agent 独立 Context。  
 4. **Unity 官方 Claude Code 插件**：约 29 skills + MCP 控 Editor；游戏引擎正式接入 agent。  
@@ -19,11 +19,11 @@ keywords: AI, Twitter, Cursor, Claude Code, Codex, Devin, Copilot, Open Code Rev
 
 ---
 
-## 1. 阿里开源 Open Code Review：专做审查，不做「全能写码」
+## 1. Open Code Review 再发酵：专做审查，不做「全能写码」
 
-**要点**：@agenticgirl 等扩散 [alibaba/open-code-review](https://github.com/alibaba/open-code-review)：内部用了约两年的 AI 代码审查助手开源版（Go CLI，`ocr`）。设计刻意不做通用 coding agent——文件覆盖、打包、规则匹配、评论落点走确定性代码；LLM 只负责推理与仓内上下文。官方对照实验（200 个 PR / 50 仓）称同模型下精度与 F1 高于 Claude Code 路径，token 约 1/9，代价是召回偏低。中文侧 @vikingmute、@shao__meng 也强调 BYOK 与 Delegation Mode（可把执行交给别的 agent）。
+**要点**：@agenticgirl 等本窗扩散 [alibaba/open-code-review](https://github.com/alibaba/open-code-review)。仓库 **2026-05** 已公开（首发 v1.0.0 约 5/21），不是这两天新开源；帖文常被写成「刚开源」，需核对。产品本身是内部用了约两年的 AI 代码审查助手开源版（Go CLI，`ocr`）。设计刻意不做通用 coding agent——文件覆盖、打包、规则匹配、评论落点走确定性代码；LLM 只负责推理与仓内上下文。官方对照实验（200 个 PR / 50 仓）称同模型下精度与 F1 高于 Claude Code 路径，token 约 1/9，代价是召回偏低。中文侧 @vikingmute、@shao__meng 也强调 BYOK 与 Delegation Mode（可把执行交给别的 agent）。近期仓库仍在发版（如 9/12 的 v1.12.0）。
 
-**为何值得看**：写码变便宜之后，瓶颈正在移到「审查能不能跟上」；这是本窗互动最高的开源落地之一。
+**为何值得看**：写码变便宜之后，瓶颈正在移到「审查能不能跟上」；本窗互动高，但属于旧项目再讨论，不是首发新闻。
 
 - 作者：@agenticgirl  
 - 链接：https://x.com/agenticgirl/status/2099087022900367845  
