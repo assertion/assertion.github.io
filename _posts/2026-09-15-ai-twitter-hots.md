@@ -3,7 +3,7 @@ layout: post
 title: AI Twitter 热点 · 2026-09-15
 categories: AI
 description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘要（约 10 条）
-keywords: AI, Twitter, Cursor, Claude Code, Codex, OpenCode, Inspo, Rish, Juggler, MCP
+keywords: AI, Twitter, Claude Code, Codex, Copilot, Cline, OpenClaw, Superlogical, Devin, DeepSeek
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-15（周二）
@@ -11,152 +11,147 @@ keywords: AI, Twitter, Cursor, Claude Code, Codex, OpenCode, Inspo, Rish, Juggle
 
 ## 今日要点
 
-1. **Inspo**：给 Claude Code / Codex / OpenCode 的设计灵感 MCP（搜 800+ 真实站点）。  
-2. **Rish App v0.1.0**：手机本地 Agent 工作区首发公开源码（Claude Code / Codex / DSH）。  
-3. **Juggler**：把长 Session 摊成可点开的工具/上下文树（刚上 Product Hunt）。  
-4. **Skills 安全注册表再发酵**：扫描后再上架，覆盖十余种 coding agent。  
-5. 生态侧：**OpenResearch 工作树隔离**、**对话导出成训练语料**、**codegraph 预索引**、**DevSpace 接 ChatGPT**、**ADHD 输出 skill 冲榜**、**Browser Harness 直连 Chrome**。
+1. **Claude Mods 落地中**：Function Hooks 产品化，社区已有 Tetris 等 demo。  
+2. **Superlogical CLI**：Mitchell 演示用 CLI 把 multiplexer 接到编辑器 / coding agent。  
+3. **从零写 agent harness**：一份可直接丢给模型的短指南，强调别被臃肿默认 harness 绑死。  
+4. **OpenClaw suggested task**：agent 主动建议拆出新 session；有人呼吁 Codex 也跟上。  
+5. 生态侧：**Claude Code 团队访谈**、**2.1.271 Remote fast mode**、**Copilot CLI 非工程用例**、**Harness Engineering 专场**、**Cline Desktop 开源权重叙事**、**DeepSeek Flash vs Codex 审核体感**。
 
 ---
 
-## 1. Inspo：让 coding agent 先「看」好设计再写前端
+## 1. Claude Mods：把 Claude Code 做成可钩的平台
 
-**要点**：@nutlope（Hassan）推出 [Inspo](https://github.com/Nutlope/inspo)——面向 Claude Code、Codex、OpenCode 的设计 MCP：在 800+ 精选真实站点里检索相关 UI 灵感，再喂给写码 agent。安装路径是 `npx inspo-mcp install`。仓库自 **2026-04** 起就在开发，本窗是产品向强推与安装流曝光，不是「今天突然新建仓库」。
+**要点**：@bcherny 宣布 Claude Mods 正在落地，并指向社区 issue 里的进度与 demo（已有人做出「Claude 里玩 Tetris」一类扩展）。产品名是 Mods，工程原语仍是 function hooks：用 TypeScript 函数以类似 Express/Koa 的 `next` 链拦截工具调用、UI 渲染与权限面；管理员可通过从 `$` 上撤回能力做机械约束。相关提案 issue 自 **2026-09-03** 起开放，本窗是「开始可玩 / 社区更新」的高互动节点，不是今天突然立项。
 
-**为何值得看**：前端 agent 最常翻车在审美与信息架构；把「可检索的真实站点」做成 MCP，比再贴一堆截图提示更可复用。
+**为何值得看**：hooks 从 shell 脚本升级到类型化中间件后，护栏、审计、UI 改造才能跟得上多 agent 生产用法。
 
-- 作者：@nutlope  
-- 链接：https://x.com/nutlope/status/2099547343112564921  
-- 仓库：https://github.com/Nutlope/inspo  
+- 作者：@bcherny  
+- 链接：https://x.com/bcherny/status/2099551291601248485  
+- Issue：https://github.com/anthropics/claude-code/issues/91870  
 
-![Inspo MCP](/images/twitter-hots/2026-09-15/01-inspo.jpg)
-
----
-
-## 2. Rish App v0.1.0：口袋里的本地 Agent（首发公开源码）
-
-**要点**：@FiniYang 宣布 [ZSeven-W/rish-app](https://github.com/ZSeven-W/rish-app) 开源。核对后：**v0.1.0 首个公开 release 落在 2026-09-14**（仓库目录 8/25 已建，但这次才放出可构建源码预览）。定位是手机/平板上的本地优先 Agent：会话、工作区、工具调用留在设备；内置 DSH、Claude Code、Codex、ZCode；演示路径是读文件 → 起本地服务 → 打开页面交互。官方写明：目前是 **source preview，没有现成安装包**，需自行按 README 构建。
-
-**为何值得看**：把「remote control 一台常开电脑」换成「手机本机工作区」，是 harness 形态的又一次下沉。
-
-- 作者：@FiniYang  
-- 链接：https://x.com/FiniYang/status/2099344770795733091  
-- 仓库：https://github.com/ZSeven-W/rish-app  
-
-![Rish App](/images/twitter-hots/2026-09-15/02-rish.jpg)
+![Claude Mods](/images/twitter-hots/2026-09-15/01-claude-mods.jpg)
 
 ---
 
-## 3. Juggler：长 Session 终于能「翻树」而不是翻聊天记录
+## 2. Superlogical CLI：给 agent 与人共用的会话层加遥控器
 
-**要点**：@hisevenih 介绍 [juggler-ai/juggler](https://github.com/juggler-ai/juggler)（本窗称刚上 Product Hunt）。痛点很具体：coding agent 跑几十轮后，线性聊天基本不可用。Juggler 把工具调用、当时上下文、停机原因、跑偏分支做成可点开的树；支持 Claude Code、Codex、Gemini、Copilot、Ollama、OpenRouter 等；Session 本地可分支/折叠。仓库 **2026-06** 起已存在，本窗有 v0.6.x 持续发版。注意：`--public` 局域网模式官方写明无密码；主程序 AGPL-3.0。
+**要点**：@mitchellh 本周 demo 重点是 **CLI 控制 Superlogical multiplexer**——GUI 能做的事 CLI 也能做，方便接到编辑器、agentic coding 工具与自动化。Superlogical 是其新公司产品线：从终端 multiplexer 起步，目标是人和 coding agent 共用可重连、可分享的持久会话；公司叙事自 **2026-07** 起公开，本窗是 CLI/自动化向的新 demo，不是「今日新开源仓库」。
 
-**为何值得看**：可观测性正在从「看最终 diff」走到「看 agent 当时看见了什么」。
+**为何值得看**：agent 越来越常驻终端时，缺的不是又一个 chat UI，而是可脚本化的会话控制面。
 
-- 作者：@hisevenih  
-- 链接：https://x.com/hisevenih/status/2099438758659785075  
-- 仓库：https://github.com/juggler-ai/juggler  
+- 作者：@mitchellh  
+- 链接：https://x.com/mitchellh/status/2099622049325232505  
+- 产品：https://www.superlogical.com/  
 
-![Juggler](/images/twitter-hots/2026-09-15/03-juggler.jpg)
-
----
-
-## 4. Skills 正在变成软件生态——以及带安全扫描的注册表
-
-**要点**：@tonysimons_ 指向 [tech-leads-club/agent-skills](https://github.com/tech-leads-club/agent-skills)：宣称约 92 个 skill、覆盖 Codex / Claude Code / Cursor / Antigravity / OpenCode 等十余种 agent，上架前做安全扫描。仓库 **2026-01** 已建，本窗是生态叙事再发酵，不是新开源。
-
-**为何值得看**：skill 文件一旦可一键安装，供应链风险就跟 npm 一样真实；「先扫再装」会变成默认期待。
-
-- 作者：@tonysimons_  
-- 链接：https://x.com/tonysimons_/status/2099592051750838693  
-- 仓库：https://github.com/tech-leads-club/agent-skills  
+![Superlogical CLI](/images/twitter-hots/2026-09-15/02-superlogical.jpg)
 
 ---
 
-## 5. OpenResearch：每个研究方向一棵 git 工作树
+## 3. 从零搭一个 agent harness（给模型也能读的短指南）
 
-**要点**：@Jolyne_AI 介绍 [alphaXiv/OpenResearch](https://github.com/alphaXiv/OpenResearch)：把 Claude Code / Codex / OpenCode / Cursor 升成研究型 Agent；每个方向独占会话 + 独立 worktree；实验按 git 快照归档，便于对照与回滚。仓库 **2026-06** 已公开，本窗仍在发版（如 9/14 的 v0.2.2），属于持续更新下的讨论，不是首发新闻。
+**要点**：@omarsar0 发了一份「喂给你的 agent」式短指南：若真想搞懂 harness，值得用 TS/Python 自己从零写一个。后续线程补充——现成 harness 往往太臃肿，自己搭反而更容易把成本压下来。本窗 bookmark 密度很高，属于方法论向热帖。
 
-**为何值得看**：和多 agent 写码同一条线——先把隔离做干净，并行探索才不会互相踩。
+**为何值得看**：和「再包一层编排」相反，这是在劝你先弄清 agent 循环里每一分 token 和工具面是怎么来的。
 
-- 作者：@Jolyne_AI  
-- 链接：https://x.com/Jolyne_AI/status/2099346405987057968  
-- 仓库：https://github.com/alphaXiv/OpenResearch  
+- 作者：@omarsar0  
+- 链接：https://x.com/omarsar0/status/2099545598156288292  
 
-![OpenResearch](/images/twitter-hots/2026-09-15/05-openresearch.jpg)
-
----
-
-## 6. 你删掉的 Cursor / Claude Code 对话，可能是一份语料
-
-**要点**：@mybitstar 拆解 [kruzovic7/ai-data-extractor](https://github.com/kruzovic7/ai-data-extractor)：只读导出 Claude Code、Codex、Cursor、Windsurf、Trae、Continue、Gemini CLI、OpenCode、Cline/Roo、Aider 等本机会话，统一成 JSONL（含代码上下文与工具调用）。仓库 **2026-09-11** 创建，偏新。帖文强调先跑密钥扫描、别把导出目录推进公开仓——这点比「能卖数据」的营销更值得听。
-
-**为何值得看**：本地 agent 轨迹正在变成可训练资产；合规与脱敏会先于「微调故事」成为硬问题。
-
-- 作者：@mybitstar  
-- 链接：https://x.com/mybitstar/status/2099372319580078284  
-- 仓库：https://github.com/kruzovic7/ai-data-extractor  
+![Agent harness guide](/images/twitter-hots/2026-09-15/03-harness-guide.jpg)
 
 ---
 
-## 7. codegraph 再发酵：预索引知识图谱喂给多 agent
+## 4. OpenClaw suggested task：让 agent 自己提议「另开一桌」
 
-**要点**：@sunmer575399 推荐 [colbymchenry/codegraph](https://github.com/colbymchenry/codegraph)：给仓库建预索引代码图，变更自动同步，对接 Claude Code / Codex / Gemini / Cursor / OpenCode 等，强调 100% 本地。仓库 **2026-01** 已存在（不是本周新开源）；星标量级与帖文所说同阶，属旧项目再讨论。
+**要点**：@Pat_Erichsen（OpenClaw）介绍 **suggested task**：当 coding agent 识别出一块边界清楚的子活，会建议新开 session 去干，而不是把所有事塞进同一条长对话。@steipete 转发称「太有用了」，并表示要推动 **Codex 也加上同类能力**；@openclaw 账号亦在时间线扩散。OpenClaw 主仓自 **2025-11** 已存在，本窗是功能向讨论，不是新开源。
 
-**为何值得看**：把「每次靠 grep 喂上下文」换成结构化图谱，是省 token 的基础设施叙事。
+**为何值得看**：delegation 正在从「人手工拆 session」变成「agent 工具里的一等动作」——跨产品对齐会很快。
 
-- 作者：@sunmer575399  
-- 链接：https://x.com/sunmer575399/status/2099464688614703586  
-- 仓库：https://github.com/colbymchenry/codegraph  
+- 作者：@Pat_Erichsen（经 @steipete / @openclaw 扩散）  
+- 链接：https://x.com/Pat_Erichsen/status/2099561529637265687  
+- 跟帖：https://x.com/steipete/status/2099571935495827761  
 
-![codegraph](/images/twitter-hots/2026-09-15/07-codegraph.jpg)
-
----
-
-## 8. DevSpace：ChatGPT 网页端指挥本机 coding agent
-
-**要点**：@yibie 介绍 [Waishnav/devspace](https://github.com/Waishnav/devspace)：自托管 MCP，把本机读写、搜索、shell、worktree 并行会话暴露给 ChatGPT；也可把活派给 Codex / Claude Code / Pi 等本地 agent。仓库 **2026-06** 起，近期仍有 beta 发版。安全模型要自己认清：批准连接后客户端在工作区权限很大（含 shell）。
-
-**为何值得看**：浏览器里的 ChatGPT 与本机 harness 被 MCP 焊在一起——「模型在云、执行在本地」的折中越来越常见。
-
-- 作者：@yibie  
-- 链接：https://x.com/yibie/status/2099422481152884872  
-- 仓库：https://github.com/Waishnav/devspace  
-
-![DevSpace](/images/twitter-hots/2026-09-15/08-devspace.jpg)
+![OpenClaw suggested task](/images/twitter-hots/2026-09-15/04-openclaw-suggest.jpg)
 
 ---
 
-## 9. i-have-adhd：逼 coding agent 先给答案的输出 skill（冲榜再发酵）
+## 5. 和 Claude Code 团队聊「跟着模型能力狂奔」
 
-**要点**：@sakatayasha 等传播 [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd)：用十来条规则强迫 agent 先给行动项、少铺垫、少客套；宣称兼容 Claude Code、Codex、Cursor、OpenCode、Gemini、Qwen、Kimi 等。仓库 **2026-05** 已公开，本窗是 Trending/星标跳升带动的再发酵，不是新项目首发。
+**要点**：@trq212 放出与 Sid & Robert 的访谈：Claude Code 怎么被做出来、模型能力蹿升时产品有多难追上，以及 AI 之前软件工程里他们怀念什么。视频向长内容，适合当本窗 Claude Code 叙事的背景板。
 
-**为何值得看**：skill 市场验证了一件事——「改输出形状」可以和「加新工具」一样病毒传播。
+**为何值得看**：比又一篇功能清单更接近「这个 harness 为什么长这样」。
 
-- 作者：@sakatayasha  
-- 链接：https://x.com/sakatayasha/status/2099432721948999942  
-- 仓库：https://github.com/ayghri/i-have-adhd  
+- 作者：@trq212  
+- 链接：https://x.com/trq212/status/2099551141621329994  
+- 视频：https://www.youtube.com/watch?v=S-sYlFiGFv8  
 
----
-
-## 10. Browser Harness：让 LLM 经 CDP 直接开本机 Chrome
-
-**要点**：@bkdgiffug 介绍 [browser-use/browser-harness](https://github.com/browser-use/browser-harness)：经 WebSocket 接 Chrome DevTools Protocol，让 agent 操作真实浏览器；缺工具时可自写 helper；可接 Claude Code / Codex，也可切 Browser Use Cloud。仓库 **2026-04** 已开源，本窗是能力向再讨论。
-
-**为何值得看**：写码 agent 与「真浏览器」的接缝仍厚；直连 CDP 比再套一层无头浏览器故事更短。
-
-- 作者：@bkdgiffug  
-- 链接：https://x.com/bkdgiffug/status/2099409565880107331  
-- 仓库：https://github.com/browser-use/browser-harness  
-
-![Browser Harness](/images/twitter-hots/2026-09-15/10-browser-harness.png)
+![Building Claude Code](/images/twitter-hots/2026-09-15/05-claude-code-build.jpg)
 
 ---
 
-## 附：仍在发酵的旁支
+## 6. Claude Code 2.1.271：Remote 认 host 的 fast mode
 
-- **GitHub CLI 可贴图**：@pradumna_saraf 提到 `gh` 现可直接给 issue/PR/评论附图片，减少 Claude Code / Copilot 等 agentic 流程里的拦路虎。https://x.com/pradumna_saraf/status/2099362524726714472  
-- **learn-claude-code 教学仓再传播**：@snwiki238337 推 [shareAI-lab/learn-claude-code](https://github.com/shareAI-lab/learn-claude-code)（**2025-06** 起，口号 Bash is all you need）——旧课新读，不是本周新开源。https://x.com/snwiki238337/status/2099336836510519626  
-- **Vicoa 多 agent IDE**：@vintcessun 指向开源自托管 [vicoa-ai/vicoa](https://github.com/vicoa-ai/vicoa)（worktree 隔离 + 跨设备接续，AGPL）。https://x.com/vintcessun/status/2099507476395851818  
-- **Dr. Claw 科研工作台**：@aigclink 介绍可换 Claude Code/Gemini/Codex 基座的科研流水线（仓库更早，属赛道讨论）。https://x.com/aigclink/status/2099301420566790315  
+**要点**：@ClaudeCodeLog 汇总 **2.1.271**（约 96 项 CLI 变更）。亮点包括：Claude Code Remote 会尊重 host 的 fast-mode 或会话里的 `/fast`（在组织策略允许时降低延迟）；以及按命令的 `allowed_domains`，收紧 Bash/PowerShell/Monitor 自动沙箱的网络面。同日稍后还有偏稳定性的 **2.1.272** 小版本。
 
+**为何值得看**：远程 runner + 本机策略对齐，是团队开始规模化用 Claude Code 时最先踩的坑之一。
+
+- 作者：@ClaudeCodeLog  
+- 链接：https://x.com/ClaudeCodeLog/status/2099627237012090958  
+
+![Claude Code 2.1.271](/images/twitter-hots/2026-09-15/06-cc-271.jpg)
+
+---
+
+## 7. GitHub：法务运营用 Copilot CLI 自己搓内部工具
+
+**要点**：@github 讲述法务团队运营经理 Victoria 用 **GitHub Copilot CLI** 搭运营工具平台，而不是再排队等工程资源。叙事刻意打在「非传统开发背景也能驱动 CLI agent」。
+
+**为何值得看**：coding agent 的下一波用户不一定写业务代码——内部工具与流程自动化同样吃得下。
+
+- 作者：@github  
+- 链接：https://x.com/github/status/2099550668893683815  
+
+![Copilot CLI](/images/twitter-hots/2026-09-15/07-copilot-cli.jpg)
+
+---
+
+## 8. Harness Engineering 专场：生产事故里坏的往往不是模型
+
+**要点**：@aiDotEngineer 直播/上架 AI Engineer World's Fair 2026 的 **Harness Engineering** 轨道：ports、proofs、kill switches，以及「把模型抽掉之后 agent 还剩什么」。论点很硬：线上挂了，模型常常不是首因。
+
+**为何值得看**：和条目 3 同一条线——行业注意力正从「换更强模型」挪到「把运行时做对」。
+
+- 作者：@aiDotEngineer  
+- 链接：https://x.com/aiDotEngineer/status/2099551501613986198  
+
+![Harness Engineering track](/images/twitter-hots/2026-09-15/08-harness-track.jpg)
+
+---
+
+## 9. Cline Desktop：开源权重模型的桌面工作区再升温
+
+**要点**：@omarsar0 称赞 **Cline Desktop**——面向开源权重的桌面应用，调度/会话 fork 等体验顺手，并可挂 OpenRouter 随时换模型。官方同日也在推 Desktop + ClinePass/免费模型（含 DeepSeek 等）。核对：`cline/cline` 主仓自 **2024-07** 起；Desktop 发版线已持续多周（如 9/13 的 desktop-v0.0.27），本窗是产品向强推与评测，不是「今天刚开源」。
+
+**为何值得看**：开源权重路线要的不只是「能跑」，而是和闭源 harness 同级的桌面会话与调度体验。
+
+- 作者：@omarsar0  
+- 链接：https://x.com/omarsar0/status/2099552255733014788  
+- 仓库：https://github.com/cline/cline  
+
+![Cline Desktop](/images/twitter-hots/2026-09-15/09-cline-desktop.jpg)
+
+---
+
+## 10. 同一类活：Codex 拒了，DeepSeek Flash 一分钟搞定
+
+**要点**：@mranti 举例——想把已免费公开的网文章节打成 epub，**Codex 以版权理由拒绝**；换成 **DeepSeek Flash** 约一分钟交付。帖子用来说明「Flash 有多重要」的体感差，不是正式评测报告。
+
+**为何值得看**：coding/通用 agent 的安全与版权策略会直接变成产品可用性差异；多模型兜底仍是实务标配。
+
+- 作者：@mranti  
+- 链接：https://x.com/mranti/status/2099678177920446565  
+
+![DeepSeek Flash vs Codex](/images/twitter-hots/2026-09-15/10-deepseek-flash.jpg)
+
+---
+
+*选条口径：关注时间线 + 书签中与 AI coding 工具 / 模型 / 产品相关的高信号帖；开源与发版时间以公开仓库与 release 记录核对，「再发酵」不等于今日首发。*
