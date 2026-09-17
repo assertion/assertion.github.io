@@ -49,7 +49,7 @@ en:
     message: "Page not found!"
     suggestion: "Try something else ^_-"
   about:
-    content: "\"Code Echo\" — notes and excerpts on engineering & AI."
+    content: "Code Echo — notes and excerpts on engineering &amp; AI."
   switcher:
     label: "中文"
     title: "切换到中文"
