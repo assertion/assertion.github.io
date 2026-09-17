@@ -2,12 +2,12 @@
 
   {% if paginator.previous_page %}
     {% if paginator.previous_page == 1 %}
-    <a href="/"><前页</a>
+    <a href="/" data-i18n-zh="{{ site.data.i18n.zh.pagination.prev }}" data-i18n-en="{{ site.data.i18n.en.pagination.prev }}">{{ site.data.i18n.zh.pagination.prev }}</a>
     {% else %}
-    <a href="/page{{paginator.previous_page}}"><前页</a>
+    <a href="/page{{paginator.previous_page}}" data-i18n-zh="{{ site.data.i18n.zh.pagination.prev }}" data-i18n-en="{{ site.data.i18n.en.pagination.prev }}">{{ site.data.i18n.zh.pagination.prev }}</a>
     {% endif %}
   {% else %}
-    <span class="previous disabled"><前页</span>
+    <span class="previous disabled" data-i18n-zh="{{ site.data.i18n.zh.pagination.prev }}" data-i18n-en="{{ site.data.i18n.en.pagination.prev }}">{{ site.data.i18n.zh.pagination.prev }}</span>
   {% endif %}
 
       {% if paginator.page == 1 %}
@@ -25,9 +25,9 @@
     {% endfor %}
 
   {% if paginator.next_page %}
-    <a class="next" href="/page{{paginator.next_page}}">后页></a>
+    <a class="next" href="/page{{paginator.next_page}}" data-i18n-zh="{{ site.data.i18n.zh.pagination.next }}" data-i18n-en="{{ site.data.i18n.en.pagination.next }}">{{ site.data.i18n.zh.pagination.next }}</a>
   {% else %}
-    <span class="next disabled" >后页></span>
+    <span class="next disabled" data-i18n-zh="{{ site.data.i18n.zh.pagination.next }}" data-i18n-en="{{ site.data.i18n.en.pagination.next }}">{{ site.data.i18n.zh.pagination.next }}</span>
   {% endif %}
-  (共{{ paginator.total_posts }}篇)
+  <span data-i18n-zh="{{ site.data.i18n.zh.pagination.total_prefix }}{{ paginator.total_posts }}{{ site.data.i18n.zh.pagination.total_suffix }}" data-i18n-en="{{ site.data.i18n.en.pagination.total_prefix }}{{ paginator.total_posts }}{{ site.data.i18n.en.pagination.total_suffix }}">{{ site.data.i18n.zh.pagination.total_prefix }}{{ paginator.total_posts }}{{ site.data.i18n.zh.pagination.total_suffix }}</span>
 </div>

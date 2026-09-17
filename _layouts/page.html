@@ -2,9 +2,9 @@
 <div id="container">
     {% include navigation.html %}
     <div id="main">
-        <h2> {{ page.title }} </h2>
+        <h2 data-i18n-zh="{{ page.title }}" data-i18n-en="{{ page.title_en | default: page.title }}"> {{ page.title }} </h2>
         {{ content }}
-        {% include ads_footer.html %}        
+        {% include ads_footer.html %}
         {% include duoshuo.html %}
     </div>
 </div>

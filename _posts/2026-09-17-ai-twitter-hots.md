@@ -4,6 +4,8 @@ title: AI Twitter 热点 · 2026-09-17
 categories: AI
 description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘要
 keywords: AI, Twitter, OpenCode, Union Alpha, Cline, Devin, Claude Code, Codex, Qoder, Cursor, MCP
+lang: zh
+translation_key: ai-twitter-hots-2026-09-17
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-17（周四）

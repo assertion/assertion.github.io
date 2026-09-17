@@ -6,11 +6,10 @@ keywords: AI, software, notes
 
 <div class="postlist">
     {% for post in paginator.posts %}
-    <div class="overview">
+    <div class="overview" data-post-lang="{{ post.lang | default: 'zh' }}" data-translation-key="{{ post.translation_key }}">
         <div class="date">{{ post.date | date: "%b %d, %Y" }}</div>
         <div class="detail"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
     </div>
     {% endfor %}
 </div>
 {% include pagination.html %}
-
