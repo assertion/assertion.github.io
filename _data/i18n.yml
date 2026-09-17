@@ -1,0 +1,57 @@
+zh:
+  site_title: "代码的回声"
+  nav:
+    home: "首页"
+    categories: "分类"
+    wiki: "维基"
+    about: "关于"
+    subscribe: "订阅"
+  pagination:
+    prev: "<前页"
+    next: "后页>"
+    total_prefix: "(共"
+    total_suffix: "篇)"
+  post:
+    prev_post: "上一篇"
+    next_post: "下一篇"
+    view_in: "查看英文版"
+    no_translation: "(本文暂无英文版)"
+  page404:
+    message: "页面没有找到！"
+    suggestion: "看看别的吧先 ^_-"
+  about:
+    content: "「代码的回声」——工程与 AI 相关的笔记与摘录。"
+  switcher:
+    label: "EN"
+    title: "Switch to English"
+  categories_title: "分类"
+  wiki_title: "维基"
+
+en:
+  site_title: "Code Echo"
+  nav:
+    home: "Home"
+    categories: "Categories"
+    wiki: "Wiki"
+    about: "About"
+    subscribe: "Feed"
+  pagination:
+    prev: "< Prev"
+    next: "Next >"
+    total_prefix: "("
+    total_suffix: " posts)"
+  post:
+    prev_post: "Previous"
+    next_post: "Next"
+    view_in: "View in Chinese"
+    no_translation: "(No English version available)"
+  page404:
+    message: "Page not found!"
+    suggestion: "Try something else ^_-"
+  about:
+    content: "Code Echo — notes and excerpts on engineering &amp; AI."
+  switcher:
+    label: "中文"
+    title: "切换到中文"
+  categories_title: "Categories"
+  wiki_title: "Wiki"

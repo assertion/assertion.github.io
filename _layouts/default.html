@@ -2,7 +2,11 @@
 <div id="container">
     {% include navigation.html %}
     <div id="main">
-        <h2> {% if page.title %} {{ page.title }} {% else %} {{ site.title }} {% endif %} </h2>
+        {% if page.title %}
+        <h2 data-i18n-zh="{{ page.title }}" data-i18n-en="{{ page.title_en | default: page.title }}"> {{ page.title }} </h2>
+        {% else %}
+        <h2 data-i18n-zh="{{ site.data.i18n.zh.site_title }}" data-i18n-en="{{ site.data.i18n.en.site_title }}"> {{ site.title }} </h2>
+        {% endif %}
         {{ content }}
         {% include ads_footer.html %}
     </div>

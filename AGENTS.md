@@ -30,3 +30,39 @@ Output goes to `_site/`.
 ### Lint / Tests
 
 There are no automated tests or linting configured in this repository. Travis CI (`.travis.yml`) only echoes commit info.
+
+### Bilingual (zh/en) support
+
+The site uses a lightweight client-side i18n system. No heavy plugins required.
+
+#### How it works
+
+- UI strings live in `_data/i18n.yml` (keyed `zh:` / `en:`).
+- Elements use `data-i18n-zh` / `data-i18n-en` attributes; `js/i18n.js` swaps text on load based on `localStorage('site-lang')`.
+- A language switcher (ZH ↔ EN) sits in the nav bar (`_includes/lang-switcher.html`).
+
+#### Authoring bilingual posts
+
+1. **Existing ZH-only posts** need no changes; they work as-is and fall back correctly when the UI language is EN.
+2. To add an English version of a post, create a sibling file with the same date and a `-en` suffix:
+   - ZH: `_posts/YYYY-MM-DD-slug.md` — add front matter `lang: zh` and `translation_key: slug-YYYY-MM-DD`
+   - EN: `_posts/YYYY-MM-DD-slug-en.md` — add front matter `lang: en`, same `translation_key`, and a unique `permalink`
+3. Example front matter for EN twin:
+   ```yaml
+   ---
+   layout: post
+   title: AI Twitter Highlights · 2026-09-17
+   lang: en
+   translation_key: ai-twitter-hots-2026-09-17
+   permalink: /2026/09/17/ai-twitter-hots-en
+   ---
+   ```
+4. The `translation_key` must match exactly between ZH and EN files. When a user switches language on a post page, the JS navigates to the sibling if it exists; otherwise the ZH content stays visible with a notice.
+
+#### Bilingual pages
+
+Pages like `about.md` use `data-bilingual-zh` / `data-bilingual-en` attributes for inline content switching, and `title_en` front matter for the page heading.
+
+#### Atom/RSS
+
+`atom.xml` filters out `lang: en` posts to keep the feed ZH-primary. EN posts are accessible via direct URL and the language switcher.

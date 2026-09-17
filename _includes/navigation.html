@@ -1,9 +1,13 @@
 <div class="nav">
     <div class="nav_nav">
-        <a href="{{ root_url }}/">首页</a>
-        <a href="{{ root_url }}/categories/">分类</a>
-        <a href="{{ root_url }}/wiki/">维基</a>
-        <a href="{{ root_url }}/about.html">关于</a>
+        <a href="{{ root_url }}/" data-i18n-zh="{{ site.data.i18n.zh.nav.home }}" data-i18n-en="{{ site.data.i18n.en.nav.home }}">{{ site.data.i18n.zh.nav.home }}</a>
+        <a href="{{ root_url }}/categories/" data-i18n-zh="{{ site.data.i18n.zh.nav.categories }}" data-i18n-en="{{ site.data.i18n.en.nav.categories }}">{{ site.data.i18n.zh.nav.categories }}</a>
+        <a href="{{ root_url }}/wiki/" data-i18n-zh="{{ site.data.i18n.zh.nav.wiki }}" data-i18n-en="{{ site.data.i18n.en.nav.wiki }}">{{ site.data.i18n.zh.nav.wiki }}</a>
+        <a href="{{ root_url }}/about.html" data-i18n-zh="{{ site.data.i18n.zh.nav.about }}" data-i18n-en="{{ site.data.i18n.en.nav.about }}">{{ site.data.i18n.zh.nav.about }}</a>
     </div>
-    <div class="nav_rss"><a href="{{ root_url }}/sitemap.xml" style="display:none;">SITEMAP</a><a href="{{ root_url }}/atom.xml" target="_blank">订阅</a></div>
+    <div class="nav_rss">
+        <a href="{{ root_url }}/sitemap.xml" style="display:none;">SITEMAP</a>
+        <a href="{{ root_url }}/atom.xml" target="_blank" data-i18n-zh="{{ site.data.i18n.zh.nav.subscribe }}" data-i18n-en="{{ site.data.i18n.en.nav.subscribe }}">{{ site.data.i18n.zh.nav.subscribe }}</a>
+        {% include lang-switcher.html %}
+    </div>
 </div>

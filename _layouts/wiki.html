@@ -7,18 +7,18 @@
         <ul class="prev_next">
             {% if page.previous.url %}
             <li>
-                <span>上一篇</span>
+                <span data-i18n-zh="{{ site.data.i18n.zh.post.prev_post }}" data-i18n-en="{{ site.data.i18n.en.post.prev_post }}">{{ site.data.i18n.zh.post.prev_post }}</span>
                 <a href="{{page.previous.url}}">{{page.previous.title}}</a>
             </li>
             {% endif %}
             {% if page.next.url %}
             <li>
-                <span>下一篇</span>
+                <span data-i18n-zh="{{ site.data.i18n.zh.post.next_post }}" data-i18n-en="{{ site.data.i18n.en.post.next_post }}">{{ site.data.i18n.zh.post.next_post }}</span>
                 <a href="{{page.next.url}}">{{page.next.title}}</a>
             </li>
             {% endif %}
         </ul>
-        {% include ads_footer.html %}        
+        {% include ads_footer.html %}
         {% include duoshuo.html %}
     </div>
 </div>
