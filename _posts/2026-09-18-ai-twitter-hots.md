@@ -58,7 +58,7 @@ translation_key: ai-twitter-hots-2026-09-18
 
 ---
 
-## 3. Raindrop：从生产监测到 Simulations
+## 4. Raindrop：从生产监测到 Simulations
 
 **要点**：@ycombinator 介绍 Raindrop 做 AI agent 安全层：在生产里抓失败 tool call、幻觉，以及团队事先想不到的问题；现推出 **Raindrop Simulations**，把同一套思路前移到上线前。文中称客户包括 Vercel、Clay、Framer、Speak，并完成 Series A，累计融资约 \$50M。
 
@@ -68,7 +68,7 @@ translation_key: ai-twitter-hots-2026-09-18
 
 ---
 
-## 3. 文化讨论：Karpathy Sensei 与「代码像汇编」
+## 5. 文化讨论：Karpathy Sensei 与「代码像汇编」
 
 **要点**：@saranormous 引用 Sensei / @karpathy 语境下的高赞讨论：有人把读代码比作看汇编、像编译产物；并对照约 18 个月前「我不怎么用 autocomplete 类 AI 写码工具」的表态，指向更彻底的 agentic 姿态。
 
@@ -78,7 +78,7 @@ translation_key: ai-twitter-hots-2026-09-18
 
 ---
 
-## 3. Exa Snapshot：给 agent 的「网页 git」
+## 6. Exa Snapshot：给 agent 的「网页 git」
 
 **要点**：Exa 推出 **Snapshot**：索引超过 4000 亿条历史网页快照，可按「过去某一刻」检索；@jeffzwang 把它概括成「we made git for the web」。
 
@@ -88,7 +88,7 @@ translation_key: ai-twitter-hots-2026-09-18
 
 ---
 
-## 3. Program-as-Weights：自然语言编成本地 neural program
+## 7. Program-as-Weights：自然语言编成本地 neural program
 
 **要点**：@yuntiandeng 推介 Program-as-Weights / neural compiler：用（英文函数描述、输入、输出）样例训练，产出可在 CPU 本地跑的小型 neural program；并说明训练数据怎么生成。相关代码、权重与数据集已在公开仓库可取（组织与 SDK 早于本窗，不是「昨天刚开源」）。
 
@@ -99,7 +99,7 @@ translation_key: ai-twitter-hots-2026-09-18
 
 ---
 
-## 3. 模型路由的中文侧讨论：Jev 放哪一层
+## 8. 模型路由的中文侧讨论：Jev 放哪一层
 
 **要点**：@sofish 追问「聪明模型 + 不太聪明的 Jev = 又快又准又安全？」是否意味着最终需要一个便宜的前置模型；随后跟帖说要找项目试，并配图把架构拆成底层逻辑、中间决策、顶层对话三层。
 
@@ -110,7 +110,7 @@ translation_key: ai-twitter-hots-2026-09-18
 
 ---
 
-## 3. 本地推理边角：Bonsai 2 27B 上 3060
+## 9. 本地推理边角：Bonsai 2 27B 上 3060
 
 **要点**：引用帖称 PrismML **Bonsai 2 27B** 可在单张 RTX 3060（12GB）上跑：约 220K context、decode ~35 tok/s、prefill ~550 tok/s；@nopainkiller 跟帖感叹硬件可行性。
 

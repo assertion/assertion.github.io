@@ -59,7 +59,7 @@ permalink: /2026/09/18/ai-twitter-hots-en
 
 ---
 
-## 3. Raindrop: from production monitoring to Simulations
+## 4. Raindrop: from production monitoring to Simulations
 
 **Summary**: @ycombinator covered Raindrop as a safety layer for AI agents: catching failed tool calls, hallucinations, and failures teams did not know to look for in production. **Raindrop Simulations** moves the same approach earlier, before agents reach production. The post names customers including Vercel, Clay, Framer, and Speak, and a Series A bringing total funding to about \$50M.
 
@@ -69,7 +69,7 @@ permalink: /2026/09/18/ai-twitter-hots-en
 
 ---
 
-## 3. Culture: Karpathy Sensei and “code as assembly”
+## 5. Culture: Karpathy Sensei and “code as assembly”
 
 **Summary**: @saranormous highlighted a high-engagement Sensei / @karpathy-adjacent discussion: someone compared reading code to looking at assembly—“like a compiled artifact”—set against an earlier line about barely using autocomplete-style AI coding tools, pointing toward a more fully agentic stance roughly 18 months later.
 
@@ -79,7 +79,7 @@ permalink: /2026/09/18/ai-twitter-hots-en
 
 ---
 
-## 3. Exa Snapshot: “git for the web” for agents
+## 6. Exa Snapshot: “git for the web” for agents
 
 **Summary**: Exa launched **Snapshot**: an index of over 400 billion historical webpage snapshots so you can search as if it were the past. @jeffzwang summed it up as “we made git for the web.”
 
@@ -89,7 +89,7 @@ permalink: /2026/09/18/ai-twitter-hots-en
 
 ---
 
-## 3. Program-as-Weights: compile natural language into local neural programs
+## 7. Program-as-Weights: compile natural language into local neural programs
 
 **Summary**: @yuntiandeng shared Program-as-Weights / a neural compiler: train on (English function description, input, output) examples to produce small neural programs that run locally on CPU, with detail on how training data was generated. Related code, weights, and datasets are already public (org and SDK predate this window—this is not a “just open-sourced yesterday” story).
 
@@ -100,7 +100,7 @@ permalink: /2026/09/18/ai-twitter-hots-en
 
 ---
 
-## 3. Chinese-side routing talk: where does Jev sit
+## 8. Chinese-side routing talk: where does Jev sit
 
 **Summary**: @sofish asked whether “a smart model + a less-smart Jev = fast, precise, safe returns” implies we ultimately need a cheap front-door model; a follow-up said they would try it on a project, with a diagram splitting logic, decision, and dialogue layers.
 
@@ -111,7 +111,7 @@ permalink: /2026/09/18/ai-twitter-hots-en
 
 ---
 
-## 3. Local-inference aside: Bonsai 2 27B on a 3060
+## 9. Local-inference aside: Bonsai 2 27B on a 3060
 
 **Summary**: A quoted post claimed PrismML **Bonsai 2 27B** runs on a single RTX 3060 (12GB): ~220K context, ~35 tok/s decode, ~550 tok/s prefill. @nopainkiller replied on the hardware feasibility.
 
