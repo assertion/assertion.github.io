@@ -33,7 +33,9 @@ permalink: /2026/09/18/ai-twitter-hots-en
 - Boris workflow: https://x.com/bcherny/status/2100669598995816511  
 - Boris rollout: https://x.com/bcherny/status/2100639991244427490  
 - Cat’s experience: https://x.com/_catwu/status/2100641163120423057  
-- terminal-browser: https://x.com/RobKnight__/status/2100622380439683541  
+- terminal-browser: https://x.com/RobKnight__/status/2100622380439683541
+
+![Claude Code Projects](/images/twitter-hots/2026-09-18/01-claude-projects.jpg)
 
 ---
 
@@ -44,7 +46,9 @@ permalink: /2026/09/18/ai-twitter-hots-en
 **Why it matters**: The Fusion post drags “routing” back from a pure cost slogan to an agent QA problem; the Ramp experiment is the viral autonomy narrative. Together they show what Devin discussion actually centered on today.
 
 - Fusion: https://x.com/jeffwang/status/2100620237045661800  
-- Money experiment: https://x.com/cognition/status/2100638797851513215  
+- Money experiment: https://x.com/cognition/status/2100638797851513215
+
+![Devin Fusion](/images/twitter-hots/2026-09-18/02-devin-fusion.jpg)
 
 ---
 
@@ -55,7 +59,9 @@ permalink: /2026/09/18/ai-twitter-hots-en
 **Why it matters**: Another path for coding agents into the collaboration surface—the entry point is not the IDE, but where the team already talks.
 
 - Author: @FactoryAI  
-- Link: https://x.com/FactoryAI/status/2100731368825295227  
+- Link: https://x.com/FactoryAI/status/2100731368825295227
+
+![Factory for Slack](/images/twitter-hots/2026-09-18/03-factory-slack.jpg)
 
 ---
 
@@ -65,7 +71,9 @@ permalink: /2026/09/18/ai-twitter-hots-en
 
 **Why it matters**: As agents run longer in production and collaboration surfaces, the conversation shifts from “can it write code” to “can you reproduce how it fails before ship.”
 
-- Link: https://x.com/ycombinator/status/2100638413699653886  
+- Link: https://x.com/ycombinator/status/2100638413699653886
+
+![Raindrop Simulations](/images/twitter-hots/2026-09-18/04-raindrop.jpg)
 
 ---
 
@@ -75,7 +83,9 @@ permalink: /2026/09/18/ai-twitter-hots-en
 
 **Why it matters**: Engagement is high, but the signal is not gossip. It hardens the question of whether source code remains the primary human interface—the same arc as Projects and Slack-resident agents in this window.
 
-- Link: https://x.com/saranormous/status/2100700797143261324  
+- Link: https://x.com/saranormous/status/2100700797143261324
+
+![Karpathy Sensei](/images/twitter-hots/2026-09-18/05-karpathy.jpg)
 
 ---
 
@@ -85,7 +95,9 @@ permalink: /2026/09/18/ai-twitter-hots-en
 
 **Why it matters**: Coding and research agents get burned by live-page drift; reproducible historical web context is a tooling fix, not another search box.
 
-- Comment: https://x.com/jeffzwang/status/2100639972747575702  
+- Comment: https://x.com/jeffzwang/status/2100639972747575702
+
+![Exa Snapshot](/images/twitter-hots/2026-09-18/06-exa-snapshot.jpg)
 
 ---
 
@@ -96,7 +108,9 @@ permalink: /2026/09/18/ai-twitter-hots-en
 **Why it matters**: It pushes against “call a large model on every invocation”—compile once, run locally many times—which matters for agent preprocessing and fuzzy classification at the edge.
 
 - Link: https://x.com/yuntiandeng/status/2100634525470761274  
-- Org: https://github.com/programasweights  
+- Org: https://github.com/programasweights
+
+![Program-as-Weights](/images/twitter-hots/2026-09-18/07-program-weights.jpg)
 
 ---
 
@@ -107,7 +121,9 @@ permalink: /2026/09/18/ai-twitter-hots-en
 **Why it matters**: Low engagement, but it maps onto the same cost/quality line as Devin Fusion’s “frontier monitors sidekick” thread—a rare isomorphic discussion on the Chinese timeline.
 
 - Question: https://x.com/sofish/status/2100627749765251331  
-- Try-it follow-up: https://x.com/sofish/status/2100701009337061433  
+- Try-it follow-up: https://x.com/sofish/status/2100701009337061433
+
+![Jev routing](/images/twitter-hots/2026-09-18/08-jev-routing.jpg)
 
 ---
 
@@ -117,4 +133,6 @@ permalink: /2026/09/18/ai-twitter-hots-en
 
 **Why it matters**: Low heat, but a side signal that long-context local coding/agent workloads keep creeping toward consumer GPUs.
 
-- Link: https://x.com/nopainkiller/status/2100732384098336840  
+- Link: https://x.com/nopainkiller/status/2100732384098336840
+
+![Bonsai 2 27B](/images/twitter-hots/2026-09-18/09-bonsai.jpg)

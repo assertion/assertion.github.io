@@ -32,7 +32,9 @@ translation_key: ai-twitter-hots-2026-09-18
 - Boris 工作流：https://x.com/bcherny/status/2100669598995816511  
 - Boris 上线：https://x.com/bcherny/status/2100639991244427490  
 - Cat 体感：https://x.com/_catwu/status/2100641163120423057  
-- terminal-browser：https://x.com/RobKnight__/status/2100622380439683541  
+- terminal-browser：https://x.com/RobKnight__/status/2100622380439683541
+
+![Claude Code Projects](/images/twitter-hots/2026-09-18/01-claude-projects.jpg)
 
 ---
 
@@ -43,7 +45,9 @@ translation_key: ai-twitter-hots-2026-09-18
 **为何值得看**：Fusion 帖把「路由」从省钱口号拉回 agent 质检问题；Ramp 实验则是 agent 自主闭环的传播素材——两条线合在一起，才像 Devin 本窗真正在吵什么。
 
 - Fusion：https://x.com/jeffwang/status/2100620237045661800  
-- 赚钱实验：https://x.com/cognition/status/2100638797851513215  
+- 赚钱实验：https://x.com/cognition/status/2100638797851513215
+
+![Devin Fusion](/images/twitter-hots/2026-09-18/02-devin-fusion.jpg)
 
 ---
 
@@ -54,7 +58,9 @@ translation_key: ai-twitter-hots-2026-09-18
 **为何值得看**：又一条「coding agent 进协作面」的产品路径——任务入口不在 IDE，而在团队已经开会的地方。
 
 - 作者：@FactoryAI  
-- 链接：https://x.com/FactoryAI/status/2100731368825295227  
+- 链接：https://x.com/FactoryAI/status/2100731368825295227
+
+![Factory for Slack](/images/twitter-hots/2026-09-18/03-factory-slack.jpg)
 
 ---
 
@@ -64,7 +70,9 @@ translation_key: ai-twitter-hots-2026-09-18
 
 **为何值得看**：当 agent 开始长期跑在生产与协作面，讨论从「能不能写代码」转向「怎么在发版前复现它搞砸的样子」。
 
-- 链接：https://x.com/ycombinator/status/2100638413699653886  
+- 链接：https://x.com/ycombinator/status/2100638413699653886
+
+![Raindrop Simulations](/images/twitter-hots/2026-09-18/04-raindrop.jpg)
 
 ---
 
@@ -74,7 +82,9 @@ translation_key: ai-twitter-hots-2026-09-18
 
 **为何值得看**：互动量高，但价值不在八卦，而在「人机界面还是不是源码」这个正在变硬的问题——和本窗 Projects、Slack agent 落在同一条叙事上。
 
-- 链接：https://x.com/saranormous/status/2100700797143261324  
+- 链接：https://x.com/saranormous/status/2100700797143261324
+
+![Karpathy Sensei](/images/twitter-hots/2026-09-18/05-karpathy.jpg)
 
 ---
 
@@ -84,7 +94,9 @@ translation_key: ai-twitter-hots-2026-09-18
 
 **为何值得看**：coding / research agent 经常被活网页漂移坑；可复现的历史 web context 是工具层补丁，不是又一个搜索框。
 
-- 评论：https://x.com/jeffzwang/status/2100639972747575702  
+- 评论：https://x.com/jeffzwang/status/2100639972747575702
+
+![Exa Snapshot](/images/twitter-hots/2026-09-18/06-exa-snapshot.jpg)
 
 ---
 
@@ -95,7 +107,9 @@ translation_key: ai-twitter-hots-2026-09-18
 **为何值得看**：和「每次调用都打大模型」对着干——编译一次、本地反复跑，对 agent 预处理、模糊分类这类边缘能力有直接含义。
 
 - 链接：https://x.com/yuntiandeng/status/2100634525470761274  
-- 组织：https://github.com/programasweights  
+- 组织：https://github.com/programasweights
+
+![Program-as-Weights](/images/twitter-hots/2026-09-18/07-program-weights.jpg)
 
 ---
 
@@ -106,7 +120,9 @@ translation_key: ai-twitter-hots-2026-09-18
 **为何值得看**：互动量不大，但和同窗 Devin Fusion 的「主模型监督 sidekick」落在同一条成本/质量线上，是国内时间线里少见的同构讨论。
 
 - 追问：https://x.com/sofish/status/2100627749765251331  
-- 试项目：https://x.com/sofish/status/2100701009337061433  
+- 试项目：https://x.com/sofish/status/2100701009337061433
+
+![Jev routing](/images/twitter-hots/2026-09-18/08-jev-routing.jpg)
 
 ---
 
@@ -116,4 +132,6 @@ translation_key: ai-twitter-hots-2026-09-18
 
 **为何值得看**：热度不高，但是「长上下文本地 coding / agent」硬件门槛在往消费级卡挪的一条旁证。
 
-- 链接：https://x.com/nopainkiller/status/2100732384098336840  
+- 链接：https://x.com/nopainkiller/status/2100732384098336840
+
+![Bonsai 2 27B](/images/twitter-hots/2026-09-18/09-bonsai.jpg)
