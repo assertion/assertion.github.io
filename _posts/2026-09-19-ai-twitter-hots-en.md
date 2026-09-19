@@ -27,7 +27,9 @@ permalink: /2026/09/19/ai-twitter-hots-en
 
 **Why it matters**: `AGENTS.md` is a cross-tool community convention. Falling back to it when CLAUDE.md is missing acknowledges the “one brief, many agents” workflow.
 
-- Thariq: https://x.com/trq212/status/2101009392611278961  
+- Thariq: https://x.com/trq212/status/2101009392611278961
+
+![AGENTS.md](/images/twitter-hots/2026-09-19/01-agents-md.jpg)
 
 ---
 
@@ -41,7 +43,9 @@ permalink: /2026/09/19/ai-twitter-hots-en
 - Vercel report: https://x.com/vercel/status/2101078089669423378  
 - Cline jev-browser: https://x.com/cline/status/2101056078872256935  
 - Jev Use: https://x.com/Saccc_c/status/2100864907046768890  
-- LangChain livestream: https://x.com/LangChain/status/2101077173604143503  
+- LangChain livestream: https://x.com/LangChain/status/2101077173604143503
+
+![Jev](/images/twitter-hots/2026-09-19/02-jev.jpg)
 
 ---
 
@@ -51,7 +55,9 @@ permalink: /2026/09/19/ai-twitter-hots-en
 
 **Why it matters**: The more proactive the agent, the more dangerous the confirm dialog—this is users pushing back on “the tool decided for me.”
 
-- Link: https://x.com/unixzii/status/2100893952501305806  
+- Link: https://x.com/unixzii/status/2100893952501305806
+
+![Codex ask timeout](/images/twitter-hots/2026-09-19/03-codex-ask.jpg)
 
 ---
 
@@ -61,7 +67,9 @@ permalink: /2026/09/19/ai-twitter-hots-en
 
 **Why it matters**: Unrelated to feature shipping, but quota windows are part of the real product experience for subscription coding agents.
 
-- Link: https://x.com/lxfater/status/2100856628530774050  
+- Link: https://x.com/lxfater/status/2100856628530774050
+
+![Codex quota](/images/twitter-hots/2026-09-19/04-codex-quota.jpg)
 
 ---
 
@@ -71,7 +79,9 @@ permalink: /2026/09/19/ai-twitter-hots-en
 
 **Why it matters**: Turns “is OpenAI more open?” into a concrete catalog and local routing problem.
 
-- Link: https://x.com/Jason_Young1231/status/2100971161920368763  
+- Link: https://x.com/Jason_Young1231/status/2100971161920368763
+
+![Model Catalog](/images/twitter-hots/2026-09-19/05-model-catalog.jpg)
 
 ---
 
@@ -82,7 +92,9 @@ permalink: /2026/09/19/ai-twitter-hots-en
 **Why it matters**: The interaction surface moves beyond terminal/IDE to “I’m elsewhere, the machine is still working”—and session model cracks show immediately.
 
 - Demo: https://x.com/cdngdev/status/2100665093784563865  
-- Experience: https://x.com/turingou/status/2101018857246994526  
+- Experience: https://x.com/turingou/status/2101018857246994526
+
+![Codex Voice](/images/twitter-hots/2026-09-19/06-codex-voice.jpg)
 
 ---
 
@@ -92,7 +104,9 @@ permalink: /2026/09/19/ai-twitter-hots-en
 
 **Why it matters**: Quota and plan surfaces are showing up inside the coding client—subscription friction and product distribution are now coupled.
 
-- Link: https://x.com/Voxyz_ai/status/2100915644384383015  
+- Link: https://x.com/Voxyz_ai/status/2100915644384383015
+
+![Pro 20x](/images/twitter-hots/2026-09-19/07-pro-20x.jpg)
 
 ---
 
@@ -103,7 +117,9 @@ permalink: /2026/09/19/ai-twitter-hots-en
 **Why it matters**: Runtime degradation and multi-agent billing are both “people actually using it” arguments.
 
 - Capacity: https://x.com/Fei2411/status/2100800965997928941  
-- Subscriptions: https://x.com/Fei2411/status/2100944052040683547  
+- Subscriptions: https://x.com/Fei2411/status/2100944052040683547
+
+![Devin capacity](/images/twitter-hots/2026-09-19/08-devin-capacity.jpg)
 
 ---
 
@@ -114,7 +130,9 @@ permalink: /2026/09/19/ai-twitter-hots-en
 **Why it matters**: Another domestic coding CLI competing on public harness numbers; digests should separate announcement heat from repository created_at.
 
 - Teaser: https://x.com/Ronny_MiniMax/status/2100884417028005912  
-- Ship post: https://x.com/Ronny_MiniMax/status/2100926464187367538  
+- Ship post: https://x.com/Ronny_MiniMax/status/2100926464187367538
+
+![MiniMax Code CLI](/images/twitter-hots/2026-09-19/09-minimax.jpg)
 
 ---
 
@@ -124,7 +142,9 @@ permalink: /2026/09/19/ai-twitter-hots-en
 
 **Why it matters**: After Slack Code beta, enterprise buyers often stall on data residency—Private is the compliance face of the same product line.
 
-- Link: https://x.com/FactoryAI/status/2100993480709533748  
+- Link: https://x.com/FactoryAI/status/2100993480709533748
+
+![Factory Private](/images/twitter-hots/2026-09-19/10-factory-private.jpg)
 
 ---
 
@@ -135,4 +155,6 @@ permalink: /2026/09/19/ai-twitter-hots-en
 **Why it matters**: Counterpoint to the Jev Gateway adoption curve: “decision/choice” capability squeezed into weights small enough to run locally.
 
 - Intro: https://x.com/jaredpalmer/status/2101028325472841920  
-- Chess: https://x.com/jaredpalmer/status/2101037645316898933  
+- Chess: https://x.com/jaredpalmer/status/2101037645316898933
+
+![Kev-0.5B](/images/twitter-hots/2026-09-19/11-kev.jpg)

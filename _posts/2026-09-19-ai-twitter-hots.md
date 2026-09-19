@@ -26,7 +26,9 @@ translation_key: ai-twitter-hots-2026-09-19
 
 **为何值得看**：`AGENTS.md` 本是跨工具的社区约定；Claude Code 补上无 CLAUDE.md 时的回退，等于承认「一份说明、多端 agent」的协作现实。
 
-- Thariq：https://x.com/trq212/status/2101009392611278961  
+- Thariq：https://x.com/trq212/status/2101009392611278961
+
+![AGENTS.md](/images/twitter-hots/2026-09-19/01-agents-md.jpg)
 
 ---
 
@@ -40,7 +42,9 @@ translation_key: ai-twitter-hots-2026-09-19
 - Vercel 报告：https://x.com/vercel/status/2101078089669423378  
 - Cline jev-browser：https://x.com/cline/status/2101056078872256935  
 - Jev Use：https://x.com/Saccc_c/status/2100864907046768890  
-- LangChain 直播预告：https://x.com/LangChain/status/2101077173604143503  
+- LangChain 直播预告：https://x.com/LangChain/status/2101077173604143503
+
+![Jev](/images/twitter-hots/2026-09-19/02-jev.jpg)
 
 ---
 
@@ -50,7 +54,9 @@ translation_key: ai-twitter-hots-2026-09-19
 
 **为何值得看**：agent 越主动，确认框越危险；这是「工具替你决定」边界被用户当场打回的现场。
 
-- 链接：https://x.com/unixzii/status/2100893952501305806  
+- 链接：https://x.com/unixzii/status/2100893952501305806
+
+![Codex ask timeout](/images/twitter-hots/2026-09-19/03-codex-ask.jpg)
 
 ---
 
@@ -60,7 +66,9 @@ translation_key: ai-twitter-hots-2026-09-19
 
 **为何值得看**：和功能发布无关，但是订阅制 coding agent 的真实使用摩擦——额度窗口本身就是产品体验的一部分。
 
-- 链接：https://x.com/lxfater/status/2100856628530774050  
+- 链接：https://x.com/lxfater/status/2100856628530774050
+
+![Codex quota](/images/twitter-hots/2026-09-19/04-codex-quota.jpg)
 
 ---
 
@@ -70,7 +78,9 @@ translation_key: ai-twitter-hots-2026-09-19
 
 **为何值得看**：把「OpenAI 是否更 Open」落成可操作的 catalog 与本地路由问题，而不是口号。
 
-- 链接：https://x.com/Jason_Young1231/status/2100971161920368763  
+- 链接：https://x.com/Jason_Young1231/status/2100971161920368763
+
+![Model Catalog](/images/twitter-hots/2026-09-19/05-model-catalog.jpg)
 
 ---
 
@@ -81,7 +91,9 @@ translation_key: ai-twitter-hots-2026-09-19
 **为何值得看**：coding agent 的交互面从终端/IDE 扩到「人在别处、电脑还在跑」——入口变了，会话模型问题立刻露出来。
 
 - 官方向演示：https://x.com/cdngdev/status/2100665093784563865  
-- 体感：https://x.com/turingou/status/2101018857246994526  
+- 体感：https://x.com/turingou/status/2101018857246994526
+
+![Codex Voice](/images/twitter-hots/2026-09-19/06-codex-voice.jpg)
 
 ---
 
@@ -91,7 +103,9 @@ translation_key: ai-twitter-hots-2026-09-19
 
 **为何值得看**：额度与套餐入口开始出现在 coding 客户端里——订阅摩擦和产品分发绑在一起。
 
-- 链接：https://x.com/Voxyz_ai/status/2100915644384383015  
+- 链接：https://x.com/Voxyz_ai/status/2100915644384383015
+
+![Pro 20x](/images/twitter-hots/2026-09-19/07-pro-20x.jpg)
 
 ---
 
@@ -102,7 +116,9 @@ translation_key: ai-twitter-hots-2026-09-19
 **为何值得看**：一边是运行时体验塌方，一边是多 agent 订阅账单——都是「真在用」的人才会吵的问题。
 
 - 容量：https://x.com/Fei2411/status/2100800965997928941  
-- 订阅：https://x.com/Fei2411/status/2100944052040683547  
+- 订阅：https://x.com/Fei2411/status/2100944052040683547
+
+![Devin capacity](/images/twitter-hots/2026-09-19/08-devin-capacity.jpg)
 
 ---
 
@@ -113,7 +129,9 @@ translation_key: ai-twitter-hots-2026-09-19
 **为何值得看**：国内 coding CLI 又一次用公开 harness 数字抢注意力；写进 digest 时要分清「宣布浪潮」与「仓库创建日」。
 
 - 预告：https://x.com/Ronny_MiniMax/status/2100884417028005912  
-- 落地：https://x.com/Ronny_MiniMax/status/2100926464187367538  
+- 落地：https://x.com/Ronny_MiniMax/status/2100926464187367538
+
+![MiniMax Code CLI](/images/twitter-hots/2026-09-19/09-minimax.jpg)
 
 ---
 
@@ -123,7 +141,9 @@ translation_key: ai-twitter-hots-2026-09-19
 
 **为何值得看**：继 Slack Code beta 之后，企业采购常卡在数据驻留；Private 是同一产品线的合规面补丁。
 
-- 链接：https://x.com/FactoryAI/status/2100993480709533748  
+- 链接：https://x.com/FactoryAI/status/2100993480709533748
+
+![Factory Private](/images/twitter-hots/2026-09-19/10-factory-private.jpg)
 
 ---
 
@@ -134,4 +154,6 @@ translation_key: ai-twitter-hots-2026-09-19
 **为何值得看**：和本窗 Jev 热潮对位：一边是 Gateway 上的大模型采用曲线，一边是「决策/选择」能力被压到可本地跑的小权重。
 
 - 介绍：https://x.com/jaredpalmer/status/2101028325472841920  
-- 象棋：https://x.com/jaredpalmer/status/2101037645316898933  
+- 象棋：https://x.com/jaredpalmer/status/2101037645316898933
+
+![Kev-0.5B](/images/twitter-hots/2026-09-19/11-kev.jpg)

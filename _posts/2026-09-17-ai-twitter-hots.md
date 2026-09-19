@@ -31,7 +31,9 @@ translation_key: ai-twitter-hots-2026-09-17
 - 宣布：https://x.com/opencode/status/2100236430890991782  
 - 容量：https://x.com/opencode/status/2100237523901382946  
 - Benchmark：https://x.com/opencode/status/2100237891263668418  
-- 用户追问额度：https://x.com/ashen_one/status/2100236654724186253  
+- 用户追问额度：https://x.com/ashen_one/status/2100236654724186253
+
+![Union Alpha](/images/twitter-hots/2026-09-17/01-union-alpha.jpg)
 
 ---
 
@@ -42,7 +44,9 @@ translation_key: ai-twitter-hots-2026-09-17
 **为何值得看**：同一 stealth 模型在两个主流 coding agent 面同时上架，更像路由层 + 多 harness 的联合投放，而不是单产品营销。
 
 - 作者：@cline  
-- 链接：https://x.com/cline/status/2100265266026590322  
+- 链接：https://x.com/cline/status/2100265266026590322
+
+![Cline Union Alpha](/images/twitter-hots/2026-09-17/02-cline-union.jpg)
 
 ---
 
@@ -54,7 +58,9 @@ translation_key: ai-twitter-hots-2026-09-17
 
 - Code Scans：https://x.com/cognition/status/2100253548885803404  
 - 生态评论：https://x.com/dabit3/status/2100355531265150995  
-- 相关：https://devin.ai/blog/agentic-map-reduce  
+- 相关：https://devin.ai/blog/agentic-map-reduce
+
+![Devin Code Scans](/images/twitter-hots/2026-09-17/03-devin-scans.jpg)
 
 ---
 
@@ -65,7 +71,9 @@ translation_key: ai-twitter-hots-2026-09-17
 **为何值得看**：一边是「产品进协作面」的用法迁移，一边是工具协议怎么选；比单纯 changelog 更能说明生态此刻在吵什么。
 
 - 团队工作流：https://x.com/chenchengpro/status/2100190714537885938  
-- MCP vs Bash：https://x.com/trq212/status/2100315535758217422  
+- MCP vs Bash：https://x.com/trq212/status/2100315535758217422
+
+![Claude Code](/images/twitter-hots/2026-09-17/04-claude-code.jpg)
 
 ---
 
@@ -77,7 +85,9 @@ translation_key: ai-twitter-hots-2026-09-17
 
 - 容量吐槽：https://x.com/lzqdev/status/2100104307060441555  
 - Plan B 讨论：https://x.com/mehvedb/status/2100149568034009438  
-- 长上下文：https://x.com/LinearUncle/status/2100147093860151794  
+- 长上下文：https://x.com/LinearUncle/status/2100147093860151794
+
+![Codex](/images/twitter-hots/2026-09-17/05-codex.jpg)
 
 ---
 
@@ -89,7 +99,9 @@ translation_key: ai-twitter-hots-2026-09-17
 
 - 作者：@qoder_ai_ide  
 - 链接：https://x.com/qoder_ai_ide/status/2100212460003398133  
-- 文档：https://docs.qoder.com/cloud-agents/overview  
+- 文档：https://docs.qoder.com/cloud-agents/overview
+
+![Qoder Cloud Agents](/images/twitter-hots/2026-09-17/06-qoder.jpg)
 
 ---
 
@@ -100,7 +112,9 @@ translation_key: ai-twitter-hots-2026-09-17
 **为何值得看**：agent IDE 的套餐文案一旦漂移，用户感知往往比功能更新更尖锐——尤其当「额度怎么算」本就不透明时。
 
 - 作者：@claudeebum  
-- 链接：https://x.com/claudeebum/status/2100363007062925317  
+- 链接：https://x.com/claudeebum/status/2100363007062925317
+
+![Cursor Ultra](/images/twitter-hots/2026-09-17/07-cursor-ultra.jpg)
 
 ---
 
@@ -111,7 +125,9 @@ translation_key: ai-twitter-hots-2026-09-17
 **为何值得看**：协议层叙事正在从「再接一个 server」转向「模型原生怎么写代码调你的能力」。
 
 - 作者：@yifanxu_ephai  
-- 链接：https://x.com/yifanxu_ephai/status/2100287881621451119  
+- 链接：https://x.com/yifanxu_ephai/status/2100287881621451119
+
+![SDK / code mode](/images/twitter-hots/2026-09-17/08-sdk-mode.jpg)
 
 ---
 
@@ -123,5 +139,6 @@ translation_key: ai-twitter-hots-2026-09-17
 
 - Jam Session：https://x.com/jamonholmgren/status/2100312061557522728  
 - FirstMate：https://x.com/AmrTawfik160/status/2100362436872200333  
-- Agentfiles：https://x.com/tom_doerr/status/2100370358876479771  
+- Agentfiles：https://x.com/tom_doerr/status/2100370358876479771
 
+![Multi-agent tools](/images/twitter-hots/2026-09-17/09-multi-agent.jpg)

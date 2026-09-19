@@ -27,7 +27,9 @@ keywords: AI, Twitter, Devin, Claude Mods, Inspo, BrowserSkill, Harness Terminal
 
 - 作者：@cognition  
 - 链接：https://x.com/cognition/status/2099887193804112190  
-- 跟帖：https://x.com/cognition/status/2099887195670683694  
+- 跟帖：https://x.com/cognition/status/2099887195670683694
+
+![Devin Mac](/images/twitter-hots/2026-09-16/01-devin-mac.jpg)
 
 ---
 
@@ -39,7 +41,9 @@ keywords: AI, Twitter, Devin, Claude Mods, Inspo, BrowserSkill, Harness Terminal
 
 - 作者：@bcherny  
 - 链接：https://x.com/bcherny/status/2099551291601248485  
-- Issue：https://github.com/anthropics/claude-code/issues/91870  
+- Issue：https://github.com/anthropics/claude-code/issues/91870
+
+![Claude Mods](/images/twitter-hots/2026-09-16/02-claude-mods.jpg)
 
 ---
 
@@ -51,7 +55,9 @@ keywords: AI, Twitter, Devin, Claude Mods, Inspo, BrowserSkill, Harness Terminal
 
 - 作者：@nutlope  
 - 链接：https://x.com/nutlope/status/2099547343112564921  
-- 仓库：https://github.com/Nutlope/inspo  
+- 仓库：https://github.com/Nutlope/inspo
+
+![Inspo MCP](/images/twitter-hots/2026-09-16/03-inspo-mcp.jpg)
 
 ---
 
@@ -63,7 +69,9 @@ keywords: AI, Twitter, Devin, Claude Mods, Inspo, BrowserSkill, Harness Terminal
 
 - 作者：@TencentAI_News  
 - 链接：https://x.com/TencentAI_News/status/2100143086429217278  
-- 仓库：https://github.com/Tencent/BrowserSkill  
+- 仓库：https://github.com/Tencent/BrowserSkill
+
+![BrowserSkill](/images/twitter-hots/2026-09-16/04-browserskill.jpg)
 
 ---
 
@@ -74,7 +82,9 @@ keywords: AI, Twitter, Devin, Claude Mods, Inspo, BrowserSkill, Harness Terminal
 **为何值得看**：人已经同时养多套 harness；缺的是「一眼看到它们都在干什么」的控制面，而不是再装一个终端模拟器。
 
 - 作者：@autonomous_labs  
-- 链接：https://x.com/autonomous_labs/status/2099864563739144637  
+- 链接：https://x.com/autonomous_labs/status/2099864563739144637
+
+![Harness Terminal](/images/twitter-hots/2026-09-16/05-harness-terminal.jpg)
 
 ---
 
@@ -85,7 +95,9 @@ keywords: AI, Twitter, Devin, Claude Mods, Inspo, BrowserSkill, Harness Terminal
 **为何值得看**：本地 GPU/笔记本不够养并行 agent 时，「云桌面 + 自带 harness 托管」是一条很清楚的产品切口。
 
 - 作者：@AcboxLiu  
-- 链接：https://x.com/AcboxLiu/status/2100154095512502473  
+- 链接：https://x.com/AcboxLiu/status/2100154095512502473
+
+![Memoh](/images/twitter-hots/2026-09-16/06-memoh.jpg)
 
 ---
 
@@ -98,7 +110,9 @@ keywords: AI, Twitter, Devin, Claude Mods, Inspo, BrowserSkill, Harness Terminal
 - 作者：@victormustar / @GitHub_Daily  
 - WebGPU demo：https://x.com/victormustar/status/2099794150879121471  
 - 蓝皮书：https://x.com/GitHub_Daily/status/2100011801073287645  
-- 仓库：https://github.com/xiaomoBoy/pi-bluebook  
+- 仓库：https://github.com/xiaomoBoy/pi-bluebook
+
+![Pi WebGPU](/images/twitter-hots/2026-09-16/07-pi-webgpu.jpg)
 
 ---
 
@@ -110,7 +124,9 @@ keywords: AI, Twitter, Devin, Claude Mods, Inspo, BrowserSkill, Harness Terminal
 
 - CarPlay：https://x.com/jonathanroomer/status/2099979041394573535  
 - Reddit 对比：https://x.com/tickerplus/status/2099871005296484736  
-- 运维轶事：https://x.com/Xudong07452910/status/2099817201117343782  
+- 运维轶事：https://x.com/Xudong07452910/status/2099817201117343782
+
+![Codex](/images/twitter-hots/2026-09-16/08-codex.jpg)
 
 ---
 
@@ -121,7 +137,9 @@ keywords: AI, Twitter, Devin, Claude Mods, Inspo, BrowserSkill, Harness Terminal
 **为何值得看**：harness 竞争正在从「绑死自家模型」转向「谁更肯把别人的路由/模板接顺」；这是选型时很少写进参数表、但用起来很痛的一层。
 
 - 作者：@realchendahuang  
-- 链接：https://x.com/realchendahuang/status/2100091007283183883  
+- 链接：https://x.com/realchendahuang/status/2100091007283183883
+
+![Zcode × OpenCode](/images/twitter-hots/2026-09-16/09-zcode-opencode.jpg)
 
 ---
 
@@ -132,5 +150,6 @@ keywords: AI, Twitter, Devin, Claude Mods, Inspo, BrowserSkill, Harness Terminal
 **为何值得看**：写与审拆到不同模型/产品，正在变成有经验用户的默认姿势；本窗把「哪边写、哪边审」说成可复制的双端循环。
 
 - 作者：@phuctm97  
-- 链接：https://x.com/phuctm97/status/2099545236708245724  
+- 链接：https://x.com/phuctm97/status/2099545236708245724
 
+![Cline × Codex](/images/twitter-hots/2026-09-16/10-cline-codex.jpg)
