@@ -1,6 +1,9 @@
 (function () {
   'use strict';
 
+  var _twinHref = null;
+  var _twinLang = null;
+
   function getLang() {
     return localStorage.getItem('site-lang') || 'zh';
   }
@@ -17,7 +20,6 @@
 
     var switcher = document.getElementById('lang-switch');
     if (switcher) {
-      var otherLang = lang === 'zh' ? 'en' : 'zh';
       switcher.textContent = switcher.getAttribute('data-lang-' + lang);
       switcher.title = switcher.getAttribute('data-title-' + lang);
     }
@@ -31,21 +33,21 @@
     var container = document.getElementById('translation-link');
     if (!container) return;
 
-    var twinLink = container.querySelector('a[data-twin-lang]');
-    if (twinLink) {
-      var twinLang = twinLink.getAttribute('data-twin-lang');
-      var pageLang = document.documentElement.getAttribute('data-page-lang') || 'zh';
+    var pageLang = document.documentElement.getAttribute('data-page-lang') || 'zh';
+    var noTransEl = document.getElementById('no-translation-notice');
+
+    if (_twinHref) {
+      if (noTransEl) noTransEl.style.display = 'none';
+
       if (lang !== pageLang) {
         container.style.display = 'block';
-        container.innerHTML = '<a href="' + twinLink.href + '" style="font-size:0.85em;color:#888;">→ ' +
-          (lang === 'en' ? 'View in English' : '查看中文版') + '</a>';
+        container.innerHTML = '<a href="' + _twinHref + '" style="font-size:0.85em;color:#888;">→ ' +
+          (_twinLang === 'en' ? 'View in English' : '查看中文版') + '</a>';
       } else {
         container.style.display = 'none';
       }
     } else {
-      var pageLang = document.documentElement.getAttribute('data-page-lang') || 'zh';
       if (lang !== pageLang) {
-        var noTransEl = document.getElementById('no-translation-notice');
         if (!noTransEl) {
           noTransEl = document.createElement('div');
           noTransEl.id = 'no-translation-notice';
@@ -58,7 +60,6 @@
         noTransEl.style.display = 'block';
         container.style.display = 'none';
       } else {
-        var noTransEl = document.getElementById('no-translation-notice');
         if (noTransEl) noTransEl.style.display = 'none';
         container.style.display = 'none';
       }
@@ -112,6 +113,15 @@
   }
 
   function init() {
+    var container = document.getElementById('translation-link');
+    if (container) {
+      var link = container.querySelector('a[data-twin-lang]');
+      if (link) {
+        _twinHref = link.href;
+        _twinLang = link.getAttribute('data-twin-lang');
+      }
+    }
+
     var lang = getLang();
 
     var switcher = document.getElementById('lang-switch');
@@ -121,20 +131,13 @@
         var current = getLang();
         var next = current === 'zh' ? 'en' : 'zh';
         setLang(next);
-        applyLang(next);
 
-        var container = document.getElementById('translation-link');
-        if (container) {
-          var twinLink = container.querySelector('a[data-twin-lang]');
-          if (twinLink) {
-            var twinLang = twinLink.getAttribute('data-twin-lang');
-            var pageLang = document.documentElement.getAttribute('data-page-lang') || 'zh';
-            if (next === twinLang) {
-              window.location.href = twinLink.href;
-              return;
-            }
-          }
+        if (_twinHref && next === _twinLang) {
+          window.location.href = _twinHref;
+          return;
         }
+
+        applyLang(next);
       });
     }
 
