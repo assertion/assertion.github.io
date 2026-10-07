@@ -4,12 +4,40 @@ description: 代码的回声
 keywords: AI, software, notes
 ---
 
+{% comment %}
+jekyll-paginate counts every file in _posts, so paginator.posts mixes ZH/EN twins
+and each homepage page shows fewer than paginate unique articles. Slice the
+primary (non-en) posts instead, and keep each EN twin in the DOM so the
+language switcher can still swap titles in place.
+{% endcomment %}
+{% assign per_page = site.paginate | default: 15 %}
+{% assign page_offset = paginator.page | minus: 1 | times: per_page %}
+{% assign page_end = page_offset | plus: per_page %}
+{% assign unique_index = 0 %}
+
 <div class="postlist">
-    {% for post in paginator.posts %}
+    {% for post in site.posts %}
+      {% unless post.lang == 'en' %}
+        {% if unique_index >= page_offset and unique_index < page_end %}
     <div class="overview" data-post-lang="{{ post.lang | default: 'zh' }}" data-translation-key="{{ post.translation_key }}">
         <div class="date">{{ post.date | date: "%b %d, %Y" }}</div>
         <div class="detail"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
     </div>
+          {% if post.translation_key %}
+            {% for twin in site.posts %}
+              {% if twin.lang == 'en' and twin.translation_key == post.translation_key %}
+    <div class="overview" data-post-lang="en" data-translation-key="{{ twin.translation_key }}">
+        <div class="date">{{ twin.date | date: "%b %d, %Y" }}</div>
+        <div class="detail"><a href="{{ site.baseurl }}{{ twin.url }}">{{ twin.title }}</a></div>
+    </div>
+                {% break %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endif %}
+        {% assign unique_index = unique_index | plus: 1 %}
+        {% if unique_index >= page_end %}{% break %}{% endif %}
+      {% endunless %}
     {% endfor %}
 </div>
 {% include pagination.html %}
