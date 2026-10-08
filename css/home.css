@@ -206,18 +206,23 @@ body.page-home a:hover {
 /* Card cover (colored block with stat number) */
 .card-cov {
   height: 136px;
-  position: relative;
-  padding: 38px 16px 12px;
+  padding: 0 12px 12px;
   color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
+.card-cov .card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 12px;
+  margin-bottom: auto;
+}
+
 .card-cov .card-date {
-  position: absolute;
-  left: 12px;
-  top: 12px;
+  flex-shrink: 0;
   background: rgba(255, 255, 255, 0.92);
   color: #231c17;
   font-family: "Noto Sans CJK SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -225,6 +230,20 @@ body.page-home a:hover {
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 999px;
+  white-space: nowrap;
+}
+
+.card-cov .card-tags {
+  flex: 1;
+  min-width: 0;
+  font-family: "Noto Sans Mono CJK SC", "Noto Sans Mono", "SFMono-Regular",
+    "Consolas", monospace;
+  font-size: 10.5px;
+  opacity: 0.75;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
 }
 
 .card-cov .card-num {
@@ -232,6 +251,7 @@ body.page-home a:hover {
   font-weight: 700;
   font-size: 36px;
   line-height: 1;
+  padding: 0 4px;
 }
 
 .card-cov .card-cap {
@@ -239,16 +259,7 @@ body.page-home a:hover {
   font-size: 12px;
   opacity: 0.9;
   margin-top: 4px;
-}
-
-.card-cov .card-tags {
-  position: absolute;
-  right: 12px;
-  top: 15px;
-  font-family: "Noto Sans Mono CJK SC", "Noto Sans Mono", "SFMono-Regular",
-    "Consolas", monospace;
-  font-size: 10.5px;
-  opacity: 0.75;
+  padding: 0 4px;
 }
 
 /* Cover color rotation */
