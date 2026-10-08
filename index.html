@@ -156,14 +156,13 @@ body_class: page-home
   <article class="home-card{% unless is_digest %} plain-card{% endunless %}" data-post-lang="{{ post.lang | default: 'zh' }}" data-translation-key="{{ post.translation_key }}">
     {% if is_digest %}
     <div class="card-cov cov-{{ cov_mod }}">
-      <span class="card-date" data-i18n-zh="{{ date_chip_zh }}" data-i18n-en="{{ date_chip_en }}">{{ date_chip_zh }}</span>
+      <div class="card-top"><span class="card-date" data-i18n-zh="{{ date_chip_zh }}" data-i18n-en="{{ date_chip_en }}">{{ date_chip_zh }}</span>{% if post.products %}<span class="card-tags">{{ post.products | join: ' · ' }}</span>{% endif %}</div>
       {% if post.stat %}
       <div class="card-num">{{ post.stat.value }}</div>
       <div class="card-cap">{{ post.stat.caption }}</div>
       {% else %}
       <div class="card-num">{{ post.issue | prepend: '000' | slice: -3, 3 }}</div>
       {% endif %}
-      {% if post.products %}<div class="card-tags">{{ post.products | join: ' · ' }}</div>{% endif %}
     </div>
     {% endif %}
     <div class="card-body">
@@ -190,14 +189,13 @@ body_class: page-home
   <article class="home-card{% unless is_digest %} plain-card{% endunless %}" data-post-lang="en" data-translation-key="{{ en_twin.translation_key }}" style="display:none;">
     {% if is_digest %}
     <div class="card-cov cov-{{ cov_mod }}">
-      <span class="card-date">{{ date_chip_en }}</span>
+      <div class="card-top"><span class="card-date">{{ date_chip_en }}</span>{% if en_twin.products %}<span class="card-tags">{{ en_twin.products | join: ' · ' }}</span>{% endif %}</div>
       {% if en_twin.stat %}
       <div class="card-num">{{ en_twin.stat.value }}</div>
       <div class="card-cap">{{ en_twin.stat.caption }}</div>
       {% else %}
       <div class="card-num">{{ en_twin.issue | prepend: '000' | slice: -3, 3 }}</div>
       {% endif %}
-      {% if en_twin.products %}<div class="card-tags">{{ en_twin.products | join: ' · ' }}</div>{% endif %}
     </div>
     {% endif %}
     <div class="card-body">
