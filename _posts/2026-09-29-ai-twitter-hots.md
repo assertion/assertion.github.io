@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Sonnet 5.5, Claude Code, Cursor, Copilot, Devin, OpenCode, Agensh, Jev, OpenWorker, OpenShell, SPACE, Opus 5.5
 lang: zh
 translation_key: ai-twitter-hots-2026-09-29
+issue: 18
+item_count: 10
+headline: "Sonnet 5.5 发布快 30% 更便宜，Theo 拆 Claude 配额约 $9k/月，Devin 降价"
+highlights:
+  - label: "Claude Sonnet 5.5 发布"
+    text: "相对 Sonnet 5 约快 30%、多数工作最多便宜约 30%；成为 Claude Code 默认。"
+  - label: "Theo 拆配额"
+    text: "约 $200 订阅≈$9k/月 Opus 用量；Opus 5.5 把 Astra 的 ts-rust 推倒重写。"
+  - label: "Devin 降价"
+    text: "Devin 降价并推 Mobile；OpenCode 谈 Go 经济性与免费 SSO。"
+products: [Sonnet 5.5, Claude Code, Devin, OpenCode, Cursor]
+stat:
+  value: "$9k/月"
+  caption: "Theo 拆算的 $200 Claude 订阅 Opus 用量"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-29（周二）

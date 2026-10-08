@@ -4,6 +4,20 @@ title: AI Twitter 热点 · 2026-09-14
 categories: AI
 description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘要（约 10 条）
 keywords: AI, Twitter, Cursor, Claude Code, Codex, Devin, Copilot, Open Code Review
+issue: 3
+item_count: 10
+headline: "Open Code Review 再发酵，Codex apply_patch 深拆，Unity 接入 agent"
+highlights:
+  - label: "Open Code Review 再发酵"
+    text: "专用 review harness，确定性管线 + LLM，比通用 coding agent 更省 token。"
+  - label: "Codex apply_patch 深拆"
+    text: "自定义 patch 语言，验证后再写入，部分失败如何回报。"
+  - label: "Unity 官方 Claude Code 插件"
+    text: "约 29 skills + MCP 控 Editor；游戏引擎正式接入 agent。"
+products: [Open Code Review, Codex, Pi, Unity, Claude Code]
+stat:
+  value: "1/9"
+  caption: "Open Code Review 的 token 用量（对比通用 agent）"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-14（周一）

@@ -7,6 +7,20 @@ keywords: AI, Twitter, Gemini 4 Argon, Factory, Cognition, Devin, Grok Bot, Curs
 lang: en
 translation_key: ai-twitter-hots-2026-10-01
 permalink: /2026/10/01/ai-twitter-hots-en
+issue: 20
+item_count: 10
+headline: "Gemini 4 Argon ships with 1M output cap, Factory-Cognition clash, Grok Bot connects Cursor"
+highlights:
+  - label: "Gemini 4 Argon launches"
+    text: "Google / DeepMind new frontier model, ~1M token output cap for long-range software engineering."
+  - label: "Factory-Cognition clash"
+    text: "Factory fires advisor citing conflict of interest; Cognition announces him as CRO the same day."
+  - label: "Grok Bot connects Cursor"
+    text: "Can hand coding tasks to Cursor and manage PRs; Dots pricing continues to be clarified."
+products: [Gemini 4, Factory, Cognition, Grok Bot, Cursor]
+stat:
+  value: "1M"
+  caption: "Gemini 4 Argon output token cap"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-10-01 (Thu)

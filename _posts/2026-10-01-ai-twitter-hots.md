@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Gemini 4 Argon, Factory, Cognition, Devin, Grok Bot, Cursor, Ollama, Dots, Figma MCP, OpenCode, OpenClaw, Manus, Copilot, Tiller
 lang: zh
 translation_key: ai-twitter-hots-2026-10-01
+issue: 20
+item_count: 10
+headline: "Gemini 4 Argon 发布 1M 输出上限，Factory 与 Cognition 冲突，Grok Bot 接 Cursor"
+highlights:
+  - label: "Gemini 4 Argon 发布"
+    text: "Google / DeepMind 新 frontier，主打长程软件工程，宣称约 1M token 输出上限。"
+  - label: "Factory ↔ Cognition 冲突"
+    text: "Factory 解聘顾问并指控利益冲突；Cognition 同日宣布其任 CRO。"
+  - label: "Grok Bot 接 Cursor"
+    text: "可把编码任务交给 Cursor 并管理 PR；Dots 定价继续被官方澄清。"
+products: [Gemini 4, Factory, Cognition, Grok Bot, Cursor]
+stat:
+  value: "1M"
+  caption: "Gemini 4 Argon 输出 token 上限"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-10-01（周四）

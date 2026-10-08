@@ -4,6 +4,17 @@ title: AI Twitter 热点 · 2026-09-16
 categories: AI
 description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘要（约 10 条）
 keywords: AI, Twitter, Devin, Claude Mods, Inspo, BrowserSkill, Harness Terminal, Memoh, Pi, Codex, OpenCode, Cline
+issue: 5
+item_count: 10
+headline: "Devin 上 Mac，Claude Mods 社区 demo，BrowserSkill 借浏览器标签"
+highlights:
+  - label: "Devin 上 Mac"
+    text: "自带 Mac VM + iOS simulator，还能丢 Slack 录屏 / TestFlight。"
+  - label: "Claude Mods 继续发酵"
+    text: "社区已有 Tetris-in-Claude demo，hooks 从 shell 升级到类型化中间件。"
+  - label: "BrowserSkill"
+    text: "让 agent 借用你已登录的浏览器标签，而不是空白无会话。"
+products: [Devin, Claude Mods, BrowserSkill, Pi, Codex]
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-16（周三）

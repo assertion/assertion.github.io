@@ -7,6 +7,20 @@ keywords: AI, Twitter, Sonnet 5.5, Claude Code, Cursor, Copilot, Devin, OpenCode
 lang: en
 translation_key: ai-twitter-hots-2026-09-29
 permalink: /2026/09/29/ai-twitter-hots-en
+issue: 18
+item_count: 10
+headline: "Sonnet 5.5 ships 30% faster and cheaper, Theo pegs Claude quota at ~$9k/mo, Devin cuts prices"
+highlights:
+  - label: "Claude Sonnet 5.5 launches"
+    text: "~30% faster, up to ~30% cheaper than Sonnet 5; becomes Claude Code default."
+  - label: "Theo pegs quota value"
+    text: "~$200 subscription ≈ $9k/mo of Opus usage; Opus 5.5 rewrites Astra's ts-rust from scratch."
+  - label: "Devin cuts prices"
+    text: "Devin drops prices and ships Mobile; OpenCode talks Go economics and free SSO."
+products: [Sonnet 5.5, Claude Code, Devin, OpenCode, Cursor]
+stat:
+  value: "$9k/mo"
+  caption: "Theo's estimate of $200 Claude plan Opus usage"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-09-29 (Tue)

@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Codex, OpenClaw, Antigravity, Pi Durable, OpenCode, T3 Code, AutoCompact, Cline, Claude Code, GitHub Copilot
 lang: zh
 translation_key: ai-twitter-hots-2026-10-04
+issue: 23
+item_count: 10
+headline: "Codex 公开征集痛点，Opus 5.5 进了 IDE，agent 开始跑到手机上"
+highlights:
+  - label: "Codex 征集痛点"
+    text: "Tibo 公开问「Codex 还缺什么」，OpenCode 2 同步征集槽点。"
+  - label: "OpenClaw Android 卡审超一周"
+    text: "Pi Durable 在手机上跑多人 agent。"
+  - label: "模型进 IDE"
+    text: "Antigravity 上 Opus 5.5 / Sonnet 5.5；Cline 免费接入 Ling 3.1 Flash。"
+products: [Codex, OpenCode, OpenClaw, Cline, Pi Durable]
+stat:
+  value: "1 周+"
+  caption: "OpenClaw Android 卡在审核"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-10-04（周日）

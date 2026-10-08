@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Cursor, Claude Code, Claude Marketplace, Browser Use, OpenCode, Devin, Qoder, harness, Jev, Cline
 lang: zh
 translation_key: ai-twitter-hots-2026-09-24
+issue: 13
+item_count: 10
+headline: "Cursor agent 成本再降 7%，Browser Use Bench 被新模型重画，harness 讨论升温"
+highlights:
+  - label: "Cursor 成本再降"
+    text: "agent token 成本再降约 7%，并公开一长段「改造 harness」提示词。"
+  - label: "Browser Use Bench 重画"
+    text: "GPT-6 Sol / Luna 与 Opus 5.5 重画帕累托前沿。"
+  - label: "harness 讨论升温"
+    text: "rauchg 的 Brain/Hands/Files、Google 自改进 harness 论文，Jev 用例拆解。"
+products: [Cursor, GPT-6, Opus 5.5, Jev, Browser Use]
+stat:
+  value: "7%"
+  caption: "Cursor agent token 成本降幅"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-24（周四）

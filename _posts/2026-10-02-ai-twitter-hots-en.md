@@ -7,6 +7,20 @@ keywords: AI, Twitter, Claude Mods, Claude Code, GPT-6.1 Sol, Gemini 4 Argon, De
 lang: en
 translation_key: ai-twitter-hots-2026-10-02
 permalink: /2026/10/02/ai-twitter-hots-en
+issue: 21
+item_count: 10
+headline: "Claude Mods launches shareable plugins, GPT-6.1 Sol overloaded, Pi 1.0 / Durable in parallel"
+highlights:
+  - label: "Claude Mods launches"
+    text: "Modify behavior / UI / features with TypeScript; plugins are shareable; 50% off design / deck / doc."
+  - label: "GPT-6.1 Sol overloaded"
+    text: "Demand surges; OpenAI emergency adds capacity; higher browser task scores, lower cached token costs."
+  - label: "Pi 1.0 / Durable"
+    text: "Pi 1.0 and Pi Durable run in parallel; Cursor adds GLM 5.3; Factory Automations goes GA."
+products: [Claude Mods, GPT-6.1 Sol, Pi, Cursor, Factory]
+stat:
+  value: "50%"
+  caption: "Claude App design/deck/doc usage discount"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-10-02 (Fri)

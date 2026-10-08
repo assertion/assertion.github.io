@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, GPT-6.1 Sol, Claude Mods, Claude Code, DeepSeek Harness, Pi Durable, Cloudflare, Hugging Face, T3 Code, Muse Gadgets, Linear, Jev, Perplexity, Cline
 lang: zh
 translation_key: ai-twitter-hots-2026-10-03
+issue: 22
+item_count: 10
+headline: "GPT-6.1 恢复速度，Claude Mods 可演示，同一模型换 harness 差一倍"
+highlights:
+  - label: "GPT-6.1 Sol 恢复"
+    text: "付费 ChatGPT 全局 reset，速度回到预期。"
+  - label: "Claude Mods 可演示"
+    text: "DeepSeek 推桌面版 Harness，Pi Durable 接入 Cloudflare。"
+  - label: "同权重换 harness"
+    text: "62% vs 33%；T3 Code 到 40 万用户；Muse Gadgets 开源。"
+products: [GPT-6.1 Sol, Claude Mods, T3 Code, DeepSeek, Pi Durable]
+stat:
+  value: "62 : 33"
+  caption: "同一权重，不同 harness 的得分"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-10-03（周六）

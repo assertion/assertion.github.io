@@ -4,6 +4,17 @@ title: AI Twitter 热点 · 2026-09-15
 categories: AI
 description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘要（约 10 条）
 keywords: AI, Twitter, Claude Code, Codex, Copilot, Cline, OpenClaw, Superlogical, Devin, DeepSeek
+issue: 4
+item_count: 10
+headline: "Claude Mods 落地，Superlogical CLI 演示，从零写 agent harness"
+highlights:
+  - label: "Claude Mods 落地中"
+    text: "Function Hooks 产品化，社区已有 Tetris 等 demo。"
+  - label: "Superlogical CLI"
+    text: "Mitchell 演示用 CLI 把 multiplexer 接到编辑器 / coding agent。"
+  - label: "从零写 agent harness"
+    text: "一份可直接丢给模型的短指南，强调别被臃肿默认 harness 绑死。"
+products: [Claude Mods, Superlogical, OpenClaw, Copilot, Cline]
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-15（周二）

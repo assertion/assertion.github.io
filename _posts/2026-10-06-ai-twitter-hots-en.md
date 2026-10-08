@@ -7,6 +7,20 @@ keywords: AI, Twitter, Codex, GPT-6.1 Sol, Reflection Beam, Devin, Agent Memory 
 lang: en
 translation_key: ai-twitter-hots-2026-10-06
 permalink: /2026/10/06/ai-twitter-hots-en
+issue: 25
+item_count: 10
+headline: "Codex defaults 50% faster, Beam open model debuts, type systems start reviewing agents"
+highlights:
+  - label: "Codex defaults ~50% faster"
+    text: "GPT-6 Astra and GPT-6.1 Sol default speed up ~50%; EU text watermarking enabled."
+  - label: "Beam open model debuts"
+    text: "Reflection Beam: 501B total / 23B active params, weights shipping this month under Apache 2.0."
+  - label: "Type systems review agents"
+    text: "Devin 'Dreaming' sorts memories overnight; gdp-ts enforces auth-before-sensitive-call with types."
+products: [Codex, Beam, Devin, gdp-ts, OpenAI]
+stat:
+  value: "+50%"
+  caption: "Codex subscription default speed boost"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-10-06 (Tue)

@@ -6,6 +6,17 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Claude Code, AGENTS.md, Jev, Codex, Cline, Devin, MiniMax, Factory, Kev
 lang: zh
 translation_key: ai-twitter-hots-2026-09-19
+issue: 8
+item_count: 11
+headline: "Claude Code 加 AGENTS.md，Jev 成主线，Codex 吐槽散弹"
+highlights:
+  - label: "Claude Code 加 AGENTS.md"
+    text: "无 CLAUDE.md 时回退读取社区通用 agent 说明文件。"
+  - label: "Jev 成主线"
+    text: "Vercel AI Gateway 首日采用、Cline 的 jev-browser，以及 Codex+Jev 对比视频。"
+  - label: "Codex 讨论散弹"
+    text: "ask 超时自动选、额度重置吐槽、Model Catalog、手机 Voice、Pro 20x 续订。"
+products: [Claude Code, Jev, Codex, Devin, Factory]
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-19（周六）

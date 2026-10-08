@@ -7,6 +7,20 @@ keywords: AI, Twitter, Claude Opus 5.5, GPT-6, Cursor, Devin, OpenCode, Grok 4.7
 lang: en
 translation_key: ai-twitter-hots-2026-09-23
 permalink: /2026/09/23/ai-twitter-hots-en
+issue: 12
+item_count: 10
+headline: "Opus 5.5 launches as Claude Code default, GPT-6 Sol/Luna follows, OpenCode 2.0 debuts"
+highlights:
+  - label: "Claude Opus 5.5 launches"
+    text: "Matches Fable 5.1 intelligence at lower cost than Opus 5; becomes Claude Code's default."
+  - label: "GPT-6 Sol / Luna follows"
+    text: "Ships ~100 minutes later; emphasizes coding / computer use with ~50% API price cut."
+  - label: "OpenCode 2.0 debuts"
+    text: "Talks about 'modifying itself mid-session'; Grok 4.7 enters next-day field testing and criticism."
+products: [Opus 5.5, GPT-6, OpenCode, Grok 4.7, Cursor]
+stat:
+  value: "~100 min"
+  caption: "Gap between Opus 5.5 and GPT-6 launches"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-09-23 (Wed)

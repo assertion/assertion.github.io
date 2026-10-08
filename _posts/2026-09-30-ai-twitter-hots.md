@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, OpenAI DevDay, Dots, GPT-6.1 Sol, Ultrafast, Codex, Cursor, Devin, OpenClaw, Raven, pi, ChatGPT Sign-in
 lang: zh
 translation_key: ai-twitter-hots-2026-09-30
+issue: 19
+item_count: 10
+headline: "OpenAI DevDay 推 Dots / GPT-6.1 Sol / 300 tok/s，Sign in with ChatGPT 直通 16+ 产品"
+highlights:
+  - label: "DevDay 三连发"
+    text: "always-on 个人代理 Dots、GPT-6.1 Sol（约 1/5 Astra 价）、最高约 300 tok/s Ultrafast。"
+  - label: "订阅直通第三方"
+    text: "Sign in with ChatGPT 可把额度用到 Devin / OpenCode / Notion 等 16+ 产品。"
+  - label: "工具侧"
+    text: "Cursor 聊天内 /visualize；OpenClaw Enterprise 开源企业控制平面。"
+products: [Dots, GPT-6.1 Sol, Codex, Cursor, OpenClaw]
+stat:
+  value: "300 tok/s"
+  caption: "Ultrafast / Pro 500 最高速度"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-30（周三）

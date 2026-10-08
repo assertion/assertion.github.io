@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, OpenClaw, Claude Code, Codex, Muse, OpenCode, Jev, CLM, Browser Use, Devin, Cursor, Linear, harness
 lang: zh
 translation_key: ai-twitter-hots-2026-09-25
+issue: 14
+item_count: 10
+headline: "OpenClaw 砍 40 万行自测代码，Claude 与 Codex 体感翻转，CLM 扩展 System One"
+highlights:
+  - label: "OpenClaw 砍 40 万行"
+    text: "用 test-audit skill 砍掉约 40 万行自测代码，覆盖率几乎不动。"
+  - label: "订阅体感翻转"
+    text: "Claude Code 与 Codex 的订阅体感再次翻转；Muse 上 Mac computer use。"
+  - label: "System One 扩展"
+    text: "从 Jev 扩到 CLM；Browser Use 用 Luna→Jev 打牌。"
+products: [OpenClaw, Claude Code, Codex, Muse, OpenCode]
+stat:
+  value: "40 万行"
+  caption: "OpenClaw 砍掉的自测代码"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-25（周五）

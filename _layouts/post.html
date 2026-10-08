@@ -3,6 +3,9 @@
     {% include navigation.html %}
     <div id="main">
         <h2> {{ page.title }} </h2>
+        {% if page.headline %}
+        <p style="font-size:0.95em;color:#888;margin:-1em 0 1.2em;">{{ page.headline }}</p>
+        {% endif %}
 
         {% if page.translation_key %}
         <div id="translation-link" style="display:none;">

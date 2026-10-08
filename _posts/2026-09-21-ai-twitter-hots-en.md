@@ -7,6 +7,20 @@ keywords: AI, Twitter, Jev, Kev, DocJev, Claude Code, Devin, Fusion, Cline, Code
 lang: en
 translation_key: ai-twitter-hots-2026-09-21
 permalink: /2026/09/21/ai-twitter-hots-en
+issue: 10
+item_count: 10
+headline: "Jev goes fully open, Claude Code token-saving workshop, Harness Tax paper drops"
+highlights:
+  - label: "Jev goes fully open"
+    text: "Waitlist removed; same day open-sources Kev small model family and DocJev document classifier."
+  - label: "Claude Code token-saving workshop"
+    text: "Official workshop goes viral in the Japanese community; Devin SWE-2 cloud free for a limited time."
+  - label: "Harness Tax paper"
+    text: "UC Berkeley team finds similar success rates across harnesses but up to 5x cost difference — Pi is cheapest."
+products: [Jev, Claude Code, Devin, Cline, Codex]
+stat:
+  value: "5×"
+  caption: "Cost difference across harnesses (UC Berkeley)"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-09-21 (Mon)
