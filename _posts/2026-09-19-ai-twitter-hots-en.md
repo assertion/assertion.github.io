@@ -7,6 +7,17 @@ keywords: AI, Twitter, Claude Code, AGENTS.md, Jev, Codex, Cline, Devin, MiniMax
 lang: en
 translation_key: ai-twitter-hots-2026-09-19
 permalink: /2026/09/19/ai-twitter-hots-en
+issue: 8
+item_count: 11
+headline: "Claude Code adds AGENTS.md, Jev takes the spotlight, Codex complaints scatter"
+highlights:
+  - label: "Claude Code adds AGENTS.md"
+    text: "Falls back to community-standard agent instructions when CLAUDE.md is absent."
+  - label: "Jev takes the spotlight"
+    text: "Vercel AI Gateway Day-1 adoption, Cline jev-browser, and Codex+Jev comparison video."
+  - label: "Codex complaints scatter"
+    text: "Ask timeout auto-select, usage reset complaints, Model Catalog, mobile Voice, Pro 20x renewal."
+products: [Claude Code, Jev, Codex, Devin, Factory]
 ---
 
 # AI Twitter/X Highlights Digest · 2026-09-19 (Sat)

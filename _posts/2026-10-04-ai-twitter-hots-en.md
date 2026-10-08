@@ -7,6 +7,20 @@ keywords: AI, Twitter, Codex, OpenClaw, Antigravity, Pi Durable, OpenCode, T3 Co
 lang: en
 translation_key: ai-twitter-hots-2026-10-04
 permalink: /2026/10/04/ai-twitter-hots-en
+issue: 23
+item_count: 10
+headline: "Codex crowdsources pain points, Opus 5.5 enters IDEs, agents start running on phones"
+highlights:
+  - label: "Codex crowdsources"
+    text: "Tibo publicly asks 'what's Codex missing'; OpenCode 2 runs a parallel pain-point survey."
+  - label: "OpenClaw Android stuck in review"
+    text: "Over a week in Google review; Pi Durable runs multi-user agents on phones."
+  - label: "Models enter IDEs"
+    text: "Antigravity adds Opus 5.5 / Sonnet 5.5; Cline ships free Ling 3.1 Flash."
+products: [Codex, OpenCode, OpenClaw, Cline, Pi Durable]
+stat:
+  value: "1 wk+"
+  caption: "OpenClaw Android stuck in review"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-10-04 (Sun)

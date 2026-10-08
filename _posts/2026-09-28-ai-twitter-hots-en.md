@@ -7,6 +7,20 @@ keywords: AI, Twitter, Opus 5.5, Claude Code, OpenClaw, GPT-6 Astra, Codex, UFO,
 lang: en
 translation_key: ai-twitter-hots-2026-09-28
 permalink: /2026/09/28/ai-twitter-hots-en
+issue: 17
+item_count: 10
+headline: "Opus 5.5 from magic to maxed quotas, Cline ships Ember-1, UFO multi-agent OS launches"
+highlights:
+  - label: "Opus 5.5 maxes quotas"
+    text: "From 'magic' impressions to burning through Max quotas; ~4-6x limit usage vs Fable 5.1."
+  - label: "Cline ships Ember-1"
+    text: "Based on Kimi K3 with ~40% fewer tokens; Copilot highlights parallel agents."
+  - label: "UFO multi-agent OS"
+    text: "Multi-agent harness OS launches; plus Jev-as-a-Judge."
+products: [Opus 5.5, Cline, Copilot, UFO, Jev]
+stat:
+  value: "4–6×"
+  caption: "Opus 5.5 quota usage vs Fable 5.1"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-09-28 (Mon)

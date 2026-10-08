@@ -6,6 +6,17 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Pi, Claude Code, Jev, Laya, AutoJev, Devin, Meta Muse, ZCode, Trae, Qoder, AI-MEMORY
 lang: zh
 translation_key: ai-twitter-hots-2026-09-20
+issue: 9
+item_count: 9
+headline: "Pi 0.86 大版本，Claude Code AGENTS.md 反思，Jev 继续占屏"
+highlights:
+  - label: "Pi 0.86.0 大版本"
+    text: "对话中改 system / 动态 tools 且尽量保 KV cache，外加 cache warming 与 /bug。"
+  - label: "AGENTS.md 反思"
+    text: "「为什么慢了 16 个月」的反思，以及 Projects「好用但全在云端」的体感。"
+  - label: "Jev 继续占屏"
+    text: "进 Claude Code 的 Model Router、开源伴生 Laya、免费 classifier.dev 叫板。"
+products: [Pi, Claude Code, Jev, Devin, Laya]
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-20（周日）

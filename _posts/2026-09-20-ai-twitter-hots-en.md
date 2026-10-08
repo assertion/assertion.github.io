@@ -7,6 +7,17 @@ keywords: AI, Twitter, Pi, Claude Code, Jev, Laya, AutoJev, Devin, Meta Muse, ZC
 lang: en
 translation_key: ai-twitter-hots-2026-09-20
 permalink: /2026/09/20/ai-twitter-hots-en
+issue: 9
+item_count: 9
+headline: "Pi 0.86 major release, AGENTS.md reflection, Jev keeps dominating"
+highlights:
+  - label: "Pi 0.86.0 major release"
+    text: "Mid-conversation system/dynamic tools changes while preserving KV cache, plus cache warming and /bug."
+  - label: "AGENTS.md reflection"
+    text: "'Why it took 16 months' retrospective, plus Projects 'great but all in the cloud' user sentiment."
+  - label: "Jev keeps dominating"
+    text: "Enters Claude Code as Model Router, open-source companion Laya, free classifier.dev challenger."
+products: [Pi, Claude Code, Jev, Devin, Laya]
 ---
 
 # AI Twitter/X Highlights Digest · 2026-09-20 (Sun)

@@ -7,6 +7,20 @@ keywords: AI, Twitter, Codex, Claude Opus 5.5, GPT-6.1 Sol, Grok 4.7, pstack, DH
 lang: en
 translation_key: ai-twitter-hots-2026-10-05
 permalink: /2026/10/05/ai-twitter-hots-en
+issue: 24
+item_count: 10
+headline: "Codex starts 28-day sprint, sentiment tilts to Opus 5.5, Grok 4.7 tops two charts"
+highlights:
+  - label: "28-day sprint"
+    text: "One meaningful daily improvement or full team reset for 28 days; sentiment tilts to Opus 5.5."
+  - label: "Grok 4.7 tops two charts"
+    text: "First on both Frontier v4 and Cyber Index leaderboards."
+  - label: "pstack ships /correct"
+    text: "DHH has agents port Campfire to 5 tech stacks."
+products: [Codex, Opus 5.5, Grok 4.7, pstack, DHH]
+stat:
+  value: "28 days"
+  caption: "Codex daily improvement sprint"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-10-05 (Mon)

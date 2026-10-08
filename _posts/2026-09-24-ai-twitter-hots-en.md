@@ -7,6 +7,20 @@ keywords: AI, Twitter, Cursor, Claude Code, Claude Marketplace, Browser Use, Ope
 lang: en
 translation_key: ai-twitter-hots-2026-09-24
 permalink: /2026/09/24/ai-twitter-hots-en
+issue: 13
+item_count: 10
+headline: "Cursor agent costs drop 7%, Browser Use Bench redrawn by new models, harness debate heats up"
+highlights:
+  - label: "Cursor costs drop again"
+    text: "Agent token costs cut by ~7%, plus a long 'harness customization' prompt shared publicly."
+  - label: "Browser Use Bench redrawn"
+    text: "GPT-6 Sol / Luna and Opus 5.5 redraw the Pareto frontier."
+  - label: "Harness debate heats up"
+    text: "rauchg's Brain/Hands/Files, Google's self-improving harness paper, Jev use case deep dive."
+products: [Cursor, GPT-6, Opus 5.5, Jev, Browser Use]
+stat:
+  value: "7%"
+  caption: "Cursor agent token cost reduction"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-09-24 (Thu)

@@ -7,6 +7,20 @@ keywords: AI, Twitter, OpenClaw, Claude Code, Codex, Muse, OpenCode, Jev, CLM, B
 lang: en
 translation_key: ai-twitter-hots-2026-09-25
 permalink: /2026/09/25/ai-twitter-hots-en
+issue: 14
+item_count: 10
+headline: "OpenClaw cuts 400K lines of test code, Claude vs Codex sentiment flips, CLM extends System One"
+highlights:
+  - label: "OpenClaw cuts 400K lines"
+    text: "test-audit skill removes ~400K lines of self-test code with almost no coverage loss."
+  - label: "Subscription sentiment flips"
+    text: "Claude Code vs Codex sentiment flips again; Muse ships Mac computer use."
+  - label: "System One expands"
+    text: "Grows from Jev to CLM; Browser Use plays the Luna→Jev routing card."
+products: [OpenClaw, Claude Code, Codex, Muse, OpenCode]
+stat:
+  value: "400K lines"
+  caption: "Self-test code OpenClaw removed"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-09-25 (Fri)

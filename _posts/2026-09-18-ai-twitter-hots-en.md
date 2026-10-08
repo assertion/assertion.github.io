@@ -7,6 +7,17 @@ keywords: AI, Twitter, Claude Code, Projects, Devin, Factory, Raindrop, Exa, Kar
 lang: en
 translation_key: ai-twitter-hots-2026-09-18
 permalink: /2026/09/18/ai-twitter-hots-en
+issue: 7
+item_count: 9
+headline: "Claude Code Projects goes multi-session, Devin Fusion routing debate, Karpathy says code is assembly"
+highlights:
+  - label: "Claude Code takes the lead"
+    text: "Projects consolidates multi-session parallel agents into one project, plus a terminal-browser plugin."
+  - label: "Devin Fusion debate"
+    text: "Lead-sidekick model routing debate continues; plus an experiment giving a Ramp card to an agent."
+  - label: "Karpathy Sensei goes viral"
+    text: "Discussion about 'code is like assembly' sparks cultural debate."
+products: [Claude Code, Devin, Factory, Raindrop, Karpathy]
 ---
 
 # AI Twitter/X Highlights Digest · 2026-09-18 (Fri)

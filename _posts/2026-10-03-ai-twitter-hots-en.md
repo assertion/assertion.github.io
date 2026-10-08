@@ -7,6 +7,20 @@ keywords: AI, Twitter, GPT-6.1 Sol, Claude Mods, Claude Code, DeepSeek Harness, 
 lang: en
 translation_key: ai-twitter-hots-2026-10-03
 permalink: /2026/10/03/ai-twitter-hots-en
+issue: 22
+item_count: 10
+headline: "GPT-6.1 speed recovers, Claude Mods demo-ready, same model different harness = 2x gap"
+highlights:
+  - label: "GPT-6.1 Sol recovers"
+    text: "Paid ChatGPT global reset; speed returns to expected levels."
+  - label: "Claude Mods demo-ready"
+    text: "DeepSeek ships desktop Harness; Pi Durable integrates Cloudflare Agents SDK."
+  - label: "Same weights, different harness"
+    text: "62% vs 33% on the same model; T3 Code hits 400K users; Muse Gadgets open-sourced."
+products: [GPT-6.1 Sol, Claude Mods, T3 Code, DeepSeek, Pi Durable]
+stat:
+  value: "62 : 33"
+  caption: "Same weights, different harness scores"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-10-03 (Sat)

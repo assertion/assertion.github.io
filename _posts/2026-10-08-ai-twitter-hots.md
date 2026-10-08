@@ -6,6 +6,27 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Claude Haiku 5.5, Claude Code, GPT-6, Intelligent UI, ChatGPT, Codex, Grok Bot, Windows, MAI-Code, GitHub Copilot, tsc-rs, TypeScript, Cursor, Photocraft, DHH, Pi, OSC 7501, OpenCode, opentunnel
 lang: zh
 translation_key: ai-twitter-hots-2026-10-08
+issue: 27
+item_count: 11
+headline: "Haiku 5.5 降价十倍，GPT-6 进聊天页，agent 的成本账被摊开"
+highlights:
+  - label: "小模型与便宜算力成主线"
+    text: "Haiku 5.5（3.3 万赞）10 万 token 内只要 Haiku 4.5 的十分之一，Sonnet 5.5 缓存读取减半，Max / Team 每月附送 API credits；微软把 137B 的 MAI-Code 搬到本地 PC。"
+  - label: "入口被重做"
+    text: "GPT-6 带 Intelligent UI 进入 ChatGPT，回答可以直接是可交互界面；Codex 与 ChatGPT Work 活跃用户到 4000 万；Grok Bot 改为按任务挑后端模型（9.5 万赞）。"
+  - label: "成本账被摊开"
+    text: "Theo 的 tsc-rs 烧了约 40 万美元 Codex token 没做成，换 Opus 约 2 万美元两周搞定；Cursor 重度用量被推算到一年 1.32 亿美元，Theo 逐条反驳。"
+products: [Haiku 5.5, GPT-6, Codex, Grok Bot, Cursor]
+stats:
+  - value: "1/10"
+    caption: "Haiku 5.5 在 10 万 token 内的价格（对比 Haiku 4.5）"
+  - value: "4000 万"
+    caption: "Codex 与 ChatGPT Work 活跃用户新高"
+  - value: "$40 万 → $2 万"
+    caption: "tsc-rs：Codex token 没做成，换 Opus 两周搞定"
+stat:
+  value: "1/10"
+  caption: "Haiku 5.5 在 10 万 token 内的价格（对比 Haiku 4.5）"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-10-08（周四）

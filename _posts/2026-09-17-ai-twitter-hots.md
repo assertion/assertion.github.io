@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, OpenCode, Union Alpha, Cline, Devin, Claude Code, Codex, Qoder, Cursor, MCP
 lang: zh
 translation_key: ai-twitter-hots-2026-09-17
+issue: 6
+item_count: 9
+headline: "Union Alpha 空降免费模型，Devin Code Scans 全仓审计，Codex 容量告警"
+highlights:
+  - label: "Union Alpha 空降"
+    text: "OpenCode / OpenRouter 推约一周免费 stealth 编程模型，约 256K 上下文。"
+  - label: "Devin Code Scans"
+    text: "Agentic MapReduce 扩到任意目标全仓审计并开 PR。"
+  - label: "Codex 容量告警"
+    text: "体感集中在容量告警、Plan B，以及长上下文 / 频繁 compact。"
+products: [Union Alpha, Devin, Claude Code, Codex, Qoder]
+stat:
+  value: "256K"
+  caption: "Union Alpha 上下文窗口"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-17（周四）

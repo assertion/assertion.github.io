@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Opus 5.5, Claude Code, OpenClaw, GPT-6 Astra, Codex, UFO, Cline, Ember-1, Copilot, DeepSeek Harness, Jev, OpenCode
 lang: zh
 translation_key: ai-twitter-hots-2026-09-28
+issue: 17
+item_count: 10
+headline: "Opus 5.5 从魔法到刷爆配额，Cline 上架 Ember-1，UFO 多智能体 OS 上线"
+highlights:
+  - label: "Opus 5.5 刷爆配额"
+    text: "从「魔法」体感到刷爆 Max 配额；相对 Fable 5.1 约 4–6× 限额体感。"
+  - label: "Cline 上架 Ember-1"
+    text: "基于 Kimi K3，约少 40% tokens；Copilot 强调并行 agents。"
+  - label: "UFO 多智能体 OS"
+    text: "多智能体 harness OS 宣布上线；另有 Jev-as-a-Judge。"
+products: [Opus 5.5, Cline, Copilot, UFO, Jev]
+stat:
+  value: "4–6×"
+  caption: "Opus 5.5 相对 Fable 5.1 的限额消耗"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-28（周一）

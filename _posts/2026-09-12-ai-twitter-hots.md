@@ -4,6 +4,20 @@ title: AI Twitter 热点 · 2026-09-12
 categories: AI
 description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘要（约 10 条）
 keywords: AI, Twitter, Cursor, Claude Code, Codex, Devin, Qoder
+issue: 1
+item_count: 10
+headline: "Cursor Projects 上线，Devin Fusion 进指数，Anthropic 发威胁报告"
+highlights:
+  - label: "Cursor Projects 正式上线"
+    text: "持久协调 Agent + 并行 Subagents，讨论量断层领先。"
+  - label: "Devin Fusion / SWE-2 发布"
+    text: "Artificial Analysis 首次把多模型 harness 放进 Coding Agent Index。"
+  - label: "Anthropic 发布威胁报告"
+    text: "迄今最详 Threat Intelligence Report，Claude Code 被点名出现在真实滥用链中。"
+products: [Cursor, Devin, Anthropic, DeepSeek, Qoder]
+stat:
+  value: "6×"
+  caption: "Projects 用户合并 PR 倍数"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-12（周六）

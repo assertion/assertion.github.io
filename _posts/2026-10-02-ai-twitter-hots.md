@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Claude Mods, Claude Code, GPT-6.1 Sol, Gemini 4 Argon, DeepSeek Harness, Pi Durable, Cursor, GLM 5.3, Cloudflare clef, Factory, Grok Bot, Anthropic
 lang: zh
 translation_key: ai-twitter-hots-2026-10-02
+issue: 21
+item_count: 10
+headline: "Claude Mods 上线可分享插件，GPT-6.1 Sol 爆棚加容量，Pi 1.0 / Durable 并行"
+highlights:
+  - label: "Claude Mods 上线"
+    text: "用 TypeScript 改行为 / UI / 功能，插件可分享；design / deck / doc 享 50% 优惠。"
+  - label: "GPT-6.1 Sol 爆棚"
+    text: "需求爆棚、OpenAI 紧急加容量；浏览器任务分更高、缓存令牌更低。"
+  - label: "Pi 1.0 / Durable"
+    text: "Pi 1.0 与 Pi Durable 并行；Cursor 接入 GLM 5.3；Factory Automations GA。"
+products: [Claude Mods, GPT-6.1 Sol, Pi, Cursor, Factory]
+stat:
+  value: "50%"
+  caption: "Claude App design/deck/doc 用量优惠"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-10-02（周五）

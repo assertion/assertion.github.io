@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Codex, Claude, Jev Router, OpenCode, Cline, Pixel Canary, OpenClaw, Opus 5.5, DeepSeek Harness, OmO, pi, JAZ
 lang: zh
 translation_key: ai-twitter-hots-2026-09-27
+issue: 16
+item_count: 10
+headline: "Codex 宕机后重置限额，T3 Code 显示 Claude 人气翻倍，Jev 硬刚 Astra"
+highlights:
+  - label: "Codex 宕机后重置"
+    text: "短暂宕机后恢复，并对付费用户重置限额。"
+  - label: "Claude 人气约两倍"
+    text: "T3 Code 用量显示 Claude 人气已是 Codex 的约两倍。"
+  - label: "Jev 硬刚 Astra"
+    text: "Jev Router 被拿来硬刚 GPT-6 Astra；OpenCode 强调「赢的是 harness」。"
+products: [Codex, T3 Code, Claude, Jev, OpenCode]
+stat:
+  value: "2×"
+  caption: "T3 Code 中 Claude 对比 Codex 的人气"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-27（周日）

@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Codex, GPT-6.1 Sol, Reflection Beam, Devin, Agent Memory Repo, Claude Code, Cowork, Cursor SDK, gdp-ts, Pi Durable, pstack, Cline, Harness
 lang: zh
 translation_key: ai-twitter-hots-2026-10-06
+issue: 25
+item_count: 10
+headline: "Codex 默认提速一半，Beam 开放模型亮相，类型系统开始替人审 agent"
+highlights:
+  - label: "Codex 默认提速约 50%"
+    text: "GPT-6 Astra 与 GPT-6.1 Sol 默认提速约 50%；欧盟文本加水印。"
+  - label: "Beam 开放模型亮相"
+    text: "Reflection Beam：501B 总参 / 23B 激活，权重本月 Apache 2.0 发布。"
+  - label: "类型系统审 agent"
+    text: "Devin「Dreaming」夜间整理记忆；gdp-ts 用类型强制先鉴权。"
+products: [Codex, Beam, Devin, gdp-ts, OpenAI]
+stat:
+  value: "+50%"
+  caption: "Codex 订阅内默认速度"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-10-06（周二）

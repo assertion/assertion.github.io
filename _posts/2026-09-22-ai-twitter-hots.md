@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Grok 4.7, Devin, Cursor, MiMo, Jev, Cline, Copilot, Capy, Factory, IntelliJ
 lang: zh
 translation_key: ai-twitter-hots-2026-09-22
+issue: 11
+item_count: 10
+headline: "Grok 4.7 发布拿下多端，Devin 推 Cloud in Terminal，Cursor 合入 2500 PR"
+highlights:
+  - label: "Grok 4.7 发布"
+    text: "同价同速下明显强于 4.6；在 Cursor / Cline / Devin / Droid / VS 上线。"
+  - label: "Devin Cloud in Terminal"
+    text: "推出 devin ssh；同日把 Grok 4.7 接进 Cloud / Desktop / CLI。"
+  - label: "Cursor 一月合入约 2500 PR"
+    text: "Compile 缺席演讲变长文，poteto 复盘一个月的合入量。"
+products: [Grok 4.7, Devin, Cursor, Cline, MiMo]
+stat:
+  value: "2500"
+  caption: "Cursor 一月合入的 PR 数"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-22（周二）

@@ -7,6 +7,27 @@ keywords: AI, Twitter, Claude Haiku 5.5, Claude Code, GPT-6, Intelligent UI, Cha
 lang: en
 translation_key: ai-twitter-hots-2026-10-08
 permalink: /2026/10/08/ai-twitter-hots-en
+issue: 27
+item_count: 11
+headline: "Haiku 5.5 costs 10x less, GPT-6 enters ChatGPT, agent costs get itemized"
+highlights:
+  - label: "Small models and cheap compute set the agenda"
+    text: "Haiku 5.5 (33K likes) costs a tenth of Haiku 4.5 under 100K tokens; Sonnet 5.5 cache reads halved; Max / Team get monthly API credits. Microsoft brings 137B MAI-Code to local PCs."
+  - label: "The front door gets rebuilt"
+    text: "GPT-6 with Intelligent UI comes to ChatGPT — answers can be interactive interfaces; Codex + ChatGPT Work hits 40M active users; Grok Bot now picks the best back-end model per task (95K likes)."
+  - label: "Agent costs get itemized"
+    text: "Theo's tsc-rs burned ~$400K of Codex tokens with no result, then ~$20K of Opus finished it in two weeks; Cursor heavy usage extrapolated to $132M/yr, Theo rebuts point by point."
+products: [Haiku 5.5, GPT-6, Codex, Grok Bot, Cursor]
+stats:
+  - value: "1/10"
+    caption: "Haiku 5.5 price under 100K tokens (vs Haiku 4.5)"
+  - value: "40M"
+    caption: "Codex + ChatGPT Work active users, new high"
+  - value: "$400K → $20K"
+    caption: "tsc-rs: Codex tokens failed, Opus finished in 2 weeks"
+stat:
+  value: "1/10"
+  caption: "Haiku 5.5 price under 100K tokens (vs Haiku 4.5)"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-10-08 (Thu)

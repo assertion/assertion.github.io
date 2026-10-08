@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Copilot, OpenClaw, Claude Code, Opus 5.5, Codex, Cognition, Devin, Cline, DeepSeek Harness, Zed, Linear
 lang: zh
 translation_key: ai-twitter-hots-2026-09-26
+issue: 15
+item_count: 10
+headline: "Copilot 史上最大更新，Devin 年化收入过 10 亿，Claude Code 新技巧三连"
+highlights:
+  - label: "Copilot 史上最大更新"
+    text: "Autopilot / Code / Home / Office 并与 OpenClaw 合作落地企业部署。"
+  - label: "Devin 年化收入过 $1B"
+    text: "Cognition 称 Devin 年化经常性收入跑过 10 亿美元。"
+  - label: "Claude Code 新技巧"
+    text: "Slack 里的 Tag、5 小时限额优雅收尾、/checkup prompt-audit。"
+products: [Copilot, Devin, Claude Code, OpenClaw, Opus 5.5]
+stat:
+  value: "$1B"
+  caption: "Devin 年化经常性收入"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-26（周六）

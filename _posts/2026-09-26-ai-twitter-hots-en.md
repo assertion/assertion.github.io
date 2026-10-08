@@ -7,6 +7,20 @@ keywords: AI, Twitter, Copilot, OpenClaw, Claude Code, Opus 5.5, Codex, Cognitio
 lang: en
 translation_key: ai-twitter-hots-2026-09-26
 permalink: /2026/09/26/ai-twitter-hots-en
+issue: 15
+item_count: 10
+headline: "Copilot biggest update ever, Devin ARR passes $1B, Claude Code triple feature"
+highlights:
+  - label: "Copilot biggest update ever"
+    text: "Autopilot / Code / Home / Office plus enterprise deployment with OpenClaw."
+  - label: "Devin ARR passes $1B"
+    text: "Cognition says Devin's annualized recurring revenue has passed $1 billion."
+  - label: "Claude Code triple feature"
+    text: "Tag in Slack, graceful 5-hour limit handling, /checkup prompt-audit."
+products: [Copilot, Devin, Claude Code, OpenClaw, Opus 5.5]
+stat:
+  value: "$1B"
+  caption: "Devin annualized recurring revenue"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-09-26 (Sat)

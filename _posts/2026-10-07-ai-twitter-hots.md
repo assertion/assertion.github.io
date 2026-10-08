@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Claude, Google Workspace, Mistral Large 4, Codex, Auto-review, Decisions API, OpenAI math, Claude Code, Grok Bot, OpenCode, T3 Code, Ghostty, OSC 7501, Pi, Codemode
 lang: zh
 translation_key: ai-twitter-hots-2026-10-07
+issue: 26
+item_count: 10
+headline: "Claude 进了 Google 文档，Mistral 放出 1T 大模型，Codex 第二天交卷"
+highlights:
+  - label: "Claude 进 Google Workspace"
+    text: "进入 Docs / Sheets / Slides 侧边栏（2.2 万赞）；Mistral Large 4 为 1T 总参，今天只有 API。"
+  - label: "Codex Day 2 四连发"
+    text: "Auto-review 免费、Decisions API 公测，并公开 722 篇数学稿件。"
+  - label: "OSC 7501 发布"
+    text: "Ghostty 作者发布终端状态规范，终结 250 多个 agent 编排器的猜测。"
+products: [Claude, Mistral, Codex, OSC 7501, Pi]
+stat:
+  value: "1T"
+  caption: "Mistral Large 4 总参数"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-10-07（周三）

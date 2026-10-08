@@ -7,6 +7,20 @@ keywords: AI, Twitter, Claude, Google Workspace, Mistral Large 4, Codex, Auto-re
 lang: en
 translation_key: ai-twitter-hots-2026-10-07
 permalink: /2026/10/07/ai-twitter-hots-en
+issue: 26
+item_count: 10
+headline: "Claude enters Google Docs, Mistral ships 1T model, Codex delivers on Day 2"
+highlights:
+  - label: "Claude enters Google Workspace"
+    text: "In Docs / Sheets / Slides sidebar (22K likes); Mistral Large 4 at 1T total params, API only today."
+  - label: "Codex Day 2 quadruple drop"
+    text: "Auto-review goes free, Decisions API in public beta, 722 math papers released."
+  - label: "OSC 7501 published"
+    text: "Ghostty author publishes terminal status spec to end 250+ agent orchestrators' guessing game."
+products: [Claude, Mistral, Codex, OSC 7501, Pi]
+stat:
+  value: "1T"
+  caption: "Mistral Large 4 total parameters"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-10-07 (Wed)

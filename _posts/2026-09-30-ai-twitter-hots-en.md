@@ -7,6 +7,20 @@ keywords: AI, Twitter, OpenAI DevDay, Dots, GPT-6.1 Sol, Ultrafast, Codex, Curso
 lang: en
 translation_key: ai-twitter-hots-2026-09-30
 permalink: /2026/09/30/ai-twitter-hots-en
+issue: 19
+item_count: 10
+headline: "OpenAI DevDay ships Dots / GPT-6.1 Sol / 300 tok/s, Sign in with ChatGPT connects 16+ products"
+highlights:
+  - label: "DevDay triple launch"
+    text: "Always-on personal agent Dots, GPT-6.1 Sol (~1/5 Astra price), up to ~300 tok/s Ultrafast."
+  - label: "Subscriptions reach third parties"
+    text: "Sign in with ChatGPT lets you use quota with 16+ products like Devin, OpenCode, Notion."
+  - label: "Tools update"
+    text: "Cursor ships in-chat /visualize; OpenClaw Enterprise open-sources its control plane."
+products: [Dots, GPT-6.1 Sol, Codex, Cursor, OpenClaw]
+stat:
+  value: "300 tok/s"
+  caption: "Ultrafast / Pro 500 top speed"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-09-30 (Wed)

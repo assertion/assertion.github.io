@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Claude Opus 5.5, GPT-6, Cursor, Devin, OpenCode, Grok 4.7, harness, Factory, Jev, Cline
 lang: zh
 translation_key: ai-twitter-hots-2026-09-23
+issue: 12
+item_count: 10
+headline: "Opus 5.5 发布成 Claude Code 默认，GPT-6 Sol/Luna 跟进，OpenCode 2.0 亮相"
+highlights:
+  - label: "Claude Opus 5.5 发布"
+    text: "对标 Fable 5.1 智力、比 Opus 5 更便宜；成为 Claude Code 默认模型。"
+  - label: "GPT-6 Sol / Luna 跟进"
+    text: "约一百分钟后发布，强调 coding / computer use，API 价格再砍约一半。"
+  - label: "OpenCode 2.0 亮相"
+    text: "谈「会话中实时改自身」，Grok 4.7 进入次日实战与批评。"
+products: [Opus 5.5, GPT-6, OpenCode, Grok 4.7, Cursor]
+stat:
+  value: "~100 分钟"
+  caption: "Opus 5.5 与 GPT-6 发布间隔"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-23（周三）

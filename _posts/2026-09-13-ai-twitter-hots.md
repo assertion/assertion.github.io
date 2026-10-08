@@ -4,6 +4,17 @@ title: AI Twitter 热点 · 2026-09-13
 categories: AI
 description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘要（约 10 条）
 keywords: AI, Twitter, Cursor, Claude Code, Codex, Devin, Copilot
+issue: 2
+item_count: 10
+headline: "AI Engineering Coach 开源，Claude+Codex 一起用，Projects 周末发酵"
+highlights:
+  - label: "AI Engineering Coach 开源"
+    text: "微软社区项目（MIT），本地读多 harness 会话日志，做自省仪表盘。"
+  - label: "Claude Code × Codex 一起用"
+    text: "工作流教程刷屏：Codex 干活、Claude 当顾问，不是二选一。"
+  - label: "Cursor Projects 持续发酵"
+    text: "中文圈对比 Grok Build（本机）vs Projects（云端舰队）。"
+products: [Microsoft, Claude Code, Codex, Cursor, Devin]
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-13（周日）

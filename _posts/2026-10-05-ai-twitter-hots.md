@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Codex, Claude Opus 5.5, GPT-6.1 Sol, Grok 4.7, pstack, DHH, Rust, Agent UI, VeriHarness, LangChain, Cline, DeepSeek, Qwen
 lang: zh
 translation_key: ai-twitter-hots-2026-10-05
+issue: 24
+item_count: 10
+headline: "Codex 开始 28 天冲刺，口碑倒向 Opus 5.5，Grok 4.7 拿下双榜"
+highlights:
+  - label: "28 天冲刺"
+    text: "28 天内每天一个有感改进，否则全员 reset；口碑倒向 Opus 5.5。"
+  - label: "Grok 4.7 双榜第一"
+    text: "在 Frontier v4 与 Cyber Index 双榜第一。"
+  - label: "pstack 推 /correct"
+    text: "DHH 让 agent 把 Campfire 移植到 5 种技术栈。"
+products: [Codex, Opus 5.5, Grok 4.7, pstack, DHH]
+stat:
+  value: "28 天"
+  caption: "Codex 每日改进冲刺"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-10-05（周一）

@@ -6,6 +6,20 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Jev, Kev, DocJev, Claude Code, Devin, Fusion, Cline, Codex, OpenCode, Muse, Pi, Harness Tax
 lang: zh
 translation_key: ai-twitter-hots-2026-09-21
+issue: 10
+item_count: 10
+headline: "Jev 全面开放，Claude Code 省 token 工作坊，Harness Tax 论文出炉"
+highlights:
+  - label: "Jev 全面开放"
+    text: "取消 waitlist；同日开源 Kev 小模型家族与 DocJev 文档分类库，生态一天三连。"
+  - label: "Claude Code 省 token 工作坊"
+    text: "官方工作坊被日语圈疯狂转发；Devin SWE-2 云端限时免费。"
+  - label: "Harness Tax 论文"
+    text: "UC Berkeley 团队发现换 harness 成功率差不多，费用最多差 5 倍——Pi 最省。"
+products: [Jev, Claude Code, Devin, Cline, Codex]
+stat:
+  value: "5×"
+  caption: "不同 harness 间的成本差异（UC Berkeley）"
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-21（周一）

@@ -7,6 +7,20 @@ keywords: AI, Twitter, Grok 4.7, Devin, Cursor, MiMo, Jev, Cline, Copilot, Capy,
 lang: en
 translation_key: ai-twitter-hots-2026-09-22
 permalink: /2026/09/22/ai-twitter-hots-en
+issue: 11
+item_count: 10
+headline: "Grok 4.7 launches across platforms, Devin ships Cloud in Terminal, Cursor merges 2500 PRs"
+highlights:
+  - label: "Grok 4.7 launches"
+    text: "Clearly stronger than 4.6 at the same price and speed; live on Cursor / Cline / Devin / Droid / VS."
+  - label: "Devin Cloud in Terminal"
+    text: "Ships devin ssh; same day adds Grok 4.7 to Cloud / Desktop / CLI."
+  - label: "Cursor merges ~2500 PRs in a month"
+    text: "Compile talk becomes a blog post; poteto recaps the month's merge volume."
+products: [Grok 4.7, Devin, Cursor, Cline, MiMo]
+stat:
+  value: "2500"
+  caption: "PRs Cursor merged in one month"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-09-22 (Tue)

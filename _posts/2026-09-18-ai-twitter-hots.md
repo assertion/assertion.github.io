@@ -6,6 +6,17 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Claude Code, Projects, Devin, Factory, Raindrop, Exa, Karpathy, ProgramAsWeights, terminal-browser
 lang: zh
 translation_key: ai-twitter-hots-2026-09-18
+issue: 7
+item_count: 9
+headline: "Claude Code Projects 多会话并行，Devin Fusion 路由争论，Karpathy 谈代码如汇编"
+highlights:
+  - label: "Claude Code 成主线"
+    text: "Projects 把多会话并行 agent 收到一个项目，还有 terminal-browser 插件。"
+  - label: "Devin Fusion 争论"
+    text: "主从模型路由争论继续；另有「给 Ramp 卡让它自己赚钱」的实验叙事。"
+  - label: "Karpathy Sensei 高赞"
+    text: "讨论「代码像汇编」，引发文化侧热议。"
+products: [Claude Code, Devin, Factory, Raindrop, Karpathy]
 ---
 
 # AI Twitter/X 热点 Digest · 2026-09-18（周五）

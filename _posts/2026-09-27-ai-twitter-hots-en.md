@@ -7,6 +7,20 @@ keywords: AI, Twitter, Codex, Claude, Jev Router, OpenCode, Cline, Pixel Canary,
 lang: en
 translation_key: ai-twitter-hots-2026-09-27
 permalink: /2026/09/27/ai-twitter-hots-en
+issue: 16
+item_count: 10
+headline: "Codex resets limits after outage, T3 Code shows Claude 2x more popular, Jev takes on Astra"
+highlights:
+  - label: "Codex resets after outage"
+    text: "Brief outage followed by usage limit reset for all paid users."
+  - label: "Claude ~2x more popular"
+    text: "T3 Code usage data shows Claude roughly twice as popular as Codex."
+  - label: "Jev takes on Astra"
+    text: "Jev Router pitched against GPT-6 Astra; OpenCode insists 'the harness wins.'"
+products: [Codex, T3 Code, Claude, Jev, OpenCode]
+stat:
+  value: "2×"
+  caption: "Claude vs Codex popularity in T3 Code"
 ---
 
 # AI Twitter/X Highlights Digest · 2026-09-27 (Sun)
