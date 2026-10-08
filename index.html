@@ -2,42 +2,253 @@
 layout: default
 description: 代码的回声
 keywords: AI, software, notes
+body_class: page-home
 ---
 
 {% comment %}
-jekyll-paginate counts every file in _posts, so paginator.posts mixes ZH/EN twins
-and each homepage page shows fewer than paginate unique articles. Slice the
-primary (non-en) posts instead, and keep each EN twin in the DOM so the
-language switcher can still swap titles in place.
+  Homepage — Option C: dark hero for the latest issue + 3-column grid of past-issue cards.
+  jekyll-paginate counts every file in _posts, so paginator.posts mixes ZH/EN twins.
+  We slice primary (non-en) posts ourselves, keeping EN twins in the DOM so the
+  language switcher can still swap content in place.
 {% endcomment %}
+
 {% assign per_page = site.paginate | default: 15 %}
 {% assign page_offset = paginator.page | minus: 1 | times: per_page %}
-{% assign page_end = page_offset | plus: per_page %}
+{% assign page_end    = page_offset | plus: per_page %}
 {% assign unique_index = 0 %}
+{% assign card_index   = 0 %}
+{% assign is_first_page = false %}
+{% if paginator.page == 1 %}{% assign is_first_page = true %}{% endif %}
 
-<div class="postlist">
-    {% for post in site.posts %}
-      {% unless post.lang == 'en' %}
-        {% if unique_index >= page_offset and unique_index < page_end %}
-    <div class="overview" data-post-lang="{{ post.lang | default: 'zh' }}" data-translation-key="{{ post.translation_key }}">
-        <div class="date">{{ post.date | date: "%b %d, %Y" }}</div>
-        <div class="detail"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
+{% comment %} Count unique (non-EN) posts for pagination {% endcomment %}
+{% assign unique_total = 0 %}
+{% for post in site.posts %}
+  {% unless post.lang == 'en' %}
+    {% assign unique_total = unique_total | plus: 1 %}
+  {% endunless %}
+{% endfor %}
+{% assign unique_pages = unique_total | plus: per_page | minus: 1 | divided_by: per_page %}
+
+{% for post in site.posts %}
+  {% unless post.lang == 'en' %}
+    {% if unique_index >= page_offset and unique_index < page_end %}
+
+      {% comment %} Find EN twin if exists {% endcomment %}
+      {% assign en_twin = nil %}
+      {% if post.translation_key %}
+        {% assign en_twin = site.posts | where: "translation_key", post.translation_key | where: "lang", "en" | first %}
+      {% endif %}
+
+      {% comment %} Compute weekday strings {% endcomment %}
+      {% assign wday_num = post.date | date: "%w" | plus: 0 %}
+      {% case wday_num %}
+        {% when 0 %}{% assign wday_zh = "周日" %}{% assign wday_en = "Sun" %}
+        {% when 1 %}{% assign wday_zh = "周一" %}{% assign wday_en = "Mon" %}
+        {% when 2 %}{% assign wday_zh = "周二" %}{% assign wday_en = "Tue" %}
+        {% when 3 %}{% assign wday_zh = "周三" %}{% assign wday_en = "Wed" %}
+        {% when 4 %}{% assign wday_zh = "周四" %}{% assign wday_en = "Thu" %}
+        {% when 5 %}{% assign wday_zh = "周五" %}{% assign wday_en = "Fri" %}
+        {% when 6 %}{% assign wday_zh = "周六" %}{% assign wday_en = "Sat" %}
+      {% endcase %}
+
+      {% comment %} Determine display fields with fallbacks {% endcomment %}
+      {% assign display_headline = post.headline | default: post.title %}
+      {% assign is_digest = false %}
+      {% if post.issue %}{% assign is_digest = true %}{% endif %}
+
+      {% comment %} ═══════ HERO (first post on first page) ═══════ {% endcomment %}
+      {% if is_first_page and card_index == 0 %}
+
+<section class="hero" data-post-lang="{{ post.lang | default: 'zh' }}" data-translation-key="{{ post.translation_key }}">
+  <div class="hero-txt">
+    {% if is_digest %}
+    <div class="hero-eyebrow">
+      <span data-i18n-zh="第 {{ post.issue | prepend: '000' | slice: -3, 3 }} 期 · {{ post.date | date: '%m' | plus: 0 }} 月 {{ post.date | date: '%d' | plus: 0 }} 日 {{ wday_zh }} · {{ post.item_count | default: '?' }} 条" data-i18n-en="Issue {{ post.issue | prepend: '000' | slice: -3, 3 }} · {{ post.date | date: '%b %d' }} {{ wday_en }} · {{ post.item_count | default: '?' }} items">第 {{ post.issue | prepend: '000' | slice: -3, 3 }} 期 · {{ post.date | date: '%m' | plus: 0 }} 月 {{ post.date | date: '%d' | plus: 0 }} 日 {{ wday_zh }} · {{ post.item_count | default: '?' }} 条</span>
     </div>
-          {% if post.translation_key %}
-            {% for twin in site.posts %}
-              {% if twin.lang == 'en' and twin.translation_key == post.translation_key %}
-    <div class="overview" data-post-lang="en" data-translation-key="{{ twin.translation_key }}">
-        <div class="date">{{ twin.date | date: "%b %d, %Y" }}</div>
-        <div class="detail"><a href="{{ site.baseurl }}{{ twin.url }}">{{ twin.title }}</a></div>
+    {% endif %}
+    <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ display_headline }}</a></h2>
+    {% if post.highlights %}
+    <ol>
+      {% for hl in post.highlights %}
+      <li><b>{{ hl.label }}。</b>{{ hl.text }}</li>
+      {% endfor %}
+    </ol>
+    {% endif %}
+    <a class="hero-more" href="{{ site.baseurl }}{{ post.url }}" data-i18n-zh="阅读本期全文 →" data-i18n-en="Read full issue →">阅读本期全文 →</a>
+  </div>
+  <div class="hero-stats">
+    {% if is_digest %}<div class="hero-bigno">{{ post.issue | prepend: '000' | slice: -3, 3 }}</div>{% endif %}
+    {% if post.stats %}
+      {% for s in post.stats %}
+      <div class="hero-stat"><em>{{ s.value }}</em><span>{{ s.caption }}</span></div>
+      {% endfor %}
+    {% elsif post.stat %}
+      <div class="hero-stat"><em>{{ post.stat.value }}</em><span>{{ post.stat.caption }}</span></div>
+    {% endif %}
+  </div>
+</section>
+
+      {% comment %} EN twin hero (hidden by default, shown by i18n.js) {% endcomment %}
+      {% if en_twin %}
+<section class="hero" data-post-lang="en" data-translation-key="{{ en_twin.translation_key }}" style="display:none;">
+  <div class="hero-txt">
+    {% if en_twin.issue %}
+    <div class="hero-eyebrow">
+      <span>Issue {{ en_twin.issue | prepend: '000' | slice: -3, 3 }} · {{ en_twin.date | date: '%b %d' }} {{ wday_en }} · {{ en_twin.item_count | default: '?' }} items</span>
     </div>
-                {% break %}
-              {% endif %}
-            {% endfor %}
-          {% endif %}
-        {% endif %}
-        {% assign unique_index = unique_index | plus: 1 %}
-        {% if unique_index >= page_end %}{% break %}{% endif %}
-      {% endunless %}
-    {% endfor %}
+    {% endif %}
+    <h2><a href="{{ site.baseurl }}{{ en_twin.url }}">{{ en_twin.headline | default: en_twin.title }}</a></h2>
+    {% if en_twin.highlights %}
+    <ol>
+      {% for hl in en_twin.highlights %}
+      <li><b>{{ hl.label }}.</b> {{ hl.text }}</li>
+      {% endfor %}
+    </ol>
+    {% endif %}
+    <a class="hero-more" href="{{ site.baseurl }}{{ en_twin.url }}">Read full issue →</a>
+  </div>
+  <div class="hero-stats">
+    {% if en_twin.issue %}<div class="hero-bigno">{{ en_twin.issue | prepend: '000' | slice: -3, 3 }}</div>{% endif %}
+    {% if en_twin.stats %}
+      {% for s in en_twin.stats %}
+      <div class="hero-stat"><em>{{ s.value }}</em><span>{{ s.caption }}</span></div>
+      {% endfor %}
+    {% elsif en_twin.stat %}
+      <div class="hero-stat"><em>{{ en_twin.stat.value }}</em><span>{{ en_twin.stat.caption }}</span></div>
+    {% endif %}
+  </div>
+</section>
+      {% endif %}
+
+      {% comment %} Section header between hero and grid {% endcomment %}
+<div class="home-sec">
+  <span data-i18n-zh="往期" data-i18n-en="Past Issues">往期</span>
+  <span data-i18n-zh="每页 {{ per_page }} 期 · 共 {{ unique_total }} 篇" data-i18n-en="{{ per_page }} per page · {{ unique_total }} posts total">每页 {{ per_page }} 期 · 共 {{ unique_total }} 篇</span>
 </div>
+<div class="home-grid">
+
+      {% comment %} ═══════ CARD (remaining posts) ═══════ {% endcomment %}
+      {% else %}
+
+      {% comment %} Color rotation for cover {% endcomment %}
+      {% if is_digest %}
+        {% assign cov_mod = post.issue | modulo: 5 | plus: 1 %}
+      {% else %}
+        {% assign cov_mod = card_index | modulo: 5 | plus: 1 %}
+      {% endif %}
+
+      {% comment %} Date chip text {% endcomment %}
+      {% assign date_chip_zh = post.date | date: '%m' | plus: 0 | append: '.' | append: '' %}{% assign day_num = post.date | date: '%d' | plus: 0 %}{% capture date_chip_zh %}{{ post.date | date: '%m' | plus: 0 }}.{{ day_num }} {{ wday_zh }}{% endcapture %}
+      {% capture date_chip_en %}{{ post.date | date: '%b %d' }} {{ wday_en }}{% endcapture %}
+
+  <article class="home-card{% unless is_digest %} plain-card{% endunless %}" data-post-lang="{{ post.lang | default: 'zh' }}" data-translation-key="{{ post.translation_key }}">
+    {% if is_digest %}
+    <div class="card-cov cov-{{ cov_mod }}">
+      <span class="card-date" data-i18n-zh="{{ date_chip_zh }}" data-i18n-en="{{ date_chip_en }}">{{ date_chip_zh }}</span>
+      {% if post.stat %}
+      <div class="card-num">{{ post.stat.value }}</div>
+      <div class="card-cap">{{ post.stat.caption }}</div>
+      {% else %}
+      <div class="card-num">{{ post.issue | prepend: '000' | slice: -3, 3 }}</div>
+      {% endif %}
+      {% if post.products %}<div class="card-tags">{{ post.products | join: ' · ' }}</div>{% endif %}
+    </div>
+    {% endif %}
+    <div class="card-body">
+      {% if is_digest %}
+      <div class="card-issue" data-i18n-zh="第 {{ post.issue | prepend: '000' | slice: -3, 3 }} 期 · {{ post.item_count | default: '?' }} 条" data-i18n-en="Issue {{ post.issue | prepend: '000' | slice: -3, 3 }} · {{ post.item_count | default: '?' }} items">第 {{ post.issue | prepend: '000' | slice: -3, 3 }} 期 · {{ post.item_count | default: '?' }} 条</div>
+      {% else %}
+      <div class="card-issue">{{ post.categories | join: ' · ' }}</div>
+      {% endif %}
+      <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ display_headline }}</a></h3>
+      {% if post.highlights %}
+      <ul>
+        {% for hl in post.highlights %}
+        <li>{{ hl.label }}{% if hl.text %}：{{ hl.text }}{% endif %}</li>
+        {% endfor %}
+      </ul>
+      {% elsif post.description %}
+      <ul><li>{{ post.description | strip_html | truncate: 120 }}</li></ul>
+      {% endif %}
+    </div>
+  </article>
+
+      {% comment %} EN twin card (hidden by default) {% endcomment %}
+      {% if en_twin %}
+  <article class="home-card{% unless is_digest %} plain-card{% endunless %}" data-post-lang="en" data-translation-key="{{ en_twin.translation_key }}" style="display:none;">
+    {% if is_digest %}
+    <div class="card-cov cov-{{ cov_mod }}">
+      <span class="card-date">{{ date_chip_en }}</span>
+      {% if en_twin.stat %}
+      <div class="card-num">{{ en_twin.stat.value }}</div>
+      <div class="card-cap">{{ en_twin.stat.caption }}</div>
+      {% else %}
+      <div class="card-num">{{ en_twin.issue | prepend: '000' | slice: -3, 3 }}</div>
+      {% endif %}
+      {% if en_twin.products %}<div class="card-tags">{{ en_twin.products | join: ' · ' }}</div>{% endif %}
+    </div>
+    {% endif %}
+    <div class="card-body">
+      {% if is_digest %}
+      <div class="card-issue">Issue {{ en_twin.issue | prepend: '000' | slice: -3, 3 }} · {{ en_twin.item_count | default: '?' }} items</div>
+      {% else %}
+      <div class="card-issue">{{ en_twin.categories | join: ' · ' }}</div>
+      {% endif %}
+      <h3><a href="{{ site.baseurl }}{{ en_twin.url }}">{{ en_twin.headline | default: en_twin.title }}</a></h3>
+      {% if en_twin.highlights %}
+      <ul>
+        {% for hl in en_twin.highlights %}
+        <li>{{ hl.label }}{% if hl.text %}: {{ hl.text }}{% endif %}</li>
+        {% endfor %}
+      </ul>
+      {% elsif en_twin.description %}
+      <ul><li>{{ en_twin.description | strip_html | truncate: 120 }}</li></ul>
+      {% endif %}
+    </div>
+  </article>
+      {% endif %}
+
+      {% endif %}
+      {% assign card_index = card_index | plus: 1 %}
+    {% endif %}
+    {% assign unique_index = unique_index | plus: 1 %}
+    {% if unique_index >= page_end %}{% break %}{% endif %}
+  {% endunless %}
+{% endfor %}
+
+{% comment %} Close the grid if we opened it (i.e. had more than just hero) {% endcomment %}
+{% if card_index > 1 or is_first_page == false %}
+</div>
+{% endif %}
+
+{% comment %} ═══════ Pagination ═══════ {% endcomment %}
+<div class="home-pager">
+  {% if paginator.page > 1 %}
+    {% assign prev_page = paginator.page | minus: 1 %}
+    {% if prev_page == 1 %}
+    <a href="/" data-i18n-zh="‹ 前页" data-i18n-en="‹ Prev">‹ 前页</a>
+    {% else %}
+    <a href="/page{{ prev_page }}" data-i18n-zh="‹ 前页" data-i18n-en="‹ Prev">‹ 前页</a>
+    {% endif %}
+  {% else %}
+    <span data-i18n-zh="‹ 前页" data-i18n-en="‹ Prev">‹ 前页</span>
+  {% endif %}
+
+  <span>
+    {% if paginator.page == 1 %}<b>1</b>{% else %}<a href="/">1</a>{% endif %}
+    {% for count in (2..unique_pages) %}
+      {% if count == paginator.page %}<b>{{ count }}</b>{% else %}<a href="/page{{ count }}">{{ count }}</a>{% endif %}
+    {% endfor %}
+  </span>
+
+  {% if paginator.page < unique_pages %}
+    {% assign next_page = paginator.page | plus: 1 %}
+    <a href="/page{{ next_page }}" data-i18n-zh="后页 ›" data-i18n-en="Next ›">后页 ›</a>
+  {% else %}
+    <span data-i18n-zh="后页 ›" data-i18n-en="Next ›">后页 ›</span>
+  {% endif %}
+</div>
+
+<p class="home-note" data-i18n-zh="头版与卡片均渲染中文稿，英文孪生稿作为隐藏节点留在同一卡片内，供现有语言开关就地替换。卡片「封面」是排版生成的数字封面（front matter 的 stat 字段，取自要点里的真实数字），不依赖推文截图；无 stat 时退化为期号大字。每页 {{ per_page }} 个不重复条目。" data-i18n-en="The hero and cards render the Chinese edition; English twins stay in the DOM as hidden siblings so the language switcher can swap them in place. Card covers are typographic number blocks (the stat field from front matter, sourced from real figures in the highlights), not tweet screenshots; posts without a stat fall back to a large issue number. {{ per_page }} unique posts per page.">头版与卡片均渲染中文稿，英文孪生稿作为隐藏节点留在同一卡片内，供现有语言开关就地替换。卡片「封面」是排版生成的数字封面（front matter 的 stat 字段，取自要点里的真实数字），不依赖推文截图；无 stat 时退化为期号大字。每页 {{ per_page }} 个不重复条目。</p>
+
 {% include pagination.html %}

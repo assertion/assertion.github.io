@@ -9,6 +9,9 @@
         <link rel="stylesheet" href="{{ site.baseurl }}/css/default.css" type="text/css" />
         <link rel="stylesheet" href="{{ site.baseurl }}/css/small.css" type="text/css" media="(max-width: 720px)"/>
         <link rel="stylesheet" href="{{ site.baseurl }}/css/syntax.css" type="text/css" />
+        {% if page.body_class contains 'page-home' %}
+        <link rel="stylesheet" href="{{ site.baseurl }}/css/home.css" type="text/css" />
+        {% endif %}
         <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico" type="image/x-icon" />
         <script>
         (function(){
@@ -17,4 +20,4 @@
         })();
         </script>
 </head>
-    <body>
+    <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
