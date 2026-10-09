@@ -151,6 +151,13 @@ div.nav a:hover {
   line-height: 1.35;
 }
 
+/* ─── View count ─── */
+.views-count {
+  font-family: var(--sans);
+  font-size: inherit;
+  color: var(--muted);
+}
+
 /* ─── Footer ─── */
 .site-footer {
   max-width: 1060px;

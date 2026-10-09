@@ -16,6 +16,8 @@
         {% endcase %}
         {% capture date_zh %}{{ page.date | date: '%Y' }} 年 {{ page.date | date: '%m' | plus: 0 }} 月 {{ page.date | date: '%d' | plus: 0 }} 日 {{ wday_zh }}{% endcapture %}
         {% capture date_en %}{{ page.date | date: '%b %d, %Y' }}{% endcapture %}
+        {% assign views_key = page.translation_key | default: nil %}
+        {% unless views_key %}{% capture views_key %}{{ page.date | date: '%Y-%m-%d' }}-{{ page.slug }}{% endcapture %}{% endunless %}
 
         <div class="post-header">
             {% if page.headline %}
@@ -26,7 +28,7 @@
                 {% else %}
                 <span class="meta-label">{{ page.title }}</span>
                 {% endif %}
-                <span data-i18n-zh="{{ date_zh }}" data-i18n-en="{{ date_en }}">{{ date_zh }}</span>
+                <span><span data-i18n-zh="{{ date_zh }}" data-i18n-en="{{ date_en }}">{{ date_zh }}</span> · <span class="views-count" data-views-key="{{ views_key }}" data-views-post style="visibility:hidden;" data-i18n-zh="阅读 …" data-i18n-en="… views">阅读 …</span></span>
               </div>
               <h1>{{ page.headline }}</h1>
             {% else %}
@@ -37,7 +39,7 @@
                 {% else %}
                 <span class="meta-label">{{ page.categories | join: ' · ' }}</span>
                 {% endif %}
-                <span data-i18n-zh="{{ date_zh }}" data-i18n-en="{{ date_en }}">{{ date_zh }}</span>
+                <span><span data-i18n-zh="{{ date_zh }}" data-i18n-en="{{ date_en }}">{{ date_zh }}</span> · <span class="views-count" data-views-key="{{ views_key }}" data-views-post style="visibility:hidden;" data-i18n-zh="阅读 …" data-i18n-en="… views">阅读 …</span></span>
               </div>
               <h1>{{ page.title }}</h1>
             {% endif %}

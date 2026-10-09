@@ -48,6 +48,9 @@ body_class: page-home
 
       {% capture date_zh %}{{ post.date | date: '%Y' }} 年 {{ post.date | date: '%m' | plus: 0 }} 月 {{ post.date | date: '%d' | plus: 0 }} 日{% endcapture %}
       {% capture date_en %}{{ post.date | date: '%b %d, %Y' }}{% endcapture %}
+      {% assign views_key = post.translation_key | default: nil %}
+      {% unless views_key %}{% capture views_key %}{{ post.date | date: '%Y-%m-%d' }}-{{ post.slug }}{% endcapture %}{% endunless %}
+      {% if en_twin %}{% assign en_views_key = views_key %}{% endif %}
 
       {% comment %} Open grid before the very first item on every page {% endcomment %}
       {% unless grid_opened %}
@@ -66,7 +69,7 @@ body_class: page-home
         {% else %}
         <span class="meta-label">{{ post.categories | first }}</span>
         {% endif %}
-        <span data-i18n-zh="{{ date_zh }}" data-i18n-en="{{ date_en }}">{{ date_zh }}</span>
+        <span><span data-i18n-zh="{{ date_zh }}" data-i18n-en="{{ date_en }}">{{ date_zh }}</span> · <span class="views-count" data-views-key="{{ views_key }}" style="visibility:hidden;">…</span></span>
       </div>
       <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ display_headline }}</a></h3>
       {% if post.highlights %}
@@ -103,7 +106,7 @@ body_class: page-home
         {% else %}
         <span class="meta-label">{{ en_twin.categories | first }}</span>
         {% endif %}
-        <span>{{ date_en }}</span>
+        <span><span>{{ date_en }}</span> · <span class="views-count" data-views-key="{{ en_views_key }}" style="visibility:hidden;">…</span></span>
       </div>
       <h3><a href="{{ site.baseurl }}{{ en_twin.url }}">{{ en_twin.headline | default: en_twin.title }}</a></h3>
       {% if en_twin.highlights %}
@@ -142,7 +145,7 @@ body_class: page-home
       {% else %}
       <span class="meta-label">{{ post.categories | first }}</span>
       {% endif %}
-      <span data-i18n-zh="{{ date_zh }}" data-i18n-en="{{ date_en }}">{{ date_zh }}</span>
+      <span><span data-i18n-zh="{{ date_zh }}" data-i18n-en="{{ date_en }}">{{ date_zh }}</span> · <span class="views-count" data-views-key="{{ views_key }}" style="visibility:hidden;">…</span></span>
     </div>
     <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ display_headline }}</a></h3>
     {% if post.highlights %}
@@ -166,7 +169,7 @@ body_class: page-home
       {% else %}
       <span class="meta-label">{{ en_twin.categories | first }}</span>
       {% endif %}
-      <span>{{ date_en }}</span>
+      <span><span>{{ date_en }}</span> · <span class="views-count" data-views-key="{{ en_views_key }}" style="visibility:hidden;">…</span></span>
     </div>
     <h3><a href="{{ site.baseurl }}{{ en_twin.url }}">{{ en_twin.headline | default: en_twin.title }}</a></h3>
     {% if en_twin.highlights %}
