@@ -5,13 +5,6 @@ keywords: AI, software, notes
 body_class: page-home
 ---
 
-{% comment %}
-  Homepage — Option C: dark hero for the latest issue + 3-column grid of past-issue cards.
-  jekyll-paginate counts every file in _posts, so paginator.posts mixes ZH/EN twins.
-  We slice primary (non-en) posts ourselves, keeping EN twins in the DOM so the
-  language switcher can still swap content in place.
-{% endcomment %}
-
 {% assign per_page = site.paginate | default: 15 %}
 {% assign page_offset = paginator.page | minus: 1 | times: per_page %}
 {% assign page_end    = page_offset | plus: per_page %}
@@ -21,7 +14,6 @@ body_class: page-home
 {% assign is_first_page = false %}
 {% if paginator.page == 1 %}{% assign is_first_page = true %}{% endif %}
 
-{% comment %} Count unique (non-EN) posts for pagination {% endcomment %}
 {% assign unique_total = 0 %}
 {% for post in site.posts %}
   {% unless post.lang == 'en' %}
@@ -34,13 +26,11 @@ body_class: page-home
   {% unless post.lang == 'en' %}
     {% if unique_index >= page_offset and unique_index < page_end %}
 
-      {% comment %} Find EN twin if exists {% endcomment %}
       {% assign en_twin = nil %}
       {% if post.translation_key %}
         {% assign en_twin = site.posts | where: "translation_key", post.translation_key | where: "lang", "en" | first %}
       {% endif %}
 
-      {% comment %} Compute weekday strings {% endcomment %}
       {% assign wday_num = post.date | date: "%w" | plus: 0 %}
       {% case wday_num %}
         {% when 0 %}{% assign wday_zh = "周日" %}{% assign wday_en = "Sun" %}
@@ -52,169 +42,144 @@ body_class: page-home
         {% when 6 %}{% assign wday_zh = "周六" %}{% assign wday_en = "Sat" %}
       {% endcase %}
 
-      {% comment %} Determine display fields with fallbacks {% endcomment %}
       {% assign display_headline = post.headline | default: post.title %}
       {% assign is_digest = false %}
       {% if post.issue %}{% assign is_digest = true %}{% endif %}
 
-      {% comment %} ═══════ HERO (first post on first page) ═══════ {% endcomment %}
-      {% if is_first_page and card_index == 0 %}
+      {% capture date_zh %}{{ post.date | date: '%Y' }} 年 {{ post.date | date: '%m' | plus: 0 }} 月 {{ post.date | date: '%d' | plus: 0 }} 日{% endcapture %}
+      {% capture date_en %}{{ post.date | date: '%b %d, %Y' }}{% endcapture %}
 
-<section class="hero" data-post-lang="{{ post.lang | default: 'zh' }}" data-translation-key="{{ post.translation_key }}">
-  <div class="hero-txt">
-    {% if is_digest %}
-    <div class="hero-eyebrow">
-      <span data-i18n-zh="第 {{ post.issue | prepend: '000' | slice: -3, 3 }} 期 · {{ post.date | date: '%m' | plus: 0 }} 月 {{ post.date | date: '%d' | plus: 0 }} 日 {{ wday_zh }} · {{ post.item_count | default: '?' }} 条" data-i18n-en="Issue {{ post.issue | prepend: '000' | slice: -3, 3 }} · {{ post.date | date: '%b %d' }} {{ wday_en }} · {{ post.item_count | default: '?' }} items">第 {{ post.issue | prepend: '000' | slice: -3, 3 }} 期 · {{ post.date | date: '%m' | plus: 0 }} 月 {{ post.date | date: '%d' | plus: 0 }} 日 {{ wday_zh }} · {{ post.item_count | default: '?' }} 条</span>
-    </div>
-    {% endif %}
-    <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ display_headline }}</a></h2>
-    {% if post.highlights %}
-    <ol>
-      {% for hl in post.highlights %}
-      <li><b>{{ hl.label }}。</b>{{ hl.text }}</li>
-      {% endfor %}
-    </ol>
-    {% endif %}
-    <a class="hero-more" href="{{ site.baseurl }}{{ post.url }}" data-i18n-zh="阅读本期全文 →" data-i18n-en="Read full issue →">阅读本期全文 →</a>
-  </div>
-  <div class="hero-stats">
-    {% if is_digest %}<div class="hero-bigno">{{ post.issue | prepend: '000' | slice: -3, 3 }}</div>{% endif %}
-    {% if post.stats %}
-      {% for s in post.stats %}
-      <div class="hero-stat"><em>{{ s.value }}</em><span>{{ s.caption }}</span></div>
-      {% endfor %}
-    {% elsif post.stat %}
-      <div class="hero-stat"><em>{{ post.stat.value }}</em><span>{{ post.stat.caption }}</span></div>
-    {% endif %}
-  </div>
-</section>
-
-      {% comment %} EN twin hero (hidden by default, shown by i18n.js) {% endcomment %}
-      {% if en_twin %}
-<section class="hero" data-post-lang="en" data-translation-key="{{ en_twin.translation_key }}" style="display:none;">
-  <div class="hero-txt">
-    {% if en_twin.issue %}
-    <div class="hero-eyebrow">
-      <span>Issue {{ en_twin.issue | prepend: '000' | slice: -3, 3 }} · {{ en_twin.date | date: '%b %d' }} {{ wday_en }} · {{ en_twin.item_count | default: '?' }} items</span>
-    </div>
-    {% endif %}
-    <h2><a href="{{ site.baseurl }}{{ en_twin.url }}">{{ en_twin.headline | default: en_twin.title }}</a></h2>
-    {% if en_twin.highlights %}
-    <ol>
-      {% for hl in en_twin.highlights %}
-      <li><b>{{ hl.label }}.</b> {{ hl.text }}</li>
-      {% endfor %}
-    </ol>
-    {% endif %}
-    <a class="hero-more" href="{{ site.baseurl }}{{ en_twin.url }}">Read full issue →</a>
-  </div>
-  <div class="hero-stats">
-    {% if en_twin.issue %}<div class="hero-bigno">{{ en_twin.issue | prepend: '000' | slice: -3, 3 }}</div>{% endif %}
-    {% if en_twin.stats %}
-      {% for s in en_twin.stats %}
-      <div class="hero-stat"><em>{{ s.value }}</em><span>{{ s.caption }}</span></div>
-      {% endfor %}
-    {% elsif en_twin.stat %}
-      <div class="hero-stat"><em>{{ en_twin.stat.value }}</em><span>{{ en_twin.stat.caption }}</span></div>
-    {% endif %}
-  </div>
-</section>
-      {% endif %}
-
-      {% comment %} Section header between hero and grid {% endcomment %}
-<div class="home-sec">
-  <span data-i18n-zh="往期" data-i18n-en="Past Issues">往期</span>
-  <span data-i18n-zh="每页 {{ per_page }} 期 · 共 {{ unique_total }} 篇" data-i18n-en="{{ per_page }} per page · {{ unique_total }} posts total">每页 {{ per_page }} 期 · 共 {{ unique_total }} 篇</span>
-</div>
-<div class="home-grid">
-{% assign grid_opened = true %}
-
-      {% comment %} ═══════ CARD (remaining posts) ═══════ {% endcomment %}
-      {% else %}
-
-      {% comment %} Open the grid wrapper before the first card on non-hero pages {% endcomment %}
+      {% comment %} Open grid before the very first item on every page {% endcomment %}
       {% unless grid_opened %}
-<div class="home-sec">
-  <span data-i18n-zh="往期" data-i18n-en="Past Issues">往期</span>
-  <span data-i18n-zh="每页 {{ per_page }} 期 · 共 {{ unique_total }} 篇" data-i18n-en="{{ per_page }} per page · {{ unique_total }} posts total">每页 {{ per_page }} 期 · 共 {{ unique_total }} 篇</span>
-</div>
 <div class="home-grid">
       {% assign grid_opened = true %}
       {% endunless %}
 
-      {% comment %} Color rotation for cover {% endcomment %}
-      {% if is_digest %}
-        {% assign cov_mod = post.issue | modulo: 5 | plus: 1 %}
-      {% else %}
-        {% assign cov_mod = card_index | modulo: 5 | plus: 1 %}
-      {% endif %}
+      {% comment %} ═══════ FEATURED CARD (first post, page 1 only) ═══════ {% endcomment %}
+      {% if is_first_page and card_index == 0 %}
 
-      {% comment %} Date chip text {% endcomment %}
-      {% assign date_chip_zh = post.date | date: '%m' | plus: 0 | append: '.' | append: '' %}{% assign day_num = post.date | date: '%d' | plus: 0 %}{% capture date_chip_zh %}{{ post.date | date: '%m' | plus: 0 }}.{{ day_num }} {{ wday_zh }}{% endcapture %}
-      {% capture date_chip_en %}{{ post.date | date: '%b %d' }} {{ wday_en }}{% endcapture %}
-
-  <article class="home-card{% unless is_digest %} plain-card{% endunless %}" data-post-lang="{{ post.lang | default: 'zh' }}" data-translation-key="{{ post.translation_key }}">
-    {% if is_digest %}
-    <div class="card-cov cov-{{ cov_mod }}">
-      <div class="card-top"><span class="card-date" data-i18n-zh="{{ date_chip_zh }}" data-i18n-en="{{ date_chip_en }}">{{ date_chip_zh }}</span>{% if post.products %}<span class="card-tags">{{ post.products | join: ' · ' }}</span>{% endif %}</div>
-      {% if post.stat %}
-      <div class="card-num">{{ post.stat.value }}</div>
-      <div class="card-cap">{{ post.stat.caption }}</div>
-      {% else %}
-      <div class="card-num">{{ post.issue | prepend: '000' | slice: -3, 3 }}</div>
-      {% endif %}
-    </div>
-    {% endif %}
-    <div class="card-body">
-      {% if is_digest %}
-      <div class="card-issue" data-i18n-zh="第 {{ post.issue | prepend: '000' | slice: -3, 3 }} 期 · {{ post.item_count | default: '?' }} 条" data-i18n-en="Issue {{ post.issue | prepend: '000' | slice: -3, 3 }} · {{ post.item_count | default: '?' }} items">第 {{ post.issue | prepend: '000' | slice: -3, 3 }} 期 · {{ post.item_count | default: '?' }} 条</div>
-      {% else %}
-      <div class="card-issue">{{ post.categories | join: ' · ' }}</div>
-      {% endif %}
+  <article class="home-card featured" data-post-lang="{{ post.lang | default: 'zh' }}" data-translation-key="{{ post.translation_key }}">
+    <div class="featured-body">
+      <div class="card-meta">
+        {% if is_digest %}
+        <span class="meta-label" data-i18n-zh="第 {{ post.issue | prepend: '000' | slice: -3, 3 }} 期" data-i18n-en="Issue {{ post.issue | prepend: '000' | slice: -3, 3 }}">第 {{ post.issue | prepend: '000' | slice: -3, 3 }} 期</span>
+        {% else %}
+        <span class="meta-label">{{ post.categories | first }}</span>
+        {% endif %}
+        <span data-i18n-zh="{{ date_zh }}" data-i18n-en="{{ date_en }}">{{ date_zh }}</span>
+      </div>
       <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ display_headline }}</a></h3>
       {% if post.highlights %}
-      <ul>
-        {% for hl in post.highlights %}
-        <li>{{ hl.label }}{% if hl.text %}：{{ hl.text }}{% endif %}</li>
-        {% endfor %}
-      </ul>
+      <p class="card-summary">{% for hl in post.highlights %}{{ hl.label }}{% if hl.text %}：{{ hl.text }}{% endif %}{% unless forloop.last %} {% endunless %}{% endfor %}</p>
       {% elsif post.description %}
-      <ul><li>{{ post.description | strip_html | truncate: 120 }}</li></ul>
+      <p class="card-summary">{{ post.description | strip_html | truncate: 200 }}</p>
+      {% endif %}
+      {% if post.products %}
+      <div class="card-products">{% for p in post.products %}<span>{{ p }}</span>{% endfor %}</div>
+      {% endif %}
+    </div>
+    <div class="featured-accent">
+      {% if post.stats %}
+      <div class="accent-stats-list">
+        {% for s in post.stats %}
+        <div class="accent-stat-item"><div class="stat-val">{{ s.value }}</div><div class="stat-cap">{{ s.caption }}</div></div>
+        {% endfor %}
+      </div>
+      {% elsif post.stat %}
+      <div class="accent-stat-val">{{ post.stat.value }}</div>
+      <div class="accent-stat-cap">{{ post.stat.caption }}</div>
+      {% elsif is_digest %}
+      <div class="accent-number">{{ post.issue | prepend: '000' | slice: -3, 3 }}</div>
       {% endif %}
     </div>
   </article>
 
-      {% comment %} EN twin card (hidden by default) {% endcomment %}
       {% if en_twin %}
-  <article class="home-card{% unless is_digest %} plain-card{% endunless %}" data-post-lang="en" data-translation-key="{{ en_twin.translation_key }}" style="display:none;">
-    {% if is_digest %}
-    <div class="card-cov cov-{{ cov_mod }}">
-      <div class="card-top"><span class="card-date">{{ date_chip_en }}</span>{% if en_twin.products %}<span class="card-tags">{{ en_twin.products | join: ' · ' }}</span>{% endif %}</div>
-      {% if en_twin.stat %}
-      <div class="card-num">{{ en_twin.stat.value }}</div>
-      <div class="card-cap">{{ en_twin.stat.caption }}</div>
-      {% else %}
-      <div class="card-num">{{ en_twin.issue | prepend: '000' | slice: -3, 3 }}</div>
-      {% endif %}
-    </div>
-    {% endif %}
-    <div class="card-body">
-      {% if is_digest %}
-      <div class="card-issue">Issue {{ en_twin.issue | prepend: '000' | slice: -3, 3 }} · {{ en_twin.item_count | default: '?' }} items</div>
-      {% else %}
-      <div class="card-issue">{{ en_twin.categories | join: ' · ' }}</div>
-      {% endif %}
+  <article class="home-card featured" data-post-lang="en" data-translation-key="{{ en_twin.translation_key }}" style="display:none;">
+    <div class="featured-body">
+      <div class="card-meta">
+        {% if en_twin.issue %}
+        <span class="meta-label">Issue {{ en_twin.issue | prepend: '000' | slice: -3, 3 }}</span>
+        {% else %}
+        <span class="meta-label">{{ en_twin.categories | first }}</span>
+        {% endif %}
+        <span>{{ date_en }}</span>
+      </div>
       <h3><a href="{{ site.baseurl }}{{ en_twin.url }}">{{ en_twin.headline | default: en_twin.title }}</a></h3>
       {% if en_twin.highlights %}
-      <ul>
-        {% for hl in en_twin.highlights %}
-        <li>{{ hl.label }}{% if hl.text %}: {{ hl.text }}{% endif %}</li>
-        {% endfor %}
-      </ul>
+      <p class="card-summary">{% for hl in en_twin.highlights %}{{ hl.label }}{% if hl.text %}: {{ hl.text }}{% endif %}{% unless forloop.last %} {% endunless %}{% endfor %}</p>
       {% elsif en_twin.description %}
-      <ul><li>{{ en_twin.description | strip_html | truncate: 120 }}</li></ul>
+      <p class="card-summary">{{ en_twin.description | strip_html | truncate: 200 }}</p>
+      {% endif %}
+      {% if en_twin.products %}
+      <div class="card-products">{% for p in en_twin.products %}<span>{{ p }}</span>{% endfor %}</div>
       {% endif %}
     </div>
+    <div class="featured-accent">
+      {% if en_twin.stats %}
+      <div class="accent-stats-list">
+        {% for s in en_twin.stats %}
+        <div class="accent-stat-item"><div class="stat-val">{{ s.value }}</div><div class="stat-cap">{{ s.caption }}</div></div>
+        {% endfor %}
+      </div>
+      {% elsif en_twin.stat %}
+      <div class="accent-stat-val">{{ en_twin.stat.value }}</div>
+      <div class="accent-stat-cap">{{ en_twin.stat.caption }}</div>
+      {% elsif en_twin.issue %}
+      <div class="accent-number">{{ en_twin.issue | prepend: '000' | slice: -3, 3 }}</div>
+      {% endif %}
+    </div>
+  </article>
+      {% endif %}
+
+      {% comment %} ═══════ NORMAL CARD ═══════ {% endcomment %}
+      {% else %}
+
+  <article class="home-card{% unless is_digest %} plain-card{% endunless %}" data-post-lang="{{ post.lang | default: 'zh' }}" data-translation-key="{{ post.translation_key }}">
+    <div class="card-meta">
+      {% if is_digest %}
+      <span class="meta-label" data-i18n-zh="第 {{ post.issue | prepend: '000' | slice: -3, 3 }} 期" data-i18n-en="Issue {{ post.issue | prepend: '000' | slice: -3, 3 }}">第 {{ post.issue | prepend: '000' | slice: -3, 3 }} 期</span>
+      {% else %}
+      <span class="meta-label">{{ post.categories | first }}</span>
+      {% endif %}
+      <span data-i18n-zh="{{ date_zh }}" data-i18n-en="{{ date_en }}">{{ date_zh }}</span>
+    </div>
+    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ display_headline }}</a></h3>
+    {% if post.highlights %}
+    <p class="card-summary">{% for hl in post.highlights %}{{ hl.label }}{% if hl.text %}：{{ hl.text }}{% endif %}{% unless forloop.last %} {% endunless %}{% endfor %}</p>
+    {% elsif post.description %}
+    <p class="card-summary">{{ post.description | strip_html | truncate: 150 }}</p>
+    {% endif %}
+    {% if post.stat %}
+    <div class="card-stat"><em>{{ post.stat.value }}</em> {{ post.stat.caption }}</div>
+    {% endif %}
+    {% if post.products %}
+    <div class="card-products">{% for p in post.products %}<span>{{ p }}</span>{% endfor %}</div>
+    {% endif %}
+  </article>
+
+      {% if en_twin %}
+  <article class="home-card{% unless is_digest %} plain-card{% endunless %}" data-post-lang="en" data-translation-key="{{ en_twin.translation_key }}" style="display:none;">
+    <div class="card-meta">
+      {% if en_twin.issue %}
+      <span class="meta-label">Issue {{ en_twin.issue | prepend: '000' | slice: -3, 3 }}</span>
+      {% else %}
+      <span class="meta-label">{{ en_twin.categories | first }}</span>
+      {% endif %}
+      <span>{{ date_en }}</span>
+    </div>
+    <h3><a href="{{ site.baseurl }}{{ en_twin.url }}">{{ en_twin.headline | default: en_twin.title }}</a></h3>
+    {% if en_twin.highlights %}
+    <p class="card-summary">{% for hl in en_twin.highlights %}{{ hl.label }}{% if hl.text %}: {{ hl.text }}{% endif %}{% unless forloop.last %} {% endunless %}{% endfor %}</p>
+    {% elsif en_twin.description %}
+    <p class="card-summary">{{ en_twin.description | strip_html | truncate: 150 }}</p>
+    {% endif %}
+    {% if en_twin.stat %}
+    <div class="card-stat"><em>{{ en_twin.stat.value }}</em> {{ en_twin.stat.caption }}</div>
+    {% endif %}
+    {% if en_twin.products %}
+    <div class="card-products">{% for p in en_twin.products %}<span>{{ p }}</span>{% endfor %}</div>
+    {% endif %}
   </article>
       {% endif %}
 
@@ -226,22 +191,18 @@ body_class: page-home
   {% endunless %}
 {% endfor %}
 
-{% comment %} Close the grid if we opened it {% endcomment %}
 {% if grid_opened %}
 </div>
 {% endif %}
 
-{% comment %} Empty page guard: jekyll-paginate may generate pages beyond our
-   unique-post count (it counts ZH+EN twins). Show a friendly redirect. {% endcomment %}
 {% if card_index == 0 and is_first_page == false %}
 <meta name="robots" content="noindex">
-<div class="home-empty" style="text-align:center;padding:80px 20px;">
+<div style="text-align:center;padding:80px 20px;">
   <p style="font-size:1.4em;color:var(--home-muted);" data-i18n-zh="没有更多内容了" data-i18n-en="No more posts here">没有更多内容了</p>
   <p><a href="/" style="color:var(--home-accent);" data-i18n-zh="← 回到首页" data-i18n-en="← Back to homepage">← 回到首页</a></p>
 </div>
 {% endif %}
 
-{% comment %} ═══════ Pagination (only on pages with content) ═══════ {% endcomment %}
 {% if card_index > 0 %}
 <div class="home-pager">
   {% if paginator.page > 1 %}
