@@ -79,7 +79,13 @@ body_class: page-home
       {% endif %}
     </div>
     <div class="featured-accent">
-      {% if post.stat %}
+      {% if post.stats %}
+      <div class="accent-stats-list">
+        {% for s in post.stats %}
+        <div class="accent-stat-item"><div class="stat-val">{{ s.value }}</div><div class="stat-cap">{{ s.caption }}</div></div>
+        {% endfor %}
+      </div>
+      {% elsif post.stat %}
       <div class="accent-stat-val">{{ post.stat.value }}</div>
       <div class="accent-stat-cap">{{ post.stat.caption }}</div>
       {% elsif is_digest %}
@@ -110,7 +116,13 @@ body_class: page-home
       {% endif %}
     </div>
     <div class="featured-accent">
-      {% if en_twin.stat %}
+      {% if en_twin.stats %}
+      <div class="accent-stats-list">
+        {% for s in en_twin.stats %}
+        <div class="accent-stat-item"><div class="stat-val">{{ s.value }}</div><div class="stat-cap">{{ s.caption }}</div></div>
+        {% endfor %}
+      </div>
+      {% elsif en_twin.stat %}
       <div class="accent-stat-val">{{ en_twin.stat.value }}</div>
       <div class="accent-stat-cap">{{ en_twin.stat.caption }}</div>
       {% elsif en_twin.issue %}
