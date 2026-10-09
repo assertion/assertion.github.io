@@ -1,62 +1,62 @@
-﻿/* modified from https://github.com/yinwang0/blog-cn/blob/gh-pages/main.css */
-body {
-    background-color: white;
-    font-size: 100%;
-}
+﻿/* Post / page content typography — loaded on all pages.
+   Site-wide layout, colors, and nav are in site.css. */
 
-#main {
-    font-family: "Palatino Linotype", "URW Palladio L", "palladio l", palatino, "book antiqua", times, serif;
-    font-size: 1em;
-    margin: auto;
-    padding: 2% 5% 5% 5%;
-    width: 700px;
-    line-height: 150%;
-    border: 1px solid LightGrey;
-}
-
+/* ─── Headings ─── */
 H1, H2 {
-    margin-bottom: 1.67em;
-    padding: 0.2em;
-    border-bottom: 2px LightGrey solid;
-    width: 90%;
-    line-height: 150%;
-    color: #666666;
+    font-family: var(--serif);
+    margin-top: 2em;
+    margin-bottom: 0.8em;
+    padding: 0;
+    border: none;
+    width: auto;
+    line-height: 1.35;
+    color: var(--ink);
+    font-weight: 700;
 }
+
+H2 { font-size: 1.4em; }
 
 H3, H4 {
-    margin-top: 2.14em;
-    margin-bottom: 1.5em;
-    border-bottom: 1px LightGrey solid;
-    width: 80%;
-    line-height: 150%;
-    color: #666666;
+    font-family: var(--serif);
+    margin-top: 1.6em;
+    margin-bottom: 0.6em;
+    border: none;
+    width: auto;
+    line-height: 1.4;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 1.15em;
 }
 
+/* ─── Block elements ─── */
 blockquote {
-    margin: 0 0 0 0.25em;
-    padding: 0 0 0 0.5em;
-    border-left: 0.25em lightgrey solid;
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    border-left: 3px solid var(--line);
+    color: var(--ink2);
+    background: var(--card);
+    border-radius: 4px;
 }
 
 pre {
-    font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
-    border: solid 1px #ddd;
-    border-radius: 3px;
-    background-color: #f8f8ff;
-    padding: 6px 10px;
-    font-size: 1em;
-    line-height: 130%;
+    font-family: var(--mono);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--card);
+    padding: 12px 16px;
+    font-size: 0.9em;
+    line-height: 1.5;
     overflow: auto;
 }
 
 code {
-    font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
-    font-size: 0.75em;
-    border: solid 1px #ddd;
-    border-radius: 3px;
-    background-color: #f8f8ff;
+    font-family: var(--mono);
+    font-size: 0.85em;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--card);
     margin: 0 2px;
-    padding: 0px 5px;
+    padding: 1px 5px;
     word-wrap: break-word;
     word-break: break-all;
 }
@@ -65,156 +65,95 @@ pre code {
     border: none;
     margin: 0;
     padding: 0;
-    background-color: transparent;
+    background: transparent;
     word-wrap: normal;
+    font-size: 1em;
 }
 
-a {
-    text-decoration: none;
-    padding: 1px;
-    color: #204A87;
+/* ─── Horizontal rules ─── */
+hr {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 2em 0;
+}
+
+/* ─── Images ─── */
+img {
+    display: block;
+    margin: 1.5em auto;
+    max-width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+}
+
+/* ─── Tables ─── */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+}
+
+th {
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    font-weight: 600;
+    background: var(--card);
+    font-family: var(--sans);
+    font-size: 0.9em;
+}
+
+td {
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+}
+
+tr:nth-child(2n) {
+    background: var(--card);
+}
+
+/* ─── Lists in post body ─── */
+.post-body ol,
+.post-body ul {
+    padding-left: 1.5em;
+}
+
+.post-body li {
+    margin-bottom: 0.4em;
+}
+
+/* ─── Links in post body ─── */
+.post-body a {
+    color: var(--accent);
     word-wrap: break-word;
     word-break: break-all;
 }
 
-a:hover {
+.post-body a:hover {
     text-decoration: underline;
 }
 
+/* ─── Tag cloud ─── */
 div.tag_cloud a {
     word-wrap: normal;
     word-break: normal;
 }
 
-div.nav a {
-    text-decoration: none;
-    color: #555;
-}
-
-div.nav a:hover {
-    background-color: LightGrey;
-    color: #ffffff;
-}
-
-div.nav {
-    border-top: 1px solid #d4d4d4;
-    border-left: 1px solid #d4d4d4;
-    border-right: 1px solid #d4d4d4;
-    margin: auto;
-    padding: 0 5% 0 5%;
-    width: 700px;
-    height: 1.5em;
-    line-height: 150%;
-    font-size: 1em;
-}
-
-div.nav_rss {
-    width: 25%;
-    text-align: right;
-    float: right;
-}
-
-#lang-switch {
-    margin-left: 0.75em;
-    padding: 0 0.4em;
-    border: 1px solid #aaa;
-    border-radius: 3px;
-    font-size: 0.85em;
-    color: #555;
-    cursor: pointer;
-}
-
-#lang-switch:hover {
-    background-color: LightGrey;
-    color: #fff;
-    text-decoration: none;
-}
-
-div.nav_nav {
-    width: 80%;
-    float: left;
-}
-
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-    max-width: 100%;
-}
-
-hr {
-    color: LightGrey;
-    margin: 0.75em 0;
-    border-top: 1px solid LightGrey;
-    border-bottom: 1px solid LightGrey;
-}
-
-div.overview {
-    margin: 1.75em 1.25em 1.75em 1.25em;
-}
-
-div.detail {
-    margin-left: 28%;
-}
-
-div.date { 
-    padding-top: 1px;
-    float: left; 
-    width: 25%; 
-    color: #555;
-    text-align: right; 
-    font-style: italic; 
-    font-size: 0.75em;
-}
-
-div.paginator {
-    margin-left: 20%;
-    float: center;
-    width: 60%;
-    color: #555;
-    text-align: center;
-    font-size: 0.75em;
-}
-
-.prev_next {
-    display: block;
-    padding: 0;
-    padding-top: 0.6em;
-}
-
-.prev_next li {
-    list-style-type: none;
-    padding: 0 0 0.2em;
-}
-
-.prev_next li span {
-    padding: 0 0.5em 0 0.5em;
-    background-color: lightslategrey;
-    color: #fff;
-    margin-right: 0.5em;
-}
-
+/* ─── Ads footer (legacy, conditional) ─── */
 div.gg_ads_footer {
     margin: 0 auto;
     text-align: center;
 }
 
-table {
-    border-collapse: collapse;
+/* ─── Paginator (old style, hidden on homepage) ─── */
+div.paginator {
+    margin: 2em auto;
+    text-align: center;
+    font-family: var(--sans);
+    font-size: 0.85em;
+    color: var(--muted);
 }
 
-th {
-    padding: 0.375em 0.8125em;
-    border: 1px solid #ddd;
-    font-weight: bold;
-}
-
-td {
-    padding: 0.375em 0.8125em;
-    border: 1px solid #ddd;
-}
-
-tr:nth-child(2n) {
-    background-color: #f8f8f8;
+.current-page {
+    color: var(--accent);
+    font-weight: 700;
 }

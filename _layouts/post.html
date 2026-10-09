@@ -2,13 +2,29 @@
 <div id="container">
     {% include navigation.html %}
     <div id="main">
-        <h2> {{ page.title }} </h2>
-        {% if page.headline %}
-        <p style="font-size:0.95em;color:#888;margin:-1em 0 1.2em;">{{ page.headline }}</p>
-        {% endif %}
+
+        <div class="post-header">
+            {% if page.issue %}
+            <div class="post-meta">
+                <span class="meta-label" data-i18n-zh="第 {{ page.issue | prepend: '000' | slice: -3, 3 }} 期 · {{ page.item_count | default: '?' }} 条" data-i18n-en="Issue {{ page.issue | prepend: '000' | slice: -3, 3 }} · {{ page.item_count | default: '?' }} items">第 {{ page.issue | prepend: '000' | slice: -3, 3 }} 期 · {{ page.item_count | default: '?' }} 条</span>
+                <span>{{ page.date | date: "%Y-%m-%d" }}</span>
+            </div>
+            {% else %}
+            <div class="post-meta">
+                <span class="meta-label">{{ page.categories | join: ' · ' }}</span>
+                <span>{{ page.date | date: "%Y-%m-%d" }}</span>
+            </div>
+            {% endif %}
+
+            <h1>{{ page.title }}</h1>
+
+            {% if page.headline %}
+            <p class="post-subtitle">{{ page.headline }}</p>
+            {% endif %}
+        </div>
 
         {% if page.translation_key %}
-        <div id="translation-link" style="display:none;">
+        <div id="translation-link" class="post-translation" style="display:none;">
             {% for p in site.posts %}
                 {% if p.translation_key == page.translation_key and p.url != page.url %}
                     <a href="{{ site.baseurl }}{{ p.url }}" data-twin-lang="{{ p.lang | default: 'zh' }}">{{ p.title }}</a>
@@ -17,21 +33,29 @@
         </div>
         {% endif %}
 
-        {{ content }}
-        <ul class="prev_next">
+        <div class="post-body">
+            {{ content }}
+        </div>
+
+        <nav class="post-nav">
             {% if page.previous.url %}
-            <li>
-                <span data-i18n-zh="{{ site.data.i18n.zh.post.prev_post }}" data-i18n-en="{{ site.data.i18n.en.post.prev_post }}">{{ site.data.i18n.zh.post.prev_post }}</span>
-                <a href="{{page.previous.url}}">{{page.previous.title}}</a>
-            </li>
+            <a class="post-nav-card" href="{{ page.previous.url }}">
+                <span class="nav-label" data-i18n-zh="上一篇" data-i18n-en="Previous">上一篇</span>
+                <span class="nav-title">{{ page.previous.title }}</span>
+            </a>
+            {% else %}
+            <div></div>
             {% endif %}
             {% if page.next.url %}
-            <li>
-                <span data-i18n-zh="{{ site.data.i18n.zh.post.next_post }}" data-i18n-en="{{ site.data.i18n.en.post.next_post }}">{{ site.data.i18n.zh.post.next_post }}</span>
-                <a href="{{page.next.url}}">{{page.next.title}}</a>
-            </li>
+            <a class="post-nav-card nav-next" href="{{ page.next.url }}">
+                <span class="nav-label" data-i18n-zh="下一篇" data-i18n-en="Next">下一篇</span>
+                <span class="nav-title">{{ page.next.title }}</span>
+            </a>
+            {% else %}
+            <div></div>
             {% endif %}
-        </ul>
+        </nav>
+
         {% include ads_footer.html %}
         {% include duoshuo.html %}
     </div>
