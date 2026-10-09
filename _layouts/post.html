@@ -2,13 +2,49 @@
 <div id="container">
     {% include navigation.html %}
     <div id="main">
-        <h2> {{ page.title }} </h2>
-        {% if page.headline %}
-        <p style="font-size:0.95em;color:#888;margin:-1em 0 1.2em;">{{ page.headline }}</p>
-        {% endif %}
+
+        {% comment %} Compute localized date for meta row {% endcomment %}
+        {% assign wday_num = page.date | date: "%w" | plus: 0 %}
+        {% case wday_num %}
+          {% when 0 %}{% assign wday_zh = "周日" %}{% assign wday_en = "Sun" %}
+          {% when 1 %}{% assign wday_zh = "周一" %}{% assign wday_en = "Mon" %}
+          {% when 2 %}{% assign wday_zh = "周二" %}{% assign wday_en = "Tue" %}
+          {% when 3 %}{% assign wday_zh = "周三" %}{% assign wday_en = "Wed" %}
+          {% when 4 %}{% assign wday_zh = "周四" %}{% assign wday_en = "Thu" %}
+          {% when 5 %}{% assign wday_zh = "周五" %}{% assign wday_en = "Fri" %}
+          {% when 6 %}{% assign wday_zh = "周六" %}{% assign wday_en = "Sat" %}
+        {% endcase %}
+        {% capture date_zh %}{{ page.date | date: '%Y' }} 年 {{ page.date | date: '%m' | plus: 0 }} 月 {{ page.date | date: '%d' | plus: 0 }} 日 {{ wday_zh }}{% endcapture %}
+        {% capture date_en %}{{ page.date | date: '%b %d, %Y' }}{% endcapture %}
+
+        <div class="post-header">
+            {% if page.headline %}
+              {% comment %} Has headline: show title+issue in meta, headline as big H1 {% endcomment %}
+              <div class="post-meta">
+                {% if page.issue %}
+                <span class="meta-label" data-i18n-zh="{{ page.title }} · 第 {{ page.issue | prepend: '000' | slice: -3, 3 }} 期 · {{ page.item_count | default: '?' }} 条" data-i18n-en="{{ page.title }} · Issue {{ page.issue | prepend: '000' | slice: -3, 3 }} · {{ page.item_count | default: '?' }} items">{{ page.title }} · 第 {{ page.issue | prepend: '000' | slice: -3, 3 }} 期 · {{ page.item_count | default: '?' }} 条</span>
+                {% else %}
+                <span class="meta-label">{{ page.title }}</span>
+                {% endif %}
+                <span data-i18n-zh="{{ date_zh }}" data-i18n-en="{{ date_en }}">{{ date_zh }}</span>
+              </div>
+              <h1>{{ page.headline }}</h1>
+            {% else %}
+              {% comment %} No headline: show categories/issue in meta, title as H1 {% endcomment %}
+              <div class="post-meta">
+                {% if page.issue %}
+                <span class="meta-label" data-i18n-zh="第 {{ page.issue | prepend: '000' | slice: -3, 3 }} 期 · {{ page.item_count | default: '?' }} 条" data-i18n-en="Issue {{ page.issue | prepend: '000' | slice: -3, 3 }} · {{ page.item_count | default: '?' }} items">第 {{ page.issue | prepend: '000' | slice: -3, 3 }} 期 · {{ page.item_count | default: '?' }} 条</span>
+                {% else %}
+                <span class="meta-label">{{ page.categories | join: ' · ' }}</span>
+                {% endif %}
+                <span data-i18n-zh="{{ date_zh }}" data-i18n-en="{{ date_en }}">{{ date_zh }}</span>
+              </div>
+              <h1>{{ page.title }}</h1>
+            {% endif %}
+        </div>
 
         {% if page.translation_key %}
-        <div id="translation-link" style="display:none;">
+        <div id="translation-link" class="post-translation" style="display:none;">
             {% for p in site.posts %}
                 {% if p.translation_key == page.translation_key and p.url != page.url %}
                     <a href="{{ site.baseurl }}{{ p.url }}" data-twin-lang="{{ p.lang | default: 'zh' }}">{{ p.title }}</a>
@@ -17,23 +53,99 @@
         </div>
         {% endif %}
 
-        {{ content }}
-        <ul class="prev_next">
-            {% if page.previous.url %}
-            <li>
-                <span data-i18n-zh="{{ site.data.i18n.zh.post.prev_post }}" data-i18n-en="{{ site.data.i18n.en.post.prev_post }}">{{ site.data.i18n.zh.post.prev_post }}</span>
-                <a href="{{page.previous.url}}">{{page.previous.title}}</a>
-            </li>
+        <div class="post-body{% if page.headline %} has-headline{% endif %}">
+            {{ content }}
+        </div>
+
+        {% comment %} ═══ Prev/Next: skip posts with different lang or same translation_key ═══ {% endcomment %}
+        {% assign my_lang = page.lang | default: 'zh' %}
+        {% assign found_self = false %}
+        {% assign nav_prev = nil %}
+        {% assign nav_next = nil %}
+        {% for p in site.posts %}
+          {% if p.url == page.url %}
+            {% assign found_self = true %}
+          {% elsif found_self and nav_prev == nil %}
+            {% assign p_lang = p.lang | default: 'zh' %}
+            {% if p_lang == my_lang %}
+              {% if page.translation_key and p.translation_key == page.translation_key %}
+              {% else %}
+                {% assign nav_prev = p %}
+              {% endif %}
             {% endif %}
-            {% if page.next.url %}
-            <li>
-                <span data-i18n-zh="{{ site.data.i18n.zh.post.next_post }}" data-i18n-en="{{ site.data.i18n.en.post.next_post }}">{{ site.data.i18n.zh.post.next_post }}</span>
-                <a href="{{page.next.url}}">{{page.next.title}}</a>
-            </li>
+          {% endif %}
+        {% endfor %}
+        {% assign found_self = false %}
+        {% assign posts_rev = site.posts | reverse %}
+        {% for p in posts_rev %}
+          {% if p.url == page.url %}
+            {% assign found_self = true %}
+          {% elsif found_self and nav_next == nil %}
+            {% assign p_lang = p.lang | default: 'zh' %}
+            {% if p_lang == my_lang %}
+              {% if page.translation_key and p.translation_key == page.translation_key %}
+              {% else %}
+                {% assign nav_next = p %}
+              {% endif %}
             {% endif %}
-        </ul>
+          {% endif %}
+        {% endfor %}
+
+        <nav class="post-nav">
+            {% if nav_prev %}
+            <a class="post-nav-card" href="{{ site.baseurl }}{{ nav_prev.url }}">
+                <span class="nav-label" data-i18n-zh="上一篇" data-i18n-en="Previous">上一篇</span>
+                <span class="nav-title">{{ nav_prev.headline | default: nav_prev.title }}</span>
+            </a>
+            {% else %}
+            <div></div>
+            {% endif %}
+            {% if nav_next %}
+            <a class="post-nav-card nav-next" href="{{ site.baseurl }}{{ nav_next.url }}">
+                <span class="nav-label" data-i18n-zh="下一篇" data-i18n-en="Next">下一篇</span>
+                <span class="nav-title">{{ nav_next.headline | default: nav_next.title }}</span>
+            </a>
+            {% else %}
+            <div></div>
+            {% endif %}
+        </nav>
+
         {% include ads_footer.html %}
         {% include duoshuo.html %}
+
+        <script>
+        (function(){
+          var body = document.querySelector('.post-body');
+          if (!body) return;
+          var headings = body.querySelectorAll('h2');
+          for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            var text = (h.textContent || '').trim();
+            if (text.indexOf('今日要点') === -1 &&
+                text.indexOf('Today') === -1 &&
+                text.indexOf('Highlights') === -1) continue;
+            var wrap = document.createElement('div');
+            wrap.className = 'post-keypoints';
+            h.parentNode.insertBefore(wrap, h);
+            wrap.appendChild(h);
+            var sib = wrap.nextSibling;
+            while (sib) {
+              var next = sib.nextSibling;
+              var tag = sib.nodeName;
+              if (tag === 'HR' || tag === 'H2' || tag === 'H1') break;
+              if (tag === 'OL' || tag === 'UL' || tag === 'P') {
+                wrap.appendChild(sib);
+              } else if (sib.nodeType === 3 && sib.textContent.trim() === '') {
+                wrap.appendChild(sib);
+              } else {
+                break;
+              }
+              sib = next;
+            }
+            break;
+          }
+        })();
+        </script>
     </div>
 </div>
 {% include footer.html %}

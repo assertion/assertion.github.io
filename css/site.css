@@ -1,0 +1,202 @@
+/* Site-wide styles — shared across all pages */
+
+:root {
+  --bg: #faf9f5;
+  --ink: #1a1a1a;
+  --ink2: #4a4a4a;
+  --muted: #8a8a82;
+  --line: #e5e4df;
+  --card: #f5f4ef;
+  --accent: #b5461f;
+  --serif: "Noto Serif CJK SC", "Noto Serif SC", "Source Han Serif SC",
+    "Source Han Serif", "Songti SC", "SimSun", "Noto Serif", "Georgia", serif;
+  --sans: "Noto Sans CJK SC", "Noto Sans SC", "Source Han Sans SC",
+    "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  --mono: "Noto Sans Mono CJK SC", "Noto Sans Mono", "SFMono-Regular",
+    Consolas, "Liberation Mono", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141413;
+    --ink: #ede9e3;
+    --ink2: #c4bfb5;
+    --muted: #8a8a82;
+    --line: #2e2d2a;
+    --card: #1e1d1a;
+    --accent: #e07a50;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ─── Container ─── */
+#container {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+/* ─── Nav ─── */
+div.nav {
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  height: auto;
+  padding: 14px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1;
+}
+
+div.nav .nav_nav {
+  float: none;
+  width: auto;
+  display: flex;
+  gap: 18px;
+}
+
+div.nav .nav_rss {
+  float: none;
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: right;
+}
+
+div.nav a {
+  text-decoration: none;
+  color: var(--ink2);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+div.nav a:hover {
+  background-color: var(--line);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+#lang-switch {
+  margin-left: 4px;
+  padding: 2px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--ink2);
+  cursor: pointer;
+}
+
+#lang-switch:hover {
+  background-color: var(--line);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+/* ─── #main base ─── */
+#main {
+  font-family: var(--serif);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 28px 36px 48px;
+  border: none;
+  line-height: 1.6;
+  font-size: 1em;
+}
+
+#main > h2:first-of-type {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink);
+  border: none;
+  padding: 0;
+  margin: 0 0 24px;
+  width: auto;
+  line-height: 1.35;
+}
+
+/* ─── Footer ─── */
+.site-footer {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 20px 36px 32px;
+  border-top: 1px solid var(--line);
+  font-family: var(--sans);
+  font-size: 12.5px;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.site-footer a {
+  color: var(--muted);
+}
+
+.site-footer a:hover {
+  color: var(--ink);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 720px) {
+  div.nav {
+    padding: 10px 14px;
+    flex-wrap: wrap;
+    gap: 4px 0;
+  }
+
+  div.nav .nav_nav {
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  div.nav .nav_rss {
+    font-size: 13px;
+  }
+
+  #main {
+    padding: 16px 14px 32px;
+  }
+
+  .site-footer {
+    padding: 16px 14px 24px;
+    flex-direction: column;
+    gap: 4px;
+  }
+}
