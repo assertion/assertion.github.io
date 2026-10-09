@@ -34,12 +34,9 @@
   width: auto;
 }
 
-.post-subtitle {
-  font-family: var(--serif);
-  font-size: 18px;
-  line-height: 1.5;
-  color: var(--muted);
-  margin: 0;
+/* When headline is the H1, hide the redundant body H1 */
+.post-body.has-headline > h1:first-child {
+  display: none;
 }
 
 /* ─── Post body ─── */
@@ -197,6 +194,47 @@
 
 .post-nav-card.nav-next {
   text-align: right;
+}
+
+/* ─── Keypoints card (今日要点 / Today's Highlights) ─── */
+.post-keypoints {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 1.5em 0 2em;
+}
+
+.post-keypoints > h2:first-child {
+  font-size: 18px;
+  margin: 0 0 12px;
+  padding: 0;
+  border: none;
+  color: var(--ink);
+}
+
+.post-keypoints > ol,
+.post-keypoints > ul {
+  margin: 0;
+  padding-left: 1.3em;
+}
+
+.post-keypoints > ol > li,
+.post-keypoints > ul > li {
+  margin-bottom: 0.6em;
+}
+
+/* ─── x.com / URL link lines ─── */
+.post-body a[href*="x.com/"],
+.post-body a[href*="twitter.com/"] {
+  font-size: 14px;
+  color: var(--muted);
+  word-break: break-all;
+}
+
+.post-body a[href*="x.com/"]:hover,
+.post-body a[href*="twitter.com/"]:hover {
+  color: var(--accent);
 }
 
 /* ─── Mobile ─── */
