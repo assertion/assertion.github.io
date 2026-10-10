@@ -24,6 +24,16 @@ pygments: true
 permalink: /:year/:month/:day/:title
 exclude:
     - functions
+    - _scripts
+    - wrangler.toml
+    - node_modules
+    - Gemfile
+    - Gemfile.lock
+    - README.md
+    - README.textile
+    - LICENSE
+    - AGENTS.md
+    - .travis.yml
 gems:
     - jekyll-sitemap
     - jekyll-gist

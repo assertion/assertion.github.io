@@ -147,6 +147,14 @@
             break;
           }
         })();
+        // Lazy-load images (skip the first one)
+        (function(){
+          var imgs = document.querySelectorAll('.post-body img');
+          for (var i = 1; i < imgs.length; i++) {
+            imgs[i].setAttribute('loading', 'lazy');
+            imgs[i].setAttribute('decoding', 'async');
+          }
+        })();
         </script>
     </div>
 </div>
