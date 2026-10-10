@@ -1,10 +1,11 @@
-{% comment %}
+{%- comment -%}
   Public origin for absolute SEO URLs. site.url is the source of truth
   (production: https://code-echo.pages.dev; local: _config_local.yml).
-  Fall back to the canonical host if a build leaves url empty, so GitHub
-  Pages cannot emit relative canonical/sitemap/feed links again.
-{% endcomment %}
-{% assign abs_origin = site.url %}
-{% if abs_origin == nil or abs_origin == '' or abs_origin contains 'assertion.github.io' %}
-  {% assign abs_origin = 'https://code-echo.pages.dev' %}
-{% endif %}
+  Fall back to the canonical host if a build leaves url empty or still
+  points at assertion.github.io, so GitHub Pages cannot emit relative
+  canonical/sitemap/feed links again.
+{%- endcomment -%}
+{%- assign abs_origin = site.url -%}
+{%- if abs_origin == nil or abs_origin == '' or abs_origin contains 'assertion.github.io' -%}
+  {%- assign abs_origin = 'https://code-echo.pages.dev' -%}
+{%- endif -%}

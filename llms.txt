@@ -1,9 +1,8 @@
 ---
-layout: nil
+layout: null
 sitemap: false
 ---
-{% include absolute-origin.html %}
-# 代码的回声 (Code Echo)
+{% include absolute-origin.html %}# 代码的回声 (Code Echo)
 
 > Daily bilingual digest of AI coding tool discussions on X.
 > Chinese (zh-CN) and English versions of each issue.

@@ -1,9 +1,8 @@
 ---
-layout: nil
+layout: null
 sitemap: false
 ---
-{% include absolute-origin.html %}
-<?xml version="1.0" encoding="utf-8"?>
+{% include absolute-origin.html %}<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[{{ site.title }}]]></title>
   <link href="{{ abs_origin }}{{ site.baseurl }}/feed.xml" rel="self"/>
