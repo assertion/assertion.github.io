@@ -1,13 +1,14 @@
 ---
-layout: nil
+layout: null
+sitemap: false
 ---
-<?xml version="1.0" encoding="utf-8"?>
+{% include absolute-origin.html %}<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[Code Echo]]></title>
-  <link href="{{ site.url }}{{ site.baseurl }}/feed-en.xml" rel="self"/>
-  <link href="{{ site.url }}{{ site.baseurl }}/"/>
+  <link href="{{ abs_origin }}{{ site.baseurl }}/feed-en.xml" rel="self"/>
+  <link href="{{ abs_origin }}{{ site.baseurl }}/"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <id>{{ site.url }}{{ site.baseurl }}/feed-en</id>
+  <id>{{ abs_origin }}{{ site.baseurl }}/feed-en</id>
   <author>
     <name><![CDATA[Code Echo]]></name>
   </author>
@@ -15,9 +16,9 @@ layout: nil
   {% for post in site.posts limit:20 %}{% if post.lang == 'en' %}
   <entry>
     <title type="html"><![CDATA[{{ post.headline | default: post.title | cdata_escape }}]]></title>
-    <link href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"/>
+    <link href="{{ abs_origin }}{{ site.baseurl }}{{ post.url }}"/>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <id>{{ site.url }}{{ site.baseurl }}{{ post.id }}</id>
+    <id>{{ abs_origin }}{{ site.baseurl }}{{ post.id }}</id>
     <summary type="html"><![CDATA[{% if post.highlights %}{% for hl in post.highlights %}{{ hl.label }}{% if hl.text %}: {{ hl.text }}{% endif %} {% endfor %}{% else %}{{ post.description | default: post.excerpt | strip_html | truncate: 300 }}{% endif %}]]></summary>
   </entry>
   {% endif %}{% endfor %}

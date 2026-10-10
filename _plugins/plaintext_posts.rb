@@ -65,7 +65,9 @@ Jekyll::Hooks.register :site, :post_write do |site|
     title = post.data["headline"] || post.data["title"] || ""
     date  = post.data["date"] ? post.data["date"].strftime("%Y-%m-%d") : ""
     lang  = post.data["lang"] || "zh"
-    canonical = "#{site.config['url']}#{site.config['baseurl']}#{post.url}"
+    origin = site.config["url"].to_s
+    origin = "https://code-echo.pages.dev" if origin.empty? || origin.include?("assertion.github.io")
+    canonical = "#{origin}#{site.config['baseurl']}#{post.url}"
     body = PlaintextPosts.read_markdown_body(site, post)
 
     content = "# #{title}\n\nDate: #{date}\nLanguage: #{lang}\nCanonical: #{canonical}\n\n---\n\n#{body}"
