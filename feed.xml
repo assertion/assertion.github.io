@@ -1,0 +1,24 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[{{ site.title }}]]></title>
+  <link href="{{ site.url }}{{ site.baseurl }}/feed.xml" rel="self"/>
+  <link href="{{ site.url }}{{ site.baseurl }}/"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ site.url }}{{ site.baseurl }}/</id>
+  <author>
+    <name><![CDATA[代码的回声]]></name>
+  </author>
+  <generator>代码的回声</generator>
+  {% for post in site.posts limit:20 %}{% unless post.lang == 'en' %}
+  <entry>
+    <title type="html"><![CDATA[{{ post.headline | default: post.title | cdata_escape }}]]></title>
+    <link href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"/>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <id>{{ site.url }}{{ site.baseurl }}{{ post.id }}</id>
+    <summary type="html"><![CDATA[{% if post.highlights %}{% for hl in post.highlights %}{{ hl.label }}{% if hl.text %}：{{ hl.text }}{% endif %} {% endfor %}{% else %}{{ post.description | default: post.excerpt | strip_html | truncate: 300 }}{% endif %}]]></summary>
+  </entry>
+  {% endunless %}{% endfor %}
+</feed>

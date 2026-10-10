@@ -34,11 +34,6 @@
   width: auto;
 }
 
-/* When headline is the H1, hide the redundant body H1 */
-.post-body.has-headline > h1:first-child {
-  display: none;
-}
-
 /* ─── Post body ─── */
 .post-body {
   max-width: 720px;

@@ -55,8 +55,8 @@
         </div>
         {% endif %}
 
-        <div class="post-body{% if page.headline %} has-headline{% endif %}">
-            {{ content }}
+        <div class="post-body">
+            {% if page.headline %}{{ content | strip_leading_h1 }}{% else %}{{ content }}{% endif %}
         </div>
 
         {% comment %} ═══ Prev/Next: skip posts with different lang or same translation_key ═══ {% endcomment %}
@@ -145,6 +145,14 @@
               sib = next;
             }
             break;
+          }
+        })();
+        // Lazy-load images (skip the first one)
+        (function(){
+          var imgs = document.querySelectorAll('.post-body img');
+          for (var i = 1; i < imgs.length; i++) {
+            imgs[i].setAttribute('loading', 'lazy');
+            imgs[i].setAttribute('decoding', 'async');
           }
         })();
         </script>

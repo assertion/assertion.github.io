@@ -4,3 +4,4 @@ _site/
 Gemfile.lock
 .wrangler
 wrangler.toml
+_config_cf.yml

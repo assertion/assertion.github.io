@@ -1,0 +1,83 @@
+name: IndexNow — notify search engines of new/changed posts
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '_posts/**'
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Check SITE_URL variable
+        run: |
+          if [ -z "${{ vars.SITE_URL }}" ]; then
+            echo "::warning::SITE_URL repository variable is not set. Skipping IndexNow."
+            echo "SKIP=true" >> "$GITHUB_ENV"
+          else
+            echo "SITE_URL=${{ vars.SITE_URL }}" >> "$GITHUB_ENV"
+          fi
+
+      - name: Collect changed post URLs
+        if: env.SKIP != 'true'
+        run: |
+          URLS=""
+          for f in $(git diff --name-only HEAD~1 HEAD -- '_posts/*.md'); do
+            if [ ! -f "$f" ]; then continue; fi
+            # Extract permalink or derive from filename
+            SLUG=$(basename "$f" .md)
+            # Convert YYYY-MM-DD-slug to /YYYY/MM/DD/slug
+            DATE_PART=$(echo "$SLUG" | grep -oP '^\d{4}-\d{2}-\d{2}')
+            NAME_PART=$(echo "$SLUG" | sed 's/^[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}-//')
+            if [ -z "$DATE_PART" ] || [ -z "$NAME_PART" ]; then continue; fi
+            Y=$(echo "$DATE_PART" | cut -d- -f1)
+            M=$(echo "$DATE_PART" | cut -d- -f2)
+            D=$(echo "$DATE_PART" | cut -d- -f3)
+            URL_PATH="/${Y}/${M}/${D}/${NAME_PART}"
+            URLS="${URLS}\"${SITE_URL}${URL_PATH}\","
+            URLS="${URLS}\"${SITE_URL}${URL_PATH}.md\","
+          done
+
+          if [ -z "$URLS" ]; then
+            echo "No post URLs to submit."
+            echo "SKIP=true" >> "$GITHUB_ENV"
+          else
+            # Remove trailing comma
+            URLS="[${URLS%,}]"
+            echo "URL_LIST=${URLS}" >> "$GITHUB_ENV"
+            echo "Submitting URLs: ${URLS}"
+          fi
+
+      - name: Wait for deployment
+        if: env.SKIP != 'true'
+        run: |
+          FIRST_URL=$(echo "$URL_LIST" | python3 -c "import sys,json; print(json.loads(sys.stdin.read())[0])")
+          echo "Waiting for $FIRST_URL to return 200..."
+          for i in $(seq 1 30); do
+            STATUS=$(curl -s -o /dev/null -w '%{http_code}' "$FIRST_URL" || echo "000")
+            if [ "$STATUS" = "200" ]; then
+              echo "Live after ${i}0 seconds."
+              break
+            fi
+            echo "Attempt $i: status $STATUS, waiting 10s..."
+            sleep 10
+          done
+
+      - name: Submit to IndexNow
+        if: env.SKIP != 'true'
+        run: |
+          HOST=$(echo "$SITE_URL" | sed 's|https\?://||' | sed 's|/.*||')
+          curl -s -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"host\": \"${HOST}\",
+              \"key\": \"3051777212e2813153868825e7c609ec\",
+              \"keyLocation\": \"${SITE_URL}/3051777212e2813153868825e7c609ec.txt\",
+              \"urlList\": ${URL_LIST}
+            }" || echo "::warning::IndexNow submission failed"
+          echo "IndexNow submission complete."

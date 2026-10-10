@@ -1,0 +1,7 @@
+---
+layout: nil
+---
+User-agent: *
+Allow: /
+
+{% if site.url and site.url != '' %}Sitemap: {{ site.url }}{{ site.baseurl }}/sitemap.xml{% endif %}

@@ -1,9 +1,6 @@
 /* Homepage-specific styles (shared styles are in site.css) */
 
-/* Hide the site title H2 on homepage */
-body.page-home #main > h2:first-of-type {
-  display: none;
-}
+/* The homepage H1 is sr-only (visually hidden in the HTML) */
 
 body.page-home #main {
   padding-top: 28px;

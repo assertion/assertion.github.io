@@ -3,6 +3,7 @@
 # ---------------- #
 baseurl: ""
 url: ""
+timezone: Asia/Shanghai
 date_format: "ordinal"
 title: 代码的回声
 author: ""
@@ -11,7 +12,7 @@ paginate: 15
 # ---------------- #
 #   RSS / Email    #
 # ---------------- #
-subscribe_rss: /atom.xml
+subscribe_rss: /feed.xml
 email:
 
 # ---------------- #
@@ -22,8 +23,22 @@ redcarpet:
     extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "strikethrough"]
 pygments: true
 permalink: /:year/:month/:day/:title
+include:
+    - _redirects
+    - _headers
 exclude:
     - functions
+    - _scripts
+    - wrangler.toml
+    - node_modules
+    - Gemfile
+    - Gemfile.lock
+    - README.md
+    - README.textile
+    - LICENSE
+    - AGENTS.md
+    - .travis.yml
+    - _config_cf.yml
 gems:
     - jekyll-sitemap
     - jekyll-gist
