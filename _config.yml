@@ -2,12 +2,20 @@
 #   Main Configs   #
 # ---------------- #
 baseurl: ""
-url: ""
+# Canonical/primary host for both GitHub Pages and Cloudflare production.
+# Absolute canonical/hreflang/og/JSON-LD/feed/sitemap URLs are derived from this.
+# Local override: _config_local.yml. Cloudflare preview should leave this as-is
+# so preview deploys do not get indexed as a second origin.
+url: https://code-echo.pages.dev
 timezone: Asia/Shanghai
 date_format: "ordinal"
 title: 代码的回声
 author: ""
 paginate: 15
+
+# Optional webmaster verification (rendered in <head> only when non-empty)
+google_site_verification: ""
+bing_site_verification: ""
 
 # ---------------- #
 #   RSS / Email    #

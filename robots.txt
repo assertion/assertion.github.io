@@ -1,7 +1,9 @@
 ---
 layout: nil
+sitemap: false
 ---
 User-agent: *
 Allow: /
 
-{% if site.url and site.url != '' %}Sitemap: {{ site.url }}{{ site.baseurl }}/sitemap.xml{% endif %}
+{% include absolute-origin.html %}
+Sitemap: {{ abs_origin }}{{ site.baseurl }}/sitemap.xml

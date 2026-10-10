@@ -1,0 +1,33 @@
+---
+layout: nil
+sitemap: false
+---
+{% include absolute-origin.html %}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for post in site.posts %}{% unless post.sitemap == false %}
+<url>
+<loc>{{ abs_origin }}{{ site.baseurl }}{{ post.url }}</loc>
+<lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod>
+</url>
+{% endunless %}{% endfor %}
+{% assign unique_total_sm = 0 %}
+{% for p in site.posts %}{% unless p.lang == 'en' %}{% assign unique_total_sm = unique_total_sm | plus: 1 %}{% endunless %}{% endfor %}
+{% assign per_page_sm = site.paginate | default: 15 %}
+{% assign unique_pages_sm = unique_total_sm | plus: per_page_sm | minus: 1 | divided_by: per_page_sm %}
+{% for p in site.pages %}
+{% unless p.sitemap == false %}
+{% assign skip = false %}
+{% assign pname = p.path | split: '/' | last %}
+{% if pname == 'sitemap.xml' or pname == 'robots.txt' or pname == 'feed.xml' or pname == 'feed-en.xml' or pname == 'llms.txt' %}{% assign skip = true %}{% endif %}
+{% if p.url contains '404' %}{% assign skip = true %}{% endif %}
+{% if p.pager and p.pager.page > unique_pages_sm %}{% assign skip = true %}{% endif %}
+{% unless skip %}
+<url>
+<loc>{{ abs_origin }}{{ site.baseurl }}{{ p.url | replace: 'index.html', '' }}</loc>
+{% if p.date %}<lastmod>{{ p.date | date_to_xmlschema }}</lastmod>{% endif %}
+</url>
+{% endunless %}
+{% endunless %}
+{% endfor %}
+</urlset>
