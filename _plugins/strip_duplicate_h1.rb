@@ -1,8 +1,11 @@
-# Posts with `headline` already render that string as the layout <h1>.
-# The markdown body often starts with its own # heading, which becomes a
-# second <h1>. Strip that first body heading after conversion.
+# Jekyll 3.9 has no :post_convert hook. Posts with `headline` already
+# render that string as the layout <h1>; strip the body's first <h1>
+# from the converted HTML via a Liquid filter.
 
-Jekyll::Hooks.register :posts, :post_convert do |post|
-  next if post.data["headline"].to_s.strip.empty?
-  post.content = post.content.sub(/\A\s*<h1\b[^>]*>.*?<\/h1>\s*/m, "")
+module StripLeadingH1
+  def strip_leading_h1(input)
+    input.to_s.sub(/\A\s*<h1\b[^>]*>.*?<\/h1>\s*/m, "")
+  end
 end
+
+Liquid::Template.register_filter(StripLeadingH1)

@@ -25,6 +25,7 @@ pygments: true
 permalink: /:year/:month/:day/:title
 include:
     - _redirects
+    - _headers
 exclude:
     - functions
     - _scripts
