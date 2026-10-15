@@ -14,7 +14,7 @@ Code Echo is a daily bilingual (zh-CN / English) digest of high-signal AI coding
 - Sitemap: https://code-echo.pages.dev/sitemap.xml
 - About: https://code-echo.pages.dev/about
 
-https://assertion.github.io is a GitHub Pages mirror of the same site. Canonical URLs point to https://code-echo.pages.dev.
+https://assertion.github.io is a GitHub Pages mirror of the same site. Canonical URLs point to [https://code-echo.pages.dev](https://code-echo.pages.dev).
 
 ## Recent issues / 近期期数
 
