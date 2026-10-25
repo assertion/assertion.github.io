@@ -6,7 +6,7 @@ description: 过去一天 X 上 AI coding / 模型 / 产品的高信号讨论摘
 keywords: AI, Twitter, Claude Code, Anthropic, Thariq, amorriscode, HarnessRouter, Grok Bot, leerob, personal agents, Claire Vo, Opus 5.5, Update-pls, LiteLLM, OpenCode, T3 Code, Linear, MCP, vLLM, DeepSeek-V4.1-Flash, AgentX
 lang: zh
 translation_key: ai-twitter-hots-2026-10-25
-issue: 43
+issue: 44
 item_count: 10
 headline: "Claude Code 两核心同日离职，HarnessRouter 接上 Grok Bot 多 harness，leerob 开 100 美元反馈赏金"
 highlights:

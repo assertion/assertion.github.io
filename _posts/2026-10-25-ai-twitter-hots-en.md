@@ -7,7 +7,7 @@ keywords: AI, Twitter, Claude Code, Anthropic, Thariq, amorriscode, HarnessRoute
 lang: en
 permalink: /2026/10/25/ai-twitter-hots-en
 translation_key: ai-twitter-hots-2026-10-25
-issue: 43
+issue: 44
 item_count: 10
 headline: "Two Claude Code leads leave Anthropic the same day, HarnessRouter wires Grok Bot to multi-harness runtimes, leerob posts a $100 feedback bounty"
 highlights:
