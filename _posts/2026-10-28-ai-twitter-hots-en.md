@@ -5,7 +5,7 @@ categories: AI
 description: A high-signal digest of AI coding / models / products discussed on X in the past day
 keywords: AI, Twitter, Cursor, Annotate, FrontierCode, Anthropic, Grok Bot, tibot, Claude Code, DeltaDB, Liquid AI, LFM3, LangChain, OpenAI, DeepSeek
 lang: en
-permalink: /2026/10/28/ai-twitter-hots-en/
+permalink: /2026/10/28/ai-twitter-hots-en
 translation_key: ai-twitter-hots-2026-10-28
 issue: 47
 item_count: 10
