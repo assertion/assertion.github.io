@@ -8,20 +8,20 @@ lang: zh
 translation_key: ai-twitter-hots-2026-10-29
 issue: 48
 item_count: 10
-headline: "Gemini 4 Carbon 登顶 Intelligence Index，GitHub 发 Copilot Fusion，ChatGPT Pro 每月最高送 \$500 API 额度"
+headline: "Gemini 4 Carbon 登顶 Intelligence Index，GitHub 发 Copilot Fusion，ChatGPT Pro 每月最高送 $500 API 额度"
 highlights:
   - label: "Gemini 4 Carbon"
     text: "Google 下一款前沿模型：DeepMind / Sundar 官宣，Artificial Analysis Intelligence Index v5 排第一，Coding Agent Index 仅次于 Opus 5.5。"
   - label: "Copilot Fusion"
     text: "GitHub Universe 发布多模型编排：Anthropic + OpenAI 协同；Coding Agent Index 距 Opus 5.5 Max 约 2 分，任务成本约一半。"
-  - label: "\$500 API 额度"
-    text: "ChatGPT Pro / Business 订阅用户每月可领最高 \$500 开发者 API 积分；社区提醒这不等于 Codex 额度。"
+  - label: "$500 API 额度"
+    text: "ChatGPT Pro / Business 订阅用户每月可领最高 $500 开发者 API 积分；社区提醒这不等于 Codex 额度。"
 products: [Gemini, Gemini 4 Carbon, GitHub Copilot, Copilot Fusion, Artificial Analysis, Claude Opus 5.5, Claude Code, Codex, OpenAI, ChatGPT, baoyu-design, Prompt Guide]
 stats:
   - value: "27872"
     caption: "Sundar 官宣 Gemini 4 Carbon 帖点赞（收藏约 3190）"
   - value: "5686"
-    caption: "OpenAIDevs「每月最高 \$500 API 额度」帖点赞（收藏约 3507）"
+    caption: "OpenAIDevs「每月最高 $500 API 额度」帖点赞（收藏约 3507）"
   - value: "1333"
     caption: "Opus 5.5 Prompt Guide 帖收藏（点赞约 605）"
 stat:
@@ -35,7 +35,7 @@ stat:
 ## 今日要点
 
 1. **Google 连发前沿模型叙事**：Gemini 4 Carbon 在 Artificial Analysis Intelligence Index v5 登顶；同日 GitHub 用 Copilot Fusion 证明「多模型编排」也能逼近 Claude Code + Opus 5.5。  
-2. **订阅权益重新计价**：ChatGPT Pro / Business 每月最高送 \$500 API 额度；Codex 侧则是额度重置 +「明天有好消息」悬念，社区同时讨论老 Pro 200 额度将收紧。  
+2. **订阅权益重新计价**：ChatGPT Pro / Business 每月最高送 $500 API 额度；Codex 侧则是额度重置 +「明天有好消息」悬念，社区同时讨论老 Pro 200 额度将收紧。  
 3. **人怎么用 Opus 5.5 成了当天方法论热点**：Prompt Guide 高收藏、Simon Willison 称十月是 coding agent 又一拐点，宝玉开源 baoyu-design 把 Claude Design / Slides / Dashboard 搬到任意 agent。
 
 ---
@@ -84,11 +84,11 @@ stat:
 
 ---
 
-## 4. ChatGPT Pro / Business：每月最高 \$500 API 额度
+## 4. ChatGPT Pro / Business：每月最高 $500 API 额度
 
-**要点**：@OpenAIDevs 宣布：符合条件的 **ChatGPT Pro 与 Business** 订阅用户，每月可领取最高 **\$500** 开发者 API 积分用于做 App 与 agent。@dotey 跟进中文说明与领取路径，并强调按比例折算到续订日；社区跟帖提醒：**这不等于给 Codex 加额度**，API key 路径与 ChatGPT/Codex 订阅池是分开的。
+**要点**：@OpenAIDevs 宣布：符合条件的 **ChatGPT Pro 与 Business** 订阅用户，每月可领取最高 **$500** 开发者 API 积分用于做 App 与 agent。@dotey 跟进中文说明与领取路径，并强调按比例折算到续订日；社区跟帖提醒：**这不等于给 Codex 加额度**，API key 路径与 ChatGPT/Codex 订阅池是分开的。
 
-**为何值得看**：订阅从「聊天 + Codex」扩成「附带可兑现的开发者算力券」——谁能把 \$500 真正花在自建 agent / 自动化上，谁才吃到这次权益重定价。
+**为何值得看**：订阅从「聊天 + Codex」扩成「附带可兑现的开发者算力券」——谁能把 $500 真正花在自建 agent / 自动化上，谁才吃到这次权益重定价。
 
 - OpenAIDevs：官宣：https://x.com/OpenAIDevs/status/2115583698074755078  
 - dotey：中文摘要：https://x.com/dotey/status/2115591064073413118  
@@ -139,7 +139,7 @@ stat:
 
 ## 8. Codex：额度重置 +「明天有好消息」
 
-**要点**：Codex 负责人 @thsottiaux 在第 23 天活动中再次重置额度，并另发「做完了，**明天见好消息**」——互动极高。社区同日讨论老 Pro \$200 档 Codex 额度将于 10 月 30 日起收紧，以及 API 积分福利**买不到更多 Codex 时间**。悬念帖本身尚未兑现成正式产品说明（以官方后续为准）。
+**要点**：Codex 负责人 @thsottiaux 在第 23 天活动中再次重置额度，并另发「做完了，**明天见好消息**」——互动极高。社区同日讨论老 Pro $200 档 Codex 额度将于 10 月 30 日起收紧，以及 API 积分福利**买不到更多 Codex 时间**。悬念帖本身尚未兑现成正式产品说明（以官方后续为准）。
 
 **为何值得看**：Codex 用户体验正卡在「额度政治」与「模型体感」双线上——重置与预告制造预期，配额收紧传闻则反向推高对「好消息」的敏感度。
 
