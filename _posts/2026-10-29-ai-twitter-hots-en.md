@@ -9,20 +9,20 @@ permalink: /2026/10/29/ai-twitter-hots-en
 translation_key: ai-twitter-hots-2026-10-29
 issue: 48
 item_count: 10
-headline: "Gemini 4 Carbon tops the Intelligence Index, GitHub ships Copilot Fusion, ChatGPT Pro adds up to \$500/mo API credits"
+headline: "Gemini 4 Carbon tops the Intelligence Index, GitHub ships Copilot Fusion, ChatGPT Pro adds up to $500/mo API credits"
 highlights:
   - label: "Gemini 4 Carbon"
     text: "Google's next frontier model: DeepMind / Sundar announce it; #1 on Artificial Analysis Intelligence Index v5, second only to Opus 5.5 on the Coding Agent Index."
   - label: "Copilot Fusion"
     text: "GitHub Universe multi-model orchestration across Anthropic + OpenAI; within ~2 points of Opus 5.5 Max on the Coding Agent Index at about half the cost."
-  - label: "\$500 API credits"
-    text: "Eligible ChatGPT Pro / Business subscribers can claim up to \$500/mo in developer API credits; community notes this is not extra Codex quota."
+  - label: "$500 API credits"
+    text: "Eligible ChatGPT Pro / Business subscribers can claim up to $500/mo in developer API credits; community notes this is not extra Codex quota."
 products: [Gemini, Gemini 4 Carbon, GitHub Copilot, Copilot Fusion, Artificial Analysis, Claude Opus 5.5, Claude Code, Codex, OpenAI, ChatGPT, baoyu-design, Prompt Guide]
 stats:
   - value: "27872"
     caption: "Likes on Sundar's Gemini 4 Carbon launch (~3190 bookmarks)"
   - value: "5686"
-    caption: "Likes on OpenAIDevs' up-to-\$500/mo API credits post (~3507 bookmarks)"
+    caption: "Likes on OpenAIDevs' up-to-$500/mo API credits post (~3507 bookmarks)"
   - value: "1333"
     caption: "Bookmarks on the Opus 5.5 Prompt Guide thread (~605 likes)"
 stat:
@@ -36,7 +36,7 @@ stat:
 ## Today's highlights
 
 1. **Google keeps the frontier cadence**: Gemini 4 Carbon tops Artificial Analysis Intelligence Index v5; the same day GitHub's Copilot Fusion shows multi-model orchestration can nearly match Claude Code + Opus 5.5.  
-2. **Subscriptions get repriced**: ChatGPT Pro / Business can claim up to \$500/mo in API credits; on the Codex side, a usage reset plus a "good news tomorrow" teaser lands while the community debates tighter legacy Pro 200 limits.  
+2. **Subscriptions get repriced**: ChatGPT Pro / Business can claim up to $500/mo in API credits; on the Codex side, a usage reset plus a "good news tomorrow" teaser lands while the community debates tighter legacy Pro 200 limits.  
 3. **How to drive Opus 5.5 becomes the methodology story**: a high-bookmark Prompt Guide, Simon Willison calling October another coding-agent inflection, and baoyu-design open-sourcing Claude Design / Slides / Dashboard for any agent.
 
 ---
@@ -85,11 +85,11 @@ stat:
 
 ---
 
-## 4. ChatGPT Pro / Business: up to \$500/mo API credits
+## 4. ChatGPT Pro / Business: up to $500/mo API credits
 
-**Takeaways**: @OpenAIDevs says eligible **ChatGPT Pro and Business** subscribers can claim up to **\$500 per month** in developer API credits to build apps and agents. @dotey follows with a Chinese walkthrough and claim path (prorated to renewal). Community replies stress: **this is not extra Codex quota** — API keys and ChatGPT/Codex subscription pools stay separate.
+**Takeaways**: @OpenAIDevs says eligible **ChatGPT Pro and Business** subscribers can claim up to **$500 per month** in developer API credits to build apps and agents. @dotey follows with a Chinese walkthrough and claim path (prorated to renewal). Community replies stress: **this is not extra Codex quota** — API keys and ChatGPT/Codex subscription pools stay separate.
 
-**Why it matters**: The subscription expands from "chat + Codex" into a redeemable developer compute voucher — only teams that actually spend the \$500 on their own agents capture the repricing.
+**Why it matters**: The subscription expands from "chat + Codex" into a redeemable developer compute voucher — only teams that actually spend the $500 on their own agents capture the repricing.
 
 - OpenAIDevs: announcement: https://x.com/OpenAIDevs/status/2115583698074755078  
 - dotey: CN summary: https://x.com/dotey/status/2115591064073413118  
@@ -140,7 +140,7 @@ stat:
 
 ## 8. Codex: usage reset + "good news tomorrow"
 
-**Takeaways**: Codex lead @thsottiaux resets limits again on day 23 of the campaign, then posts **"And it's done. See you tomorrow for some good news"** to very high engagement. The same window fills with talk that legacy Pro \$200 Codex limits tighten from Oct 30, and that API credit perks **do not buy more Codex time**. The teaser itself is not yet a formal product note — treat follow-up official posts as source of truth.
+**Takeaways**: Codex lead @thsottiaux resets limits again on day 23 of the campaign, then posts **"And it's done. See you tomorrow for some good news"** to very high engagement. The same window fills with talk that legacy Pro $200 Codex limits tighten from Oct 30, and that API credit perks **do not buy more Codex time**. The teaser itself is not yet a formal product note — treat follow-up official posts as source of truth.
 
 **Why it matters**: Codex UX is stuck on two tracks — quota politics and model feel. Resets and teasers raise expectations; quota-tightening chatter raises the stakes of whatever "good news" lands.
 
