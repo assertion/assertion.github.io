@@ -18,10 +18,10 @@ https://assertion.github.io is a GitHub Pages mirror of the same site. Canonical
 
 ## Recent issues / 近期期数
 
-- [AI Twitter 热点 · 2026-10-15](https://code-echo.pages.dev/2026/10/15/ai-twitter-hots)
-- [AI Twitter 热点 · 2026-10-14](https://code-echo.pages.dev/2026/10/14/ai-twitter-hots)
-- [AI Twitter 热点 · 2026-10-13](https://code-echo.pages.dev/2026/10/13/ai-twitter-hots)
-- [AI Twitter 热点 · 2026-10-12](https://code-echo.pages.dev/2026/10/12/ai-twitter-hots)
-- [AI Twitter 热点 · 2026-10-11](https://code-echo.pages.dev/2026/10/11/ai-twitter-hots)
-- [AI Twitter 热点 · 2026-10-10](https://code-echo.pages.dev/2026/10/10/ai-twitter-hots)
-- [AI Twitter 热点 · 2026-10-09](https://code-echo.pages.dev/2026/10/09/ai-twitter-hots)
+- [AI Twitter 热点 · 2026-11-03](https://code-echo.pages.dev/2026/11/03/ai-twitter-hots)
+- [AI Twitter 热点 · 2026-11-02](https://code-echo.pages.dev/2026/11/02/ai-twitter-hots)
+- [AI Twitter 热点 · 2026-11-01](https://code-echo.pages.dev/2026/11/01/ai-twitter-hots)
+- [AI Twitter 热点 · 2026-10-31](https://code-echo.pages.dev/2026/10/31/ai-twitter-hots)
+- [AI Twitter 热点 · 2026-10-30](https://code-echo.pages.dev/2026/10/30/ai-twitter-hots)
+- [AI Twitter 热点 · 2026-10-29](https://code-echo.pages.dev/2026/10/29/ai-twitter-hots)
+- [AI Twitter 热点 · 2026-10-28](https://code-echo.pages.dev/2026/10/28/ai-twitter-hots)

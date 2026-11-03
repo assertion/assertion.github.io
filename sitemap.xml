@@ -20,7 +20,16 @@ sitemap: false
 {% assign pname = p.path | split: '/' | last %}
 {% if pname == 'sitemap.xml' or pname == 'robots.txt' or pname == 'feed.xml' or pname == 'feed-en.xml' or pname == 'llms.txt' %}{% assign skip = true %}{% endif %}
 {% if p.url contains '404' %}{% assign skip = true %}{% endif %}
+{% comment %} GH Pages injects theme CSS as a page (e.g. /assets/css/style.css). {% endcomment %}
+{% if p.url contains '/assets/' %}{% assign skip = true %}{% endif %}
+{% assign url_leaf = p.url | split: '/' | last %}
+{% if url_leaf contains '.' %}{% unless url_leaf contains '.html' %}{% assign skip = true %}{% endunless %}{% endif %}
+{% comment %} Empty paginator pages. Page#pager is not in to_liquid, so match /pageN/. {% endcomment %}
 {% if p.pager and p.pager.page > unique_pages_sm %}{% assign skip = true %}{% endif %}
+{% if p.url contains '/page' %}
+  {% assign page_num_from_url = p.url | replace: '/page', '' | replace: '/', '' | plus: 0 %}
+  {% if page_num_from_url > unique_pages_sm %}{% assign skip = true %}{% endif %}
+{% endif %}
 {% unless skip %}
 <url>
 <loc>{{ abs_origin }}{{ site.baseurl }}{{ p.url | replace: 'index.html', '' }}</loc>
