@@ -6,6 +6,7 @@ sitemap: false
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[Code Echo]]></title>
   <link href="{{ abs_origin }}{{ site.baseurl }}/feed-en.xml" rel="self"/>
+  <link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
   <link href="{{ abs_origin }}{{ site.baseurl }}/"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <id>{{ abs_origin }}{{ site.baseurl }}/feed-en</id>
