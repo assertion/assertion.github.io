@@ -68,6 +68,24 @@ jobs:
             sleep 10
           done
 
+      - name: Publish feeds to WebSub hub
+        if: env.SKIP != 'true'
+        run: |
+          # Notify Google's WebSub hub so subscribers discover the updated Atom feeds.
+          # HTTP 204 is the hub's accept signal. A failure must not fail the job.
+          HUB="https://pubsubhubbub.appspot.com/"
+          for FEED in "${SITE_URL}/feed.xml" "${SITE_URL}/feed-en.xml"; do
+            STATUS=$(curl -sS --max-time 30 -o /dev/null -w '%{http_code}' -X POST "$HUB" \
+              -H "Content-Type: application/x-www-form-urlencoded" \
+              --data-urlencode "hub.mode=publish" \
+              --data-urlencode "hub.url=${FEED}") || STATUS="000"
+            if [ "$STATUS" = "204" ]; then
+              echo "WebSub publish accepted for ${FEED} (HTTP 204)."
+            else
+              echo "::warning::WebSub publish failed for ${FEED} (HTTP ${STATUS})"
+            fi
+          done
+
       - name: Submit to IndexNow
         if: env.SKIP != 'true'
         run: |
