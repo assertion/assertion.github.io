@@ -522,6 +522,14 @@
     return event.primary_product === productId || (event.related_products || []).indexOf(productId) !== -1;
   }
 
+  function retainedSelection(selectedId, events, predicate) {
+    if (!selectedId) return null;
+    var event = null;
+    events.forEach(function (item) { if (item.id === selectedId) event = item; });
+    if (!event || !predicate(event)) return null;
+    return selectedId;
+  }
+
   function svgEl(name, attrs) {
     var node = document.createElementNS(SVGNS, name);
     if (attrs) Object.keys(attrs).forEach(function (key) { node.setAttribute(key, attrs[key]); });
@@ -640,8 +648,10 @@
     search.autocomplete = 'off';
     search.addEventListener('input', function () {
       state.query = search.value.trim();
+      dropIncompatibleSelection();
       renderFrame();
       renderStatus();
+      renderDetail();
     });
     search.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') {
@@ -687,8 +697,7 @@
     frame.addEventListener('pointerdown', function (event) {
       if (event.pointerType === 'touch') return;
       if (event.button !== 0) return;
-      if (event.target.closest && event.target.closest('button, .tl-label')) return;
-      frame.setPointerCapture(event.pointerId);
+      state.dragMoved = false;
       var scroller = frame.scrollHeight > frame.clientHeight + 4 ? frame : document.scrollingElement;
       drag = {
         id: event.pointerId,
@@ -699,13 +708,17 @@
         scroller: scroller,
         moved: false
       };
-      frame.classList.add('is-dragging');
     });
     frame.addEventListener('pointermove', function (event) {
       if (!drag || drag.id !== event.pointerId) return;
       var dx = event.clientX - drag.x;
       var dy = event.clientY - drag.y;
-      if (Math.abs(dx) > 4 || Math.abs(dy) > 4) drag.moved = true;
+      if (!drag.moved && Math.abs(dx) < 5 && Math.abs(dy) < 5) return;
+      if (!drag.moved) {
+        drag.moved = true;
+        if (frame.setPointerCapture) frame.setPointerCapture(event.pointerId);
+        frame.classList.add('is-dragging');
+      }
       drag.scroller.scrollLeft = drag.left - dx;
       drag.scroller.scrollTop = drag.top - dy;
     });
@@ -900,16 +913,21 @@
           var leafSpan = schedule.leaves[dayIndex][leafIndex];
           var appear = span(clock, leafSpan[0], leafSpan[1]);
           var on = lit(leaf.event);
+          var chosen = state.selectedId === leaf.id && on;
+          var interactive = appear >= 0.62 && (!filtering || on);
           leafNodes.group.style.opacity = appear * (on || !filtering ? 1 : 0.2);
           leafNodes.petiole.setAttribute('stroke-dashoffset', String(1 - appear));
           var opened = 0.12 + 0.88 * appear;
           leafNodes.blade.setAttribute('transform', 'scale(' + (leaf.scale * opened).toFixed(3) + ')');
           leafNodes.button.hidden = appear < 0.62;
-          leafNodes.button.setAttribute('aria-pressed', state.selectedId === leaf.id ? 'true' : 'false');
-          leafNodes.group.classList.toggle('is-selected', state.selectedId === leaf.id);
-          leafNodes.group.classList.toggle('is-hot', state.hoverId === leaf.id);
+          leafNodes.button.tabIndex = interactive ? 0 : -1;
+          leafNodes.button.style.pointerEvents = interactive ? 'auto' : 'none';
+          leafNodes.label.style.pointerEvents = interactive ? 'auto' : 'none';
+          leafNodes.button.setAttribute('aria-pressed', chosen ? 'true' : 'false');
+          leafNodes.group.classList.toggle('is-selected', chosen);
+          leafNodes.group.classList.toggle('is-hot', state.hoverId === leaf.id && on);
           leafNodes.label.style.opacity = appear < 0.7 ? 0 : (on || !filtering ? 1 : 0.32);
-          leafNodes.label.classList.toggle('is-hot', state.hoverId === leaf.id || state.selectedId === leaf.id);
+          leafNodes.label.classList.toggle('is-hot', (state.hoverId === leaf.id || chosen) && on);
         });
       });
     }
@@ -1167,14 +1185,18 @@
           label.appendChild(labelText);
           label.addEventListener('click', function () {
             if (state.dragMoved) return;
+            if (!lit(event)) return;
             selectLeaf(event.id);
           });
           var leafBtn = document.createElement('button');
           leafBtn.type = 'button';
           leafBtn.className = 'tl-leaf-btn';
-          leafBtn.addEventListener('click', function () {
+          leafBtn.addEventListener('click', function (clickEvent) {
             if (state.dragMoved) return;
-            selectLeaf(event.id);
+            var id = nearestLeaf(clickEvent.clientX, clickEvent.clientY) || event.id;
+            var picked = model.events.filter(function (item) { return item.id === id; })[0];
+            if (!picked || !lit(picked)) return;
+            selectLeaf(id);
           });
           leafBtn.addEventListener('mouseenter', function () { setHover(event.id); });
           leafBtn.addEventListener('mouseleave', function () { if (state.hoverId === event.id) setHover(null); });
@@ -1229,13 +1251,51 @@
       animateBlend();
       renderTexts();
     }
+    function dropIncompatibleSelection() {
+      var next = retainedSelection(state.selectedId, model.events, lit);
+      if (next === state.selectedId) return;
+      var pageY = window.scrollY || document.documentElement.scrollTop || 0;
+      var pan = frame.scrollTop;
+      state.selectedId = null;
+      if (state.hoverId) {
+        var hovered = model.events.filter(function (item) { return item.id === state.hoverId; })[0];
+        if (!hovered || !lit(hovered)) state.hoverId = null;
+      }
+      renderFrame();
+      renderDetail();
+      window.scrollTo(0, pageY);
+      frame.scrollTop = pan;
+    }
+    function nearestLeaf(x, y) {
+      var best = null;
+      var bestDist = Infinity;
+      Object.keys(nodes.days).forEach(function (date) {
+        var dayNodes = nodes.days[date];
+        Object.keys(dayNodes.leaves).forEach(function (id) {
+          var button = dayNodes.leaves[id].button;
+          if (!button || button.hidden || button.style.pointerEvents === 'none') return;
+          var box = button.getBoundingClientRect();
+          var cx = box.left + box.width / 2;
+          var cy = box.top + box.height / 2;
+          var dist = Math.hypot(x - cx, y - cy);
+          if (dist > Math.min(box.width, box.height) / 2) return;
+          if (dist < bestDist) {
+            bestDist = dist;
+            best = id;
+          }
+        });
+      });
+      return best;
+    }
     function toggleProduct(id) {
       state.product = state.product === id ? null : id;
+      dropIncompatibleSelection();
       renderFrame();
       renderTexts();
     }
     function toggleKind(kind) {
       state.kind = state.kind === kind ? null : kind;
+      dropIncompatibleSelection();
       renderFrame();
       renderTexts();
     }
@@ -1313,7 +1373,9 @@
       state.layout.days.forEach(function (day, dayIndex) {
         day.leaves.forEach(function (leaf, leafIndex) {
           var pair = state.schedule.leaves[dayIndex][leafIndex];
-          if (span(state.clock, pair[0], pair[1]) >= 0.62) list.push(leaf);
+          if (span(state.clock, pair[0], pair[1]) < 0.62) return;
+          if (filterOn() && !lit(leaf.event)) return;
+          list.push(leaf);
         });
       });
       return list;
@@ -1349,6 +1411,7 @@
     buildSchedule: buildSchedule,
     normalize: normalize,
     belongs: belongs,
+    retainedSelection: retainedSelection,
     mount: mount
   };
 });
