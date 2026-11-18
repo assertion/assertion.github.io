@@ -175,6 +175,12 @@ events.forEach(function (row) {
   bilingual(event.short, label + ' short');
   bilingual(event.summary, label + ' summary');
   bilingual(event.why, label + ' why');
+  bilingual(event.brief, label + ' brief');
+  if (event.brief) {
+    ['zh', 'en'].forEach(function (lang) {
+      if (event.brief[lang] && event.brief[lang].length > 180) fail(label + ' brief.' + lang + ' is longer than 180 characters');
+    });
+  }
   if (event.notes != null) bilingual(event.notes, label + ' notes');
   if (!productById[event.primary_product]) fail(label + ' primary_product is not in the registry');
   if (!Array.isArray(event.related_products)) fail(label + ' related_products must be an array');

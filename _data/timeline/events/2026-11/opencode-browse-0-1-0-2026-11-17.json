@@ -13,6 +13,10 @@
     "zh": "官方宣布 Browse 0.1.0：用 Rust 重写，称内存降为原来的 1/25、体积小 23 倍，并去掉 Playwright 依赖。这是官方口径，本页未做独立测量。11 月 15 日已报道过重写花费，当天增量是正式版本号与性能数字。",
     "en": "The project announced Browse 0.1.0: a Rust rewrite, with an official claim of 1/25 the memory, a 23 times smaller build, and no Playwright dependency. Those are official figures; this page did not measure them. The 15 November digest already covered the cost of the rewrite. What is new on this day is the version number and the performance claims."
   },
+  "brief": {
+    "zh": "Browse 0.1.0 以 Rust 重写发布。官方称去掉了 Playwright 依赖。",
+    "en": "Browse 0.1.0 shipped as a Rust rewrite. The project says the Playwright dependency is gone."
+  },
   "why": {
     "zh": "明确的产品版本发布；性能数字需保留「官方称」。",
     "en": "A concrete versioned release. Keep the performance numbers attributed as official claims."

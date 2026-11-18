@@ -26,7 +26,7 @@ Add a leaf only after the day's digest is published and the milestone has been c
 
 - `id` — stable, lowercase, ends with the reporting date: `qwen4-max-ga-2026-11-17`. The filename is `<id>.json`. Do not rename an id once the page has shipped; edit the record instead.
 - `order` — integer, unique within the day. Lower numbers sit closer to the trunk.
-- `title`, `short`, `summary`, `why` — objects with `zh` and `en`. `short` is the label drawn beside the leaf.
+- `title`, `short`, `summary`, `why`, `brief` — objects with `zh` and `en`. `short` is the label beside the leaf. `brief` is the short factual line in the side pane. Keep caveats in `summary`, `why`, or `notes`; the pane does not print those.
 - `reported_on`, `happened_at`, `timezone` — `timezone` is `Asia/Shanghai`.
 - `primary_product` — one id from the registry.
 - `related_products` — other registry ids. Omit the primary id here.
