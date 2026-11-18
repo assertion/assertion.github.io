@@ -1,0 +1,43 @@
+{
+  "id": "qwen4-max-ga-2026-11-17",
+  "order": 1,
+  "title": {
+    "zh": "Qwen4-Max 正式发布：原生视觉与百万上下文",
+    "en": "Qwen4-Max generally available: native vision and 1M context"
+  },
+  "short": {
+    "zh": "Qwen4-Max 正式发布",
+    "en": "Qwen4-Max GA"
+  },
+  "summary": {
+    "zh": "通义宣布 Qwen4-Max 正式上线：2.4T MoE、每 token 激活 71B，原生视觉与 100 万 token 上下文。官方称 Work360 单任务平均成本从 $4.43 降到 $1.67。Qoder 提供 Day-0 支持，并把选择器里的 Preview 升级为正式版；同日也登陆 OpenCode Go 等渠道。11 月 12 日已报道过 Preview，这条是正式版与分发，不是首次亮相。Qoder 与 OpenCode 的接入记为相关产品，不另立成三次发布。",
+    "en": "Qwen announced that Qwen4-Max is generally available: a 2.4T mixture-of-experts model with 71B parameters active per token, native vision, and a 1M-token context. The official Work360 figure puts average cost per task at $1.67, down from $4.43. Qoder offered day-0 support and upgraded the picker from Preview to the release; the same day it also reached channels such as OpenCode Go. Preview was already covered on 12 November, so this leaf is the general release and distribution, not a first appearance. Qoder and OpenCode access are related products, not three separate launches."
+  },
+  "why": {
+    "zh": "这是该窗口最大的模型发布。应写成 Preview 升级为正式版并开始更广分发，不要写成首次亮相；正式版与 Preview 的观感争议应并列，不要只抄官方榜单。",
+    "en": "The largest model launch in this window. Write it as Preview becoming the general release and gaining wider distribution, not as a first appearance. Keep the disagreement about how the release feels versus Preview next to the official numbers."
+  },
+  "reported_on": "2026-11-17",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "qwen4-max",
+  "related_products": ["qoder", "opencode"],
+  "kind": "launch",
+  "lifecycle": "ga",
+  "importance": "high",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/Alibaba_Qwen/status/2122148127520289151",
+      "label": {
+        "zh": "通义官宣正式发布",
+        "en": "Qwen announces general availability"
+      }
+    }
+  ],
+  "digest_refs": [
+    { "date": "2026-11-17", "lang": "zh", "path": "/2026/11/17/ai-twitter-hots" },
+    { "date": "2026-11-17", "lang": "en", "path": "/2026/11/17/ai-twitter-hots-en" }
+  ],
+  "updates": []
+}

@@ -4,6 +4,7 @@ zh:
     home: "首页"
     categories: "分类"
     wiki: "维基"
+    timeline: "时间线"
     about: "关于"
     subscribe: "订阅"
   pagination:
@@ -33,6 +34,7 @@ en:
     home: "Home"
     categories: "Categories"
     wiki: "Wiki"
+    timeline: "Timeline"
     about: "About"
     subscribe: "Feed"
   pagination:

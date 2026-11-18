@@ -1,0 +1,10 @@
+{% include header.html %}
+<div id="container">
+    {% include navigation.html %}
+    <div id="main">
+        <h1 data-i18n-zh="{{ page.title }}" data-i18n-en="{{ page.title_en | default: page.title }}">{{ page.title }}</h1>
+        {{ content }}
+    </div>
+</div>
+<script src="{{ site.baseurl }}/js/timeline.js"></script>
+{% include footer.html %}

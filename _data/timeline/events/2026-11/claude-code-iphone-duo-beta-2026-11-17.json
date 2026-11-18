@@ -1,0 +1,43 @@
+{
+  "id": "claude-code-iphone-duo-beta-2026-11-17",
+  "order": 2,
+  "title": {
+    "zh": "Claude Code 桌面版公测 iPhone Duo 模拟器",
+    "en": "Claude Code desktop public-beta iPhone Duo simulator"
+  },
+  "short": {
+    "zh": "Claude Code Duo",
+    "en": "Claude Code Duo"
+  },
+  "summary": {
+    "zh": "@ClaudeDevs 宣布 macOS 桌面版（需 Xcode 27.1 或更高）已在 iOS 模拟器中公测支持 iPhone Duo，可在对话旁运行 App，并由 Claude 折叠或展开设备检查布局。团队随后发布 verification 博文（文内日期为 2026-11-16），写明仓库约 90% 的代码由 Claude 编写并审查。该数字出自团队博文，不是第三方审计。Xcode 插件是进入官方插件市场，不是当天首次出现。",
+    "en": "@ClaudeDevs announced a public-beta iPhone Duo simulator in the macOS desktop app (Xcode 27.1 or later). The app can run beside the chat, and Claude can fold or unfold the device to inspect layout. The team then published a verification post dated 2026-11-16 saying about 90% of the repository code is written and reviewed by Claude. That figure comes from the team post, not a third-party audit. The Xcode plugin entered the official marketplace; it was not a first appearance that day."
+  },
+  "why": {
+    "zh": "窗口内较完整的 Claude Code 官方更新，重点是开发后的验证，以及可在对话旁检查 Duo 布局。",
+    "en": "The most complete official Claude Code update in the window. The point is verification after the work, and being able to inspect Duo layout beside the chat."
+  },
+  "reported_on": "2026-11-17",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "claude-code",
+  "related_products": [],
+  "kind": "capability",
+  "lifecycle": "beta",
+  "importance": "medium",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/ClaudeDevs/status/2122439098740674839",
+      "label": {
+        "zh": "ClaudeDevs 宣布 Duo 模拟器公测",
+        "en": "ClaudeDevs announces the Duo simulator beta"
+      }
+    }
+  ],
+  "digest_refs": [
+    { "date": "2026-11-17", "lang": "zh", "path": "/2026/11/17/ai-twitter-hots" },
+    { "date": "2026-11-17", "lang": "en", "path": "/2026/11/17/ai-twitter-hots-en" }
+  ],
+  "updates": []
+}

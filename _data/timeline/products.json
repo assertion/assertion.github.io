@@ -1,0 +1,56 @@
+[
+  {
+    "id": "qwen4-max",
+    "name": "Qwen4-Max",
+    "aliases": ["Qwen 4 Max", "Qwen4 Max", "通义 Max"],
+    "category": "model"
+  },
+  {
+    "id": "qoder",
+    "name": "Qoder",
+    "aliases": ["Qoder IDE"],
+    "category": "ide"
+  },
+  {
+    "id": "claude-code",
+    "name": "Claude Code",
+    "aliases": ["ClaudeCode"],
+    "category": "agent"
+  },
+  {
+    "id": "opencode",
+    "name": "OpenCode",
+    "aliases": ["OpenCode Go", "OpenCode Browse"],
+    "category": "agent"
+  },
+  {
+    "id": "gpt-6-2",
+    "name": "GPT-6.2",
+    "aliases": ["GPT-6.2 Astra", "GPT-6.2 Sol"],
+    "category": "model"
+  },
+  {
+    "id": "chatgpt-work",
+    "name": "ChatGPT Work",
+    "aliases": ["ChatGPT"],
+    "category": "platform"
+  },
+  {
+    "id": "codex",
+    "name": "Codex",
+    "aliases": ["OpenAI Codex"],
+    "category": "agent"
+  },
+  {
+    "id": "devin",
+    "name": "Devin",
+    "aliases": ["Devin Bots"],
+    "category": "agent"
+  },
+  {
+    "id": "antigravity",
+    "name": "Antigravity",
+    "aliases": ["Google Antigravity"],
+    "category": "ide"
+  }
+]

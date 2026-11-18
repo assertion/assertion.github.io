@@ -1,0 +1,47 @@
+{
+  "id": "codex-capacity-claim-2026-11-17",
+  "order": 4,
+  "title": {
+    "zh": "Codex 团队称容量报错可能已被修好",
+    "en": "Codex team says capacity errors may be fixed (claim, not independently measured)"
+  },
+  "short": {
+    "zh": "Codex 容量",
+    "en": "Codex capacity"
+  },
+  "summary": {
+    "zh": "Codex 相关账号 Tibo 称团队可能已经修好长期困扰用户的「model at capacity」报错，并附上 2026-10-15 至 11-12（UTC）的折线图：日活用户中至少有一轮以容量报错结束的占比，从约 6.82% 降到 0.085%。必须保留「might have actually fixed」的不确定语气；统计只到 11 月 12 日，不是独立复测，也不是已确认写入官方变更日志的彻底修复。",
+    "en": "A Codex-adjacent account, Tibo, said the team might have fixed the long-running model-at-capacity errors, and attached a chart for 2026-10-15 through 11-12 (UTC): the share of daily active users with at least one turn ending in a capacity error fell from about 6.82% to 0.085%. Keep the uncertain wording. The chart stops on 12 November. It is not an independent retest, and it is not a confirmed changelog entry for a complete fix."
+  },
+  "why": {
+    "zh": "容量报错是近期高频痛点，但这是团队表态，不是已核实的修复声明。",
+    "en": "Capacity errors have been a frequent pain point, but this is a team claim, not a verified fix."
+  },
+  "notes": {
+    "zh": "团队称可能已修好；本页未独立测量。",
+    "en": "The team said it might be fixed. This page did not measure it."
+  },
+  "reported_on": "2026-11-17",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "codex",
+  "related_products": [],
+  "kind": "reliability",
+  "lifecycle": null,
+  "importance": "standard",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/thsottiaux/status/2122206990101536852",
+      "label": {
+        "zh": "Tibo 发帖与错误率图",
+        "en": "Tibo's post and error-rate chart"
+      }
+    }
+  ],
+  "digest_refs": [
+    { "date": "2026-11-17", "lang": "zh", "path": "/2026/11/17/ai-twitter-hots" },
+    { "date": "2026-11-17", "lang": "en", "path": "/2026/11/17/ai-twitter-hots-en" }
+  ],
+  "updates": []
+}
