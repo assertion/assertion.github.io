@@ -47,6 +47,7 @@ exclude:
     - AGENTS.md
     - .travis.yml
     - _config_cf.yml
+    - docs
 gems:
     - jekyll-sitemap
     - jekyll-gist

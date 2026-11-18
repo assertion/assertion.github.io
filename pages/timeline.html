@@ -1,0 +1,16 @@
+---
+layout: timeline
+title: 产品进展树
+title_en: Product progress tree
+permalink: /timeline/
+description: 产品进展树。树干是时间，一天一根枝，一件进展一片叶子。已录入 2026-11-17 与 2026-11-18。
+body_class: page-timeline
+---
+
+<p class="tl-lede" data-bilingual-zh="树干是时间，旧的在下，新的在上。一天一根枝，一件进展一片叶子。叶子大小只表示编辑重要度。" data-bilingual-en="The trunk is time, older below and newer above. One bough per reporting day, one leaf per milestone. Leaf size is editorial importance only.">树干是时间，旧的在下，新的在上。一天一根枝，一件进展一片叶子。叶子大小只表示编辑重要度。</p>
+<div id="timeline-root" data-baseurl="{{ site.baseurl }}">
+    <noscript>
+        <p data-bilingual-zh="这棵树在浏览器里绘制。事件记录在页面内的 JSON 中。" data-bilingual-en="The tree is drawn in the browser. The event records are in the JSON on this page.">这棵树在浏览器里绘制。事件记录在页面内的 JSON 中。</p>
+    </noscript>
+</div>
+<script id="timeline-data" type="application/json">{{ site.data.timeline | jsonify }}</script>
