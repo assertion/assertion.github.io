@@ -1,0 +1,51 @@
+{
+  "id": "devin-bots-launch-2026-11-18",
+  "order": 2,
+  "title": {
+    "zh": "Devin Bots 发布：常驻、可带队的工程代理",
+    "en": "Devin Bots launch"
+  },
+  "short": {
+    "zh": "Devin Bots",
+    "en": "Devin Bots"
+  },
+  "summary": {
+    "zh": "Cognition 宣布 Devin Bots，定位为常驻、面向职业软件工程的代理：一个 Bot 带领一组 agent 完成工作，自带云电脑，覆盖规划、代码审查与自动测试。官方称内测用户平均每条消息合入的 PR 为原来的 4.5 倍。这些吞吐数字是官方或内测口径，不是第三方复现。",
+    "en": "Cognition announced Devin Bots: persistent agents for professional software engineering. One bot leads a group of agents, with its own cloud computer, covering planning, code review, and automated tests. The official claim is that beta testers merge 4.5 times more pull requests per message on average. Those throughput figures are official or beta-test claims, not a third-party reproduction."
+  },
+  "why": {
+    "zh": "把 coding agent 从完成一个任务，推到长期拥有一个结果。需把 4.5 倍等数字写清来源。",
+    "en": "Moves a coding agent from finishing one task to owning an outcome over time. Attribute the 4.5 times figure to its source."
+  },
+  "reported_on": "2026-11-18",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "devin",
+  "related_products": [],
+  "kind": "launch",
+  "lifecycle": "ga",
+  "importance": "high",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/cognition/status/2122737511684587551",
+      "label": {
+        "zh": "Cognition 官方介绍",
+        "en": "Cognition introduction"
+      }
+    },
+    {
+      "kind": "official",
+      "url": "https://devin.ai/bots",
+      "label": {
+        "zh": "Devin Bots 产品页",
+        "en": "Devin Bots product page"
+      }
+    }
+  ],
+  "digest_refs": [
+    { "date": "2026-11-18", "lang": "zh", "path": "/2026/11/18/ai-twitter-hots" },
+    { "date": "2026-11-18", "lang": "en", "path": "/2026/11/18/ai-twitter-hots-en" }
+  ],
+  "updates": []
+}

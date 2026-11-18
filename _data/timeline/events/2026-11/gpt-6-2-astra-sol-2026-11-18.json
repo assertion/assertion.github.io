@@ -1,0 +1,43 @@
+{
+  "id": "gpt-6-2-astra-sol-2026-11-18",
+  "order": 1,
+  "title": {
+    "zh": "GPT-6.2 Astra 与 Sol 进入 ChatGPT Work、Codex 与 API",
+    "en": "GPT-6.2 Astra and Sol land in ChatGPT Work, Codex, and the API"
+  },
+  "short": {
+    "zh": "GPT-6.2 Astra / Sol",
+    "en": "GPT-6.2 Astra / Sol"
+  },
+  "summary": {
+    "zh": "OpenAI 宣布 GPT-6.2 Astra 与 Sol 现已可用。Astra 面向最难项目，Sol 面向日常与多步 agent 工作流。ChatGPT Work 与 Codex 向 Plus、Pro、Enterprise、Edu 开放；Ultrafast 首次给到 Pro 200，先从 Sol 开始。开发者可在 API 使用 gpt-6.2-astra 与 gpt-6.2-sol。社区评价两极：有人把 Sol Ultrafast 当主力，也有批评指向 Astra。",
+    "en": "OpenAI announced that GPT-6.2 Astra and Sol are available. Astra is aimed at the hardest projects, Sol at everyday work and multistep agent workflows. ChatGPT Work and Codex are open to Plus, Pro, Enterprise, and Edu. Ultrafast reaches Pro 200 for the first time, starting with Sol. Developers can call gpt-6.2-astra and gpt-6.2-sol in the API. Reaction is split: some people use Sol Ultrafast as their default, and some criticism is aimed at Astra."
+  },
+  "why": {
+    "zh": "窗口内最大的模型与 Codex 分发事件。官方强调效率与成本，社区争议应并列。",
+    "en": "The largest model and Codex distribution event in the window. Keep the official efficiency and cost claims next to the community disagreement."
+  },
+  "reported_on": "2026-11-18",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "gpt-6-2",
+  "related_products": ["chatgpt-work", "codex"],
+  "kind": "launch",
+  "lifecycle": "ga",
+  "importance": "high",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/OpenAI/status/2122750124543926515",
+      "label": {
+        "zh": "OpenAI 官方宣布",
+        "en": "OpenAI announcement"
+      }
+    }
+  ],
+  "digest_refs": [
+    { "date": "2026-11-18", "lang": "zh", "path": "/2026/11/18/ai-twitter-hots" },
+    { "date": "2026-11-18", "lang": "en", "path": "/2026/11/18/ai-twitter-hots-en" }
+  ],
+  "updates": []
+}

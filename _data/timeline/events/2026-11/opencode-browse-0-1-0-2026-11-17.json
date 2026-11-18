@@ -1,0 +1,51 @@
+{
+  "id": "opencode-browse-0-1-0-2026-11-17",
+  "order": 3,
+  "title": {
+    "zh": "OpenCode Browse 0.1.0 以 Rust 重写发布",
+    "en": "OpenCode Browse 0.1.0 rewritten in Rust; official memory claim 1/25"
+  },
+  "short": {
+    "zh": "OpenCode Browse",
+    "en": "OpenCode Browse"
+  },
+  "summary": {
+    "zh": "官方宣布 Browse 0.1.0：用 Rust 重写，称内存降为原来的 1/25、体积小 23 倍，并去掉 Playwright 依赖。这是官方口径，本页未做独立测量。11 月 15 日已报道过重写花费，当天增量是正式版本号与性能数字。",
+    "en": "The project announced Browse 0.1.0: a Rust rewrite, with an official claim of 1/25 the memory, a 23 times smaller build, and no Playwright dependency. Those are official figures; this page did not measure them. The 15 November digest already covered the cost of the rewrite. What is new on this day is the version number and the performance claims."
+  },
+  "why": {
+    "zh": "明确的产品版本发布；性能数字需保留「官方称」。",
+    "en": "A concrete versioned release. Keep the performance numbers attributed as official claims."
+  },
+  "reported_on": "2026-11-17",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "opencode",
+  "related_products": [],
+  "kind": "capability",
+  "lifecycle": "ga",
+  "importance": "medium",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/opencode/status/2122377687968678258",
+      "label": {
+        "zh": "OpenCode 官方发布帖",
+        "en": "OpenCode release post"
+      }
+    },
+    {
+      "kind": "official",
+      "url": "https://opencode.ai/product/browse",
+      "label": {
+        "zh": "Browse 产品页",
+        "en": "Browse product page"
+      }
+    }
+  ],
+  "digest_refs": [
+    { "date": "2026-11-17", "lang": "zh", "path": "/2026/11/17/ai-twitter-hots" },
+    { "date": "2026-11-17", "lang": "en", "path": "/2026/11/17/ai-twitter-hots-en" }
+  ],
+  "updates": []
+}

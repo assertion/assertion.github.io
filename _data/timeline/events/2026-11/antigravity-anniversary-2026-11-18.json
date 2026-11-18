@@ -1,0 +1,47 @@
+{
+  "id": "antigravity-anniversary-2026-11-18",
+  "order": 4,
+  "title": {
+    "zh": "Antigravity 一周年：多智能体新界面、配额重置与 Carbon 提速",
+    "en": "Antigravity first anniversary: new multi-agent UI, quota reset, Carbon speed claim"
+  },
+  "short": {
+    "zh": "Antigravity 一周年",
+    "en": "Antigravity turns one"
+  },
+  "summary": {
+    "zh": "官方拆解为并行编排多个 agent 重建的新界面。负责人随后宣布庆祝满一岁，重置所有人、所有模型的配额，并称 Carbon 的 TTFT 已加快 1.5 倍（官方口径，本页未做独立测量）。公开记录里产品于 2025-11-18 推出，与「满一岁」相符。配额重置对现有用户最直接。",
+    "en": "The official account broke down a new interface rebuilt for orchestrating several agents in parallel. The lead then announced a first-anniversary quota reset for everyone, on every model, and said Carbon's time to first token is 1.5 times faster. That speed figure is an official claim; this page did not measure it. Public records show the product launched on 2025-11-18, which matches the anniversary. The quota reset is the most direct change for current users."
+  },
+  "why": {
+    "zh": "UI、配额、速度叠在同一天；满一岁与公开推出日相符，不是口头编造。",
+    "en": "UI, quota, and speed landed on the same day. The anniversary matches the public launch date."
+  },
+  "notes": {
+    "zh": "公开推出日为 2025-11-18，但本条发生日仍留空：树上位置仍按报道日，不把周年日反填成另一个发布时间戳。",
+    "en": "The public launch date is 2025-11-18, but happened_at stays empty. The leaf stays on the reporting day. The anniversary is not backfilled as a second timestamp."
+  },
+  "reported_on": "2026-11-18",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "antigravity",
+  "related_products": [],
+  "kind": "capability",
+  "lifecycle": null,
+  "importance": "medium",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/antigravity/status/2122514607726043205",
+      "label": {
+        "zh": "官方拆解多智能体新界面",
+        "en": "Official breakdown of the new multi-agent UI"
+      }
+    }
+  ],
+  "digest_refs": [
+    { "date": "2026-11-18", "lang": "zh", "path": "/2026/11/18/ai-twitter-hots" },
+    { "date": "2026-11-18", "lang": "en", "path": "/2026/11/18/ai-twitter-hots-en" }
+  ],
+  "updates": []
+}
