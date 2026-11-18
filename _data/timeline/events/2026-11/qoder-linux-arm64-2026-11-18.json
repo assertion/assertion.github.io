@@ -13,6 +13,10 @@
     "zh": "Qoder 官方宣布 IDE 提供 Linux ARM64 的 .deb 与 .rpm 构建，x64 构建仍保留。同窗口通义宣布 Qwen4-Max 登陆 you.com 与 LebrelAI，那是前一日正式发布后的渠道续报，不作为新的模型发布事件。",
     "en": "Qoder announced Linux ARM64 .deb and .rpm builds of the IDE. x64 builds remain. In the same window Qwen said Qwen4-Max was live on you.com and LebrelAI. That is follow-on distribution after the previous day's general release, not a new model launch."
   },
+  "brief": {
+    "zh": "Qoder IDE 提供 Linux ARM64 的 deb 与 rpm，x64 构建仍保留。",
+    "en": "Qoder IDE now ships Linux ARM64 deb and rpm builds. The x64 builds remain."
+  },
   "why": {
     "zh": "明确的产品更新，新闻性弱于当天的发布与促销，但仍是可执行的平台支持进展。",
     "en": "A concrete product update. It is less newsworthy than the day's launches and promotion, and it is still an actionable platform-support change."

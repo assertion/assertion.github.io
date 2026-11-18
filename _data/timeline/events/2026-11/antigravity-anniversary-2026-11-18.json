@@ -13,6 +13,10 @@
     "zh": "官方拆解为并行编排多个 agent 重建的新界面。负责人随后宣布庆祝满一岁，重置所有人、所有模型的配额，并称 Carbon 的 TTFT 已加快 1.5 倍（官方口径，本页未做独立测量）。公开记录里产品于 2025-11-18 推出，与「满一岁」相符。配额重置对现有用户最直接。",
     "en": "The official account broke down a new interface rebuilt for orchestrating several agents in parallel. The lead then announced a first-anniversary quota reset for everyone, on every model, and said Carbon's time to first token is 1.5 times faster. That speed figure is an official claim; this page did not measure it. Public records show the product launched on 2025-11-18, which matches the anniversary. The quota reset is the most direct change for current users."
   },
+  "brief": {
+    "zh": "新的多智能体界面、全员配额重置，以及 Carbon 首 token 加快 1.5 倍的官方说法。",
+    "en": "A new multi-agent interface, a quota reset for everyone, and an official claim that Carbon answers 1.5 times faster."
+  },
   "why": {
     "zh": "UI、配额、速度叠在同一天；满一岁与公开推出日相符，不是口头编造。",
     "en": "UI, quota, and speed landed on the same day. The anniversary matches the public launch date."
