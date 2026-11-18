@@ -27,35 +27,17 @@
     light: { zh: '照亮', en: 'Light' },
     kind: { zh: '类型', en: 'Type' },
     search: { zh: '搜索叶子', en: 'Search leaves' },
-    hint: {
-      zh: '点一片叶子看发生了什么、为何重要、证据和日报。上下键沿树移动，点日期展开那一天。',
-      en: 'Choose a leaf for what happened, why it matters, the evidence, and the digest. Arrow keys move along the tree. A date expands that day.'
+    idle: {
+      zh: '点一片叶子，看这一天这个产品的进展。',
+      en: 'Choose a leaf to read that product on this day.'
     },
+    close: { zh: '关闭', en: 'Close' },
     frame: {
       zh: '产品进展树。旧的在下，新的在上。方向键在叶子之间移动。',
       en: 'Product progress tree. Older growth is below, newer growth is above. Arrow keys move between leaves.'
     },
-    happened: { zh: '发生了什么', en: 'What happened' },
-    why: { zh: '为何重要', en: 'Why it matters' },
-    evidence: { zh: '证据', en: 'Evidence' },
-    digest: { zh: '日报', en: 'Digest' },
-    updates: { zh: '同日更新', en: 'Updates the same day' },
-    reported: { zh: '报道日', en: 'Reported' },
-    occurred: { zh: '发生日', en: 'Happened' },
-    occurredEmpty: {
-      zh: '尚未独立确认，位置按报道日',
-      en: 'Not confirmed separately; placed on the reporting day'
-    },
-    primary: { zh: '主产品', en: 'Primary product' },
-    related: { zh: '相关产品', en: 'Related' },
-    none: { zh: '无', en: 'None' },
-    kindLabel: { zh: '类型', en: 'Type' },
-    life: { zh: '阶段', en: 'Stage' },
-    size: { zh: '叶子大小', en: 'Leaf size' },
-    sizeNote: {
-      zh: '编辑重要度，不是点赞或转发',
-      en: 'Editorial importance, not likes or reposts'
-    },
+    reported: { zh: '报道日', en: 'Reporting day' },
+    importance: { zh: '重要度：', en: 'Importance: ' },
     digestZh: { zh: '中文日报', en: 'Chinese digest' },
     digestEn: { zh: '英文日报', en: 'English digest' },
     leaves: { zh: '片叶子', en: 'leaves' },
@@ -76,11 +58,6 @@
     pricing: { zh: '定价', en: 'Pricing' },
     access: { zh: '获取', en: 'Access' },
     reliability: { zh: '可靠性', en: 'Reliability' }
-  };
-  var LIFE_LABEL = {
-    announced: { zh: '已宣布', en: 'Announced' },
-    beta: { zh: '公测', en: 'Beta' },
-    ga: { zh: '正式发布', en: 'General availability' }
   };
   var IMPORTANCE_LABEL = {
     high: { zh: '高', en: 'High' },
@@ -193,8 +170,8 @@
   }
 
   function canvasFor(mode, dayCount) {
-    if (mode === 'wide') return { vw: 1200, vh: 780 };
-    return { vw: 680, vh: 620 + dayCount * 390 };
+    if (mode === 'wide') return { vw: 1200, vh: 420 + dayCount * 780 };
+    return { vw: 680, vh: 460 + dayCount * 740 };
   }
 
   function trunkOf(vw, vh, mode) {
@@ -209,7 +186,7 @@
 
   function attachT(i, n) {
     if (n <= 1) return 0.52;
-    return 0.26 + (0.42 * i) / (n - 1);
+    return 0.18 + (0.5 * i) / (n - 1);
   }
 
   function metricsFor(days, mode, vw, vh, expandedDate, viewportWidth) {
@@ -229,7 +206,7 @@
         var gutter = mode === 'narrow' ? vw * 0.34 : 48;
         var maxReach = side > 0 ? vw - gutter - attach.x : attach.x - gutter;
         var reach = mode === 'narrow' ? maxReach : 240 + count * 34;
-        var lift = mode === 'narrow' ? Math.max(130, Math.max(1, count - 1) * minDist * 0.9) : 58 + count * 12;
+        var lift = mode === 'narrow' ? Math.max(150, Math.max(1, count - 1) * minDist * 0.92) : 86 + count * 18;
         if (expanded) {
           reach = Math.min(maxReach, reach * (mode === 'narrow' ? 1.04 : 1.14));
           lift *= mode === 'narrow' ? 1.18 : 1.16;
@@ -579,7 +556,8 @@
       viewportWidth: 1100,
       layout: null,
       schedule: null,
-      dragMoved: false
+      dragMoved: false,
+      sheet: false
     };
     var growRaf = 0;
     var blendRaf = 0;
@@ -596,27 +574,30 @@
     var canvas = el('div', 'tl-canvas');
     var svg = svgEl('svg', { role: 'img', 'aria-hidden': 'true', preserveAspectRatio: 'xMidYMin meet' });
     var overlay = el('div', 'tl-overlay');
-    var hint = el('p', 'tl-hint');
-    var coverage = el('p', 'tl-coverage');
     var live = el('div', 'tl-live sr-only');
     live.setAttribute('aria-live', 'polite');
-    var detail = el('div', 'tl-detail');
-    detail.hidden = true;
+    var detail = el('aside', 'tl-detail');
+    detail.setAttribute('aria-label', t('idle'));
+    var idle = el('p', 'tl-idle');
+    var sheet = el('div', 'tl-sheet');
+    sheet.hidden = true;
+    detail.appendChild(idle);
+    detail.appendChild(sheet);
     canvas.appendChild(svg);
     canvas.appendChild(overlay);
     frame.appendChild(canvas);
+    var stage = el('div', 'tl-stage');
+    stage.appendChild(frame);
+    stage.appendChild(detail);
     var stack = el('div', 'tl-stack');
     controls.classList.add('tl-controls');
     filters.classList.add('tl-filters');
     stack.appendChild(controls);
     stack.appendChild(filters);
     stack.appendChild(status);
-    stack.appendChild(frame);
+    stack.appendChild(stage);
     root.appendChild(stack);
-    root.appendChild(hint);
-    root.appendChild(coverage);
     root.appendChild(live);
-    root.appendChild(detail);
 
     function el(tag, className) {
       var node = document.createElement(tag);
@@ -750,7 +731,16 @@
       else if (event.key === 'ArrowDown') { event.preventDefault(); moveSelection(-1); }
       else if (event.key === 'Home') { event.preventDefault(); moveEdge(false); }
       else if (event.key === 'End') { event.preventDefault(); moveEdge(true); }
-      else if (event.key === 'Escape') { event.preventDefault(); showFull(); }
+      else if (event.key === 'Escape') {
+        event.preventDefault();
+        if (state.selectedId) closeDetail();
+        else showFull();
+      }
+    });
+    detail.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape' || !state.selectedId) return;
+      event.preventDefault();
+      closeDetail();
     });
 
     function button(key, onClick) {
@@ -766,7 +756,9 @@
       var width = frame.clientWidth || root.clientWidth || 0;
       if (width < 40) return;
       state.viewportWidth = width;
-      state.mode = width < 760 ? 'narrow' : 'wide';
+      var viewport = window.innerWidth || width;
+      state.mode = viewport < 800 ? 'narrow' : 'wide';
+      state.sheet = viewport < 800;
     }
 
     function currentLayout() {
@@ -942,8 +934,8 @@
       searchName.textContent = t('search');
       search.setAttribute('aria-label', t('search'));
       search.placeholder = t('search');
-      hint.textContent = t('hint');
-      coverage.textContent = tx(model.coverage.note);
+      idle.textContent = t('idle');
+      detail.setAttribute('aria-label', t('idle'));
       frame.setAttribute('aria-label', t('frame'));
       root.querySelectorAll('[data-kind]').forEach(function (node) {
         var kind = node.getAttribute('data-kind');
@@ -979,90 +971,54 @@
 
     function renderDetail() {
       var event = model.events.filter(function (item) { return item.id === state.selectedId; })[0];
-      detail.innerHTML = '';
+      sheet.innerHTML = '';
+      var open = !!event;
+      detail.classList.toggle('is-open', open);
+      root.classList.toggle('is-sheet-open', !!(open && state.sheet));
+      sheet.hidden = !open;
+      idle.hidden = open;
       if (!event) {
-        detail.hidden = true;
+        live.textContent = '';
         return;
       }
-      detail.hidden = false;
-      var title = document.createElement('h2');
-      title.textContent = tx(event.title);
-      var en = el('p', 'tl-entitle');
-      en.textContent = event.title.en && getLang() === 'zh' ? event.title.en : (getLang() === 'en' ? event.title.zh : '');
-      if (!en.textContent) en.hidden = true;
-      detail.appendChild(title);
-      detail.appendChild(en);
-      var meta = el('dl', 'tl-meta');
-      meta.appendChild(metaRow(t('reported'), formatDay(event.reported_on) + ' · ' + event.timezone));
-      meta.appendChild(metaRow(t('occurred'), event.happened_at || t('occurredEmpty')));
-      meta.appendChild(metaRow(t('primary'), productName(event.primary_product)));
-      var related = (event.related_products || []).map(productName).filter(Boolean);
-      meta.appendChild(metaRow(t('related'), related.length ? related.join(getLang() === 'en' ? ', ' : '、') : t('none')));
-      meta.appendChild(metaRow(t('kindLabel'), tx(KIND_LABEL[event.kind])));
-      if (event.lifecycle) meta.appendChild(metaRow(t('life'), tx(LIFE_LABEL[event.lifecycle])));
-      meta.appendChild(metaRow(t('size'), tx(IMPORTANCE_LABEL[event.importance]) + ' · ' + t('sizeNote')));
-      detail.appendChild(meta);
-      var spot = el('div', 'tl-controls');
-      [event.primary_product].concat(event.related_products || []).forEach(function (id) {
-        var chip = button(null, function () { toggleProduct(id); });
-        chip.textContent = productName(id);
-        chip.setAttribute('aria-pressed', state.product === id ? 'true' : 'false');
-        spot.appendChild(chip);
+      var group = model.events.filter(function (item) {
+        return item.reported_on === event.reported_on && item.primary_product === event.primary_product;
+      }).sort(function (a, b) { return a.order - b.order; });
+      var closeBtn = document.createElement('button');
+      closeBtn.type = 'button';
+      closeBtn.className = 'tl-textbtn tl-close';
+      closeBtn.textContent = t('close');
+      closeBtn.addEventListener('click', closeDetail);
+      sheet.appendChild(closeBtn);
+      var line = el('p', 'tl-productline');
+      line.textContent = productName(event.primary_product) + ' · ' + formatDay(event.reported_on) + ' · ' + t('reported');
+      sheet.appendChild(line);
+      group.forEach(function (item) {
+        var block = el('article', 'tl-card');
+        var title = document.createElement(group.length > 1 ? 'h3' : 'h2');
+        title.textContent = tx(item.title);
+        var brief = document.createElement('p');
+        brief.className = 'tl-brief';
+        brief.textContent = tx(item.brief || item.summary);
+        var rank = el('p', 'tl-importance');
+        rank.textContent = t('importance') + tx(IMPORTANCE_LABEL[item.importance]);
+        block.appendChild(title);
+        block.appendChild(brief);
+        block.appendChild(rank);
+        block.appendChild(linkList(item.sources.map(function (source) {
+          return { href: source.url, text: tx(source.label), external: true };
+        }).concat(item.digest_refs.map(function (ref) {
+          return {
+            href: hrefPath(ref.path),
+            text: ref.lang === 'en' ? t('digestEn') : t('digestZh'),
+            external: false
+          };
+        }))));
+        sheet.appendChild(block);
       });
-      detail.appendChild(spot);
-      detail.appendChild(kicker(t('happened')));
-      var summary = document.createElement('p');
-      summary.textContent = tx(event.summary);
-      detail.appendChild(summary);
-      detail.appendChild(kicker(t('why')));
-      var why = document.createElement('p');
-      why.textContent = tx(event.why);
-      detail.appendChild(why);
-      if (event.notes) {
-        var note = el('p', 'tl-note');
-        note.textContent = tx(event.notes);
-        detail.appendChild(note);
-      }
-      if (event.updates && event.updates.length) {
-        detail.appendChild(kicker(t('updates')));
-        var updateList = el('ul', 'tl-links');
-        event.updates.forEach(function (update) {
-          var item = document.createElement('li');
-          item.textContent = tx(update.label) + ' — ' + tx(update.note);
-          updateList.appendChild(item);
-        });
-        detail.appendChild(updateList);
-      }
-      detail.appendChild(kicker(t('evidence')));
-      detail.appendChild(linkList(event.sources.map(function (source) {
-        return { href: source.url, text: tx(source.label), external: true };
-      })));
-      detail.appendChild(kicker(t('digest')));
-      detail.appendChild(linkList(event.digest_refs.map(function (ref) {
-        return {
-          href: hrefPath(ref.path),
-          text: (ref.lang === 'en' ? t('digestEn') : t('digestZh')) + ' · ' + ref.date,
-          external: false
-        };
-      })));
-      live.textContent = t('selected') + tx(event.title);
+      live.textContent = t('selected') + productName(event.primary_product) + ' · ' + tx(event.title);
     }
 
-    function metaRow(label, value) {
-      var wrap = document.createElement('div');
-      var dt = document.createElement('dt');
-      var dd = document.createElement('dd');
-      dt.textContent = label;
-      dd.textContent = value;
-      wrap.appendChild(dt);
-      wrap.appendChild(dd);
-      return wrap;
-    }
-    function kicker(text) {
-      var node = el('div', 'tl-kicker');
-      node.textContent = text;
-      return node;
-    }
     function linkList(items) {
       var list = el('ul', 'tl-links');
       items.forEach(function (item) {
@@ -1237,18 +1193,36 @@
       state.hoverId = id;
       renderFrame();
     }
-    function selectLeaf(id) {
+    function selectLeaf(id, fromKey) {
       var event = model.events.filter(function (item) { return item.id === id; })[0];
       if (!event) return;
+      var pageY = window.scrollY || document.documentElement.scrollTop || 0;
+      var pan = frame.scrollTop;
       state.selectedId = id;
-      var next = event.reported_on;
-      var changed = state.expandedDate !== next;
-      state.expandedDate = next;
-      if (changed) animateBlend();
-      else renderFrame();
-      renderTexts();
+      renderFrame();
+      renderDetail();
+      window.scrollTo(0, pageY);
+      frame.scrollTop = pan;
       var btn = nodes.days[event.reported_on].leaves[id].button;
       scrollIntoFrame(btn);
+      if (!fromKey && state.sheet) {
+        var closeBtn = sheet.querySelector('.tl-close');
+        if (closeBtn) closeBtn.focus({ preventScroll: true });
+      }
+    }
+    function closeDetail() {
+      var id = state.selectedId;
+      var event = model.events.filter(function (item) { return item.id === id; })[0];
+      var pageY = window.scrollY || document.documentElement.scrollTop || 0;
+      var pan = frame.scrollTop;
+      state.selectedId = null;
+      renderFrame();
+      renderDetail();
+      window.scrollTo(0, pageY);
+      frame.scrollTop = pan;
+      if (!event) return;
+      var btn = nodes.days[event.reported_on].leaves[event.id].button;
+      if (btn) btn.focus({ preventScroll: true });
     }
     function toggleDay(date) {
       state.expandedDate = state.expandedDate === date ? null : date;
@@ -1351,15 +1325,15 @@
       list.forEach(function (leaf, i) { if (leaf.id === state.selectedId) index = i; });
       if (index < 0) index = step > 0 ? -1 : 0;
       var next = list[clamp(index + step, 0, list.length - 1)];
-      selectLeaf(next.id);
-      nodes.days[next.event.reported_on].leaves[next.id].button.focus();
+      selectLeaf(next.id, true);
+      nodes.days[next.event.reported_on].leaves[next.id].button.focus({ preventScroll: true });
     }
     function moveEdge(newest) {
       var list = visibleLeaves();
       if (!list.length) return;
       var next = newest ? list[list.length - 1] : list[0];
-      selectLeaf(next.id);
-      nodes.days[next.event.reported_on].leaves[next.id].button.focus();
+      selectLeaf(next.id, true);
+      nodes.days[next.event.reported_on].leaves[next.id].button.focus({ preventScroll: true });
     }
     function scrollIntoFrame(node) {
       if (!node) return;
