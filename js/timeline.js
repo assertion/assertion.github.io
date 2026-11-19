@@ -73,6 +73,14 @@
   function ease(t) { var x = clamp01(t); return 1 - (1 - x) * (1 - x) * (1 - x); }
   function span(clock, a, b) { return ease((clock - a) / Math.max(0.0001, b - a)); }
   function linearSpan(clock, a, b) { return clamp01((clock - a) / Math.max(0.0001, b - a)); }
+  function smoothstep(t) {
+    var x = clamp01(t);
+    return x * x * (3 - 2 * x);
+  }
+  function stemProgress(clock) {
+    var x = linearSpan(clock, 0.05, 0.92);
+    return x * 0.78 + smoothstep(x) * 0.22;
+  }
   function settle(t) {
     var x = clamp01(t);
     var c = 1.35;
@@ -213,6 +221,39 @@
     return unit({ x: b.x - a.x, y: b.y - a.y });
   }
 
+  function stemMeasure(samples) {
+    var acc = [0];
+    for (var i = 1; i < samples.length; i++) {
+      acc.push(acc[i - 1] + Math.hypot(samples[i].x - samples[i - 1].x, samples[i].y - samples[i - 1].y));
+    }
+    return { acc: acc, total: acc[acc.length - 1] || 1 };
+  }
+
+  function alongU(samples, point) {
+    var measure = stemMeasure(samples);
+    var best = 0;
+    var bestD = Infinity;
+    for (var i = 0; i < samples.length; i++) {
+      var d = Math.hypot(samples[i].x - point.x, samples[i].y - point.y);
+      if (d < bestD) {
+        bestD = d;
+        best = i;
+      }
+    }
+    return measure.acc[best] / measure.total;
+  }
+
+  function sampleTForArc(samples, arcFrac) {
+    var measure = stemMeasure(samples);
+    var target = clamp01(arcFrac) * measure.total;
+    var i = 0;
+    var last = measure.acc.length - 1;
+    while (i < last && measure.acc[i + 1] < target) i++;
+    var span = (measure.acc[Math.min(last, i + 1)] - measure.acc[i]) || 1;
+    var f = i >= last ? 0 : clamp01((target - measure.acc[i]) / span);
+    return (Math.min(last, i) + f) / last;
+  }
+
   function labelForLeaf(bladeTip, dir, side, mode) {
     var gap = mode === 'narrow' ? 14 : 16;
     return {
@@ -228,7 +269,7 @@
     var pitch = narrow ? 104 : 96;
     var breath = narrow ? 58 : 52;
     var marginTop = narrow ? 88 : 80;
-    var marginBottom = narrow ? 78 : 68;
+    var marginBottom = narrow ? 50 : 46;
     var cx = vw * (narrow ? 0.46 : 0.48);
     var amp = narrow ? 18 : 42;
     var stations = [];
@@ -252,12 +293,13 @@
     var vh = (stations.length ? cursor : marginBottom) + marginTop;
     stations.forEach(function (station) { station.y = vh - station.along; });
     var last = stations[stations.length - 1] || { x: cx, y: marginTop };
-    var base = { x: cx + amp * 0.08, y: vh - 26 };
+    var base = { x: cx + amp * 0.08, y: vh - 18 };
     var tip = { x: last.x * 0.72 + cx * 0.28, y: 30 };
     var points = [base].concat(stations.map(function (station) {
       return { x: station.x, y: station.y };
     })).concat([tip]);
     var stem = points.length > 1 ? smoothStem(points) : { d: '', samples: [base, tip] };
+    var stemLength = stemMeasure(stem.samples).total;
     var stemW0 = narrow ? 2.35 : 2.55;
     var daysOut = days.map(function (day) {
       var mine = stations.filter(function (station) { return station.date === day.date; });
@@ -276,6 +318,7 @@
           event: station.event,
           scale: scale,
           side: station.side,
+          u: alongU(stem.samples, origin),
           stem: origin,
           tip: origin,
           angle: angle,
@@ -309,6 +352,7 @@
       base: base,
       tip: tip,
       stemD: stem.d,
+      stemLength: stemLength,
       samples: stem.samples,
       ribbon: ribbonPath(stem.samples, stemW0, 1.05),
       ribbonHi: ribbonPath(stem.samples, stemW0 * 0.38, 0.42),
@@ -333,6 +377,7 @@
           event: leaf.event,
           scale: scale,
           side: leaf.side,
+          u: leaf.u,
           stem: leaf.stem,
           tip: leaf.tip,
           angle: angle,
@@ -363,6 +408,7 @@
       base: rest.base,
       tip: rest.tip,
       stemD: rest.stemD,
+      stemLength: rest.stemLength,
       samples: rest.samples,
       ribbon: rest.ribbon,
       ribbonHi: rest.ribbonHi,
@@ -801,6 +847,8 @@
       nodes.cotyledons[0].setAttribute('transform', 'translate(' + (base.x - 9).toFixed(2) + ' ' + (base.y - 1).toFixed(2) + ') rotate(-36)');
       nodes.cotyledons[1].setAttribute('transform', 'translate(' + (base.x + 8).toFixed(2) + ' ' + (base.y - 1).toFixed(2) + ') rotate(32)');
       nodes.stemMask.setAttribute('d', geo.stemD);
+      nodes.stemMask.setAttribute('pathLength', String(geo.stemLength));
+      nodes.stemMask.setAttribute('stroke-dasharray', String(geo.stemLength));
       nodes.stem.setAttribute('d', geo.ribbon);
       nodes.stemHi.setAttribute('d', geo.ribbonHi);
       nodes.bud.setAttribute('transform', 'translate(' + fmt(geo.tip) + ')');
@@ -855,51 +903,56 @@
       var clock = state.clock;
       var schedule = state.schedule;
       var filtering = filterOn();
-      var trunkGrow = span(clock, schedule.trunk[0], schedule.trunk[1]);
-      nodes.stemMask.setAttribute('stroke-dashoffset', String(1 - trunkGrow));
+      var trunkGrow = stemProgress(clock);
+      var stemLength = state.layout.stemLength || 1;
+      nodes.stemMask.setAttribute('stroke-dashoffset', String(stemLength * (1 - trunkGrow)));
       nodes.stem.style.opacity = filtering ? 0.32 : 1;
       nodes.stemHi.style.opacity = filtering ? 0.16 : 0.82;
-      var seed = span(clock, 0, 0.14);
+      var seed = smoothstep(linearSpan(clock, 0, 0.08));
       nodes.cotyledons.forEach(function (cotyledon) {
         cotyledon.style.opacity = filtering ? seed * 0.45 : seed;
       });
       nodes.soil.style.opacity = (filtering ? 0.22 : 0.45) * seed;
-      var anticipate = linearSpan(clock, 0, 0.22);
-      var budSettle = span(clock, schedule.bud[0], schedule.bud[1]);
-      var budPoint = sampleAt(state.layout.samples, trunkGrow);
-      var budTan = sampleTangent(state.layout.samples, trunkGrow);
-      var wobble = Math.sin(anticipate * Math.PI) * (1 - trunkGrow) * 18;
+      var tipT = sampleTForArc(state.layout.samples, trunkGrow);
+      var budPoint = sampleAt(state.layout.samples, tipT);
+      var budTan = sampleTangent(state.layout.samples, tipT);
+      var wobble = Math.sin(Math.min(1, trunkGrow / 0.08) * Math.PI) * (1 - Math.min(1, trunkGrow / 0.2)) * 8;
       var budAngle = Math.atan2(budTan.y, budTan.x) * 180 / Math.PI + 90 + wobble;
-      var budScale = 0.7 + 0.34 * Math.max(anticipate * 0.8, budSettle);
+      var budScale = 0.86 + 0.14 * smoothstep(Math.min(1, trunkGrow / 0.12));
       nodes.bud.setAttribute('transform', 'translate(' + fmt(budPoint) + ') rotate(' + budAngle.toFixed(2) + ') scale(' + budScale.toFixed(3) + ')');
-      nodes.bud.style.opacity = filtering ? 0.4 : Math.max(anticipate, 0.2);
-      state.layout.days.forEach(function (day, dayIndex) {
+      nodes.bud.style.opacity = filtering ? 0.4 : Math.max(seed, 0.35);
+      state.layout.days.forEach(function (day) {
         var dayNodes = nodes.days[day.date];
-        var branchSpan = schedule.branches[dayIndex];
-        dayNodes.button.style.opacity = span(clock, branchSpan[0], branchSpan[1] + 0.04);
-        dayNodes.button.hidden = dayNodes.button.style.opacity < 0.35;
-        day.leaves.forEach(function (leaf, leafIndex) {
+        var dayFade = 0;
+        day.leaves.forEach(function (leaf) {
           var leafNodes = dayNodes.leaves[leaf.id];
-          var leafSpan = schedule.leaves[dayIndex][leafIndex];
-          var raw = linearSpan(clock, leafSpan[0], leafSpan[1]);
-          var fade = ease(raw);
+          var u = typeof leaf.u === 'number' ? leaf.u : 0.5;
+          var raw = linearSpan(trunkGrow, u, Math.min(1, u + 0.09));
+          var fade = smoothstep(raw);
+          if (fade > dayFade) dayFade = fade;
           var on = lit(leaf.event);
           var chosen = state.selectedId === leaf.id && on;
           var interactive = fade >= 0.62 && (!filtering || on);
-          leafNodes.group.style.opacity = fade * (on || !filtering ? 1 : 0.2);
-          leafNodes.tendril.setAttribute('stroke-dashoffset', String(1 - fade));
+          var dim = on || !filtering ? 1 : 0.2;
+          leafNodes.group.style.opacity = fade * dim;
+          var curl = smoothstep(linearSpan(trunkGrow, Math.min(0.98, u + 0.02), Math.min(1, u + 0.13)));
+          leafNodes.tendril.setAttribute('stroke-dashoffset', String(1 - curl));
           var opened = Math.max(0.02, settle(raw));
           leafNodes.blade.setAttribute('transform', 'scale(' + (leaf.scale * opened).toFixed(3) + ')');
-          leafNodes.button.hidden = fade < 0.62;
+          leafNodes.button.hidden = fade < 0.05;
           leafNodes.button.tabIndex = interactive ? 0 : -1;
           leafNodes.button.style.pointerEvents = interactive ? 'auto' : 'none';
           leafNodes.label.style.pointerEvents = interactive ? 'auto' : 'none';
           leafNodes.button.setAttribute('aria-pressed', chosen ? 'true' : 'false');
           leafNodes.group.classList.toggle('is-selected', chosen);
           leafNodes.group.classList.toggle('is-hot', state.hoverId === leaf.id && on);
-          leafNodes.label.style.opacity = fade < 0.7 ? 0 : (on || !filtering ? 1 : 0.32);
+          var labelFade = smoothstep(linearSpan(fade, 0.4, 0.9));
+          leafNodes.label.style.opacity = String((on || !filtering ? 1 : 0.32) * labelFade);
           leafNodes.label.classList.toggle('is-hot', (state.hoverId === leaf.id || chosen) && on);
         });
+        var dayShown = smoothstep(linearSpan(dayFade, 0.4, 0.9));
+        dayNodes.button.style.opacity = String(dayShown);
+        dayNodes.button.hidden = dayShown < 0.05;
       });
     }
 
@@ -1055,8 +1108,7 @@
       defs.appendChild(glow);
       var stemMask = svgEl('mask', { id: 'tl-mask-stem' });
       var stemMaskPath = svgEl('path', {
-        fill: 'none', stroke: 'white', 'stroke-width': '16', 'stroke-linecap': 'round', 'stroke-linejoin': 'round',
-        pathLength: '1', 'stroke-dasharray': '1'
+        fill: 'none', stroke: 'white', 'stroke-width': '16', 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
       });
       stemMask.appendChild(stemMaskPath);
       defs.appendChild(stemMask);
@@ -1342,7 +1394,7 @@
       state.clock = 0;
       renderFrame();
       var start = performance.now();
-      var dur = 3400;
+      var dur = 5600;
       function tick(now) {
         state.clock = Math.min(1, (now - start) / dur);
         renderFrame();
@@ -1370,11 +1422,13 @@
     }
     function visibleLeaves() {
       if (!state.layout) return [];
+      var grown = stemProgress(state.clock);
       var list = [];
-      state.layout.days.forEach(function (day, dayIndex) {
-        day.leaves.forEach(function (leaf, leafIndex) {
-          var pair = state.schedule.leaves[dayIndex][leafIndex];
-          if (span(state.clock, pair[0], pair[1]) < 0.62) return;
+      state.layout.days.forEach(function (day) {
+        day.leaves.forEach(function (leaf) {
+          var u = typeof leaf.u === 'number' ? leaf.u : 0.5;
+          var fade = smoothstep(linearSpan(grown, u, Math.min(1, u + 0.09)));
+          if (fade < 0.62) return;
           if (filterOn() && !lit(leaf.event)) return;
           list.push(leaf);
         });
@@ -1412,6 +1466,7 @@
     buildSchedule: buildSchedule,
     normalize: normalize,
     belongs: belongs,
+    stemProgress: stemProgress,
     retainedSelection: retainedSelection,
     mount: mount
   };

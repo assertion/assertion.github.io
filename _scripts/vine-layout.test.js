@@ -37,11 +37,21 @@ function check(mode, cssWidth, frameHeight) {
   });
   var ys = geo.samples.map(function (p) { return p.y; });
   assert.ok(ys[0] > ys[ys.length - 1], mode + ' stem does not grow upward');
-  return { gapPx: Math.round(gapPx), heightPx: Math.round(heightPx), vh: Math.round(geo.vh) };
+  var lowest = Math.max.apply(null, leaves.map(function (leaf) { return leaf.stem.y; }));
+  var rootPx = (geo.base.y - lowest) * scale;
+  assert.ok(rootPx > 6 && rootPx < 42, mode + ' root below the oldest leaf is ' + rootPx.toFixed(0) + 'px');
+  leaves.forEach(function (leaf) {
+    assert.ok(leaf.u > 0.02 && leaf.u < 0.98, leaf.id + ' u ' + leaf.u);
+  });
+  return { gapPx: Math.round(gapPx), heightPx: Math.round(heightPx), vh: Math.round(geo.vh), rootPx: Math.round(rootPx) };
 }
 
 var wide = check('wide', 860, 738);
 var narrow = check('narrow', 390, 590);
+assert.ok(api.stemProgress(0) < 0.02);
+assert.ok(api.stemProgress(0.2) > 0.08 && api.stemProgress(0.2) < 0.28, 'stem jumped: ' + api.stemProgress(0.2));
+assert.ok(Math.abs(api.stemProgress(0.5) - 0.5) < 0.12);
+assert.ok(api.stemProgress(1) > 0.99);
 var kept = api.retainedSelection('qoder-linux-arm64-2026-11-18', events, function (event) {
   return event.primary_product === 'gpt-6-2';
 });
