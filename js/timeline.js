@@ -1,6 +1,7 @@
-/* Product progress tree.
-   The drawing is a projection of _data/timeline: one bough per reporting day,
-   one leaf per event. Product spotlight only changes opacity. */
+/* Product progress vine.
+   The drawing is a projection of _data/timeline: one continuous pea shoot,
+   one compound leaf per event, older growth below. Product spotlight only
+   changes opacity. Days add length; they do not insert an empty trunk. */
 (function (factory) {
   var api = factory();
   if (typeof module === 'object' && module.exports) module.exports = api;
@@ -13,17 +14,14 @@
 
   var SVGNS = 'http://www.w3.org/2000/svg';
   var KIND_ORDER = ['launch', 'capability', 'integration', 'pricing', 'access', 'reliability'];
-  var LEAF_PATHS = [
-    'M 0 0 C 7 -2 16 -16 30 -18 C 42 -19 52 -12 58 -2 C 60 0 60 1 57 4 C 48 15 36 18 24 16 C 12 13 6 4 0 0 Z',
-    'M 0 0 C 4 -1 12 -15 24 -17 C 38 -19 50 -13 55 -3 C 57 0 57 2 54 5 C 44 17 30 19 18 15 C 8 11 4 3 0 0 Z',
-    'M 0 0 C 8 -1 18 -13 32 -14 C 44 -15 52 -9 57 -1 C 58 1 58 2 56 4 C 47 13 34 15 22 13 C 11 10 5 2 0 0 Z'
-  ];
-  var VEIN_PATH = 'M 3 0 C 18 -0.6 38 -0.4 54 0 M 20 -1 C 26 -8 31 -11 36 -13 M 22 1 C 29 7 34 10 40 12';
+  var PEA_LEAFLET = 'M 0 0.3 C 1.5 -5.1 8.2 -9.2 14.2 -8.5 C 19.6 -7.6 21.6 -2.4 20.1 1.5 C 16.8 6.6 8.6 7.5 2.8 3.9 C 0.7 2.3 0 1.1 0 0.3 Z';
+  var PEA_VEIN = 'M 1.4 0.7 C 6.8 -0.6 12.2 -1.8 18 -1.5';
+  var BUD_LEAF = 'M 0 3.4 C 1.6 -0.2 4.6 -7.4 2.6 -12.8 C 1.3 -16.4 -2 -16.6 -2.4 -12.8 C -3 -8.2 -0.8 -4.8 0.3 -0.8 C 0.7 1 0.3 2.4 0 3.4 Z';
 
   var UI = {
     replay: { zh: '再生长一次', en: 'Grow again' },
     latest: { zh: '看最新', en: 'Latest' },
-    full: { zh: '整棵树', en: 'Whole tree' },
+    full: { zh: '整株苗', en: 'Whole vine' },
     light: { zh: '照亮', en: 'Light' },
     kind: { zh: '类型', en: 'Type' },
     search: { zh: '搜索叶子', en: 'Search leaves' },
@@ -33,8 +31,8 @@
     },
     close: { zh: '关闭', en: 'Close' },
     frame: {
-      zh: '产品进展树。旧的在下，新的在上。方向键在叶子之间移动。',
-      en: 'Product progress tree. Older growth is below, newer growth is above. Arrow keys move between leaves.'
+      zh: '产品进展苗。旧的在下，新的在上。方向键在叶子之间移动。',
+      en: 'Product progress vine. Older growth is below, newer growth is above. Arrow keys move between leaves.'
     },
     reported: { zh: '报道日', en: 'Reporting day' },
     importance: { zh: '重要度：', en: 'Importance: ' },
@@ -74,6 +72,21 @@
   function clamp01(n) { return clamp(n, 0, 1); }
   function ease(t) { var x = clamp01(t); return 1 - (1 - x) * (1 - x) * (1 - x); }
   function span(clock, a, b) { return ease((clock - a) / Math.max(0.0001, b - a)); }
+  function linearSpan(clock, a, b) { return clamp01((clock - a) / Math.max(0.0001, b - a)); }
+  function smoothstep(t) {
+    var x = clamp01(t);
+    return x * x * (3 - 2 * x);
+  }
+  function stemProgress(clock) {
+    var x = linearSpan(clock, 0.05, 0.92);
+    return x * 0.78 + smoothstep(x) * 0.22;
+  }
+  function settle(t) {
+    var x = clamp01(t);
+    var c = 1.35;
+    var y = 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2);
+    return clamp(y, 0, 1.08);
+  }
   function add(a, b) { return { x: a.x + b.x, y: a.y + b.y }; }
   function mul(a, s) { return { x: a.x * s, y: a.y * s }; }
   function unit(a) {
@@ -91,10 +104,12 @@
   }
   function hash01(str, salt) { return (hash32(str + '|' + salt) % 100000) / 100000; }
   function leafScale(importance) {
-    if (importance === 'high') return 1.16;
-    if (importance === 'medium') return 0.94;
-    return 0.76;
+    if (importance === 'high') return 1.08;
+    if (importance === 'medium') return 0.98;
+    return 0.9;
   }
+  function leafletPairs(importance) { return importance === 'high' ? 3 : 2; }
+  function localRachis(importance) { return 15 + leafletPairs(importance) * 12; }
   function gradId(importance) {
     if (importance === 'high') return 'tl-grad-high';
     if (importance === 'medium') return 'tl-grad-mid';
@@ -137,23 +152,6 @@
     var pts = left.concat(right.reverse());
     return pts.map(function (p, i) { return (i ? 'L ' : 'M ') + fmt(p); }).join(' ') + ' Z';
   }
-  function makeBranch(attach, side, reach, lift, mode) {
-    if (mode === 'narrow') {
-      return {
-        p0: { x: attach.x, y: attach.y },
-        p1: { x: attach.x + side * reach * 0.38, y: attach.y - lift * 0.22 },
-        p2: { x: attach.x + side * reach * 0.72, y: attach.y - lift * 0.68 },
-        p3: { x: attach.x + side * reach * 0.96, y: attach.y - lift }
-      };
-    }
-    return {
-      p0: { x: attach.x, y: attach.y },
-      p1: { x: attach.x + side * reach * 0.30, y: attach.y - lift * 0.05 },
-      p2: { x: attach.x + side * reach * 0.72, y: attach.y - lift * 1.08 },
-      p3: { x: attach.x + side * reach, y: attach.y - lift * 0.58 }
-    };
-  }
-
   function groupEvents(events) {
     var map = {};
     events.forEach(function (event) {
@@ -169,225 +167,273 @@
     });
   }
 
-  function canvasFor(mode, dayCount) {
-    if (mode === 'wide') return { vw: 1200, vh: 420 + dayCount * 780 };
-    return { vw: 680, vh: 460 + dayCount * 740 };
+  function smoothStem(points) {
+    var cubics = [];
+    var d = 'M ' + fmt(points[0]);
+    for (var i = 0; i < points.length - 1; i++) {
+      var p0 = points[Math.max(0, i - 1)];
+      var p1 = points[i];
+      var p2 = points[i + 1];
+      var p3 = points[Math.min(points.length - 1, i + 2)];
+      var c1 = { x: p1.x + (p2.x - p0.x) / 6, y: p1.y + (p2.y - p0.y) / 6 };
+      var c2 = { x: p2.x - (p3.x - p1.x) / 6, y: p2.y - (p3.y - p1.y) / 6 };
+      cubics.push({ p0: p1, p1: c1, p2: c2, p3: p2 });
+      d += ' C ' + fmt(c1) + ', ' + fmt(c2) + ', ' + fmt(p2);
+    }
+    var samples = [];
+    cubics.forEach(function (c, idx) {
+      var steps = 10;
+      for (var s = 0; s < steps; s++) samples.push(cubicAt(c, s / steps));
+      if (idx === cubics.length - 1) samples.push(c.p3);
+    });
+    return { d: d, samples: samples };
   }
 
-  function trunkOf(vw, vh, mode) {
-    var cx = mode === 'narrow' ? vw * 0.32 : vw * 0.5;
+  function ribbonPath(samples, w0, w1) {
+    var left = [];
+    var right = [];
+    for (var i = 0; i < samples.length; i++) {
+      var prev = samples[Math.max(0, i - 1)];
+      var next = samples[Math.min(samples.length - 1, i + 1)];
+      var n = unit({ x: -(next.y - prev.y), y: next.x - prev.x });
+      var t = samples.length === 1 ? 0 : i / (samples.length - 1);
+      var w = w0 + (w1 - w0) * t;
+      left.push({ x: samples[i].x + n.x * w, y: samples[i].y + n.y * w });
+      right.push({ x: samples[i].x - n.x * w, y: samples[i].y - n.y * w });
+    }
+    var pts = left.concat(right.reverse());
+    return pts.map(function (p, i) { return (i ? 'L ' : 'M ') + fmt(p); }).join(' ') + ' Z';
+  }
+
+  function sampleAt(samples, t) {
+    if (!samples || !samples.length) return { x: 0, y: 0 };
+    var x = clamp01(t) * (samples.length - 1);
+    var i = Math.floor(x);
+    var f = x - i;
+    var a = samples[i];
+    var b = samples[Math.min(samples.length - 1, i + 1)];
+    return { x: lerp(a.x, b.x, f), y: lerp(a.y, b.y, f) };
+  }
+
+  function sampleTangent(samples, t) {
+    var a = sampleAt(samples, Math.max(0, t - 0.012));
+    var b = sampleAt(samples, Math.min(1, t + 0.012));
+    return unit({ x: b.x - a.x, y: b.y - a.y });
+  }
+
+  function stemMeasure(samples) {
+    var acc = [0];
+    for (var i = 1; i < samples.length; i++) {
+      acc.push(acc[i - 1] + Math.hypot(samples[i].x - samples[i - 1].x, samples[i].y - samples[i - 1].y));
+    }
+    return { acc: acc, total: acc[acc.length - 1] || 1 };
+  }
+
+  function alongU(samples, point) {
+    var measure = stemMeasure(samples);
+    var best = 0;
+    var bestD = Infinity;
+    for (var i = 0; i < samples.length; i++) {
+      var d = Math.hypot(samples[i].x - point.x, samples[i].y - point.y);
+      if (d < bestD) {
+        bestD = d;
+        best = i;
+      }
+    }
+    return measure.acc[best] / measure.total;
+  }
+
+  function sampleTForArc(samples, arcFrac) {
+    var measure = stemMeasure(samples);
+    var target = clamp01(arcFrac) * measure.total;
+    var i = 0;
+    var last = measure.acc.length - 1;
+    while (i < last && measure.acc[i + 1] < target) i++;
+    var span = (measure.acc[Math.min(last, i + 1)] - measure.acc[i]) || 1;
+    var f = i >= last ? 0 : clamp01((target - measure.acc[i]) / span);
+    return (Math.min(last, i) + f) / last;
+  }
+
+  function labelForLeaf(bladeTip, dir, side, mode) {
+    var gap = mode === 'narrow' ? 14 : 16;
     return {
-      p0: { x: cx, y: vh - 52 },
-      p1: { x: cx - vw * (mode === 'narrow' ? 0.03 : 0.075), y: vh * 0.68 },
-      p2: { x: cx + vw * (mode === 'narrow' ? 0.035 : 0.075), y: vh * 0.34 },
-      p3: { x: cx - vw * 0.012, y: 58 }
+      x: bladeTip.x + side * gap,
+      y: bladeTip.y + dir.y * 8,
+      anchor: side > 0 ? 'start' : 'end'
     };
   }
 
-  function attachT(i, n) {
-    if (n <= 1) return 0.52;
-    return 0.18 + (0.5 * i) / (n - 1);
-  }
-
-  function metricsFor(days, mode, vw, vh, expandedDate, viewportWidth) {
-    var trunk = trunkOf(vw, vh, mode);
-    var unitPx = Math.max(280, viewportWidth || vw) / vw;
-    var minDist = Math.max(mode === 'narrow' ? 96 : 68, 54 / unitPx);
+  function metricsFor(days, mode, expandedDate) {
+    var narrow = mode === 'narrow';
+    var vw = narrow ? 680 : 1120;
+    var pitch = narrow ? 104 : 96;
+    var breath = narrow ? 58 : 52;
+    var marginTop = narrow ? 88 : 80;
+    var marginBottom = narrow ? 50 : 46;
+    var cx = vw * (narrow ? 0.46 : 0.48);
+    var amp = narrow ? 18 : 42;
+    var stations = [];
+    days.forEach(function (day) {
+      day.events.forEach(function (event, k) {
+        stations.push({ event: event, date: day.date, k: k });
+      });
+    });
+    var cursor = marginBottom;
+    stations.forEach(function (station, i) {
+      if (i > 0) {
+        var same = station.date === stations[i - 1].date;
+        cursor += same ? pitch : pitch * 0.72 + breath;
+      }
+      station.along = cursor;
+      var sway = Math.sin(i * 0.86 + 0.45) * amp;
+      sway += (hash01(station.event.id, 'sway') - 0.5) * amp * 0.22;
+      station.x = cx + sway;
+      station.side = i % 2 === 0 ? 1 : -1;
+    });
+    var vh = (stations.length ? cursor : marginBottom) + marginTop;
+    stations.forEach(function (station) { station.y = vh - station.along; });
+    var last = stations[stations.length - 1] || { x: cx, y: marginTop };
+    var base = { x: cx + amp * 0.08, y: vh - 18 };
+    var tip = { x: last.x * 0.72 + cx * 0.28, y: 30 };
+    var points = [base].concat(stations.map(function (station) {
+      return { x: station.x, y: station.y };
+    })).concat([tip]);
+    var stem = points.length > 1 ? smoothStem(points) : { d: '', samples: [base, tip] };
+    var stemLength = stemMeasure(stem.samples).total;
+    var stemW0 = narrow ? 2.35 : 2.55;
+    var daysOut = days.map(function (day) {
+      var mine = stations.filter(function (station) { return station.date === day.date; });
+      var expanded = expandedDate === day.date;
+      var leaves = mine.map(function (station) {
+        var scale = leafScale(station.event.importance) * (expanded ? 1.08 : 1);
+        var reach = localRachis(station.event.importance) * scale;
+        var jitter = (hash01(station.event.id, 'ang') - 0.5) * 12;
+        var angle = (station.side > 0 ? -32 : 148) + jitter;
+        var rad = angle * Math.PI / 180;
+        var dir = { x: Math.cos(rad), y: Math.sin(rad) };
+        var origin = { x: station.x, y: station.y };
+        var bladeTip = add(origin, mul(dir, reach));
+        return {
+          id: station.event.id,
+          event: station.event,
+          scale: scale,
+          side: station.side,
+          u: alongU(stem.samples, origin),
+          stem: origin,
+          tip: origin,
+          angle: angle,
+          dir: dir,
+          reach: reach,
+          bladeMid: add(origin, mul(dir, reach * 0.5)),
+          bladeTip: bladeTip,
+          label: labelForLeaf(bladeTip, dir, station.side, mode)
+        };
+      });
+      var mid = mine[Math.floor((mine.length - 1) / 2)] || { x: cx, y: vh / 2, side: 1 };
+      var daySide = -mid.side;
+      var y0 = mine[0] ? mine[0].y : mid.y;
+      var y1 = mine[mine.length - 1] ? mine[mine.length - 1].y : mid.y;
+      return {
+        date: day.date,
+        side: daySide,
+        attach: { x: mid.x, y: (y0 + y1) / 2 },
+        leaves: leaves,
+        dayLabel: {
+          x: mid.x + daySide * (narrow ? 20 : 24),
+          y: (y0 + y1) / 2,
+          anchor: daySide > 0 ? 'start' : 'end'
+        }
+      };
+    });
     return {
       vw: vw,
       vh: vh,
-      trunk: trunk,
-      minDist: minDist,
-      days: days.map(function (day, i) {
-        var side = mode === 'narrow' ? 1 : (i % 2 === 0 ? 1 : -1);
-        var attach = cubicAt(trunk, attachT(i, days.length));
-        var expanded = expandedDate === day.date;
-        var count = day.events.length;
-        var gutter = mode === 'narrow' ? vw * 0.34 : 48;
-        var maxReach = side > 0 ? vw - gutter - attach.x : attach.x - gutter;
-        var reach = mode === 'narrow' ? maxReach : 240 + count * 34;
-        var lift = mode === 'narrow' ? Math.max(150, Math.max(1, count - 1) * minDist * 0.92) : 86 + count * 18;
-        if (expanded) {
-          reach = Math.min(maxReach, reach * (mode === 'narrow' ? 1.04 : 1.14));
-          lift *= mode === 'narrow' ? 1.18 : 1.16;
-        }
-        reach = Math.min(reach, Math.max(88, maxReach));
-        var params = day.events.map(function (event, k) {
-          var u = count === 1 ? 0.62 : 0.2 + (0.66 * k) / (count - 1);
-          if (expanded) u = count === 1 ? 0.64 : 0.12 + (0.78 * k) / (count - 1);
-          var scale = leafScale(event.importance);
-          var pet = (30 + scale * 16) * (expanded ? 1.28 : 1);
-          pet += (hash01(event.id, 'pet') - 0.5) * 7;
-          return {
-            id: event.id,
-            event: event,
-            u: u,
-            pet: pet,
-            side: k % 2 === 0 ? 1 : -1,
-            scale: scale,
-            jitter: (hash01(event.id, 'ang') - 0.5) * 12,
-            variant: hash32(event.id) % LEAF_PATHS.length
-          };
-        });
-        relaxParams(params, attach, side, reach, lift, minDist, mode);
-        return {
-          date: day.date,
-          side: side,
-          attach: attach,
-          reach: reach,
-          lift: lift,
-          leaves: params
-        };
-      })
-    };
-  }
-
-  function placeOnBranch(branch, param) {
-    var stem = cubicAt(branch, param.u);
-    var tan = unit(cubicDeriv(branch, param.u));
-    var normal = { x: -tan.y, y: tan.x };
-    var tip = add(stem, mul(normal, param.side * param.pet));
-    var aim = unit({ x: tip.x - stem.x, y: tip.y - stem.y - param.pet * 0.18 });
-    var angle = Math.atan2(aim.y, aim.x) * 180 / Math.PI + param.jitter;
-    var rad = angle * Math.PI / 180;
-    var dir = { x: Math.cos(rad), y: Math.sin(rad) };
-    var bladeLen = 58 * param.scale;
-    return {
-      stem: stem,
+      mode: mode,
+      base: base,
       tip: tip,
-      angle: angle,
-      dir: dir,
-      bladeMid: add(tip, mul(dir, bladeLen * 0.46)),
-      bladeTip: add(tip, mul(dir, bladeLen))
+      stemD: stem.d,
+      stemLength: stemLength,
+      samples: stem.samples,
+      ribbon: ribbonPath(stem.samples, stemW0, 1.05),
+      ribbonHi: ribbonPath(stem.samples, stemW0 * 0.38, 0.42),
+      days: daysOut
     };
-  }
-
-  function relaxParams(params, attach, side, reach, lift, minDist, mode) {
-    var branch = makeBranch(attach, side, reach, lift, mode);
-    for (var iter = 0; iter < 16; iter++) {
-      var pts = params.map(function (param) { return placeOnBranch(branch, param).bladeMid; });
-      var hit = false;
-      for (var a = 0; a < params.length; a++) {
-        for (var b = a + 1; b < params.length; b++) {
-          var dx = pts[b].x - pts[a].x;
-          var dy = pts[b].y - pts[a].y;
-          var dist = Math.hypot(dx, dy) || 0.01;
-          if (dist >= minDist) continue;
-          hit = true;
-          var push = (minDist - dist) / minDist;
-          params[b].u = clamp(params[b].u + 0.02 * push, 0.1, 0.95);
-          params[a].u = clamp(params[a].u - 0.012 * push, 0.08, 0.93);
-          params[a].pet = Math.min(120, params[a].pet + 6 * push);
-          params[b].pet = Math.min(128, params[b].pet + 7 * push);
-        }
-      }
-      if (!hit) break;
-    }
   }
 
   function realize(rest, expanded, blend, expandedDate, mode) {
-    var vw = rest.vw;
-    var vh = rest.vh;
     var days = rest.days.map(function (day, i) {
       var other = expanded.days[i];
       var t = expandedDate === day.date ? blend : 0;
-      var reach = lerp(day.reach, other.reach, t);
-      var lift = lerp(day.lift, other.lift, t);
-      var branch = makeBranch(day.attach, day.side, reach, lift, mode);
       var leaves = day.leaves.map(function (leaf, k) {
         var alt = other.leaves[k];
-        var param = {
-          id: leaf.id,
-          event: leaf.event,
-          u: lerp(leaf.u, alt.u, t),
-          pet: lerp(leaf.pet, alt.pet, t),
-          side: leaf.side,
-          scale: leaf.scale,
-          jitter: leaf.jitter,
-          variant: leaf.variant
-        };
-        var placed = placeOnBranch(branch, param);
+        var scale = lerp(leaf.scale, alt.scale, t);
+        var angle = lerp(leaf.angle, alt.angle, t);
+        var reach = localRachis(leaf.event.importance) * scale;
+        var rad = angle * Math.PI / 180;
+        var dir = { x: Math.cos(rad), y: Math.sin(rad) };
+        var bladeTip = add(leaf.stem, mul(dir, reach));
         return {
           id: leaf.id,
           event: leaf.event,
-          scale: leaf.scale,
-          variant: leaf.variant,
-          stem: placed.stem,
-          tip: placed.tip,
-          angle: placed.angle,
-          dir: placed.dir,
-          bladeMid: placed.bladeMid,
-          bladeTip: placed.bladeTip,
-          label: labelFor(placed, day.side, mode, vw)
+          scale: scale,
+          side: leaf.side,
+          u: leaf.u,
+          stem: leaf.stem,
+          tip: leaf.tip,
+          angle: angle,
+          dir: dir,
+          reach: reach,
+          bladeMid: add(leaf.stem, mul(dir, reach * 0.5)),
+          bladeTip: bladeTip,
+          label: labelForLeaf(bladeTip, dir, leaf.side, mode)
         };
       });
       return {
         date: day.date,
         side: day.side,
         attach: day.attach,
-        branch: branch,
         leaves: leaves,
-        dayLabel: dayLabelFor(day.attach, day.side, mode, vw)
+        dayLabel: {
+          x: lerp(day.dayLabel.x, other.dayLabel.x, t),
+          y: lerp(day.dayLabel.y, other.dayLabel.y, t),
+          anchor: day.dayLabel.anchor
+        }
       };
     });
-    relaxLabels(days, mode, vh);
-    return { vw: vw, vh: vh, trunk: rest.trunk, days: days, mode: mode };
-  }
-
-  function labelFor(placed, daySide, mode, vw) {
-    var dir = placed.dir || { x: 1, y: 0 };
-    if (mode === 'narrow') {
-      if (dir.x < 0.2) {
-        return {
-          x: Math.max(placed.bladeMid.x, placed.tip.x) + 18,
-          y: placed.bladeMid.y,
-          anchor: 'start'
-        };
-      }
-      return {
-        x: placed.bladeTip.x + dir.x * 28,
-        y: placed.bladeTip.y + dir.y * 18,
-        anchor: 'start'
-      };
-    }
+    relaxLabels(days, mode, rest.vh, rest.vw);
     return {
-      x: placed.bladeTip.x + dir.x * 34,
-      y: placed.bladeTip.y + dir.y * 34,
-      anchor: dir.x >= 0.2 ? 'start' : dir.x <= -0.2 ? 'end' : 'middle'
+      vw: rest.vw,
+      vh: rest.vh,
+      mode: mode,
+      base: rest.base,
+      tip: rest.tip,
+      stemD: rest.stemD,
+      stemLength: rest.stemLength,
+      samples: rest.samples,
+      ribbon: rest.ribbon,
+      ribbonHi: rest.ribbonHi,
+      days: days
     };
   }
 
-  function dayLabelFor(attach, side, mode, vw) {
-    if (mode === 'narrow') {
-      return {
-        x: Math.max(24, attach.x - 16),
-        y: attach.y - 26,
-        anchor: 'end'
-      };
-    }
-    return {
-      x: attach.x - side * 18,
-      y: attach.y - 34,
-      anchor: side > 0 ? 'end' : 'start'
-    };
-  }
-
-  function relaxLabels(days, mode, vh) {
+  function relaxLabels(days, mode, vh, vw) {
     var items = [];
     days.forEach(function (day) {
-      items.push({ node: day.dayLabel, x: day.dayLabel.x, y: day.dayLabel.y });
+      items.push({ node: day.dayLabel, x: day.dayLabel.x, y: day.dayLabel.y, kind: 'day' });
       day.leaves.forEach(function (leaf) {
-        items.push({ node: leaf.label, x: leaf.label.x, y: leaf.label.y });
+        items.push({ node: leaf.label, x: leaf.label.x, y: leaf.label.y, kind: 'leaf' });
       });
     });
-    var w = mode === 'narrow' ? 176 : 146;
-    var h = mode === 'narrow' ? 58 : 36;
+    var w = mode === 'narrow' ? 168 : 156;
+    var hLeaf = mode === 'narrow' ? 40 : 34;
+    var hDay = mode === 'narrow' ? 52 : 46;
     function box(item) {
+      var height = item.kind === 'day' ? hDay : hLeaf;
       var anchor = item.node.anchor;
       var x0 = anchor === 'end' ? item.x - w : anchor === 'middle' ? item.x - w / 2 : item.x;
-      return { x0: x0, x1: x0 + w, y0: item.y - h / 2, y1: item.y + h / 2 };
+      return { x0: x0, x1: x0 + w, y0: item.y - height / 2, y1: item.y + height / 2 };
     }
-    for (var iter = 0; iter < 24; iter++) {
+    for (var iter = 0; iter < 28; iter++) {
       var hit = false;
       for (var a = 0; a < items.length; a++) {
         for (var b = a + 1; b < items.length; b++) {
@@ -395,9 +441,9 @@
           var B = box(items[b]);
           var overlapX = Math.min(A.x1, B.x1) - Math.max(A.x0, B.x0);
           var overlapY = Math.min(A.y1, B.y1) - Math.max(A.y0, B.y0);
-          if (overlapX <= 6 || overlapY <= 2) continue;
+          if (overlapX <= 8 || overlapY <= 2) continue;
           hit = true;
-          var push = overlapY / 2 + 1.5;
+          var push = overlapY / 2 + 1.2;
           if (items[a].y <= items[b].y) {
             items[a].y -= push;
             items[b].y += push;
@@ -410,52 +456,47 @@
       if (!hit) break;
     }
     items.forEach(function (item) {
-      item.node.y = clamp(item.y, 22, vh - 22);
+      item.node.y = clamp(item.y, 26, vh - 26);
+      var anchor = item.node.anchor;
+      if (anchor === 'end') item.node.x = clamp(item.x, w + 10, vw - 14);
+      else if (anchor === 'middle') item.node.x = clamp(item.x, w / 2 + 8, vw - w / 2 - 8);
+      else item.node.x = clamp(item.x, 12, vw - w - 10);
     });
   }
 
   function buildSchedule(days) {
-    var cursor = 0.24;
-    var branchDur = 0.13;
-    var leafDur = 0.1;
-    var stagger = 0.034;
-    var branches = [];
-    var leaves = [];
-    days.forEach(function (day) {
-      var b0 = cursor;
-      var b1 = cursor + branchDur;
-      branches.push([b0, b1]);
-      var l0 = b0 + branchDur * 0.55;
-      var row = day.events.map(function (_, k) {
-        var start = l0 + k * stagger;
-        return [start, start + leafDur];
-      });
-      leaves.push(row);
-      var last = row.length ? row[row.length - 1][1] : b1;
-      cursor = Math.max(b1, last) + 0.03;
+    var flat = [];
+    days.forEach(function (day, dayIndex) {
+      day.events.forEach(function (_, k) { flat.push([dayIndex, k]); });
     });
-    var scale = cursor > 0.9 ? 0.9 / cursor : 1;
-    function sc(pair) { return [pair[0] * scale, pair[1] * scale]; }
+    var count = Math.max(1, flat.length);
+    var leaves = days.map(function (day) { return new Array(day.events.length); });
+    flat.forEach(function (pair, i) {
+      var start = 0.16 + (0.66 * i) / count;
+      leaves[pair[0]][pair[1]] = [start, Math.min(0.97, start + 0.15)];
+    });
+    var branches = days.map(function (_, dayIndex) {
+      var start = leaves[dayIndex][0] ? leaves[dayIndex][0][0] : 0.2;
+      return [Math.max(0.04, start - 0.05), start + 0.1];
+    });
     return {
-      trunk: [0, 0.26 * scale + 0.02],
-      branches: branches.map(sc),
-      leaves: leaves.map(function (row) { return row.map(sc); }),
-      bud: [Math.min(0.9, cursor * scale), 1]
+      trunk: [0.05, 0.78],
+      branches: branches,
+      leaves: leaves,
+      bud: [0.84, 1]
     };
   }
 
   function layoutTree(events, opts) {
     var mode = opts.mode === 'narrow' ? 'narrow' : 'wide';
     var days = groupEvents(events);
-    var size = canvasFor(mode, days.length);
-    var rest = metricsFor(days, mode, size.vw, size.vh, null, opts.viewportWidth);
-    var expanded = metricsFor(days, mode, size.vw, size.vh, opts.expandedDate || null, opts.viewportWidth);
+    var rest = metricsFor(days, mode, null);
+    var expanded = metricsFor(days, mode, opts.expandedDate || null);
     return {
       geometry: realize(rest, expanded, opts.blend || 0, opts.expandedDate || null, mode),
       schedule: buildSchedule(days)
     };
   }
-
   function getLang() {
     var lang = document.documentElement.getAttribute('data-lang');
     if (lang === 'en' || lang === 'zh') return lang;
@@ -698,14 +739,14 @@
       if (event.pointerType === 'touch') return;
       if (event.button !== 0) return;
       state.dragMoved = false;
-      var scroller = frame.scrollHeight > frame.clientHeight + 4 ? frame : document.scrollingElement;
+      var canPan = frame.scrollHeight > frame.clientHeight + 4;
       drag = {
         id: event.pointerId,
         x: event.clientX,
         y: event.clientY,
-        left: scroller.scrollLeft,
-        top: scroller.scrollTop,
-        scroller: scroller,
+        left: canPan ? frame.scrollLeft : 0,
+        top: canPan ? frame.scrollTop : 0,
+        scroller: canPan ? frame : null,
         moved: false
       };
     });
@@ -719,6 +760,8 @@
         if (frame.setPointerCapture) frame.setPointerCapture(event.pointerId);
         frame.classList.add('is-dragging');
       }
+      if (event.cancelable) event.preventDefault();
+      if (!drag.scroller) return;
       drag.scroller.scrollLeft = drag.left - dx;
       drag.scroller.scrollTop = drag.top - dy;
     });
@@ -795,42 +838,34 @@
       nodes.sky.setAttribute('height', geo.vh);
       nodes.grain.setAttribute('width', geo.vw);
       nodes.grain.setAttribute('height', geo.vh);
-      var y = geo.vh - 34;
-      nodes.ground.setAttribute('d', 'M ' + (geo.vw * 0.3) + ' ' + y + ' Q ' + (geo.vw * 0.5) + ' ' + (y + 12) + ' ' + (geo.vw * 0.72) + ' ' + y);
-      nodes.soil.setAttribute('cx', geo.trunk.p0.x);
-      nodes.soil.setAttribute('cy', geo.trunk.p0.y + 6);
-      nodes.trunkMaskPath.setAttribute('d', cubicPath(geo.trunk));
-      nodes.bark.setAttribute('d', taperPath(geo.trunk, 13, 2.6));
-      nodes.barkHi.setAttribute('d', taperPath(geo.trunk, 4.2, 0.9));
-      nodes.roots.forEach(function (rootNode, index) {
-        var origin = geo.trunk.p0;
-        var curve = index === 0
-          ? { p0: origin, p1: { x: origin.x - 28, y: origin.y + 8 }, p2: { x: origin.x - 78, y: origin.y + 16 }, p3: { x: origin.x - 118, y: origin.y + 6 } }
-          : { p0: origin, p1: { x: origin.x + 22, y: origin.y + 10 }, p2: { x: origin.x + 72, y: origin.y + 14 }, p3: { x: origin.x + 112, y: origin.y + 2 } };
-        rootNode.mask.setAttribute('d', cubicPath(curve));
-        rootNode.path.setAttribute('d', taperPath(curve, 6.5, 1.1));
-      });
-      nodes.bud.setAttribute('transform', 'translate(' + geo.trunk.p3.x.toFixed(2) + ' ' + geo.trunk.p3.y.toFixed(2) + ')');
+      var base = geo.base;
+      nodes.ground.setAttribute('d', 'M ' + (base.x - 54) + ' ' + (base.y + 7) + ' Q ' + base.x + ' ' + (base.y + 16) + ' ' + (base.x + 58) + ' ' + (base.y + 6));
+      nodes.soil.setAttribute('cx', base.x);
+      nodes.soil.setAttribute('cy', base.y + 9);
+      nodes.soil.setAttribute('rx', '34');
+      nodes.soil.setAttribute('ry', '4.5');
+      nodes.cotyledons[0].setAttribute('transform', 'translate(' + (base.x - 9).toFixed(2) + ' ' + (base.y - 1).toFixed(2) + ') rotate(-36)');
+      nodes.cotyledons[1].setAttribute('transform', 'translate(' + (base.x + 8).toFixed(2) + ' ' + (base.y - 1).toFixed(2) + ') rotate(32)');
+      nodes.stemMask.setAttribute('d', geo.stemD);
+      nodes.stemMask.setAttribute('pathLength', String(geo.stemLength));
+      nodes.stemMask.setAttribute('stroke-dasharray', String(geo.stemLength));
+      nodes.stem.setAttribute('d', geo.ribbon);
+      nodes.stemHi.setAttribute('d', geo.ribbonHi);
+      nodes.bud.setAttribute('transform', 'translate(' + fmt(geo.tip) + ')');
       geo.days.forEach(function (day) {
         var dayNodes = nodes.days[day.date];
-        dayNodes.mask.setAttribute('d', cubicPath(day.branch));
-        dayNodes.bough.setAttribute('d', taperPath(day.branch, 6.4, 1.5));
-        dayNodes.boughHi.setAttribute('d', taperPath(day.branch, 2.2, 0.55));
-        dayNodes.fork.setAttribute('cx', day.attach.x);
-        dayNodes.fork.setAttribute('cy', day.attach.y);
         var dayBtn = dayNodes.button;
         dayBtn.style.left = (day.dayLabel.x / geo.vw * 100) + '%';
         dayBtn.style.top = (day.dayLabel.y / geo.vh * 100) + '%';
         dayBtn.setAttribute('data-anchor', day.dayLabel.anchor);
         day.leaves.forEach(function (leaf) {
           var leafNodes = dayNodes.leaves[leaf.id];
-          leafNodes.petiole.setAttribute('d', 'M ' + fmt(leaf.stem) + ' L ' + fmt(leaf.tip));
-          leafNodes.spin.setAttribute('transform', 'translate(' + fmt(leaf.tip) + ') rotate(' + leaf.angle.toFixed(2) + ')');
+          leafNodes.spin.setAttribute('transform', 'translate(' + fmt(leaf.stem) + ') rotate(' + leaf.angle.toFixed(2) + ')');
           var label = leafNodes.label;
           label.style.left = (leaf.label.x / geo.vw * 100) + '%';
           label.style.top = (leaf.label.y / geo.vh * 100) + '%';
           label.setAttribute('data-anchor', leaf.label.anchor);
-          var hit = leaf.event.importance === 'high' ? 52 : 44;
+          var hit = leaf.event.importance === 'high' ? 52 : 46;
           leafNodes.button.style.left = (leaf.bladeMid.x / geo.vw * 100) + '%';
           leafNodes.button.style.top = (leaf.bladeMid.y / geo.vh * 100) + '%';
           leafNodes.button.style.width = hit + 'px';
@@ -868,67 +903,56 @@
       var clock = state.clock;
       var schedule = state.schedule;
       var filtering = filterOn();
-      var trunkGrow = span(clock, schedule.trunk[0], schedule.trunk[1]);
-      nodes.trunkMaskPath.setAttribute('stroke-dashoffset', String(1 - trunkGrow));
-      var litDays = state.layout.days.filter(function (day) {
-        return day.leaves.some(function (leaf) { return lit(leaf.event); });
+      var trunkGrow = stemProgress(clock);
+      var stemLength = state.layout.stemLength || 1;
+      nodes.stemMask.setAttribute('stroke-dashoffset', String(stemLength * (1 - trunkGrow)));
+      nodes.stem.style.opacity = filtering ? 0.32 : 1;
+      nodes.stemHi.style.opacity = filtering ? 0.16 : 0.82;
+      var seed = smoothstep(linearSpan(clock, 0, 0.08));
+      nodes.cotyledons.forEach(function (cotyledon) {
+        cotyledon.style.opacity = filtering ? seed * 0.45 : seed;
       });
-      nodes.bark.style.opacity = filtering ? 0.28 : 1;
-      nodes.barkHi.style.opacity = filtering ? 0.16 : 0.55;
-      if (filtering && litDays.length) {
-        var t0 = 1;
-        var t1 = 0;
-        state.layout.days.forEach(function (day, index) {
-          if (litDays.indexOf(day) === -1) return;
-          var t = attachT(index, state.layout.days.length);
-          t0 = Math.min(t0, t);
-          t1 = Math.max(t1, t);
-        });
-        nodes.trunkHot.setAttribute('d', taperPath(state.layout.trunk, 13, 2.6, Math.max(0, t0 - 0.05), Math.min(1, t1 + 0.06)));
-        nodes.trunkHot.style.opacity = trunkGrow;
-      } else {
-        nodes.trunkHot.style.opacity = 0;
-      }
-      nodes.roots.forEach(function (rootNode) {
-        var grow = span(clock, 0, 0.14);
-        rootNode.mask.setAttribute('stroke-dashoffset', String(1 - grow));
-        rootNode.path.style.opacity = filtering ? 0.28 : 0.95;
-      });
-      var bud = span(clock, schedule.bud[0], schedule.bud[1]);
-      nodes.bud.style.opacity = filtering ? bud * 0.35 : bud;
-      state.layout.days.forEach(function (day, dayIndex) {
+      nodes.soil.style.opacity = (filtering ? 0.22 : 0.45) * seed;
+      var tipT = sampleTForArc(state.layout.samples, trunkGrow);
+      var budPoint = sampleAt(state.layout.samples, tipT);
+      var budTan = sampleTangent(state.layout.samples, tipT);
+      var wobble = Math.sin(Math.min(1, trunkGrow / 0.08) * Math.PI) * (1 - Math.min(1, trunkGrow / 0.2)) * 8;
+      var budAngle = Math.atan2(budTan.y, budTan.x) * 180 / Math.PI + 90 + wobble;
+      var budScale = 0.86 + 0.14 * smoothstep(Math.min(1, trunkGrow / 0.12));
+      nodes.bud.setAttribute('transform', 'translate(' + fmt(budPoint) + ') rotate(' + budAngle.toFixed(2) + ') scale(' + budScale.toFixed(3) + ')');
+      nodes.bud.style.opacity = filtering ? 0.4 : Math.max(seed, 0.35);
+      state.layout.days.forEach(function (day) {
         var dayNodes = nodes.days[day.date];
-        var branchSpan = schedule.branches[dayIndex];
-        var branchGrow = span(clock, branchSpan[0], branchSpan[1]);
-        var dayLit = day.leaves.some(function (leaf) { return lit(leaf.event); });
-        dayNodes.mask.setAttribute('stroke-dashoffset', String(1 - branchGrow));
-        var branchOpacity = branchGrow * (dayLit || !filtering ? 1 : 0.22);
-        dayNodes.bough.style.opacity = branchOpacity;
-        dayNodes.boughHi.style.opacity = branchOpacity * 0.5;
-        dayNodes.fork.style.opacity = branchOpacity;
-        dayNodes.button.style.opacity = span(clock, branchSpan[0] + 0.04, branchSpan[1] + 0.02);
-        dayNodes.button.hidden = dayNodes.button.style.opacity < 0.35;
-        day.leaves.forEach(function (leaf, leafIndex) {
+        var dayFade = 0;
+        day.leaves.forEach(function (leaf) {
           var leafNodes = dayNodes.leaves[leaf.id];
-          var leafSpan = schedule.leaves[dayIndex][leafIndex];
-          var appear = span(clock, leafSpan[0], leafSpan[1]);
+          var u = typeof leaf.u === 'number' ? leaf.u : 0.5;
+          var raw = linearSpan(trunkGrow, u, Math.min(1, u + 0.09));
+          var fade = smoothstep(raw);
+          if (fade > dayFade) dayFade = fade;
           var on = lit(leaf.event);
           var chosen = state.selectedId === leaf.id && on;
-          var interactive = appear >= 0.62 && (!filtering || on);
-          leafNodes.group.style.opacity = appear * (on || !filtering ? 1 : 0.2);
-          leafNodes.petiole.setAttribute('stroke-dashoffset', String(1 - appear));
-          var opened = 0.12 + 0.88 * appear;
+          var interactive = fade >= 0.62 && (!filtering || on);
+          var dim = on || !filtering ? 1 : 0.2;
+          leafNodes.group.style.opacity = fade * dim;
+          var curl = smoothstep(linearSpan(trunkGrow, Math.min(0.98, u + 0.02), Math.min(1, u + 0.13)));
+          leafNodes.tendril.setAttribute('stroke-dashoffset', String(1 - curl));
+          var opened = Math.max(0.02, settle(raw));
           leafNodes.blade.setAttribute('transform', 'scale(' + (leaf.scale * opened).toFixed(3) + ')');
-          leafNodes.button.hidden = appear < 0.62;
+          leafNodes.button.hidden = fade < 0.05;
           leafNodes.button.tabIndex = interactive ? 0 : -1;
           leafNodes.button.style.pointerEvents = interactive ? 'auto' : 'none';
           leafNodes.label.style.pointerEvents = interactive ? 'auto' : 'none';
           leafNodes.button.setAttribute('aria-pressed', chosen ? 'true' : 'false');
           leafNodes.group.classList.toggle('is-selected', chosen);
           leafNodes.group.classList.toggle('is-hot', state.hoverId === leaf.id && on);
-          leafNodes.label.style.opacity = appear < 0.7 ? 0 : (on || !filtering ? 1 : 0.32);
+          var labelFade = smoothstep(linearSpan(fade, 0.4, 0.9));
+          leafNodes.label.style.opacity = String((on || !filtering ? 1 : 0.32) * labelFade);
           leafNodes.label.classList.toggle('is-hot', (state.hoverId === leaf.id || chosen) && on);
         });
+        var dayShown = smoothstep(linearSpan(dayFade, 0.4, 0.9));
+        dayNodes.button.style.opacity = String(dayShown);
+        dayNodes.button.hidden = dayShown < 0.05;
       });
     }
 
@@ -1077,93 +1101,122 @@
       }));
       filter.appendChild(svgEl('feColorMatrix', { type: 'saturate', values: '0' }));
       defs.appendChild(filter);
-      var trunkMask = svgEl('mask', { id: 'tl-mask-trunk' });
-      var trunkMaskPath = svgEl('path', {
-        fill: 'none', stroke: 'white', 'stroke-width': '36', 'stroke-linecap': 'round',
-        pathLength: '1', 'stroke-dasharray': '1'
+      var glow = svgEl('filter', { id: 'tl-glow', x: '-60%', y: '-60%', width: '220%', height: '220%' });
+      glow.appendChild(svgEl('feDropShadow', {
+        dx: '0', dy: '0', stdDeviation: '1.6', 'flood-color': '#6eae3e', 'flood-opacity': '0.9'
+      }));
+      defs.appendChild(glow);
+      var stemMask = svgEl('mask', { id: 'tl-mask-stem' });
+      var stemMaskPath = svgEl('path', {
+        fill: 'none', stroke: 'white', 'stroke-width': '16', 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
       });
-      trunkMask.appendChild(trunkMaskPath);
-      defs.appendChild(trunkMask);
+      stemMask.appendChild(stemMaskPath);
+      defs.appendChild(stemMask);
       svg.appendChild(defs);
       nodes.paper = svgEl('rect', { 'class': 'tl-paper', x: '0', y: '0' });
       nodes.sky = svgEl('rect', { 'class': 'tl-sky', x: '0', y: '0' });
       nodes.grain = svgEl('rect', { 'class': 'tl-grain', x: '0', y: '0', filter: 'url(#tl-grain)' });
-      nodes.soil = svgEl('ellipse', { 'class': 'tl-soil', rx: '78', ry: '9' });
+      nodes.soil = svgEl('ellipse', { 'class': 'tl-soil', rx: '34', ry: '4.5' });
       nodes.ground = svgEl('path', { 'class': 'tl-ground' });
       svg.appendChild(nodes.paper);
       svg.appendChild(nodes.sky);
       svg.appendChild(nodes.grain);
-      svg.appendChild(nodes.soil);
       svg.appendChild(nodes.ground);
-      nodes.roots = [0, 1].map(function (index) {
-        var mask = svgEl('mask', { id: 'tl-mask-root-' + index });
-        var maskPath = svgEl('path', {
-          fill: 'none', stroke: 'white', 'stroke-width': '20', 'stroke-linecap': 'round',
-          pathLength: '1', 'stroke-dasharray': '1'
-        });
-        mask.appendChild(maskPath);
-        defs.appendChild(mask);
-        var path = svgEl('path', { 'class': 'tl-bark', mask: 'url(#tl-mask-root-' + index + ')' });
-        svg.appendChild(path);
-        return { path: path, mask: maskPath };
+      svg.appendChild(nodes.soil);
+      nodes.cotyledons = [0, 1].map(function () {
+        var cotyledon = svgEl('ellipse', { 'class': 'tl-cotyledon', cx: '0', cy: '0', rx: '14', ry: '8' });
+        svg.appendChild(cotyledon);
+        return cotyledon;
       });
-      var trunk = svgEl('g', { mask: 'url(#tl-mask-trunk)' });
-      nodes.bark = svgEl('path', { 'class': 'tl-bark' });
-      nodes.barkHi = svgEl('path', { 'class': 'tl-bark-hi' });
-      nodes.trunkHot = svgEl('path', { 'class': 'tl-bark' });
-      trunk.appendChild(nodes.bark);
-      trunk.appendChild(nodes.barkHi);
-      trunk.appendChild(nodes.trunkHot);
-      svg.appendChild(trunk);
-      nodes.trunkMaskPath = trunkMaskPath;
+      var stemGroup = svgEl('g', { mask: 'url(#tl-mask-stem)' });
+      nodes.stem = svgEl('path', { 'class': 'tl-stem' });
+      nodes.stemHi = svgEl('path', { 'class': 'tl-stem-hi' });
+      stemGroup.appendChild(nodes.stem);
+      stemGroup.appendChild(nodes.stemHi);
+      svg.appendChild(stemGroup);
+      nodes.stemMask = stemMaskPath;
       nodes.days = {};
+      function spiralD(turns, radius, dir) {
+        var parts = [];
+        var steps = 40;
+        for (var i = 0; i <= steps; i++) {
+          var u = i / steps;
+          var ang = dir * u * turns * Math.PI * 2;
+          var r = 0.6 + u * radius;
+          parts.push((i ? 'L ' : 'M ') + (Math.cos(ang) * r).toFixed(2) + ' ' + (Math.sin(ang) * r).toFixed(2));
+        }
+        return parts.join(' ');
+      }
+      function addLeaflet(parent, transform, importance) {
+        var g = svgEl('g', { transform: transform });
+        g.appendChild(svgEl('path', {
+          'class': 'tl-shape',
+          d: PEA_LEAFLET,
+          fill: 'url(#' + gradId(importance) + ')'
+        }));
+        g.appendChild(svgEl('path', { 'class': 'tl-vein', d: PEA_VEIN, 'stroke-width': '0.65' }));
+        parent.appendChild(g);
+      }
       groupEvents(model.events).forEach(function (day) {
-        var mask = svgEl('mask', { id: 'tl-mask-' + day.date });
-        var maskPath = svgEl('path', {
-          fill: 'none', stroke: 'white', 'stroke-width': '24', 'stroke-linecap': 'round',
-          pathLength: '1', 'stroke-dasharray': '1'
-        });
-        mask.appendChild(maskPath);
-        defs.appendChild(mask);
         var group = svgEl('g', { 'class': 'tl-day' });
-        var bough = svgEl('path', { 'class': 'tl-bough', mask: 'url(#tl-mask-' + day.date + ')' });
-        var boughHi = svgEl('path', { 'class': 'tl-bough-hi', mask: 'url(#tl-mask-' + day.date + ')' });
-        var fork = svgEl('circle', { 'class': 'tl-fork', r: '4.5' });
-        group.appendChild(bough);
-        group.appendChild(boughHi);
-        group.appendChild(fork);
         var leafNodes = {};
         day.events.forEach(function (event) {
+          var pairs = leafletPairs(event.importance);
+          var len = localRachis(event.importance);
           var leaf = svgEl('g', { 'class': 'tl-leaf', 'data-id': event.id });
-          var petiole = svgEl('path', {
-            'class': 'tl-petiole', fill: 'none', 'stroke-width': '1.4',
-            pathLength: '1', 'stroke-dasharray': '1', 'stroke-linecap': 'round'
-          });
           var spin = svgEl('g', { 'class': 'tl-spin' });
           var lift = svgEl('g', { 'class': 'tl-lift' });
-          var blade = svgEl('g');
-          var shape = svgEl('path', { 'class': 'tl-shape', d: LEAF_PATHS[hash32(event.id) % LEAF_PATHS.length], fill: 'url(#' + gradId(event.importance) + ')' });
-          var vein = svgEl('path', { 'class': 'tl-vein', d: VEIN_PATH, 'stroke-width': '0.8' });
-          blade.appendChild(shape);
-          blade.appendChild(vein);
+          var blade = svgEl('g', { 'class': 'tl-blade' });
+          blade.appendChild(svgEl('path', {
+            'class': 'tl-rachis',
+            d: 'M 0 0 C ' + (len * 0.45).toFixed(1) + ' -1.1, ' + (len * 0.78).toFixed(1) + ' 0.7, ' + len + ' 0',
+            fill: 'none',
+            'stroke-width': '1.15',
+            'stroke-linecap': 'round'
+          }));
+          addLeaflet(blade, 'translate(-1 0) rotate(-112) scale(0.46)', event.importance);
+          addLeaflet(blade, 'translate(1 0) rotate(104) scale(0.4)', event.importance);
+          for (var p = 0; p < pairs; p++) {
+            var x = 8 + p * 12;
+            var wobble = (hash01(event.id, 'pair' + p) - 0.5) * 8;
+            addLeaflet(blade, 'translate(' + x + ' 0) rotate(' + (-60 + wobble).toFixed(1) + ') scale(' + (p === pairs - 1 ? 0.98 : 0.9) + ')', event.importance);
+            addLeaflet(blade, 'translate(' + (x + 3.2).toFixed(1) + ' 0) rotate(' + (56 - wobble * 0.4).toFixed(1) + ') scale(0.82)', event.importance);
+          }
+          var curlDir = hash01(event.id, 'cdir') > 0.5 ? 1 : -1;
+          var tendril = svgEl('path', {
+            'class': 'tl-tendril',
+            d: spiralD(1.08 + hash01(event.id, 'curl') * 0.4, 11.5, curlDir),
+            transform: 'translate(' + len + ' 0) rotate(' + (curlDir > 0 ? -18 : 16) + ')',
+            fill: 'none',
+            'stroke-width': '1.05',
+            'stroke-linecap': 'round',
+            pathLength: '1',
+            'stroke-dasharray': '1'
+          });
+          blade.appendChild(tendril);
           lift.appendChild(blade);
           spin.appendChild(lift);
-          leaf.appendChild(petiole);
           leaf.appendChild(spin);
           group.appendChild(leaf);
-          leafNodes[event.id] = { group: leaf, petiole: petiole, spin: spin, blade: blade };
+          leafNodes[event.id] = { group: leaf, spin: spin, blade: blade, tendril: tendril };
         });
         svg.appendChild(group);
-        nodes.days[day.date] = {
-          mask: maskPath, bough: bough, boughHi: boughHi, fork: fork, leaves: leafNodes, button: null
-        };
+        nodes.days[day.date] = { leaves: leafNodes, button: null };
       });
       var bud = svgEl('g', { 'class': 'tl-bud-group' });
-      [-108, -72].forEach(function (angle) {
-        var g = svgEl('g', { transform: 'rotate(' + angle + ') scale(0.42)' });
-        g.appendChild(svgEl('path', { 'class': 'tl-bud', d: LEAF_PATHS[0] }));
+      [-26, 22].forEach(function (angle, index) {
+        var g = svgEl('g', { transform: 'rotate(' + angle + ') scale(' + (index ? 0.78 : 1) + ')' });
+        g.appendChild(svgEl('path', { 'class': 'tl-bud', d: BUD_LEAF }));
         bud.appendChild(g);
       });
+      bud.appendChild(svgEl('path', {
+        'class': 'tl-tendril',
+        d: spiralD(1.25, 7.5, 1),
+        transform: 'translate(0.5 -8)',
+        fill: 'none',
+        'stroke-width': '0.9',
+        'stroke-linecap': 'round'
+      }));
       svg.appendChild(bud);
       nodes.bud = bud;
     }
@@ -1341,7 +1394,7 @@
       state.clock = 0;
       renderFrame();
       var start = performance.now();
-      var dur = 3400;
+      var dur = 5600;
       function tick(now) {
         state.clock = Math.min(1, (now - start) / dur);
         renderFrame();
@@ -1369,11 +1422,13 @@
     }
     function visibleLeaves() {
       if (!state.layout) return [];
+      var grown = stemProgress(state.clock);
       var list = [];
-      state.layout.days.forEach(function (day, dayIndex) {
-        day.leaves.forEach(function (leaf, leafIndex) {
-          var pair = state.schedule.leaves[dayIndex][leafIndex];
-          if (span(state.clock, pair[0], pair[1]) < 0.62) return;
+      state.layout.days.forEach(function (day) {
+        day.leaves.forEach(function (leaf) {
+          var u = typeof leaf.u === 'number' ? leaf.u : 0.5;
+          var fade = smoothstep(linearSpan(grown, u, Math.min(1, u + 0.09)));
+          if (fade < 0.62) return;
           if (filterOn() && !lit(leaf.event)) return;
           list.push(leaf);
         });
@@ -1411,6 +1466,7 @@
     buildSchedule: buildSchedule,
     normalize: normalize,
     belongs: belongs,
+    stemProgress: stemProgress,
     retainedSelection: retainedSelection,
     mount: mount
   };

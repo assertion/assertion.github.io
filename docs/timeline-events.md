@@ -1,6 +1,6 @@
 # Timeline events
 
-The product tree at `/timeline/` is a drawing of the JSON under `_data/timeline/`. It is not a second database. One reporting day becomes one bough. One milestone becomes one leaf. The page does not invent coordinates, and it does not read Markdown posts at render time.
+The product vine at `/timeline/` is a drawing of the JSON under `_data/timeline/`. It is not a second database. Reporting days sit as clusters along one pea shoot. One milestone becomes one compound leaf. The page does not invent coordinates, and it does not read Markdown posts at render time.
 
 Do not add a production hostname to these files. Digest links are root-relative paths such as `/2026/11/18/ai-twitter-hots`.
 
@@ -25,7 +25,7 @@ Add a leaf only after the day's digest is published and the milestone has been c
 ## Event fields
 
 - `id` — stable, lowercase, ends with the reporting date: `qwen4-max-ga-2026-11-17`. The filename is `<id>.json`. Do not rename an id once the page has shipped; edit the record instead.
-- `order` — integer, unique within the day. Lower numbers sit closer to the trunk.
+- `order` — integer, unique within the day. Lower numbers sit lower in that day's cluster.
 - `title`, `short`, `summary`, `why`, `brief` — objects with `zh` and `en`. `short` is the label beside the leaf. `brief` is the short factual line in the side pane. Keep caveats in `summary`, `why`, or `notes`; the pane does not print those.
 - `reported_on`, `happened_at`, `timezone` — `timezone` is `Asia/Shanghai`.
 - `primary_product` — one id from the registry.
