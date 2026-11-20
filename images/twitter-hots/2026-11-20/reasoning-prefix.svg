@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="GPT-6.2: Prior inputs → Reasoning item → New appended input">
-<rect width="1200" height="300" rx="24" fill="#10241e"/><path d="M55 114H1145" stroke="#527165"/>
-<text x="55" y="79" fill="#c3f0d1" font-size="40" font-weight="700" font-family="system-ui,sans-serif">GPT-6.2</text>
-<text x="55" y="180" fill="#fff" font-size="29" font-family="system-ui,sans-serif">Prior inputs → Reasoning item → New appended input</text>
-<text x="55" y="250" fill="#a6bfb5" font-size="21" font-family="system-ui,sans-serif">CODE ECHO  /  ISSUE 068</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="GPT-6.2: Prior inputs, Reasoning item, New appended input">
+<rect width="1200" height="300" rx="18" fill="#10241e"/>
+<g font-family="system-ui,sans-serif">
+<text x="60" y="83" font-size="40" font-weight="700" fill="#c3f0d1">GPT-6.2</text>
+<rect x="60" y="136" width="344" height="88" rx="12" fill="#1d3b33" stroke="#3a5d51"/><text x="76" y="189" fill="#e6f3ed" font-size="21">Prior inputs</text><rect x="420" y="136" width="344" height="88" rx="12" fill="#1d3b33" stroke="#3a5d51"/><text x="436" y="189" fill="#e6f3ed" font-size="21">Reasoning item</text><rect x="780" y="136" width="344" height="88" rx="12" fill="#1d3b33" stroke="#3a5d51"/><text x="796" y="189" fill="#e6f3ed" font-size="21">New appended input</text>
+<text x="60" y="270" fill="#a6bfb5" font-size="18">CODE ECHO · 068 / 08</text>
+</g></svg>

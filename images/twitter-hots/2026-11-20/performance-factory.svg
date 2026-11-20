@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="OpenAI Performance Factory: Detect regression → Trace the cause → Review the patch → Verify in production">
-<rect width="1200" height="300" rx="24" fill="#10241e"/><path d="M55 114H1145" stroke="#527165"/>
-<text x="55" y="79" fill="#c3f0d1" font-size="40" font-weight="700" font-family="system-ui,sans-serif">OpenAI Performance Factory</text>
-<text x="55" y="180" fill="#fff" font-size="29" font-family="system-ui,sans-serif">Detect regression → Trace the cause → Review the patch → Verify in production</text>
-<text x="55" y="250" fill="#a6bfb5" font-size="21" font-family="system-ui,sans-serif">CODE ECHO  /  ISSUE 068</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="OpenAI Performance Factory: Detect regression, Trace the cause, Review the patch, Verify in production">
+<rect width="1200" height="300" rx="18" fill="#10241e"/>
+<g font-family="system-ui,sans-serif">
+<text x="60" y="83" font-size="40" font-weight="700" fill="#c3f0d1">OpenAI Performance Factory</text>
+<rect x="60" y="136" width="254" height="88" rx="12" fill="#1d3b33" stroke="#3a5d51"/><text x="76" y="189" fill="#e6f3ed" font-size="21">Detect regression</text><rect x="330" y="136" width="254" height="88" rx="12" fill="#1d3b33" stroke="#3a5d51"/><text x="346" y="189" fill="#e6f3ed" font-size="21">Trace the cause</text><rect x="600" y="136" width="254" height="88" rx="12" fill="#1d3b33" stroke="#3a5d51"/><text x="616" y="189" fill="#e6f3ed" font-size="21">Review the patch</text><rect x="870" y="136" width="254" height="88" rx="12" fill="#1d3b33" stroke="#3a5d51"/><text x="886" y="189" fill="#e6f3ed" font-size="21">Verify in production</text>
+<text x="60" y="270" fill="#a6bfb5" font-size="18">CODE ECHO · 068 / 01</text>
+</g></svg>
