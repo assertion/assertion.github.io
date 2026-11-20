@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="Vercel Board: Human → Task thread → Agent">
+<rect width="1200" height="300" rx="24" fill="#10241e"/><path d="M55 114H1145" stroke="#527165"/>
+<text x="55" y="79" fill="#c3f0d1" font-size="40" font-weight="700" font-family="system-ui,sans-serif">Vercel Board</text>
+<text x="55" y="180" fill="#fff" font-size="29" font-family="system-ui,sans-serif">Human → Task thread → Agent</text>
+<text x="55" y="250" fill="#a6bfb5" font-size="21" font-family="system-ui,sans-serif">CODE ECHO  /  ISSUE 068</text>
+</svg>
