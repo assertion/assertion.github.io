@@ -42,17 +42,15 @@ Several of today’s changes sit outside the model. How do you explore a side qu
 
 ## 1. Antigravity makes /btw a branch you can promote
 
-![Main task → Side thread → Promote](/images/twitter-hots/2026-11-21/branch.svg)
-
 Antigravity showed a new version of `/btw`. Previously it was a way to ask a quick question while the main agent worked. Now a side thread can keep going, and a useful branch can be promoted without losing the original task.
 
 **Why it matters**: The useful test is a migration with an uncertain alternative. Keep the main work running, try the alternative on a branch, then promote it only if it helps. Check what context the branch inherits, what promotion carries over, and whether the two threads can be canceled independently.
 
 **Sources**: [Antigravity](https://x.com/antigravity/status/2123921833883840650)
 
-## 2. Codex raises its WebSocket request ceiling from 16 MB to 128 MB
+[![Antigravity’s X video thumbnail: opening a /btw side thread in the session](/images/twitter-hots/2026-11-21/01-antigravity-btw.jpg)](https://x.com/antigravity/status/2123921833883840650)
 
-![Incremental send → 128 MB limit → HTTP fallback](/images/twitter-hots/2026-11-21/websocket.svg)
+## 2. Codex raises its WebSocket request ceiling from 16 MB to 128 MB
 
 Charlie Marsh said Codex sends model requests incrementally over a WebSocket and raised the size limit from 16 MB to 128 MB. Fewer large turns should fall back to HTTP; he reported roughly a fivefold speedup on the path that still exceeds the limit. This is a transport ceiling and an overflow-path figure, not a model context limit or a fivefold gain on normal turns.
 
@@ -62,8 +60,6 @@ Charlie Marsh said Codex sends model requests incrementally over a WebSocket and
 
 ## 3. Neon’s quota story goes beyond the model
 
-![Prompt prefix → Cache pool → Quota used](/images/twitter-hots/2026-11-21/cache.svg)
-
 Neon had already launched. The fresh detail is how much work fits in a quota. Antigravity’s Varun Mohan said a larger cache pool was expected to raise Neon cache hit rate by around 4% and allow at least 20% more work within quota. He said a reset would follow. Those are rollout estimates, not independent measurements or proof that the reset has happened. Theo was enthusiastic about the model itself, which is a different signal from quota behavior.
 
 **Why it matters**: Long sessions and repeated prefixes can dominate real usage. Hold the repo, task, and effort level fixed, then measure completion, latency, and quota use separately on cold and warm sessions. Google’s benchmark cost per task and the subscription meter are not the same number.
@@ -72,17 +68,15 @@ Neon had already launched. The fresh detail is how much work fits in a quota. An
 
 ## 4. Linear brings issue context into Antigravity
 
-![Linear issue → Agent context → Repo check](/images/twitter-hots/2026-11-21/linear.svg)
-
 Linear announced that Antigravity can bring in issues, projects, and their context for Gemini 4 Neon. The announcement confirms context access; it does not establish which actions the agent can perform on the issue tracker.
 
 **Why it matters**: Try it on a bug whose acceptance criteria are scattered across comments. Does the agent find the right code and tests? Saving a copy-and-paste is useful; matching the eventual fix to each condition is more valuable.
 
 **Sources**: [Linear](https://x.com/linear/status/2123828680527114634)
 
-## 5. VS Code puts delegation and taking the keyboard in the same workflow
+[![Linear’s X video thumbnail: Linear and Antigravity logos](/images/twitter-hots/2026-11-21/04-linear-antigravity.jpg)](https://x.com/linear/status/2123828680527114634)
 
-![Delegate → Inspect diff → Take over](/images/twitter-hots/2026-11-21/handoff.svg)
+## 5. VS Code puts delegation and taking the keyboard in the same workflow
 
 An Ignite demo announcement from VS Code described a Copilot workflow in which developers hand work to an agent, then review, edit, and debug in the same project context. It describes what the team planned to demonstrate, not a release announcement across every client.
 
@@ -92,8 +86,6 @@ An Ignite demo announcement from VS Code described a Copilot workflow in which d
 
 ## 6. OpenAI publishes adversarial-distillation research, with safeguards measured separately
 
-![Capabilities → Safety checks → Separate eval](/images/twitter-hots/2026-11-21/distillation.svg)
-
 OpenAI published research on detecting and disrupting coordinated adversarial distillation attempts and evaluating protection for private reasoning. The central distinction is that capability transfer does not guarantee safeguard transfer. Results refer to OpenAI’s own tests and threat models, not universal success rates.
 
 **Why it matters**: When a team swaps a base model, distilled variant, or inference gateway, passing the same task benchmark is not a substitute for rerunning its safety checks. Measure capability, refusal behavior, and actual tool permissions separately so regressions can be localized.
@@ -101,8 +93,6 @@ OpenAI published research on detecting and disrupting coordinated adversarial di
 **Sources**: [OpenAI on X](https://x.com/OpenAI/status/2123862344422088794) · [OpenAI report](https://openai.com/index/combatting-adversarial-distillation/)
 
 ## 7. In a large repo, one change need not start with understanding the entire system
-
-![Find boundary → Read contracts → Verify change](/images/twitter-hots/2026-11-21/understanding.svg)
 
 Randy Lu shared Sean Goedecke’s discussion and recalled an internal guide for navigating the very large OneDrive repository. Sean’s original essay makes the point that partial understanding is often the practical limit in a large, changing system. The essay resurfaced today; it was not first published today.
 
@@ -112,17 +102,15 @@ Randy Lu shared Sean Goedecke’s discussion and recalled an internal guide for 
 
 ## 8. Athas moves to native Rust and GPUI, giving editor startup a comparison point
 
-![Native shell → Project open → Measure RSS](/images/twitter-hots/2026-11-21/athas.svg)
-
 Athas said it rewrote its editor as a native Rust and GPUI application without a WebView or JavaScript runtime. The team reported 2.4× faster project opening and at least halving memory use versus its old implementation. The post does not specify the benchmark environment or compare extension ecosystems.
 
 **Why it matters**: Use those figures to design a benchmark, not to choose a framework by themselves. Time window open, project tree visible, editor interactive, and agent index ready separately on cold and warm starts. That shows which wait actually disappeared.
 
 **Sources**: [Athas](https://x.com/athasdev/status/2123882405320958289)
 
-## 9. The same subscribed model can feel different in another harness
+[![Athas’s X video thumbnail: the editor on macOS](/images/twitter-hots/2026-11-21/08-athas-editor.jpg)](https://x.com/athasdev/status/2123882405320958289)
 
-![Same model → Different loop → Task outcome](/images/twitter-hots/2026-11-21/budget.svg)
+## 9. The same subscribed model can feel different in another harness
 
 In a post about subscription spending, Fan Kai described a personal observation: GPT felt different in Pi Agent or Hermes than in Codex. Lee Robinson made a related product argument that products need to catch up with model capability. These are observations and opinions, not controlled comparisons.
 
