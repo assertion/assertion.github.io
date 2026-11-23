@@ -1,0 +1,63 @@
+{
+  "id": "replit-missions-2026-11-20",
+  "order": 1,
+  "title": {
+    "zh": "Replit Missions：按目标与预算组队，但代理翻倍不等于收益翻倍",
+    "en": "Replit Missions: agents team up by goal and budget, but doubling agents does not double the gain"
+  },
+  "short": {
+    "zh": "Replit Missions",
+    "en": "Replit Missions"
+  },
+  "summary": {
+    "zh": "Replit 公开了 Missions 的多 agent 案例，并配有介绍博文。用户给目标、约束和预算，Missions 自行拆任务并检查结果。官方用 13 个 NumPy 优化任务举例：在 Auto (Max) 下，单 agent 的优化最高约 4 倍，16 个达 17 倍，32 个达 19 倍。这里的倍数是优化后的程序性能，不是做任务的速度，也不是所有项目的平均收益。从 16 到 32，多一倍 agent 只多出一截最优结果。",
+    "en": "Replit published multi-agent Missions cases, with an introducing blog post. Users supply a goal, constraints, and a budget; Missions splits the work and checks results. Official NumPy examples covering 13 optimization tasks under Auto (Max) showed peak speedups of about 4x with one agent, 17x with 16, and 19x with 32. Those multipliers are the optimized program's performance, not how fast the agents finished, and not an average across all projects. Going from 16 to 32 agents only added a slice to the best result."
+  },
+  "brief": {
+    "zh": "Replit 公开 Missions：按目标、约束和预算组队。官方 NumPy 例子里，16 个 agent 做到 17 倍程序加速，32 个只到 19 倍。",
+    "en": "Replit published Missions, which teams agents by goal, constraints, and budget. In official NumPy examples, 16 agents reached a 17x program speedup, and 32 agents reached 19x."
+  },
+  "why": {
+    "zh": "值得留下的是可按预算并行的产品形态，以及「代理翻倍不等于收益翻倍」这一官方结果，而不是把 19 倍写成普遍收益。",
+    "en": "What belongs on the tree is a budgeted multi-agent product, and the official finding that doubling agents did not double the gain, not a claim that 19x is typical."
+  },
+  "reported_on": "2026-11-20",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "replit",
+  "related_products": [],
+  "kind": "launch",
+  "lifecycle": null,
+  "importance": "medium",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/Replit/status/2123248146390327500",
+      "label": {
+        "zh": "Replit Missions 发布帖",
+        "en": "Replit Missions announcement"
+      }
+    },
+    {
+      "kind": "official",
+      "url": "https://replit.com/blog/introducing-replit-missions",
+      "label": {
+        "zh": "Replit 官方介绍",
+        "en": "Replit introducing post"
+      }
+    }
+  ],
+  "digest_refs": [
+    {
+      "date": "2026-11-20",
+      "lang": "zh",
+      "path": "/2026/11/20/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-20",
+      "lang": "en",
+      "path": "/2026/11/20/ai-twitter-hots-en"
+    }
+  ],
+  "updates": []
+}

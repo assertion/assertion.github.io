@@ -1,0 +1,55 @@
+{
+  "id": "inkling-2-mini-launch-2026-11-23",
+  "order": 2,
+  "title": {
+    "zh": "Thinking Machines 发布 Inkling 2 Mini：可在笔记本上跑的开源 MoE",
+    "en": "Thinking Machines releases Inkling 2 Mini, an open-weight MoE meant to run on a laptop"
+  },
+  "short": {
+    "zh": "Inkling 2 Mini 发布",
+    "en": "Inkling 2 Mini launch"
+  },
+  "summary": {
+    "zh": "Thinking Machines 在 2026-11-20 发布 Inkling 2 Mini：开源权重的 looped MoE，总参数 264 亿、激活 34 亿，循环后约 54 亿次权重激活，显存约 20GB，上下文最长 1M。官方把它定位为可在笔记本上跑的本地模型，并展示了在飞行模式的 MacBook Pro 上离线写出飞行模拟器的演示。11 月 20 日和 21 日的日报没有收录这次发布，11 月 23 日的日报才报道，并附上使用侧反馈；因此 reported_on 是 2026-11-23，happened_at 按官方发布日写作 2026-11-20。使用侧的速度数字是个人环境结果，不是官方基准，不写入 brief。",
+    "en": "Thinking Machines released Inkling 2 Mini on 2026-11-20: an open-weight looped mixture-of-experts model with 26.4B total parameters, 3.4B active, about 5.4B weight activations after looping, about 20GB of memory use, and up to 1M context. Officially it is a local model that can run on a laptop, and the launch included an offline flight-simulator demo on a MacBook Pro in airplane mode. The 20 and 21 November digests did not cover the launch; the 23 November digest did, with later usage feedback, so reported_on is 2026-11-23 and happened_at is 2026-11-20. Speed figures from individual setups are not official benchmarks and do not belong in the brief."
+  },
+  "brief": {
+    "zh": "Thinking Machines 发布开源权重模型 Inkling 2 Mini：264 亿总参数、激活 34 亿，约 20GB 显存，上下文最长 1M，定位为可在笔记本上跑的本地模型。",
+    "en": "Thinking Machines released open-weight Inkling 2 Mini: 26.4B parameters, 3.4B active, about 20GB memory, and 1M context, meant to run on a laptop."
+  },
+  "why": {
+    "zh": "这是窗口里一次完整的开源小模型发布。报道日按首次写入日报的 11 月 23 日，发生日按官方 11 月 20 日。",
+    "en": "A complete open-weight small-model launch in this window. The reporting day is 23 November, when the digest first covered it; the happened day is the official 20 November release."
+  },
+  "reported_on": "2026-11-23",
+  "happened_at": "2026-11-20",
+  "timezone": "Asia/Shanghai",
+  "primary_product": "inkling-2-mini",
+  "related_products": [],
+  "kind": "launch",
+  "lifecycle": "ga",
+  "importance": "medium",
+  "sources": [
+    {
+      "kind": "official",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+      "label": {
+        "zh": "Thinking Machines 公告",
+        "en": "Thinking Machines announcement"
+      }
+    }
+  ],
+  "digest_refs": [
+    {
+      "date": "2026-11-23",
+      "lang": "zh",
+      "path": "/2026/11/23/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-23",
+      "lang": "en",
+      "path": "/2026/11/23/ai-twitter-hots-en"
+    }
+  ],
+  "updates": []
+}

@@ -1,0 +1,65 @@
+{
+  "id": "codex-cli-0-171-0-2026-11-20",
+  "order": 2,
+  "title": {
+    "zh": "Codex CLI 0.171.0：终端工作区默认打开，非交互任务也能连远程",
+    "en": "Codex CLI 0.171.0: terminal workspace on by default, and non-interactive tasks can attach remotely"
+  },
+  "short": {
+    "zh": "Codex CLI 0.171.0",
+    "en": "Codex CLI 0.171.0"
+  },
+  "summary": {
+    "zh": "Codex CLI 0.171.0 让预览文档、图片和子代理 transcript 可以留在终端会话旁，并支持用 codex exec --remote 在已有的 app server 上启动或恢复非交互会话。GPT-6.2 Sol 和 Astra 同时加入模型目录，默认选 Sol。这里的远程是连接一个已经运行的服务，不会自动开机器。GPT-6.2 的发布已在 11 月 18 日记录，这里只记 CLI 的远程入口与目录更新。同一窗口 Antigravity 桌面端的 SSH 是另一条事件。",
+    "en": "Codex CLI 0.171.0 keeps previews of documents, images, and sub-agent transcripts beside the terminal session, and adds codex exec --remote to start or resume a non-interactive session on an already running app server. GPT-6.2 Sol and Astra also joined the model catalog, with Sol as the default. Remote here means attaching to a service that is already running; it does not provision a machine. The GPT-6.2 launch was already recorded on 18 November; this leaf is the CLI remote entry and catalog update. Antigravity's desktop SSH in the same window is a separate event."
+  },
+  "brief": {
+    "zh": "Codex CLI 0.171.0 默认打开终端工作区，并可用已有 app server 运行非交互远程任务。GPT-6.2 Sol 与 Astra 进入模型目录。",
+    "en": "Codex CLI 0.171.0 opens a terminal workspace by default and can run non-interactive remote tasks on an existing app server. GPT-6.2 Sol and Astra joined the model catalog."
+  },
+  "why": {
+    "zh": "交互式会话和脚本任务都有了连接远程会话服务的入口，这比再开一个窗口更值得记下。",
+    "en": "Both interactive sessions and scripted tasks now have a way to attach to a remote session service, which is more than another window."
+  },
+  "reported_on": "2026-11-20",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "codex",
+  "related_products": [
+    "gpt-6-2"
+  ],
+  "kind": "capability",
+  "lifecycle": null,
+  "importance": "medium",
+  "sources": [
+    {
+      "kind": "official",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.171.0",
+      "label": {
+        "zh": "Codex CLI 0.171.0 发布说明",
+        "en": "Codex CLI 0.171.0 release notes"
+      }
+    },
+    {
+      "kind": "official",
+      "url": "https://github.com/openai/codex/pull/61707",
+      "label": {
+        "zh": "远程 exec 实现",
+        "en": "Remote exec implementation"
+      }
+    }
+  ],
+  "digest_refs": [
+    {
+      "date": "2026-11-20",
+      "lang": "zh",
+      "path": "/2026/11/20/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-20",
+      "lang": "en",
+      "path": "/2026/11/20/ai-twitter-hots-en"
+    }
+  ],
+  "updates": []
+}

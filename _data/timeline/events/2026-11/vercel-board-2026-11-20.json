@@ -1,0 +1,63 @@
+{
+  "id": "vercel-board-2026-11-20",
+  "order": 7,
+  "title": {
+    "zh": "Vercel Board 向所有套餐开放：人和不同工具的 agent 共用任务线程",
+    "en": "Vercel Board opens to all plans: people and agents from different tools share a task thread"
+  },
+  "short": {
+    "zh": "Vercel Board",
+    "en": "Vercel Board"
+  },
+  "summary": {
+    "zh": "Vercel Board 已向所有套餐开放，仍是实验功能。人和 agent 可以在频道中开任务线程，由 agent 认领、回报进度并附上 PR。自建 harness 可通过 CLI 或 JavaScript SDK 接入；Vercel Connect 支持与 Slack、GitHub 双向同步，访问范围可以按人或 agent 设置。这是产品方向上的发布，日报没有把它写成已验证的使用成效。",
+    "en": "Vercel Board is now available on all plans, and is still experimental. People and agents can open task threads in a channel; agents can claim work, report progress, and attach a pull request. Custom harnesses can connect through a CLI or JavaScript SDK. Vercel Connect supports two-way sync with Slack and GitHub, and access can be scoped per person or per agent. This is a product launch, not a measured claim about how well Board works in practice."
+  },
+  "brief": {
+    "zh": "Vercel Board 向所有套餐开放，仍是实验功能。人和来自不同工具的 agent 可在同一任务线程里协作，并可与 Slack、GitHub 同步。",
+    "en": "Vercel Board is open to all plans and still experimental. People and agents from different tools can share a task thread, with optional Slack and GitHub sync."
+  },
+  "why": {
+    "zh": "它把任务状态放在独立于模型和执行器的线程里，这是值得记下的产品形态，但还不能写成已经解决了冲突与重试。",
+    "en": "It keeps task state in a thread that is independent of the model and the executor. That shape is worth recording, but it is not proof that conflicts and retries are solved."
+  },
+  "reported_on": "2026-11-20",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "vercel-board",
+  "related_products": [],
+  "kind": "launch",
+  "lifecycle": "announced",
+  "importance": "medium",
+  "sources": [
+    {
+      "kind": "official",
+      "url": "https://vercel.com/blog/introducing-vercel-board",
+      "label": {
+        "zh": "Vercel 官方博客",
+        "en": "Vercel official blog"
+      }
+    },
+    {
+      "kind": "tweet",
+      "url": "https://x.com/vercel/status/2123234769236619673",
+      "label": {
+        "zh": "Vercel 官方原帖",
+        "en": "Vercel announcement"
+      }
+    }
+  ],
+  "digest_refs": [
+    {
+      "date": "2026-11-20",
+      "lang": "zh",
+      "path": "/2026/11/20/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-20",
+      "lang": "en",
+      "path": "/2026/11/20/ai-twitter-hots-en"
+    }
+  ],
+  "updates": []
+}

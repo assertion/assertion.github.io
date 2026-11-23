@@ -1,12 +1,24 @@
 {
   "timezone": "Asia/Shanghai",
-  "reported_dates": ["2026-11-17", "2026-11-18"],
+  "reported_dates": [
+    "2026-11-17",
+    "2026-11-18",
+    "2026-11-19",
+    "2026-11-20",
+    "2026-11-21",
+    "2026-11-23"
+  ],
   "counts": {
     "2026-11-17": 4,
-    "2026-11-18": 5
+    "2026-11-18": 5,
+    "2026-11-19": 4,
+    "2026-11-20": 7,
+    "2026-11-21": 4,
+    "2026-11-23": 2
   },
+  "last_processed_digest": "2026-11-23",
   "note": {
-    "zh": "已核对并录入的报道日只有 2026-11-17（4 片叶子）和 2026-11-18（5 片叶子）。没有补写 11 月 16 日或更早的空枝。叶子按上海日历的报道日生长；发生日没有独立确认时保持空白。",
-    "en": "Verified reporting days are 2026-11-17 (4 leaves) and 2026-11-18 (5 leaves) only. No 16 November or earlier history was backfilled. Leaves grow on the Shanghai reporting day. happened_at stays empty until it is confirmed on its own."
+    "zh": "已核对并录入的报道日为 2026-11-17（4 片叶子）、2026-11-18（5 片叶子）、2026-11-19（4 片叶子）、2026-11-20（7 片叶子）、2026-11-21（4 片叶子）和 2026-11-23（2 片叶子）。没有补写 11 月 16 日或更早的空枝。2026-11-22 没有已发布的中文日报，故未录入、也不画空枝。叶子按上海日历的报道日生长；发生日没有独立确认时保持空白。最后处理的日报是 2026-11-23。",
+    "en": "Verified reporting days are 2026-11-17 (4 leaves), 2026-11-18 (5 leaves), 2026-11-19 (4 leaves), 2026-11-20 (7 leaves), 2026-11-21 (4 leaves), and 2026-11-23 (2 leaves). No 16 November or earlier history was backfilled. 2026-11-22 has no published Chinese digest, so it was not entered and is not drawn as an empty bough. Leaves grow on the Shanghai reporting day. happened_at stays empty until it is confirmed on its own. The last processed digest is 2026-11-23."
   }
 }

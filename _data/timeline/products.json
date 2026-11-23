@@ -52,5 +52,71 @@
     "name": "Antigravity",
     "aliases": ["Google Antigravity"],
     "category": "ide"
+  },
+  {
+    "id": "gemini-4-neon",
+    "name": "Gemini 4 Neon",
+    "aliases": ["Gemini 4 Neon", "Neon"],
+    "category": "model"
+  },
+  {
+    "id": "cursor",
+    "name": "Cursor",
+    "aliases": ["Cursor IDE"],
+    "category": "ide"
+  },
+  {
+    "id": "github-copilot",
+    "name": "GitHub Copilot",
+    "aliases": ["Copilot", "GitHub Copilot CLI"],
+    "category": "agent"
+  },
+  {
+    "id": "replit",
+    "name": "Replit",
+    "aliases": ["Replit Missions"],
+    "category": "platform"
+  },
+  {
+    "id": "perplexity",
+    "name": "Perplexity",
+    "aliases": ["Perplexity Computer"],
+    "category": "platform"
+  },
+  {
+    "id": "gemini-api",
+    "name": "Gemini API",
+    "aliases": ["Gemini Interactions API"],
+    "category": "platform"
+  },
+  {
+    "id": "langsmith",
+    "name": "LangSmith",
+    "aliases": ["LangSmith Tool Gateway"],
+    "category": "platform"
+  },
+  {
+    "id": "vercel-board",
+    "name": "Vercel Board",
+    "aliases": ["Vercel Board"],
+    "category": "platform"
+  },
+  {
+    "id": "linear",
+    "name": "Linear",
+    "aliases": ["Linear"],
+    "category": "platform"
+  },
+  {
+    "id": "athas",
+    "name": "Athas",
+    "aliases": ["Athas editor"],
+    "category": "ide"
+  },
+  {
+    "id": "inkling-2-mini",
+    "name": "Inkling 2 Mini",
+    "aliases": ["Inkling 2 Mini"],
+    "category": "model"
   }
 ]

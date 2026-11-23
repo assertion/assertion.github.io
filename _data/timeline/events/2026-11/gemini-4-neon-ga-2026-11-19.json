@@ -1,0 +1,75 @@
+{
+  "id": "gemini-4-neon-ga-2026-11-19",
+  "order": 1,
+  "title": {
+    "zh": "Gemini 4 Neon 发布：定位在 Carbon 与 Hydrogen 之间",
+    "en": "Gemini 4 Neon launches between Carbon and Hydrogen"
+  },
+  "short": {
+    "zh": "Gemini 4 Neon 发布",
+    "en": "Gemini 4 Neon GA"
+  },
+  "summary": {
+    "zh": "Google 宣布 Gemini 4 Neon，定位为前沿级能力、更快完成端到端任务，覆盖复杂编程、知识工作与科学流程。官方博客日期为 2026-11-18。官方称在 Artificial Analysis Intelligence Index 的 xhigh 档得到 61 分、总榜第 3，Vals Index 第 2。API 定价为每百万 token 输入 3 美元（缓存输入 0.15 美元）、输出 15 美元，上下文 100 万 token，提供四档 thinking。入口包括 Gemini API、Gemini for business、面向 Pro / Ultra 订阅者的 Gemini 应用，以及 Antigravity；同日也进入 Cursor、GitHub Copilot，并由 Vercel AI Gateway 提供 google/gemini-4-neon。Artificial Analysis 称这是 Google 七周内的第四个模型，Neon（xhigh）相对 Carbon 有小幅 Intelligence 提升，Cost per Task 约低 17%；官方则写在默认 high 档每任务成本比 Carbon 低 32%。两个口径不能混成「全面超过 Carbon」。Cursor 与 Copilot 的接入记为相关产品，不另立成一次模型发布。",
+    "en": "Google announced Gemini 4 Neon as a frontier-class model meant to finish end-to-end work faster, covering hard coding, knowledge work, and scientific workflows. The official blog is dated 2026-11-18. Google said Neon scored 61 on the Artificial Analysis Intelligence Index at xhigh, third overall, and ranked second on the Vals Index. API pricing is $3 per million input tokens ($0.15 cached) and $15 per million output tokens, with a 1M context and four thinking levels. It shipped through the Gemini API, Gemini for business, the Gemini app for Pro and Ultra subscribers, and Antigravity; the same day it also reached Cursor and GitHub Copilot, and Vercel AI Gateway listed google/gemini-4-neon. Artificial Analysis called this Google's fourth model in seven weeks, with a small Intelligence gain versus Carbon at xhigh and about 17% lower cost per task; Google wrote that default high is 32% cheaper per task than Carbon. Those figures use different settings and do not mean Neon beats Carbon across the board. Cursor and Copilot access are related products, not a second model launch."
+  },
+  "brief": {
+    "zh": "Google 发布 Gemini 4 Neon，定位在 Carbon 与 Hydrogen 之间。API 定价输入 3 美元、输出 15 美元，已进入 Gemini 应用、Antigravity、Cursor 与 Copilot。",
+    "en": "Google launched Gemini 4 Neon, between Carbon and Hydrogen. API pricing is $3 input and $15 output, and it reached the Gemini app, Antigravity, Cursor, and Copilot."
+  },
+  "why": {
+    "zh": "这是该窗口最完整的一次模型发布，补齐了 Gemini 4 家族的中间档。评估数字来自官方与 Artificial Analysis，口径不同，需分开读。",
+    "en": "The most complete model launch in this window, filling the middle Gemini 4 tier. Official and third-party scores use different settings and should be read separately."
+  },
+  "reported_on": "2026-11-19",
+  "happened_at": "2026-11-18",
+  "timezone": "Asia/Shanghai",
+  "primary_product": "gemini-4-neon",
+  "related_products": [
+    "antigravity",
+    "cursor",
+    "github-copilot"
+  ],
+  "kind": "launch",
+  "lifecycle": "ga",
+  "importance": "high",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/Google/status/2123172282574987698",
+      "label": {
+        "zh": "Google 宣布 Gemini 4 Neon",
+        "en": "Google announces Gemini 4 Neon"
+      }
+    },
+    {
+      "kind": "tweet",
+      "url": "https://x.com/cursor_ai/status/2123198346802450926",
+      "label": {
+        "zh": "Cursor 宣布 Neon 上线",
+        "en": "Cursor announces Neon availability"
+      }
+    },
+    {
+      "kind": "tweet",
+      "url": "https://x.com/github/status/2123181574116233646",
+      "label": {
+        "zh": "GitHub 宣布 Copilot 可用 Neon",
+        "en": "GitHub announces Neon in Copilot"
+      }
+    }
+  ],
+  "digest_refs": [
+    {
+      "date": "2026-11-19",
+      "lang": "zh",
+      "path": "/2026/11/19/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-19",
+      "lang": "en",
+      "path": "/2026/11/19/ai-twitter-hots-en"
+    }
+  ],
+  "updates": []
+}

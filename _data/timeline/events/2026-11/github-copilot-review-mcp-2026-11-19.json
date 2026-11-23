@@ -1,0 +1,84 @@
+{
+  "id": "github-copilot-review-mcp-2026-11-19",
+  "order": 3,
+  "title": {
+    "zh": "GitHub Copilot：代码审查升级，MCP connectors 进入公开预览",
+    "en": "GitHub Copilot: code review upgrades, and MCP connectors enter public preview"
+  },
+  "short": {
+    "zh": "Copilot 审查与 MCP",
+    "en": "Copilot review and MCP"
+  },
+  "summary": {
+    "zh": "GitHub 在 Ignite 上宣布 Copilot code review 的一组升级：Adaptive 审查深度（按 PR 风险在 Lite 与 Max 之间选择）、公开仓库的跨仓库上下文、审查中的 secret 检测，以及仓库 Insights 里对审查结果的跟踪，并称 Repo Insights 已正式可用。临近同一报道日结束时，GitHub 又宣布 GitHub-verified MCP servers（connectors）进入公开预览：选好服务并登录后，可在 Copilot 应用、Copilot CLI 和 VS Code 等处使用。同日 Neon 在 Copilot 可用，已记在 Neon 发布的相关产品中，不在这条里再记一次模型上线。审查升级与 MCP 预览是两件官方更新，用 updates 区分。",
+    "en": "At Ignite, GitHub announced Copilot code review upgrades: Adaptive review depth that chooses Lite or Max by pull-request risk, cross-repo context for public repositories, secret detection during review, and tracking of review results in repository Insights, which it said is generally available. Later the same reporting day, GitHub also announced GitHub-verified MCP servers (connectors) in public preview: after picking a service and signing in, they can be used in the Copilot app, Copilot CLI, and VS Code. Neon becoming available in Copilot the same day is recorded on the Neon launch as a related product, not as a second model launch here. The review upgrades and the MCP preview are two official updates, kept distinct in updates."
+  },
+  "brief": {
+    "zh": "Copilot 代码审查增加 Adaptive 深度、跨仓库上下文和 secret 检测；GitHub 验证的 MCP connectors 进入公开预览。",
+    "en": "Copilot code review adds Adaptive depth, cross-repo context, and secret detection. GitHub-verified MCP connectors enter public preview."
+  },
+  "why": {
+    "zh": "这是 Copilot 在审查工作流和 MCP 接入上的产品更新，应与同日接入 Neon 分开记录。",
+    "en": "These are Copilot product changes to review and MCP access, and should be kept separate from the same-day Neon listing."
+  },
+  "reported_on": "2026-11-19",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "github-copilot",
+  "related_products": [],
+  "kind": "capability",
+  "lifecycle": null,
+  "importance": "medium",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/github/status/2123093114676265290",
+      "label": {
+        "zh": "Copilot code review 升级",
+        "en": "Copilot code review upgrades"
+      }
+    },
+    {
+      "kind": "tweet",
+      "url": "https://x.com/github/status/2123217310752342095",
+      "label": {
+        "zh": "MCP connectors 公开预览",
+        "en": "MCP connectors public preview"
+      }
+    }
+  ],
+  "digest_refs": [
+    {
+      "date": "2026-11-19",
+      "lang": "zh",
+      "path": "/2026/11/19/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-19",
+      "lang": "en",
+      "path": "/2026/11/19/ai-twitter-hots-en"
+    }
+  ],
+  "updates": [
+    {
+      "label": {
+        "zh": "代码审查",
+        "en": "Code review"
+      },
+      "note": {
+        "zh": "Adaptive 审查深度、公开仓库跨仓库上下文、审查中的 secret 检测；Repo Insights 称已正式可用。",
+        "en": "Adaptive review depth, cross-repo context for public repositories, and secret detection during review. Repo Insights is described as generally available."
+      }
+    },
+    {
+      "label": {
+        "zh": "MCP connectors",
+        "en": "MCP connectors"
+      },
+      "note": {
+        "zh": "GitHub-verified MCP servers 进入公开预览，可在 Copilot 应用、CLI 和 VS Code 使用。",
+        "en": "GitHub-verified MCP servers enter public preview for the Copilot app, CLI, and VS Code."
+      }
+    }
+  ]
+}

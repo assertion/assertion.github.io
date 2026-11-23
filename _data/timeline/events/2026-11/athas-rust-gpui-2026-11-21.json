@@ -1,0 +1,55 @@
+{
+  "id": "athas-rust-gpui-2026-11-21",
+  "order": 4,
+  "title": {
+    "zh": "Athas 改用原生 Rust 与 GPUI，官方称项目打开快 2.4 倍",
+    "en": "Athas moves to native Rust and GPUI, and says project open is 2.4x faster"
+  },
+  "short": {
+    "zh": "Athas 原生重写",
+    "en": "Athas native rewrite"
+  },
+  "summary": {
+    "zh": "Athas 官方账号称，它把编辑器重写成 Rust 加 GPUI 原生应用，去掉 WebView 和 JavaScript 运行时。团队报告项目打开快 2.4 倍、内存至少减半。这是项目方相对旧实现的对比，基准环境和扩展生态没有在这条帖子里展开。",
+    "en": "The Athas official account said it rewrote the editor as a native Rust and GPUI app, dropping the WebView and JavaScript runtime. The team reported that project open is 2.4x faster and memory use is at least halved. Those figures are the project's comparison with its previous implementation; the benchmark environment and extension ecosystem were not spelled out in that post."
+  },
+  "brief": {
+    "zh": "Athas 官方称编辑器已改成 Rust 加 GPUI 原生应用，去掉 WebView。团队报告项目打开快 2.4 倍，内存至少减半。",
+    "en": "Athas said it rewrote the editor as a native Rust and GPUI app, dropping the WebView. The team reported 2.4x faster project open and at least half the memory use."
+  },
+  "why": {
+    "zh": "这是官方产品形态变化，数字只能写成项目方相对旧实现的对比，不能外推成选框架的通论。",
+    "en": "An official change in product shape. The numbers are the project's own comparison with its previous build, not a general case for choosing a framework."
+  },
+  "reported_on": "2026-11-21",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "athas",
+  "related_products": [],
+  "kind": "capability",
+  "lifecycle": null,
+  "importance": "standard",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/athasdev/status/2123882405320958289",
+      "label": {
+        "zh": "Athas 官方说明",
+        "en": "Athas official note"
+      }
+    }
+  ],
+  "digest_refs": [
+    {
+      "date": "2026-11-21",
+      "lang": "zh",
+      "path": "/2026/11/21/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-21",
+      "lang": "en",
+      "path": "/2026/11/21/ai-twitter-hots-en"
+    }
+  ],
+  "updates": []
+}

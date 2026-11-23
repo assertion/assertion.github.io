@@ -243,6 +243,14 @@
     return measure.acc[best] / measure.total;
   }
 
+  /* The root stub and the tip stay a fixed length. On a longer shoot their
+     share of the arc shrinks, so the oldest and newest leaves would otherwise
+     sit outside (0.02, 0.98) and open against the soil or the bud. Nudge only
+     those endpoints; the drawing does not move. */
+  function presentU(u) {
+    return Math.min(0.979, Math.max(0.021, u));
+  }
+
   function sampleTForArc(samples, arcFrac) {
     var measure = stemMeasure(samples);
     var target = clamp01(arcFrac) * measure.total;
@@ -318,7 +326,7 @@
           event: station.event,
           scale: scale,
           side: station.side,
-          u: alongU(stem.samples, origin),
+          u: presentU(alongU(stem.samples, origin)),
           stem: origin,
           tip: origin,
           angle: angle,

@@ -9,9 +9,9 @@ Do not add a production hostname to these files. Digest links are root-relative 
 Add a leaf only after the day's digest is published and the milestone has been checked against that digest and its linked sources.
 
 - A new milestone gets a new event file.
-- A later development of the same milestone edits that file. Put the extra step in `updates`. Operation GLM is the pattern: two same-day announcements, one event.
+- A later development of the same milestone edits that file. Put the extra step in `updates`. Operation GLM is the pattern: the 100, 200, and 500 announcements stay on one event.
 - Do not open a second event for a channel that is only distributing a launch already recorded. Put that product in `related_products`.
-- Do not backfill days that were not verified. Empty dates are not drawn. The current seed is 2026-11-17 (4 leaves) and 2026-11-18 (5 leaves) only.
+- Do not backfill days that were not verified. Empty dates are not drawn. Entered reporting days are 2026-11-17 (4 leaves), 2026-11-18 (5 leaves), 2026-11-19 (4 leaves), 2026-11-20 (7 leaves), 2026-11-21 (4 leaves), and 2026-11-23 (2 leaves). 2026-11-22 had no published Chinese digest, so it is not entered and is not drawn. 2026-11-16 was not backfilled.
 - Do not extract candidates automatically, and do not add a leaf from a rumor the digest did not treat as a product change.
 
 ## Files

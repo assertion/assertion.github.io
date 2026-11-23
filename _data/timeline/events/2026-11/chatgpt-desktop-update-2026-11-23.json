@@ -1,0 +1,57 @@
+{
+  "id": "chatgpt-desktop-update-2026-11-23",
+  "order": 1,
+  "title": {
+    "zh": "ChatGPT 桌面应用更新：Plus 可用 Space，Codex Remote 更稳",
+    "en": "ChatGPT desktop update: Spaces for Plus, and more reliable Codex Remote"
+  },
+  "short": {
+    "zh": "ChatGPT 桌面更新",
+    "en": "ChatGPT desktop update"
+  },
+  "summary": {
+    "zh": "11 月 20 日，ChatGPT 桌面应用的 Anthony Ambrosino 宣布了一轮更新：Plus 也可以用 Space、全应用更简单的视觉设计、性能改进、重做的线程、重新设计的 Space 首页、更快的 Pages 和 Slides、移动端可编辑 Pages，以及更可靠的 Codex Remote。这条进展在 11 月 20 日和 21 日的日报里没有单独成篇，11 月 23 日的日报才报道，因此 reported_on 是 2026-11-23，happened_at 按官方宣布日写作 2026-11-20。同日 Codex 团队征求升级后仍需修的体验缺口，那是收口讨论，不是又一次发版，不另立事件。",
+    "en": "On 20 November, ChatGPT desktop's Anthony Ambrosino announced an update: Spaces for Plus, a simpler visual design across the app, performance work, reworked threads, a redesigned Spaces home, faster Pages and Slides, editable Pages on mobile, and more reliable Codex Remote. The 20 and 21 November digests did not cover it as a standalone item; the 23 November digest did, so reported_on is 2026-11-23 and happened_at is 2026-11-20, the announcement day. A same-day Codex request for leftover upgrade gaps is follow-up discussion, not another release, and does not get its own leaf."
+  },
+  "brief": {
+    "zh": "ChatGPT 桌面应用宣布 Plus 可用 Space，并改进线程、Pages、Slides 与移动端编辑，同时称 Codex Remote 更可靠。",
+    "en": "The ChatGPT desktop app announced Spaces for Plus, plus work on threads, Pages, Slides, and mobile editing, and said Codex Remote is more reliable."
+  },
+  "why": {
+    "zh": "这是官方桌面客户端更新，覆盖 ChatGPT 与 Codex Remote，应记在首次被日报报道的那天，并用宣布日填写发生日。",
+    "en": "An official desktop-client update covering ChatGPT and Codex Remote. Place it on the first digest that reported it, and use the announcement day as happened_at."
+  },
+  "reported_on": "2026-11-23",
+  "happened_at": "2026-11-20",
+  "timezone": "Asia/Shanghai",
+  "primary_product": "chatgpt-work",
+  "related_products": [
+    "codex"
+  ],
+  "kind": "capability",
+  "lifecycle": null,
+  "importance": "medium",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/ajambrosino/status/2123840812534452296",
+      "label": {
+        "zh": "Anthony Ambrosino 宣布桌面更新",
+        "en": "Anthony Ambrosino announces the desktop update"
+      }
+    }
+  ],
+  "digest_refs": [
+    {
+      "date": "2026-11-23",
+      "lang": "zh",
+      "path": "/2026/11/23/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-23",
+      "lang": "en",
+      "path": "/2026/11/23/ai-twitter-hots-en"
+    }
+  ],
+  "updates": []
+}

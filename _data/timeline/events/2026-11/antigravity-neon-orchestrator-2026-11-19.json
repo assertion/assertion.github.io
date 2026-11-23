@@ -1,0 +1,65 @@
+{
+  "id": "antigravity-neon-orchestrator-2026-11-19",
+  "order": 2,
+  "title": {
+    "zh": "Antigravity Orchestrator 可在同一会话里用 Neon 规划、Hydrogen 执行",
+    "en": "Antigravity Orchestrator can plan with Neon and execute with Hydrogen in one session"
+  },
+  "short": {
+    "zh": "Orchestrator 混用 Neon",
+    "en": "Neon plus Hydrogen"
+  },
+  "summary": {
+    "zh": "Antigravity 团队写明，当天起向付费的 Google AI Pro / Ultra 用户，在桌面应用、CLI 和 IDE 扩展中推出 Gemini 4 Neon。新的一点是 Orchestrator 支持在同一会话里用 Neon 做规划、架构和复杂推理，把常规改代码、依赖更新和跑测试交给 Hydrogen；Hydrogen 卡住时再交回 Neon。模型本身的发布已单独记录；这条只记 Antigravity 的混用能力，而不是再记一次 Neon 上线。",
+    "en": "The Antigravity team said Gemini 4 Neon started rolling out that day to paid Google AI Pro and Ultra users in the desktop app, CLI, and IDE extension. The new piece is that Orchestrator can use Neon in the same session for planning, architecture, and harder reasoning, and hand routine edits, dependency updates, and tests to Hydrogen, passing back to Neon if Hydrogen gets stuck. The model launch is recorded separately; this leaf is the mixed-model Orchestrator capability, not a second Neon launch."
+  },
+  "brief": {
+    "zh": "付费 Pro / Ultra 用户可在 Antigravity 使用 Neon。Orchestrator 能在同一会话里用 Neon 做规划，把常规改代码和测试交给 Hydrogen。",
+    "en": "Paid Pro and Ultra users can use Neon in Antigravity. Orchestrator can plan with Neon in the same session and hand routine edits and tests to Hydrogen."
+  },
+  "why": {
+    "zh": "对已经在用 Antigravity 的人，这是可切换的新默认档，也是 Orchestrator 第一次把 Neon 和 Hydrogen 绑在一起。",
+    "en": "For people already on Antigravity, this is a new default tier they can switch to, and the first time Orchestrator binds Neon and Hydrogen together."
+  },
+  "reported_on": "2026-11-19",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "antigravity",
+  "related_products": [
+    "gemini-4-neon"
+  ],
+  "kind": "capability",
+  "lifecycle": null,
+  "importance": "medium",
+  "sources": [
+    {
+      "kind": "official",
+      "url": "https://antigravity.google/blog/gemini-4-neon-in-google-antigravity",
+      "label": {
+        "zh": "Antigravity 官方博客",
+        "en": "Antigravity official blog"
+      }
+    },
+    {
+      "kind": "tweet",
+      "url": "https://x.com/sundarpichai/status/2123184309137965524",
+      "label": {
+        "zh": "Sundar Pichai 演示 Neon 与 Blender MCP",
+        "en": "Sundar Pichai demos Neon with Blender MCP"
+      }
+    }
+  ],
+  "digest_refs": [
+    {
+      "date": "2026-11-19",
+      "lang": "zh",
+      "path": "/2026/11/19/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-19",
+      "lang": "en",
+      "path": "/2026/11/19/ai-twitter-hots-en"
+    }
+  ],
+  "updates": []
+}

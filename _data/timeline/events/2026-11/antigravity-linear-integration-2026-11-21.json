@@ -1,0 +1,58 @@
+{
+  "id": "antigravity-linear-integration-2026-11-21",
+  "order": 3,
+  "title": {
+    "zh": "Linear 进入 Antigravity，可带入工单与项目上下文",
+    "en": "Linear comes to Antigravity, bringing ticket and project context"
+  },
+  "short": {
+    "zh": "Linear 进入 Antigravity",
+    "en": "Linear in Antigravity"
+  },
+  "summary": {
+    "zh": "Linear 官方宣布可以在 Antigravity 里带入工单、项目和相关上下文，让 Gemini 4 Neon 从现有工作记录出发。公告确认的是上下文接入；它没有说明 Agent 能进行哪些写操作，不能据此认定它已经能替你关闭工单。",
+    "en": "Linear officially announced that tickets, projects, and related context can be brought into Antigravity, so Gemini 4 Neon can start from existing work records. The announcement confirms context access. It does not say which write operations the agent can perform, and it should not be read as already being able to close tickets for you."
+  },
+  "brief": {
+    "zh": "Linear 官方宣布可在 Antigravity 中带入工单、项目和相关上下文。公告确认的是读入上下文，未说明可做哪些写操作。",
+    "en": "Linear announced that tickets, projects, and related context can be used in Antigravity. The announcement covers reading that context, not which write operations are allowed."
+  },
+  "why": {
+    "zh": "这是官方集成，但只能写成上下文接入，不能写成已经能关闭或改写工单。",
+    "en": "This is an official integration, but it should be written as context access, not as the ability to close or edit tickets."
+  },
+  "reported_on": "2026-11-21",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "antigravity",
+  "related_products": [
+    "linear",
+    "gemini-4-neon"
+  ],
+  "kind": "integration",
+  "lifecycle": null,
+  "importance": "medium",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/linear/status/2123828680527114634",
+      "label": {
+        "zh": "Linear 官方公告",
+        "en": "Linear official announcement"
+      }
+    }
+  ],
+  "digest_refs": [
+    {
+      "date": "2026-11-21",
+      "lang": "zh",
+      "path": "/2026/11/21/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-21",
+      "lang": "en",
+      "path": "/2026/11/21/ai-twitter-hots-en"
+    }
+  ],
+  "updates": []
+}
