@@ -1,0 +1,59 @@
+{
+  "id": "codex-websocket-128mb-2026-11-21",
+  "order": 2,
+  "title": {
+    "zh": "Codex 把 WebSocket 请求上限从 16 MB 提到 128 MB",
+    "en": "Codex raises the WebSocket request limit from 16 MB to 128 MB"
+  },
+  "short": {
+    "zh": "Codex WebSocket 128 MB",
+    "en": "Codex WebSocket 128 MB"
+  },
+  "summary": {
+    "zh": "Charlie Marsh 披露，Codex 用 WebSocket 增量发送模型请求，大小上限从 16 MB 提到 128 MB。大轮次不容易因为单次请求过大而退回 HTTP；即便仍超过上限，他称这一分支也快了约五倍。这里说的是传输大小和超限路径，不是 128 MB 的模型上下文，更不是每轮都能快五倍。来源是 Charlie Marsh 的说明，不是 OpenAI 官方博客。",
+    "en": "Charlie Marsh said Codex now incrementally sends model requests over WebSocket, and the size limit rose from 16 MB to 128 MB. Large turns are less likely to fall back to HTTP because a single request was too big; even when the limit is still exceeded, he said this path is about five times faster. That figure is about transfer size and the overflow path, not a 128 MB model context, and not a promise that every turn is five times faster. The source is Charlie Marsh's account, not an OpenAI product blog."
+  },
+  "brief": {
+    "zh": "Charlie Marsh 称 Codex 的 WebSocket 请求上限从 16 MB 提到 128 MB，大轮次更少退回 HTTP。这是传输上限，不是模型上下文。",
+    "en": "Charlie Marsh said Codex raised its WebSocket request limit from 16 MB to 128 MB, so large turns fall back to HTTP less often. This is a transfer limit, not model context."
+  },
+  "why": {
+    "zh": "这是可核对的传输上限变化，但来源不是官方发版说明，记录时需要保留出处和口径。",
+    "en": "A concrete transfer-limit change worth recording, with the source and the scope kept explicit because it is not an official release note."
+  },
+  "reported_on": "2026-11-21",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "codex",
+  "related_products": [],
+  "kind": "reliability",
+  "lifecycle": null,
+  "importance": "standard",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/charliermarsh/status/2123849871480463669",
+      "label": {
+        "zh": "Charlie Marsh 的说明",
+        "en": "Charlie Marsh's account"
+      }
+    }
+  ],
+  "digest_refs": [
+    {
+      "date": "2026-11-21",
+      "lang": "zh",
+      "path": "/2026/11/21/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-21",
+      "lang": "en",
+      "path": "/2026/11/21/ai-twitter-hots-en"
+    }
+  ],
+  "notes": {
+    "zh": "来源是 Charlie Marsh 的披露，不是 OpenAI 官方博客。128 MB 是请求传输上限，不是上下文窗口。",
+    "en": "The source is Charlie Marsh's disclosure, not an OpenAI product blog. 128 MB is the request transfer limit, not the context window."
+  },
+  "updates": []
+}

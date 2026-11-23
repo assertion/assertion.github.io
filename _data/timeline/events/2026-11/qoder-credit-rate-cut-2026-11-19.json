@@ -1,0 +1,63 @@
+{
+  "id": "qoder-credit-rate-cut-2026-11-19",
+  "order": 4,
+  "title": {
+    "zh": "Qoder 下调 Credit 倍率：官方称每任务约降 41%，单轮耗时约降 27%",
+    "en": "Qoder cuts credit rates: about 41% fewer credits per task and 27% less time per turn, officially"
+  },
+  "short": {
+    "zh": "Qoder 下调 Credit",
+    "en": "Qoder credit cut"
+  },
+  "summary": {
+    "zh": "Qoder 官方宣布，Auto、Fast 和 Efficient 的 Credit 倍率下调，并称来自更聪明的路由、更好的缓存复用和更瘦的 Agent 运行，输出质量不变，已在 Qoder 产品家族上线。官方数字是：每任务 Credit 从 4.43 降到 2.6，约降 41.3%，同样的 Credit 大约能覆盖 1.7 倍任务；单轮耗时从 118 秒降到 86 秒，约降 27.1%。这是 Qoder 自己的前后对比，不是第三方评测。同窗口关于 Qwen4-Max 登陆更多渠道的消息，是 11 月 17 日正式发布后的分发续报，不另记新模型发布。",
+    "en": "Qoder announced lower credit rates for Auto, Fast, and Efficient, attributing them to smarter routing, better cache reuse, and a slimmer agent runtime, with output quality unchanged, already live across the Qoder family. Official figures: credits per task fell from 4.43 to 2.6, about 41.3%, so the same credits cover about 1.7 times as many tasks; time per turn fell from 118 seconds to 86 seconds, about 27.1%. These are Qoder's own before-and-after numbers, not a third-party benchmark. Same-window notes that Qwen4-Max reached more channels are distribution follow-ups to the 17 November general release, not a new model launch."
+  },
+  "brief": {
+    "zh": "Qoder 下调 Auto、Fast 和 Efficient 的 Credit 倍率。官方称每任务 Credit 从 4.43 降到 2.6，单轮耗时从 118 秒降到 86 秒。",
+    "en": "Qoder lowered Auto, Fast, and Efficient credit rates. Officially, credits per task fell from 4.43 to 2.6, and time per turn from 118 seconds to 86 seconds."
+  },
+  "why": {
+    "zh": "这是带着明确 Credit 与耗时数字的官方效率更新，应写成官方前后对比，而不是第三方评测。",
+    "en": "An official efficiency update with explicit credit and latency figures. Write it as Qoder's own comparison, not a third-party benchmark."
+  },
+  "reported_on": "2026-11-19",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "qoder",
+  "related_products": [],
+  "kind": "pricing",
+  "lifecycle": null,
+  "importance": "medium",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/qoder_ai_ide/status/2122899533877346720",
+      "label": {
+        "zh": "Qoder 宣布 Credit 倍率下调",
+        "en": "Qoder announces the credit-rate cut"
+      }
+    },
+    {
+      "kind": "tweet",
+      "url": "https://x.com/qoder_ai_ide/status/2122899538105282716",
+      "label": {
+        "zh": "每任务 Credit 从 4.43 降到 2.6",
+        "en": "Credits per task fell from 4.43 to 2.6"
+      }
+    }
+  ],
+  "digest_refs": [
+    {
+      "date": "2026-11-19",
+      "lang": "zh",
+      "path": "/2026/11/19/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-19",
+      "lang": "en",
+      "path": "/2026/11/19/ai-twitter-hots-en"
+    }
+  ],
+  "updates": []
+}

@@ -1,0 +1,63 @@
+{
+  "id": "antigravity-desktop-ssh-2026-11-20",
+  "order": 3,
+  "title": {
+    "zh": "Antigravity 桌面端支持通过 SSH 连接远程服务器",
+    "en": "Antigravity desktop can connect to remote servers over SSH"
+  },
+  "short": {
+    "zh": "Antigravity 原生 SSH",
+    "en": "Antigravity SSH"
+  },
+  "summary": {
+    "zh": "Antigravity 官方宣布，桌面端已经能通过 SSH 连接远程服务器，并提供了文档。这是给桌面交互增加远程入口，与同日 Codex CLI 把非交互任务接到已有 app server 不是同一件事。",
+    "en": "Antigravity officially announced that the desktop app can already connect to remote servers over SSH, and published documentation. This adds a remote entry point for desktop interaction. It is not the same as Codex CLI attaching non-interactive tasks to an existing app server on the same day."
+  },
+  "brief": {
+    "zh": "Antigravity 官方宣布桌面端已能通过 SSH 连接远程服务器，并提供了文档。",
+    "en": "Antigravity announced that its desktop app can connect to remote servers over SSH, and published documentation."
+  },
+  "why": {
+    "zh": "这是 Antigravity 桌面工作流的远程入口，应与 Codex 的远程 exec 分开记录。",
+    "en": "This is a remote entry point for the Antigravity desktop workflow, and should be recorded separately from Codex remote exec."
+  },
+  "reported_on": "2026-11-20",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "antigravity",
+  "related_products": [],
+  "kind": "capability",
+  "lifecycle": null,
+  "importance": "medium",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/antigravity/status/2123476398601908551",
+      "label": {
+        "zh": "Antigravity 公布原生 SSH",
+        "en": "Antigravity announces native SSH"
+      }
+    },
+    {
+      "kind": "official",
+      "url": "https://antigravity.google/docs/ssh",
+      "label": {
+        "zh": "Antigravity SSH 文档",
+        "en": "Antigravity SSH documentation"
+      }
+    }
+  ],
+  "digest_refs": [
+    {
+      "date": "2026-11-20",
+      "lang": "zh",
+      "path": "/2026/11/20/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-20",
+      "lang": "en",
+      "path": "/2026/11/20/ai-twitter-hots-en"
+    }
+  ],
+  "updates": []
+}

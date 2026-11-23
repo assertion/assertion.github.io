@@ -1,0 +1,63 @@
+{
+  "id": "gemini-api-tool-retrieval-2026-11-20",
+  "order": 5,
+  "title": {
+    "zh": "Gemini Interactions API 加入按需工具检索",
+    "en": "Gemini Interactions API adds on-demand tool retrieval"
+  },
+  "short": {
+    "zh": "Gemini 工具检索",
+    "en": "Gemini tool retrieval"
+  },
+  "summary": {
+    "zh": "Google 在 Gemini Interactions API 加入 Tool Retrieval：先给模型名字和描述，通过 tool_search 再取相关工具的参数结构，而不是一开始塞进全部 schema。Google 表示 Gemini 3.6 及更新版本支持。这与同日 LangSmith Tool Gateway 的按需发现是不同产品上的类似方向，应分开记录。",
+    "en": "Google added Tool Retrieval to the Gemini Interactions API: the model first sees names and descriptions, then uses tool_search to fetch parameter schemas for relevant tools, instead of loading every schema up front. Google said Gemini 3.6 and later support it. LangSmith Tool Gateway's on-demand discovery the same day is a similar idea on a different product, and is recorded separately."
+  },
+  "brief": {
+    "zh": "Gemini Interactions API 增加 Tool Retrieval：先提供工具名称与描述，再按需取参数结构。官方称 Gemini 3.6 及更新版本支持。",
+    "en": "The Gemini Interactions API adds Tool Retrieval: names and descriptions first, then parameter schemas on demand. Google says Gemini 3.6 and later support it."
+  },
+  "why": {
+    "zh": "这是官方 API 对大工具集的上下文控制点，应与网关侧的授权和发现分开看。",
+    "en": "An official API control point for large tool sets. Keep it separate from gateway-side auth and discovery."
+  },
+  "reported_on": "2026-11-20",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "gemini-api",
+  "related_products": [],
+  "kind": "capability",
+  "lifecycle": null,
+  "importance": "medium",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/googledevs/status/2123493028732207296",
+      "label": {
+        "zh": "Google Developers 发布帖",
+        "en": "Google Developers announcement"
+      }
+    },
+    {
+      "kind": "official",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+      "label": {
+        "zh": "Google Tool Retrieval 说明",
+        "en": "Google Tool Retrieval write-up"
+      }
+    }
+  ],
+  "digest_refs": [
+    {
+      "date": "2026-11-20",
+      "lang": "zh",
+      "path": "/2026/11/20/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-20",
+      "lang": "en",
+      "path": "/2026/11/20/ai-twitter-hots-en"
+    }
+  ],
+  "updates": []
+}

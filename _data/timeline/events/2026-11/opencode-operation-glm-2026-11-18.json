@@ -2,24 +2,24 @@
   "id": "opencode-operation-glm-2026-11-18",
   "order": 3,
   "title": {
-    "zh": "OpenCode Operation GLM：10 美元用量额度同日从 100 加到 200 美元",
-    "en": "OpenCode Operation GLM: Go $10 for $100 of GLM 5.3 usage, raised to $200 the same day"
+    "zh": "OpenCode Operation GLM：10 美元用量额度从 100 加到 200，次日再加到 500 美元",
+    "en": "OpenCode Operation GLM: $10 for $100 of GLM 5.3 usage, raised to $200 the same day and to $500 the next day"
   },
   "short": {
     "zh": "Operation GLM",
     "en": "Operation GLM"
   },
   "summary": {
-    "zh": "OpenCode 先宣布 Go 订阅用户可用 $10 换 $100 的 GLM 5.3 用量，同日再宣布加到 $200。按官方说明，这是套餐下整月只用该模型时的月度上限，不是额外打入账户的余额。这是分阶段促销，不是新模型发布；同窗口关于 5.5 的传闻没有智谱官方确认。11 月 17 日已报道的 Browse 与 Hy4 flash 限免，不作为当天新事件。",
-    "en": "OpenCode first announced that Go subscribers could get $100 of GLM 5.3 usage for $10, then raised it to $200 the same day. Per the official description, that figure is the monthly cap if the plan uses only that model for the whole month, not extra credit deposited into the account. This is a staged promotion, not a new model launch. Rumors about 5.5 in the same window were not confirmed by Zhipu. Browse and the Hy4 flash promotion, already covered on 17 November, are not new events on this day."
+    "zh": "OpenCode 先宣布 Go 订阅用户可用 10 美元换 100 美元的 GLM 5.3 用量，同日再宣布加到 200 美元，次日（2026-11-19 日报）又宣布本周末前加到 500 美元。按官方说明，这是套餐下整月只用该模型时的月度上限，不是额外打入账户的余额。这是分阶段促销，不是新模型发布；同窗口关于 5.5 的传闻没有智谱官方确认。11 月 17 日已报道的 Browse 与 Hy4 flash 限免，不作为新事件。因为校验要求 digest_refs 日期必须等于 reported_on，这条仍只挂 11 月 18 日日报，11 月 19 日加码记在 updates 与 sources 里。",
+    "en": "OpenCode first announced that Go subscribers could get $100 of GLM 5.3 usage for $10, then raised it to $200 the same day, and the next day (the 2026-11-19 digest) raised it to $500 through the end of that weekend. Per the official description, that figure is the monthly cap if the plan uses only that model for the whole month, not extra credit deposited into the account. This is a staged promotion, not a new model launch. Rumors about 5.5 in the same window were not confirmed by Zhipu. Browse and the Hy4 flash promotion, already covered on 17 November, are not new events. Digest refs stay on 18 November because the validator requires ref dates to match reported_on; the 19 November raise is recorded in updates and sources."
   },
   "brief": {
-    "zh": "Go 订阅可用 10 美元换 GLM 5.3 用量，同日从 100 美元加到 200 美元。官方说这是月度上限，不是账户余额。",
-    "en": "Go subscribers can spend $10 on GLM 5.3 usage. The same day that allowance went from $100 to $200. Officially it is a monthly cap, not account credit."
+    "zh": "Go 订阅可用 10 美元换 GLM 5.3 用量，11 月 18 日从 100 美元加到 200 美元，次日再加到 500 美元。官方说这是月度上限，不是账户余额。",
+    "en": "Go subscribers can spend $10 on GLM 5.3 usage. The allowance went from $100 to $200 on 18 November, then to $500 the next day. Officially it is a monthly cap, not account credit."
   },
   "why": {
-    "zh": "一天内加码的可执行用量变化；需区分用量上限与账户余额。两轮公告合并为一条事件的更新，不重复记两次。",
-    "en": "A usable allowance that was raised within one day. Distinguish a usage cap from an account balance. The two announcements are updates on one event, not two events."
+    "zh": "连续加码的可执行用量变化；需区分用量上限与账户余额。三轮公告合并为一条事件的更新，不重复记三次。",
+    "en": "A usable allowance that was raised across two days. Distinguish a usage cap from an account balance. The three announcements are updates on one event, not three events."
   },
   "reported_on": "2026-11-18",
   "happened_at": null,
@@ -45,25 +45,57 @@
         "zh": "Phase 2 官方帖",
         "en": "Phase 2 post"
       }
+    },
+    {
+      "kind": "tweet",
+      "url": "https://x.com/opencode/status/2122969474571583885",
+      "label": {
+        "zh": "Phase 3 官方帖：本周末前加到 500 美元",
+        "en": "Phase 3 official post: $500 through the weekend"
+      }
     }
   ],
   "digest_refs": [
-    { "date": "2026-11-18", "lang": "zh", "path": "/2026/11/18/ai-twitter-hots" },
-    { "date": "2026-11-18", "lang": "en", "path": "/2026/11/18/ai-twitter-hots-en" }
+    {
+      "date": "2026-11-18",
+      "lang": "zh",
+      "path": "/2026/11/18/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-18",
+      "lang": "en",
+      "path": "/2026/11/18/ai-twitter-hots-en"
+    }
   ],
   "updates": [
     {
-      "label": { "zh": "Phase 1", "en": "Phase 1" },
+      "label": {
+        "zh": "Phase 1",
+        "en": "Phase 1"
+      },
       "note": {
-        "zh": "$10 换 $100 的 GLM 5.3 用量。",
+        "zh": "10 美元换 100 美元的 GLM 5.3 用量。",
         "en": "$10 for $100 of GLM 5.3 usage."
       }
     },
     {
-      "label": { "zh": "Phase 2", "en": "Phase 2" },
+      "label": {
+        "zh": "Phase 2",
+        "en": "Phase 2"
+      },
       "note": {
-        "zh": "同日加到 $10 换 $200；这是套餐月度上限，不是额外账户余额。",
+        "zh": "同日加到 10 美元换 200 美元；这是套餐月度上限，不是额外账户余额。",
         "en": "Raised the same day to $10 for $200. That is the plan's monthly cap, not extra account credit."
+      }
+    },
+    {
+      "label": {
+        "zh": "Phase 3",
+        "en": "Phase 3"
+      },
+      "note": {
+        "zh": "次日宣布本周末前加到 10 美元换 500 美元。仍是同一场促销，不是新模型。",
+        "en": "The next day it was raised to $10 for $500 through the end of that weekend. Still the same promotion, not a new model."
       }
     }
   ]

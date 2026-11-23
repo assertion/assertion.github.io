@@ -1,0 +1,63 @@
+{
+  "id": "langsmith-tool-gateway-2026-11-20",
+  "order": 6,
+  "title": {
+    "zh": "LangSmith Tool Gateway 进入公测：按需发现工具，授权留在网关",
+    "en": "LangSmith Tool Gateway enters public beta: discover tools on demand, keep auth at the gateway"
+  },
+  "short": {
+    "zh": "LangSmith Tool Gateway",
+    "en": "LangSmith Tool Gateway"
+  },
+  "summary": {
+    "zh": "LangSmith 公测 Tool Gateway，把工具打包为一个 MCP 地址，Search Mode 按需发现；授权身份、工具级权限与调用记录则留在网关。Harrison Chase 的发布帖特别强调用谁的身份调用。这与同日 Gemini API 的 Tool Retrieval 都是按需加载，但控制点不同，不合并为一条。",
+    "en": "LangSmith opened a public beta of Tool Gateway. Tools are bundled at one MCP address, Search Mode discovers them on demand, and caller identity, tool-level permissions, and invocation logs stay at the gateway. Harrison Chase's announcement stressed whose identity is used for calls. Gemini API Tool Retrieval the same day is also on-demand loading, but the control point is different, so the two are not one event."
+  },
+  "brief": {
+    "zh": "LangSmith Tool Gateway 进入公测：工具集中在一个 MCP 地址，可按需发现，授权、权限和调用记录留在网关。",
+    "en": "LangSmith Tool Gateway enters public beta: tools sit behind one MCP address, can be discovered on demand, and auth, permissions, and logs stay at the gateway."
+  },
+  "why": {
+    "zh": "发现和授权应该分开看。模型知道工具存在，不代表它已经获准调用。",
+    "en": "Discovery and authorization should be read separately. Knowing a tool exists is not the same as being allowed to call it."
+  },
+  "reported_on": "2026-11-20",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "langsmith",
+  "related_products": [],
+  "kind": "integration",
+  "lifecycle": "beta",
+  "importance": "medium",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/hwchase17/status/2123563652464971838",
+      "label": {
+        "zh": "Harrison Chase 谈调用身份",
+        "en": "Harrison Chase on caller identity"
+      }
+    },
+    {
+      "kind": "official",
+      "url": "https://www.langchain.com/blog/langsmith-tool-gateway",
+      "label": {
+        "zh": "LangSmith 网关说明",
+        "en": "LangSmith gateway write-up"
+      }
+    }
+  ],
+  "digest_refs": [
+    {
+      "date": "2026-11-20",
+      "lang": "zh",
+      "path": "/2026/11/20/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-20",
+      "lang": "en",
+      "path": "/2026/11/20/ai-twitter-hots-en"
+    }
+  ],
+  "updates": []
+}

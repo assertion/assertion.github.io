@@ -1,0 +1,55 @@
+{
+  "id": "antigravity-btw-sidequests-2026-11-21",
+  "order": 1,
+  "title": {
+    "zh": "Antigravity 把 /btw 做成可提升的支线",
+    "en": "Antigravity turns /btw into a side quest that can be promoted"
+  },
+  "short": {
+    "zh": "Antigravity /btw 支线",
+    "en": "Antigravity /btw"
+  },
+  "summary": {
+    "zh": "Antigravity 官方演示了新版 /btw。旧用法是在主 Agent 忙时插问一句；新用法可以从当前任务分出一条支线，沿着支线继续探索，值得保留的方向再提升出来。主线继续留在原位，试错过程不用挤进正在执行的会话。这是官方产品演示，日报没有写明分支继承了哪些上下文、提升后带走哪些结论。",
+    "en": "Antigravity officially demonstrated a new /btw. The old use was a quick question while the main agent was busy. The new use can split a side quest from the current task, keep exploring along that branch, and promote a direction worth keeping. The main thread stays in place, so exploration does not have to crowd the running session. This is an official product demo; the digest did not specify which context a branch inherits or which conclusions are carried back after a promotion."
+  },
+  "brief": {
+    "zh": "Antigravity 新版 /btw 可从当前任务分出支线继续探索，值得保留的方向再提升出来，主线仍留在原位。",
+    "en": "Antigravity's new /btw can split a side quest from the current task, keep exploring it, and promote a useful direction, while the main thread stays in place."
+  },
+  "why": {
+    "zh": "这是比多开一个聊天窗更具体的工作流：主线继续跑，支线去试替代方案，只在用户决定时合流。",
+    "en": "This is more specific than opening another chat: the main line keeps running, a side line tries an alternative, and they join only when the user decides."
+  },
+  "reported_on": "2026-11-21",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "antigravity",
+  "related_products": [],
+  "kind": "capability",
+  "lifecycle": null,
+  "importance": "medium",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/antigravity/status/2123921833883840650",
+      "label": {
+        "zh": "Antigravity 演示新版 /btw",
+        "en": "Antigravity demos the new /btw"
+      }
+    }
+  ],
+  "digest_refs": [
+    {
+      "date": "2026-11-21",
+      "lang": "zh",
+      "path": "/2026/11/21/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-21",
+      "lang": "en",
+      "path": "/2026/11/21/ai-twitter-hots-en"
+    }
+  ],
+  "updates": []
+}

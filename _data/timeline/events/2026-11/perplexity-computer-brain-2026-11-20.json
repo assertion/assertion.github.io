@@ -1,0 +1,63 @@
+{
+  "id": "perplexity-computer-brain-2026-11-20",
+  "order": 4,
+  "title": {
+    "zh": "Perplexity Computer 可从旧任务轨迹里提炼可复用技能",
+    "en": "Perplexity Computer can turn earlier task traces into reusable skills"
+  },
+  "short": {
+    "zh": "Computer Brain 技能",
+    "en": "Computer Brain skills"
+  },
+  "summary": {
+    "zh": "Perplexity 展示 Computer 的 Brain：一个任务完成后，另一个过程读取轨迹，提炼可复用内容到私人技能，用户可选启用。官方披露的小样本 SkillLearnBench 有 16 个配对案例，成功率从 43.8% 到 62.5%。这是官方产品演示与小样本数字，不能写成普遍收益。同窗口流传的 GUARD 论文讨论的是冻结模型、用保留样例防止 harness 回归，不是 Perplexity 的产品功能，不记入这条。",
+    "en": "Perplexity showed Computer's Brain: after a task finishes, another process reads the trace and extracts reusable content into a private skill that the user can choose to enable. Official SkillLearnBench figures cover 16 paired cases, with success rising from 43.8% to 62.5%. That is a small official sample, not a general gain. The GUARD paper circulating in the same window is about freezing the model and using held-out examples to stop harness regressions; it is not a Perplexity product feature and does not belong on this leaf."
+  },
+  "brief": {
+    "zh": "Perplexity 展示 Computer 可从完成任务的轨迹里提炼私人技能，由用户选择启用。官方小样本成功率从 43.8% 升到 62.5%。",
+    "en": "Perplexity showed that Computer can extract private skills from finished task traces, which users can enable. An official 16-case sample rose from 43.8% to 62.5% success."
+  },
+  "why": {
+    "zh": "这是可验证的产品能力演示；小样本数字要保留，但不能推广成普遍收益。",
+    "en": "A verifiable product demonstration. Keep the small-sample figures, and do not treat them as a general gain."
+  },
+  "reported_on": "2026-11-20",
+  "happened_at": null,
+  "timezone": "Asia/Shanghai",
+  "primary_product": "perplexity",
+  "related_products": [],
+  "kind": "capability",
+  "lifecycle": null,
+  "importance": "medium",
+  "sources": [
+    {
+      "kind": "tweet",
+      "url": "https://x.com/perplexity_ai/status/2123449395882701224",
+      "label": {
+        "zh": "Perplexity 原帖",
+        "en": "Perplexity announcement"
+      }
+    },
+    {
+      "kind": "official",
+      "url": "https://www.perplexity.ai/uk/hub/blog/self-improving-skills",
+      "label": {
+        "zh": "Perplexity 官方说明",
+        "en": "Perplexity official write-up"
+      }
+    }
+  ],
+  "digest_refs": [
+    {
+      "date": "2026-11-20",
+      "lang": "zh",
+      "path": "/2026/11/20/ai-twitter-hots"
+    },
+    {
+      "date": "2026-11-20",
+      "lang": "en",
+      "path": "/2026/11/20/ai-twitter-hots-en"
+    }
+  ],
+  "updates": []
+}
